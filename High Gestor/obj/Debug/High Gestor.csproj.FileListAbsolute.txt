@@ -1,0 +1,12 @@
+C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\High Gestor.exe.config
+C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\High Gestor.exe
+C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\High Gestor.pdb
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.AssemblyReference.cache
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.SuggestedBindingRedirects.cache
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Properties.Resources.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.GenerateResource.cache
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CoreCompileInputs.cache
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.exe
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.pdb
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.FormHighGestor.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Clientes.FormClientes.resources

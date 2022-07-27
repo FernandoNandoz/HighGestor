@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "High Gestor", "High Gestor\High Gestor.csproj", "{3F9F0C93-24B3-4B30-857C-F8207398AC7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F9F0C93-24B3-4B30-857C-F8207398AC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F9F0C93-24B3-4B30-857C-F8207398AC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F9F0C93-24B3-4B30-857C-F8207398AC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F9F0C93-24B3-4B30-857C-F8207398AC7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09D3A4BB-B387-4074-AE98-5FEB641FF421}
+	EndGlobalSection
+EndGlobal
