@@ -117,12 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="labelLinhaTopo.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="labelLinhaTopo.Text" xml:space="preserve">
-    <value>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</value>
-  </data>
   <metadata name="labelLinhaMenuInferior.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
@@ -225,7 +219,7 @@
   <data name="buttonTitlerMaximizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAjRJREFUOE+Fkz1omlEUho9VhG4lpS4u6qIFFZT4E0SI+IcBJf6AlTipUSRSdEgL
+        wAAADsABataJCQAAAjRJREFUOE+Fkz1omlEUho9VhG4lpS4u6qIFFZT4E0SI+IcBJf6AlTipUSRSdEgL
         AW0TBxfB0cElW8cOLbRQUyh1i1ajtbSQqUXUmOig2EHBnHMLAVHSA8/H5d7z3nPP+90LxWIR8vk8nJ6e
         wtHR0SYA9JH2f/jJ5/N/QzQahe3tbfD7/SAUCp+bTKZfwWBQgAlP7kGG/IFsNguRSAQymQzIZDJPLBb7
         OJ1OwWKxgNVqBbvdzsZerxd8Ph9qWHCRbxAKhTalUmlEoVDsczic91wud+50OveVSmVUr9czcBzzeDy2
@@ -240,8 +234,14 @@
   <data name="buttonTitlerMinimizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAE9JREFUOE+dy7EJgFAQBNHrSjs1sDDBRMFCzgUjZcDhB2+Dga3uHobRwmhhtDBa
+        wAAADsABataJCQAAAE9JREFUOE+dy7EJgFAQBNHrSjs1sDDBRMFCzgUjZcDhB2+Dga3uHobRwmhhtDBa
         GC2MFkYLo4XReqZqik3YY/me5zji/HHF+jqPwmhhdLpu9h1rkDcpKRYAAAAASUVORK5CYII=
 </value>
+  </data>
+  <metadata name="labelLinhaTopo.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="labelLinhaTopo.Text" xml:space="preserve">
+    <value>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________</value>
   </data>
 </root>

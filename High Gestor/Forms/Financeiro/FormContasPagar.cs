@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Vendas
+namespace High_Gestor.Forms.Financeiro
 {
-    public partial class UserControlVendas : UserControl
+    public partial class FormContasPagar : Form
     {
-        public UserControlVendas()
+        public FormContasPagar()
         {
             InitializeComponent();
         }

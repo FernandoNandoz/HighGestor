@@ -1,6 +1,6 @@
-﻿namespace High_Gestor.Forms.Relatorios
+﻿namespace High_Gestor.Forms.Vendas
 {
-    partial class FormRelatorios
+    partial class FormVendas
     {
         /// <summary>
         /// Required designer variable.
@@ -30,16 +30,16 @@
         {
             this.SuspendLayout();
             // 
-            // FormRelatorios
+            // FormVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1284, 670);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormRelatorios";
+            this.Name = "FormVendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormRelatorios";
+            this.Text = "FormVendas";
             this.ResumeLayout(false);
 
         }

@@ -40,6 +40,12 @@ namespace High_Gestor.Forms.Clientes
             buttonSair.Height, 5, 5));
         }
 
+        private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
+        {
+            dataGridViewContent.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dataGridViewContent.Width,
+            dataGridViewContent.Height, 7, 7));
+        }
+
         #endregion
 
         #region Metodo resposavel por chamar os formularios 
@@ -95,9 +101,22 @@ namespace High_Gestor.Forms.Clientes
 
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
         {
+            openChildForm(new FormCadCliente());
+        }
+
+        private void buttonRelatorio_Click(object sender, EventArgs e)
+        {
 
         }
 
-        
+        private void buttonEditarCadastro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonExcluirCadastro_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

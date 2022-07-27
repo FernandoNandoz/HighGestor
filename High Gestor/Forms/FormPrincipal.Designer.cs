@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label labelLinhaTopo;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHighGestor));
             System.Windows.Forms.Label labelLinhaMenuInferior;
             System.Windows.Forms.Label labelTituloMenu;
             System.Windows.Forms.Label labelTitulo;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHighGestor));
+            System.Windows.Forms.Label labelLinhaTopo;
             this.panelMenuBar = new System.Windows.Forms.Panel();
             this.buttonFinanceiro = new System.Windows.Forms.Button();
             this.buttonTrocarUsuario = new System.Windows.Forms.Button();
@@ -49,26 +49,13 @@
             this.buttonAjuda = new System.Windows.Forms.Button();
             this.labelUsuario = new System.Windows.Forms.Label();
             this.labelNameEstebelecimento = new System.Windows.Forms.Label();
-            labelLinhaTopo = new System.Windows.Forms.Label();
             labelLinhaMenuInferior = new System.Windows.Forms.Label();
             labelTituloMenu = new System.Windows.Forms.Label();
             labelTitulo = new System.Windows.Forms.Label();
+            labelLinhaTopo = new System.Windows.Forms.Label();
             this.panelMenuBar.SuspendLayout();
-            this.panelContent.SuspendLayout();
             this.paneTitlerBar.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // labelLinhaTopo
-            // 
-            labelLinhaTopo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            labelLinhaTopo.AutoSize = true;
-            labelLinhaTopo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            labelLinhaTopo.Location = new System.Drawing.Point(-4, -10);
-            labelLinhaTopo.Name = "labelLinhaTopo";
-            labelLinhaTopo.Size = new System.Drawing.Size(2341, 13);
-            labelLinhaTopo.TabIndex = 0;
-            labelLinhaTopo.Text = resources.GetString("labelLinhaTopo.Text");
             // 
             // labelLinhaMenuInferior
             // 
@@ -86,7 +73,7 @@
             labelTituloMenu.AutoSize = true;
             labelTituloMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             labelTituloMenu.ForeColor = System.Drawing.Color.White;
-            labelTituloMenu.Location = new System.Drawing.Point(42, 42);
+            labelTituloMenu.Location = new System.Drawing.Point(42, 40);
             labelTituloMenu.Name = "labelTituloMenu";
             labelTituloMenu.Size = new System.Drawing.Size(74, 31);
             labelTituloMenu.TabIndex = 4;
@@ -264,7 +251,6 @@
             // 
             // panelContent
             // 
-            this.panelContent.Controls.Add(labelLinhaTopo);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(158, 82);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
@@ -279,10 +265,10 @@
             this.buttonTitlerSair.FlatAppearance.BorderSize = 0;
             this.buttonTitlerSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTitlerSair.Location = new System.Drawing.Point(1238, 0);
+            this.buttonTitlerSair.Location = new System.Drawing.Point(1232, 0);
             this.buttonTitlerSair.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerSair.Name = "buttonTitlerSair";
-            this.buttonTitlerSair.Size = new System.Drawing.Size(46, 32);
+            this.buttonTitlerSair.Size = new System.Drawing.Size(52, 32);
             this.buttonTitlerSair.TabIndex = 0;
             this.buttonTitlerSair.Text = "X";
             this.buttonTitlerSair.UseVisualStyleBackColor = true;
@@ -297,7 +283,7 @@
             this.buttonTitlerMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTitlerMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("buttonTitlerMaximizar.Image")));
-            this.buttonTitlerMaximizar.Location = new System.Drawing.Point(1189, 0);
+            this.buttonTitlerMaximizar.Location = new System.Drawing.Point(1185, 0);
             this.buttonTitlerMaximizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMaximizar.Name = "buttonTitlerMaximizar";
             this.buttonTitlerMaximizar.Size = new System.Drawing.Size(46, 32);
@@ -312,7 +298,7 @@
             this.buttonTitlerMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTitlerMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("buttonTitlerMinimizar.Image")));
-            this.buttonTitlerMinimizar.Location = new System.Drawing.Point(1140, 0);
+            this.buttonTitlerMinimizar.Location = new System.Drawing.Point(1136, 0);
             this.buttonTitlerMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMinimizar.Name = "buttonTitlerMinimizar";
             this.buttonTitlerMinimizar.Size = new System.Drawing.Size(46, 32);
@@ -322,10 +308,11 @@
             // 
             // paneTitlerBar
             // 
+            this.paneTitlerBar.Controls.Add(this.labelNameEstebelecimento);
+            this.paneTitlerBar.Controls.Add(labelLinhaTopo);
             this.paneTitlerBar.Controls.Add(this.buttonAjuda);
             this.paneTitlerBar.Controls.Add(this.labelUsuario);
             this.paneTitlerBar.Controls.Add(labelTitulo);
-            this.paneTitlerBar.Controls.Add(this.labelNameEstebelecimento);
             this.paneTitlerBar.Controls.Add(this.buttonTitlerMinimizar);
             this.paneTitlerBar.Controls.Add(this.buttonTitlerMaximizar);
             this.paneTitlerBar.Controls.Add(this.buttonTitlerSair);
@@ -367,11 +354,23 @@
             // 
             this.labelNameEstebelecimento.AutoSize = true;
             this.labelNameEstebelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameEstebelecimento.Location = new System.Drawing.Point(18, 45);
+            this.labelNameEstebelecimento.Location = new System.Drawing.Point(18, 43);
             this.labelNameEstebelecimento.Name = "labelNameEstebelecimento";
             this.labelNameEstebelecimento.Size = new System.Drawing.Size(211, 29);
             this.labelNameEstebelecimento.TabIndex = 3;
             this.labelNameEstebelecimento.Text = "Agropecuaria TX";
+            // 
+            // labelLinhaTopo
+            // 
+            labelLinhaTopo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            labelLinhaTopo.AutoSize = true;
+            labelLinhaTopo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            labelLinhaTopo.Location = new System.Drawing.Point(-528, 67);
+            labelLinhaTopo.Name = "labelLinhaTopo";
+            labelLinhaTopo.Size = new System.Drawing.Size(2341, 13);
+            labelLinhaTopo.TabIndex = 7;
+            labelLinhaTopo.Text = resources.GetString("labelLinhaTopo.Text");
             // 
             // FormHighGestor
             // 
@@ -390,8 +389,6 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormHighGestor_Paint);
             this.panelMenuBar.ResumeLayout(false);
             this.panelMenuBar.PerformLayout();
-            this.panelContent.ResumeLayout(false);
-            this.panelContent.PerformLayout();
             this.paneTitlerBar.ResumeLayout(false);
             this.paneTitlerBar.PerformLayout();
             this.ResumeLayout(false);

@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigGlobal.cs" />
+    <Compile Include="Forms\Clientes\FormCadCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Clientes\FormCadCliente.Designer.cs">
+      <DependentUpon>FormCadCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clientes\FormClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,11 +65,35 @@
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.Designer.cs">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financeiro\FormConfiguracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormConfiguracao.Designer.cs">
+      <DependentUpon>FormConfiguracao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormContasPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormContasPagar.Designer.cs">
+      <DependentUpon>FormContasPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormContasReceber.Designer.cs">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financeiro\FormFinanceiro.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Financeiro\FormFinanceiro.Designer.cs">
       <DependentUpon>FormFinanceiro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormMovimentoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormMovimentoCaixa.Designer.cs">
+      <DependentUpon>FormMovimentoCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -83,19 +113,46 @@
     <Compile Include="Forms\Relatorios\FormRelatorios.Designer.cs">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Vendas\UserControlVendas.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\Vendas\FormVendas.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Vendas\UserControlVendas.Designer.cs">
-      <DependentUpon>UserControlVendas.cs</DependentUpon>
+    <Compile Include="Forms\Vendas\FormVendas.Designer.cs">
+      <DependentUpon>FormVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Clientes\FormCadCliente.resx">
+      <DependentUpon>FormCadCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
+      <DependentUpon>FormConfiguracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormConfiguracao.resx">
+      <DependentUpon>FormConfiguracao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormContasPagar.resx">
+      <DependentUpon>FormContasPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormContasReceber.resx">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormFinanceiro.resx">
+      <DependentUpon>FormFinanceiro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormMovimentoCaixa.resx">
+      <DependentUpon>FormMovimentoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\FormRelatorios.resx">
+      <DependentUpon>FormRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\FormVendas.resx">
+      <DependentUpon>FormVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -121,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataSource\" />
+    <Folder Include="Forms\Financeiro\Outros\" />
     <Folder Include="Reports\" />
     <Folder Include="Resources\" />
   </ItemGroup>

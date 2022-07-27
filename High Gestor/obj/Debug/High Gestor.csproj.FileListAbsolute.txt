@@ -10,3 +10,12 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.exe
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.pdb
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.FormHighGestor.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Clientes.FormClientes.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Clientes.FormCadCliente.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.FormConfiguracoes.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormFinanceiro.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.FormRelatorios.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.FormVendas.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormConfiguracao.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormContasPagar.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormContasReceber.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormMovimentoCaixa.resources

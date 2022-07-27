@@ -111,7 +111,7 @@ namespace High_Gestor
             panelContent.Refresh();
 
 
-            if (alterouSize._retornarFormName() == "HOME")
+            if (alterouSize._retornarFormName() == "VENDAS")
             {
                 if (alterouSize._retornarValidacao() == 1)
                 {
@@ -122,7 +122,7 @@ namespace High_Gestor
                     alterouSize.receberValidacao(1);
                 }
                 //
-                //openChildForm(new Forms.Vendas.UserControlVendas);
+                openChildForm(new Forms.Vendas.FormVendas());
             }
 
             if (alterouSize._retornarFormName() == "PRODUTO")
@@ -167,7 +167,7 @@ namespace High_Gestor
                 }
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
-                //openChildForm(new Forms.Financeiro.FormFinanceiro());
+                openChildForm(new Forms.Financeiro.FormFinanceiro());
             }
 
             if (alterouSize._retornarFormName() == "RELATORIO")
@@ -181,7 +181,7 @@ namespace High_Gestor
                     alterouSize.receberValidacao(1);
                 }
                 //
-                //openChildForm(new Forms.Relatorios.FormRelatorios());
+                openChildForm(new Forms.Relatorios.FormRelatorios());
             }
 
             if (alterouSize._retornarFormName() == "CONFIGURACAO")
@@ -196,7 +196,7 @@ namespace High_Gestor
                 }
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
-                // openChildForm(new Forms.Configuracoes.FormConfiguracoes());
+                openChildForm(new Forms.Configuracoes.FormConfiguracoes());
             }
         }
 
@@ -249,6 +249,10 @@ namespace High_Gestor
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
             buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
             buttonVendas.BackColor = Color.FromArgb(0, 32, 80);
+
+            ViewForms.requestBackMenu(false);
+            alterouSize.receberName("VENDAS");
+            alterouSize.receberValidacao(1);
         }
 
         private void buttonProdutos_Click(object sender, EventArgs e)
@@ -296,6 +300,9 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("FINANCEIRO");
             alterouSize.receberValidacao(1);
+
+
+            openChildForm(new Forms.Financeiro.FormFinanceiro());
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
