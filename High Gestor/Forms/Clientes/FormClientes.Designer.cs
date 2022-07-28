@@ -114,6 +114,7 @@
             this.panelBack.Name = "panelBack";
             this.panelBack.Size = new System.Drawing.Size(1284, 670);
             this.panelBack.TabIndex = 0;
+            this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
             // 
             // buttonExcluirCadastro
             // 

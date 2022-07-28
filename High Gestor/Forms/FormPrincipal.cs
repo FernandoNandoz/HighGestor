@@ -40,7 +40,6 @@ namespace High_Gestor
             paneTitlerBar.Height, 10, 10));
         }
 
-
         private void paint_MouseMove(object sender, MouseEventArgs e)
         {
             Button propriedades = sender as Button;
@@ -347,5 +346,7 @@ namespace High_Gestor
                 buttonVendas_Click(sender, e);
             }
         }
+
+       
     }
 }

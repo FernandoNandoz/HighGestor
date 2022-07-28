@@ -112,5 +112,10 @@ namespace High_Gestor.Forms.Clientes
         {
 
         }
+
+        private void panelBack_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

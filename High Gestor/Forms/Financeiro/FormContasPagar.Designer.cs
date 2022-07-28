@@ -40,6 +40,7 @@
             this.Name = "FormContasPagar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormContasPagar";
+            this.Load += new System.EventHandler(this.FormContasPagar_Load);
             this.ResumeLayout(false);
 
         }

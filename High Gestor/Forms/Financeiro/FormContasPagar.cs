@@ -8,5 +8,10 @@ namespace High_Gestor.Forms.Financeiro
         {
             InitializeComponent();
         }
+
+        private void FormContasPagar_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

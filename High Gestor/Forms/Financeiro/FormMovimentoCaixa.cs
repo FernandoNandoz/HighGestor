@@ -7,7 +7,7 @@ namespace High_Gestor.Forms.Financeiro
 {
     public partial class FormMovimentoCaixa : Form
     {
-        #region Paint
+        #region Dll
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn

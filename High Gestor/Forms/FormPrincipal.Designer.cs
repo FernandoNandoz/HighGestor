@@ -31,8 +31,8 @@
             System.Windows.Forms.Label labelLinhaMenuInferior;
             System.Windows.Forms.Label labelTituloMenu;
             System.Windows.Forms.Label labelTitulo;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHighGestor));
             System.Windows.Forms.Label labelLinhaTopo;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHighGestor));
             this.panelMenuBar = new System.Windows.Forms.Panel();
             this.buttonFinanceiro = new System.Windows.Forms.Button();
             this.buttonTrocarUsuario = new System.Windows.Forms.Button();
@@ -46,9 +46,9 @@
             this.buttonTitlerMaximizar = new System.Windows.Forms.Button();
             this.buttonTitlerMinimizar = new System.Windows.Forms.Button();
             this.paneTitlerBar = new System.Windows.Forms.Panel();
+            this.labelNameEstebelecimento = new System.Windows.Forms.Label();
             this.buttonAjuda = new System.Windows.Forms.Button();
             this.labelUsuario = new System.Windows.Forms.Label();
-            this.labelNameEstebelecimento = new System.Windows.Forms.Label();
             labelLinhaMenuInferior = new System.Windows.Forms.Label();
             labelTituloMenu = new System.Windows.Forms.Label();
             labelTitulo = new System.Windows.Forms.Label();
@@ -89,6 +89,18 @@
             labelTitulo.Size = new System.Drawing.Size(84, 17);
             labelTitulo.TabIndex = 4;
             labelTitulo.Text = "High Gestor";
+            // 
+            // labelLinhaTopo
+            // 
+            labelLinhaTopo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            labelLinhaTopo.AutoSize = true;
+            labelLinhaTopo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            labelLinhaTopo.Location = new System.Drawing.Point(-528, 67);
+            labelLinhaTopo.Name = "labelLinhaTopo";
+            labelLinhaTopo.Size = new System.Drawing.Size(2341, 13);
+            labelLinhaTopo.TabIndex = 7;
+            labelLinhaTopo.Text = resources.GetString("labelLinhaTopo.Text");
             // 
             // panelMenuBar
             // 
@@ -324,6 +336,16 @@
             this.paneTitlerBar.TabIndex = 1;
             this.paneTitlerBar.Paint += new System.Windows.Forms.PaintEventHandler(this.paneTitlerBar_Paint);
             // 
+            // labelNameEstebelecimento
+            // 
+            this.labelNameEstebelecimento.AutoSize = true;
+            this.labelNameEstebelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameEstebelecimento.Location = new System.Drawing.Point(18, 43);
+            this.labelNameEstebelecimento.Name = "labelNameEstebelecimento";
+            this.labelNameEstebelecimento.Size = new System.Drawing.Size(211, 29);
+            this.labelNameEstebelecimento.TabIndex = 3;
+            this.labelNameEstebelecimento.Text = "Agropecuaria TX";
+            // 
             // buttonAjuda
             // 
             this.buttonAjuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -349,28 +371,6 @@
             this.labelUsuario.Size = new System.Drawing.Size(175, 17);
             this.labelUsuario.TabIndex = 5;
             this.labelUsuario.Text = "Fernando | Desenvolvedor";
-            // 
-            // labelNameEstebelecimento
-            // 
-            this.labelNameEstebelecimento.AutoSize = true;
-            this.labelNameEstebelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameEstebelecimento.Location = new System.Drawing.Point(18, 43);
-            this.labelNameEstebelecimento.Name = "labelNameEstebelecimento";
-            this.labelNameEstebelecimento.Size = new System.Drawing.Size(211, 29);
-            this.labelNameEstebelecimento.TabIndex = 3;
-            this.labelNameEstebelecimento.Text = "Agropecuaria TX";
-            // 
-            // labelLinhaTopo
-            // 
-            labelLinhaTopo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            labelLinhaTopo.AutoSize = true;
-            labelLinhaTopo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            labelLinhaTopo.Location = new System.Drawing.Point(-528, 67);
-            labelLinhaTopo.Name = "labelLinhaTopo";
-            labelLinhaTopo.Size = new System.Drawing.Size(2341, 13);
-            labelLinhaTopo.TabIndex = 7;
-            labelLinhaTopo.Text = resources.GetString("labelLinhaTopo.Text");
             // 
             // FormHighGestor
             // 
