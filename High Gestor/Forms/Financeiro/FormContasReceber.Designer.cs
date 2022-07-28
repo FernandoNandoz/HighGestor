@@ -219,7 +219,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1077, 86);
+            label8.Location = new System.Drawing.Point(1001, 86);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 142;
@@ -237,7 +237,7 @@
             this.buttonReceberConta.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonReceberConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonReceberConta.Image")));
             this.buttonReceberConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReceberConta.Location = new System.Drawing.Point(976, 569);
+            this.buttonReceberConta.Location = new System.Drawing.Point(900, 547);
             this.buttonReceberConta.Name = "buttonReceberConta";
             this.buttonReceberConta.Size = new System.Drawing.Size(278, 84);
             this.buttonReceberConta.TabIndex = 113;
@@ -293,7 +293,7 @@
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
-            this.panelTotalContas.Location = new System.Drawing.Point(28, 569);
+            this.panelTotalContas.Location = new System.Drawing.Point(28, 547);
             this.panelTotalContas.Name = "panelTotalContas";
             this.panelTotalContas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalContas.TabIndex = 102;
@@ -317,7 +317,7 @@
             this.panelTotalContasRecebidas.Controls.Add(label5);
             this.panelTotalContasRecebidas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalContasRecebidas.Controls.Add(this.labelTotalContasRecebidasValue);
-            this.panelTotalContasRecebidas.Location = new System.Drawing.Point(311, 569);
+            this.panelTotalContasRecebidas.Location = new System.Drawing.Point(311, 547);
             this.panelTotalContasRecebidas.Name = "panelTotalContasRecebidas";
             this.panelTotalContasRecebidas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalContasRecebidas.TabIndex = 103;
@@ -341,7 +341,7 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(594, 569);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(594, 547);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
             this.panelSaldoAtual.Size = new System.Drawing.Size(270, 84);
             this.panelSaldoAtual.TabIndex = 101;
@@ -421,7 +421,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1225, 385);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 363);
             this.dataGridViewContent.TabIndex = 100;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -542,7 +542,7 @@
             this.buttonSairContasReceber.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSairContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairContasReceber.Image")));
             this.buttonSairContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairContasReceber.Location = new System.Drawing.Point(1101, 85);
+            this.buttonSairContasReceber.Location = new System.Drawing.Point(1025, 85);
             this.buttonSairContasReceber.Name = "buttonSairContasReceber";
             this.buttonSairContasReceber.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonSairContasReceber.Size = new System.Drawing.Size(153, 38);
@@ -560,7 +560,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 670);
+            this.ClientSize = new System.Drawing.Size(1208, 648);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);

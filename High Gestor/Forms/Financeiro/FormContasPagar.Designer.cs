@@ -219,7 +219,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1077, 86);
+            label8.Location = new System.Drawing.Point(1001, 86);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 148;
@@ -237,7 +237,7 @@
             this.buttonPagarConta.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonPagarConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonPagarConta.Image")));
             this.buttonPagarConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagarConta.Location = new System.Drawing.Point(977, 569);
+            this.buttonPagarConta.Location = new System.Drawing.Point(901, 547);
             this.buttonPagarConta.Name = "buttonPagarConta";
             this.buttonPagarConta.Size = new System.Drawing.Size(278, 84);
             this.buttonPagarConta.TabIndex = 134;
@@ -293,7 +293,7 @@
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
-            this.panelTotalContas.Location = new System.Drawing.Point(29, 569);
+            this.panelTotalContas.Location = new System.Drawing.Point(29, 547);
             this.panelTotalContas.Name = "panelTotalContas";
             this.panelTotalContas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalContas.TabIndex = 123;
@@ -317,7 +317,7 @@
             this.panelTotalContasPagas.Controls.Add(label5);
             this.panelTotalContasPagas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalContasPagas.Controls.Add(this.labelTotalContasPagasValue);
-            this.panelTotalContasPagas.Location = new System.Drawing.Point(311, 569);
+            this.panelTotalContasPagas.Location = new System.Drawing.Point(311, 547);
             this.panelTotalContasPagas.Name = "panelTotalContasPagas";
             this.panelTotalContasPagas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalContasPagas.TabIndex = 124;
@@ -341,7 +341,7 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(592, 569);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(592, 547);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
             this.panelSaldoAtual.Size = new System.Drawing.Size(270, 84);
             this.panelSaldoAtual.TabIndex = 122;
@@ -420,7 +420,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1225, 385);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 363);
             this.dataGridViewContent.TabIndex = 121;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -539,7 +539,7 @@
             this.buttonSairContasPagar.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSairContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairContasPagar.Image")));
             this.buttonSairContasPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairContasPagar.Location = new System.Drawing.Point(1101, 85);
+            this.buttonSairContasPagar.Location = new System.Drawing.Point(1025, 85);
             this.buttonSairContasPagar.Name = "buttonSairContasPagar";
             this.buttonSairContasPagar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonSairContasPagar.Size = new System.Drawing.Size(153, 38);
@@ -557,7 +557,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 670);
+            this.ClientSize = new System.Drawing.Size(1208, 648);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);

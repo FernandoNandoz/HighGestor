@@ -62,7 +62,7 @@
             labelLinhaMenuInferior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             labelLinhaMenuInferior.AutoSize = true;
             labelLinhaMenuInferior.ForeColor = System.Drawing.Color.White;
-            labelLinhaMenuInferior.Location = new System.Drawing.Point(13, 602);
+            labelLinhaMenuInferior.Location = new System.Drawing.Point(13, 580);
             labelLinhaMenuInferior.Name = "labelLinhaMenuInferior";
             labelLinhaMenuInferior.Size = new System.Drawing.Size(133, 13);
             labelLinhaMenuInferior.TabIndex = 9;
@@ -84,7 +84,7 @@
             labelTitulo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             labelTitulo.AutoSize = true;
             labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            labelTitulo.Location = new System.Drawing.Point(538, 9);
+            labelTitulo.Location = new System.Drawing.Point(500, 9);
             labelTitulo.Name = "labelTitulo";
             labelTitulo.Size = new System.Drawing.Size(84, 17);
             labelTitulo.TabIndex = 4;
@@ -117,7 +117,7 @@
             this.panelMenuBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuBar.Location = new System.Drawing.Point(0, 0);
             this.panelMenuBar.Name = "panelMenuBar";
-            this.panelMenuBar.Size = new System.Drawing.Size(158, 752);
+            this.panelMenuBar.Size = new System.Drawing.Size(158, 730);
             this.panelMenuBar.TabIndex = 0;
             // 
             // buttonFinanceiro
@@ -128,10 +128,10 @@
             this.buttonFinanceiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFinanceiro.ForeColor = System.Drawing.Color.White;
             this.buttonFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("buttonFinanceiro.Image")));
-            this.buttonFinanceiro.Location = new System.Drawing.Point(0, 473);
+            this.buttonFinanceiro.Location = new System.Drawing.Point(0, 453);
             this.buttonFinanceiro.Margin = new System.Windows.Forms.Padding(0);
             this.buttonFinanceiro.Name = "buttonFinanceiro";
-            this.buttonFinanceiro.Size = new System.Drawing.Size(158, 130);
+            this.buttonFinanceiro.Size = new System.Drawing.Size(158, 120);
             this.buttonFinanceiro.TabIndex = 8;
             this.buttonFinanceiro.Text = "Financeiro";
             this.buttonFinanceiro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -149,7 +149,7 @@
             this.buttonTrocarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTrocarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTrocarUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonTrocarUsuario.Location = new System.Drawing.Point(0, 700);
+            this.buttonTrocarUsuario.Location = new System.Drawing.Point(0, 678);
             this.buttonTrocarUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTrocarUsuario.Name = "buttonTrocarUsuario";
             this.buttonTrocarUsuario.Size = new System.Drawing.Size(158, 35);
@@ -168,7 +168,7 @@
             this.buttonConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConfiguracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 663);
+            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 641);
             this.buttonConfiguracoes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonConfiguracoes.Name = "buttonConfiguracoes";
             this.buttonConfiguracoes.Size = new System.Drawing.Size(158, 35);
@@ -187,7 +187,7 @@
             this.buttonRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRelatorio.ForeColor = System.Drawing.Color.White;
-            this.buttonRelatorio.Location = new System.Drawing.Point(0, 626);
+            this.buttonRelatorio.Location = new System.Drawing.Point(0, 604);
             this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRelatorio.Name = "buttonRelatorio";
             this.buttonRelatorio.Size = new System.Drawing.Size(158, 35);
@@ -206,7 +206,7 @@
             this.buttonClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClientes.ForeColor = System.Drawing.Color.White;
             this.buttonClientes.Image = ((System.Drawing.Image)(resources.GetObject("buttonClientes.Image")));
-            this.buttonClientes.Location = new System.Drawing.Point(0, 343);
+            this.buttonClientes.Location = new System.Drawing.Point(0, 323);
             this.buttonClientes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonClientes.Name = "buttonClientes";
             this.buttonClientes.Size = new System.Drawing.Size(158, 130);
@@ -227,10 +227,10 @@
             this.buttonProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProdutos.ForeColor = System.Drawing.Color.White;
             this.buttonProdutos.Image = ((System.Drawing.Image)(resources.GetObject("buttonProdutos.Image")));
-            this.buttonProdutos.Location = new System.Drawing.Point(0, 213);
+            this.buttonProdutos.Location = new System.Drawing.Point(0, 203);
             this.buttonProdutos.Margin = new System.Windows.Forms.Padding(0);
             this.buttonProdutos.Name = "buttonProdutos";
-            this.buttonProdutos.Size = new System.Drawing.Size(158, 130);
+            this.buttonProdutos.Size = new System.Drawing.Size(158, 120);
             this.buttonProdutos.TabIndex = 6;
             this.buttonProdutos.Text = "Produtos";
             this.buttonProdutos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -251,7 +251,7 @@
             this.buttonVendas.Location = new System.Drawing.Point(0, 83);
             this.buttonVendas.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVendas.Name = "buttonVendas";
-            this.buttonVendas.Size = new System.Drawing.Size(158, 130);
+            this.buttonVendas.Size = new System.Drawing.Size(158, 120);
             this.buttonVendas.TabIndex = 5;
             this.buttonVendas.Text = "Vendas";
             this.buttonVendas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -267,7 +267,7 @@
             this.panelContent.Location = new System.Drawing.Point(158, 82);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1284, 670);
+            this.panelContent.Size = new System.Drawing.Size(1208, 648);
             this.panelContent.TabIndex = 2;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
@@ -277,7 +277,7 @@
             this.buttonTitlerSair.FlatAppearance.BorderSize = 0;
             this.buttonTitlerSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTitlerSair.Location = new System.Drawing.Point(1232, 0);
+            this.buttonTitlerSair.Location = new System.Drawing.Point(1156, 0);
             this.buttonTitlerSair.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerSair.Name = "buttonTitlerSair";
             this.buttonTitlerSair.Size = new System.Drawing.Size(52, 32);
@@ -295,7 +295,7 @@
             this.buttonTitlerMaximizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerMaximizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTitlerMaximizar.Image = ((System.Drawing.Image)(resources.GetObject("buttonTitlerMaximizar.Image")));
-            this.buttonTitlerMaximizar.Location = new System.Drawing.Point(1185, 0);
+            this.buttonTitlerMaximizar.Location = new System.Drawing.Point(1109, 0);
             this.buttonTitlerMaximizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMaximizar.Name = "buttonTitlerMaximizar";
             this.buttonTitlerMaximizar.Size = new System.Drawing.Size(46, 32);
@@ -310,7 +310,7 @@
             this.buttonTitlerMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTitlerMinimizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTitlerMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("buttonTitlerMinimizar.Image")));
-            this.buttonTitlerMinimizar.Location = new System.Drawing.Point(1136, 0);
+            this.buttonTitlerMinimizar.Location = new System.Drawing.Point(1060, 0);
             this.buttonTitlerMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMinimizar.Name = "buttonTitlerMinimizar";
             this.buttonTitlerMinimizar.Size = new System.Drawing.Size(46, 32);
@@ -332,7 +332,7 @@
             this.paneTitlerBar.Location = new System.Drawing.Point(158, 0);
             this.paneTitlerBar.Margin = new System.Windows.Forms.Padding(0);
             this.paneTitlerBar.Name = "paneTitlerBar";
-            this.paneTitlerBar.Size = new System.Drawing.Size(1284, 82);
+            this.paneTitlerBar.Size = new System.Drawing.Size(1208, 82);
             this.paneTitlerBar.TabIndex = 1;
             this.paneTitlerBar.Paint += new System.Windows.Forms.PaintEventHandler(this.paneTitlerBar_Paint);
             // 
@@ -352,7 +352,7 @@
             this.buttonAjuda.FlatAppearance.BorderSize = 0;
             this.buttonAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAjuda.Location = new System.Drawing.Point(1072, -1);
+            this.buttonAjuda.Location = new System.Drawing.Point(996, -1);
             this.buttonAjuda.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAjuda.Name = "buttonAjuda";
             this.buttonAjuda.Size = new System.Drawing.Size(46, 32);
@@ -366,7 +366,7 @@
             this.labelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.Location = new System.Drawing.Point(879, 8);
+            this.labelUsuario.Location = new System.Drawing.Point(803, 8);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(175, 17);
             this.labelUsuario.TabIndex = 5;
@@ -377,12 +377,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1442, 752);
+            this.ClientSize = new System.Drawing.Size(1366, 730);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.paneTitlerBar);
             this.Controls.Add(this.panelMenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1442, 752);
+            this.MinimumSize = new System.Drawing.Size(1366, 730);
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";

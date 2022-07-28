@@ -76,7 +76,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1067, 88);
+            label8.Location = new System.Drawing.Point(991, 88);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 128;
@@ -112,7 +112,7 @@
             this.panelBack.Location = new System.Drawing.Point(0, 0);
             this.panelBack.Margin = new System.Windows.Forms.Padding(0);
             this.panelBack.Name = "panelBack";
-            this.panelBack.Size = new System.Drawing.Size(1284, 670);
+            this.panelBack.Size = new System.Drawing.Size(1208, 648);
             this.panelBack.TabIndex = 0;
             this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
             // 
@@ -234,7 +234,7 @@
             this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1233, 495);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1157, 473);
             this.dataGridViewContent.TabIndex = 130;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -281,7 +281,7 @@
             this.buttonSair.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSair.Image = ((System.Drawing.Image)(resources.GetObject("buttonSair.Image")));
             this.buttonSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSair.Location = new System.Drawing.Point(1091, 87);
+            this.buttonSair.Location = new System.Drawing.Point(1015, 87);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonSair.Size = new System.Drawing.Size(168, 38);
@@ -311,7 +311,7 @@
             this.labelContagem.AutoSize = true;
             this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(1111, 9);
+            this.labelContagem.Location = new System.Drawing.Point(1035, 9);
             this.labelContagem.Name = "labelContagem";
             this.labelContagem.Size = new System.Drawing.Size(158, 24);
             this.labelContagem.TabIndex = 125;
@@ -323,7 +323,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 670);
+            this.ClientSize = new System.Drawing.Size(1208, 648);
             this.Controls.Add(this.panelBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormClientes";

@@ -109,7 +109,7 @@
             label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(936, 10);
+            label6.Location = new System.Drawing.Point(860, 10);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(177, 24);
             label6.TabIndex = 85;
@@ -227,7 +227,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1073, 56);
+            label8.Location = new System.Drawing.Point(997, 56);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 136;
@@ -239,7 +239,7 @@
             this.dateTimePeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePeriodo.Location = new System.Drawing.Point(1115, 8);
+            this.dateTimePeriodo.Location = new System.Drawing.Point(1039, 8);
             this.dateTimePeriodo.Name = "dateTimePeriodo";
             this.dateTimePeriodo.Size = new System.Drawing.Size(135, 29);
             this.dateTimePeriodo.TabIndex = 84;
@@ -252,7 +252,7 @@
             this.panelSaldoAnterior.Controls.Add(label2);
             this.panelSaldoAnterior.Controls.Add(pictureBoxMovimentoCaixa);
             this.panelSaldoAnterior.Controls.Add(this.labelSaldoAnteriorValue);
-            this.panelSaldoAnterior.Location = new System.Drawing.Point(31, 571);
+            this.panelSaldoAnterior.Location = new System.Drawing.Point(31, 549);
             this.panelSaldoAnterior.Name = "panelSaldoAnterior";
             this.panelSaldoAnterior.Size = new System.Drawing.Size(270, 84);
             this.panelSaldoAnterior.TabIndex = 81;
@@ -276,7 +276,7 @@
             this.panelTotalEntradas.Controls.Add(label3);
             this.panelTotalEntradas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalEntradas.Controls.Add(this.labelTotalEntradasValue);
-            this.panelTotalEntradas.Location = new System.Drawing.Point(315, 571);
+            this.panelTotalEntradas.Location = new System.Drawing.Point(315, 549);
             this.panelTotalEntradas.Name = "panelTotalEntradas";
             this.panelTotalEntradas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalEntradas.TabIndex = 82;
@@ -300,7 +300,7 @@
             this.panelTotalSaidas.Controls.Add(label5);
             this.panelTotalSaidas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalSaidas.Controls.Add(this.labelTotalSaidasValue);
-            this.panelTotalSaidas.Location = new System.Drawing.Point(600, 571);
+            this.panelTotalSaidas.Location = new System.Drawing.Point(600, 549);
             this.panelTotalSaidas.Name = "panelTotalSaidas";
             this.panelTotalSaidas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalSaidas.TabIndex = 83;
@@ -324,7 +324,7 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(979, 571);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(903, 549);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
             this.panelSaldoAtual.Size = new System.Drawing.Size(273, 84);
             this.panelSaldoAtual.TabIndex = 80;
@@ -404,7 +404,7 @@
             this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1215, 397);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1139, 375);
             this.dataGridViewContent.TabIndex = 79;
             this.dataGridViewContent.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentDoubleClick);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
@@ -526,7 +526,7 @@
             this.buttonSairCaixa.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSairCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairCaixa.Image")));
             this.buttonSairCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairCaixa.Location = new System.Drawing.Point(1097, 55);
+            this.buttonSairCaixa.Location = new System.Drawing.Point(1021, 55);
             this.buttonSairCaixa.Name = "buttonSairCaixa";
             this.buttonSairCaixa.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonSairCaixa.Size = new System.Drawing.Size(153, 38);
@@ -544,7 +544,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 670);
+            this.ClientSize = new System.Drawing.Size(1208, 648);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);

@@ -157,6 +157,9 @@
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\FormProdutos.resx">
+      <DependentUpon>FormProdutos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\FormRelatorios.resx">
       <DependentUpon>FormRelatorios.cs</DependentUpon>
     </EmbeddedResource>

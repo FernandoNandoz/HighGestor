@@ -72,32 +72,6 @@
             label5.TabIndex = 90;
             label5.Text = "Nº de CPF/CNPJ";
             // 
-            // maskedCPF_CNPJ
-            // 
-            this.maskedCPF_CNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.maskedCPF_CNPJ.Location = new System.Drawing.Point(369, 248);
-            this.maskedCPF_CNPJ.Name = "maskedCPF_CNPJ";
-            this.maskedCPF_CNPJ.Size = new System.Drawing.Size(333, 27);
-            this.maskedCPF_CNPJ.TabIndex = 73;
-            // 
-            // maskedTelefoneLigacao
-            // 
-            this.maskedTelefoneLigacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.maskedTelefoneLigacao.Location = new System.Drawing.Point(369, 325);
-            this.maskedTelefoneLigacao.Mask = "(00) 0 0000-0000";
-            this.maskedTelefoneLigacao.Name = "maskedTelefoneLigacao";
-            this.maskedTelefoneLigacao.Size = new System.Drawing.Size(333, 27);
-            this.maskedTelefoneLigacao.TabIndex = 75;
-            // 
-            // maskedWhatsApp
-            // 
-            this.maskedWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.maskedWhatsApp.Location = new System.Drawing.Point(63, 325);
-            this.maskedWhatsApp.Mask = "(00) 0 0000-0000";
-            this.maskedWhatsApp.Name = "maskedWhatsApp";
-            this.maskedWhatsApp.Size = new System.Drawing.Size(300, 27);
-            this.maskedWhatsApp.TabIndex = 74;
-            // 
             // label10
             // 
             label10.AutoSize = true;
@@ -128,14 +102,6 @@
             label3.TabIndex = 87;
             label3.Text = "Nº de RG  (caso seja pessoa fisica)";
             // 
-            // maskedRG
-            // 
-            this.maskedRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.maskedRG.Location = new System.Drawing.Point(63, 248);
-            this.maskedRG.Name = "maskedRG";
-            this.maskedRG.Size = new System.Drawing.Size(300, 27);
-            this.maskedRG.TabIndex = 72;
-            // 
             // labelContagem
             // 
             labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -149,18 +115,6 @@
             labelContagem.TabIndex = 86;
             labelContagem.Text = "Cadastro de Clientes";
             labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // linkLabelCadTipoSeguimento
-            // 
-            this.linkLabelCadTipoSeguimento.ActiveLinkColor = System.Drawing.Color.Gray;
-            this.linkLabelCadTipoSeguimento.AutoSize = true;
-            this.linkLabelCadTipoSeguimento.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelCadTipoSeguimento.Location = new System.Drawing.Point(226, 203);
-            this.linkLabelCadTipoSeguimento.Name = "linkLabelCadTipoSeguimento";
-            this.linkLabelCadTipoSeguimento.Size = new System.Drawing.Size(137, 13);
-            this.linkLabelCadTipoSeguimento.TabIndex = 85;
-            this.linkLabelCadTipoSeguimento.TabStop = true;
-            this.linkLabelCadTipoSeguimento.Text = "Cadastrar Tipo/Seguimento";
             // 
             // label7
             // 
@@ -181,15 +135,6 @@
             label6.Size = new System.Drawing.Size(164, 16);
             label6.TabIndex = 83;
             label6.Text = "Endereço - Rua, Nº, Bairro";
-            // 
-            // comboBoxTipoSeguimento
-            // 
-            this.comboBoxTipoSeguimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxTipoSeguimento.FormattingEnabled = true;
-            this.comboBoxTipoSeguimento.Location = new System.Drawing.Point(63, 172);
-            this.comboBoxTipoSeguimento.Name = "comboBoxTipoSeguimento";
-            this.comboBoxTipoSeguimento.Size = new System.Drawing.Size(300, 28);
-            this.comboBoxTipoSeguimento.TabIndex = 70;
             // 
             // label4
             // 
@@ -220,6 +165,61 @@
             label1.Size = new System.Drawing.Size(329, 16);
             label1.TabIndex = 80;
             label1.Text = "Nome do Responsavel  (caso não seja pessoa fisica)";
+            // 
+            // maskedCPF_CNPJ
+            // 
+            this.maskedCPF_CNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.maskedCPF_CNPJ.Location = new System.Drawing.Point(369, 248);
+            this.maskedCPF_CNPJ.Name = "maskedCPF_CNPJ";
+            this.maskedCPF_CNPJ.Size = new System.Drawing.Size(333, 27);
+            this.maskedCPF_CNPJ.TabIndex = 73;
+            // 
+            // maskedTelefoneLigacao
+            // 
+            this.maskedTelefoneLigacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.maskedTelefoneLigacao.Location = new System.Drawing.Point(369, 325);
+            this.maskedTelefoneLigacao.Mask = "(00) 0 0000-0000";
+            this.maskedTelefoneLigacao.Name = "maskedTelefoneLigacao";
+            this.maskedTelefoneLigacao.Size = new System.Drawing.Size(333, 27);
+            this.maskedTelefoneLigacao.TabIndex = 75;
+            // 
+            // maskedWhatsApp
+            // 
+            this.maskedWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.maskedWhatsApp.Location = new System.Drawing.Point(63, 325);
+            this.maskedWhatsApp.Mask = "(00) 0 0000-0000";
+            this.maskedWhatsApp.Name = "maskedWhatsApp";
+            this.maskedWhatsApp.Size = new System.Drawing.Size(300, 27);
+            this.maskedWhatsApp.TabIndex = 74;
+            // 
+            // maskedRG
+            // 
+            this.maskedRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.maskedRG.Location = new System.Drawing.Point(63, 248);
+            this.maskedRG.Name = "maskedRG";
+            this.maskedRG.Size = new System.Drawing.Size(300, 27);
+            this.maskedRG.TabIndex = 72;
+            // 
+            // linkLabelCadTipoSeguimento
+            // 
+            this.linkLabelCadTipoSeguimento.ActiveLinkColor = System.Drawing.Color.Gray;
+            this.linkLabelCadTipoSeguimento.AutoSize = true;
+            this.linkLabelCadTipoSeguimento.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelCadTipoSeguimento.Location = new System.Drawing.Point(226, 203);
+            this.linkLabelCadTipoSeguimento.Name = "linkLabelCadTipoSeguimento";
+            this.linkLabelCadTipoSeguimento.Size = new System.Drawing.Size(137, 13);
+            this.linkLabelCadTipoSeguimento.TabIndex = 85;
+            this.linkLabelCadTipoSeguimento.TabStop = true;
+            this.linkLabelCadTipoSeguimento.Text = "Cadastrar Tipo/Seguimento";
+            // 
+            // comboBoxTipoSeguimento
+            // 
+            this.comboBoxTipoSeguimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxTipoSeguimento.FormattingEnabled = true;
+            this.comboBoxTipoSeguimento.Location = new System.Drawing.Point(63, 172);
+            this.comboBoxTipoSeguimento.Name = "comboBoxTipoSeguimento";
+            this.comboBoxTipoSeguimento.Size = new System.Drawing.Size(300, 28);
+            this.comboBoxTipoSeguimento.TabIndex = 70;
             // 
             // textBoxEndereco
             // 
@@ -257,7 +257,7 @@
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(645, 606);
+            this.btnSair.Location = new System.Drawing.Point(607, 584);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 79;
@@ -269,7 +269,7 @@
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(519, 606);
+            this.buttonSalvar.Location = new System.Drawing.Point(481, 584);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 78;
@@ -281,7 +281,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1284, 670);
+            this.ClientSize = new System.Drawing.Size(1208, 648);
             this.Controls.Add(label5);
             this.Controls.Add(this.maskedCPF_CNPJ);
             this.Controls.Add(this.maskedTelefoneLigacao);
@@ -306,6 +306,7 @@
             this.Controls.Add(this.buttonSalvar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCadCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormCadCliente";
             this.Load += new System.EventHandler(this.FormCadCliente_Load);
             this.ResumeLayout(false);
