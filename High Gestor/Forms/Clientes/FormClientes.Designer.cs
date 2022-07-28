@@ -61,11 +61,11 @@
             // labelSelecioneProduto
             // 
             labelSelecioneProduto.AutoSize = true;
-            labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelSelecioneProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelSelecioneProduto.Location = new System.Drawing.Point(24, 145);
+            labelSelecioneProduto.Location = new System.Drawing.Point(24, 147);
             labelSelecioneProduto.Name = "labelSelecioneProduto";
-            labelSelecioneProduto.Size = new System.Drawing.Size(612, 22);
+            labelSelecioneProduto.Size = new System.Drawing.Size(537, 20);
             labelSelecioneProduto.TabIndex = 131;
             labelSelecioneProduto.Text = "Selecione um nome para ver a Ficha, Editar, Vizualizar ou Excluir Cadastro:";
             labelSelecioneProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -226,12 +226,12 @@
             this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewContent.RowHeadersVisible = false;
             this.dataGridViewContent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
-            this.dataGridViewContent.RowTemplate.Height = 42;
+            this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewContent.Size = new System.Drawing.Size(1157, 473);

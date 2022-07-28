@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigGlobal.cs" />
+    <Compile Include="DataSource\DatabaseHighDataDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Clientes\FormCadCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,11 +64,59 @@
     <Compile Include="Forms\Clientes\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.Designer.cs">
+      <DependentUpon>FormCadCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Categorias\FormCategorias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Categorias\FormCategorias.Designer.cs">
+      <DependentUpon>FormCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\FormBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\FormBackup.Designer.cs">
+      <DependentUpon>FormBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\FormConfigSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\FormConfigSistema.Designer.cs">
+      <DependentUpon>FormConfigSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.Designer.cs">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.Designer.cs">
+      <DependentUpon>FormCadFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Fornecedores\FormFornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Fornecedores\FormFornecedores.Designer.cs">
+      <DependentUpon>FormFornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Funcionarios\FormCadFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Funcionarios\FormCadFuncionarios.Designer.cs">
+      <DependentUpon>FormCadFuncionarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Funcionarios\FormFuncionarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\Funcionarios\FormFuncionarios.Designer.cs">
+      <DependentUpon>FormFuncionarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financeiro\FormConfiguracao.cs">
       <SubType>Form</SubType>
@@ -133,8 +186,32 @@
     <EmbeddedResource Include="Forms\Clientes\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCadCategorias.resx">
+      <DependentUpon>FormCadCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCategorias.resx">
+      <DependentUpon>FormCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\FormBackup.resx">
+      <DependentUpon>FormBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\FormConfigSistema.resx">
+      <DependentUpon>FormConfigSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.resx">
+      <DependentUpon>FormCadFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Fornecedores\FormFornecedores.resx">
+      <DependentUpon>FormFornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Funcionarios\FormCadFuncionarios.resx">
+      <DependentUpon>FormCadFuncionarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\Funcionarios\FormFuncionarios.resx">
+      <DependentUpon>FormFuncionarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\FormConfiguracao.resx">
       <DependentUpon>FormConfiguracao.cs</DependentUpon>
@@ -175,6 +252,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSource\DatabaseHighDataDataSet.xsc">
+      <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DataSource\DatabaseHighDataDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DatabaseHighDataDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSource\DatabaseHighDataDataSet.xss">
+      <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -189,7 +277,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataSource\" />
     <Folder Include="Reports\" />
     <Folder Include="Resources\" />
   </ItemGroup>

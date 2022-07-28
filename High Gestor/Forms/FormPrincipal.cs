@@ -106,28 +106,12 @@ namespace High_Gestor
 
             if (alterouSize._retornarFormName() == "VENDAS")
             {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
                 //
                 openChildForm(new Forms.Vendas.FormVendas());
             }
 
             if (alterouSize._retornarFormName() == "PRODUTO")
-            {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
+            { 
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
                 openChildForm(new Forms.Produtos.FormProdutos());
@@ -135,14 +119,6 @@ namespace High_Gestor
 
             if (alterouSize._retornarFormName() == "CLIENTE")
             {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
                 openChildForm(new Forms.Clientes.FormClientes());
@@ -150,14 +126,6 @@ namespace High_Gestor
 
             if (alterouSize._retornarFormName() == "FINANCEIRO")
             {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
                 openChildForm(new Forms.Financeiro.FormFinanceiro());
@@ -165,28 +133,12 @@ namespace High_Gestor
 
             if (alterouSize._retornarFormName() == "RELATORIO")
             {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
                 //
                 openChildForm(new Forms.Relatorios.FormRelatorios());
             }
 
             if (alterouSize._retornarFormName() == "CONFIGURACAO")
             {
-                if (alterouSize._retornarValidacao() == 1)
-                {
-                    alterouSize.receberValidacao(2);
-                }
-                else if (alterouSize._retornarValidacao() == 2)
-                {
-                    alterouSize.receberValidacao(1);
-                }
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
                 openChildForm(new Forms.Configuracoes.FormConfiguracoes());

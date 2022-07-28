@@ -252,7 +252,7 @@
             this.panelSaldoAnterior.Controls.Add(label2);
             this.panelSaldoAnterior.Controls.Add(pictureBoxMovimentoCaixa);
             this.panelSaldoAnterior.Controls.Add(this.labelSaldoAnteriorValue);
-            this.panelSaldoAnterior.Location = new System.Drawing.Point(31, 549);
+            this.panelSaldoAnterior.Location = new System.Drawing.Point(31, 548);
             this.panelSaldoAnterior.Name = "panelSaldoAnterior";
             this.panelSaldoAnterior.Size = new System.Drawing.Size(270, 84);
             this.panelSaldoAnterior.TabIndex = 81;
@@ -276,7 +276,7 @@
             this.panelTotalEntradas.Controls.Add(label3);
             this.panelTotalEntradas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalEntradas.Controls.Add(this.labelTotalEntradasValue);
-            this.panelTotalEntradas.Location = new System.Drawing.Point(315, 549);
+            this.panelTotalEntradas.Location = new System.Drawing.Point(315, 548);
             this.panelTotalEntradas.Name = "panelTotalEntradas";
             this.panelTotalEntradas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalEntradas.TabIndex = 82;
@@ -300,7 +300,7 @@
             this.panelTotalSaidas.Controls.Add(label5);
             this.panelTotalSaidas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalSaidas.Controls.Add(this.labelTotalSaidasValue);
-            this.panelTotalSaidas.Location = new System.Drawing.Point(600, 549);
+            this.panelTotalSaidas.Location = new System.Drawing.Point(600, 548);
             this.panelTotalSaidas.Name = "panelTotalSaidas";
             this.panelTotalSaidas.Size = new System.Drawing.Size(270, 84);
             this.panelTotalSaidas.TabIndex = 83;
@@ -324,7 +324,7 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(903, 549);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(903, 548);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
             this.panelSaldoAtual.Size = new System.Drawing.Size(273, 84);
             this.panelSaldoAtual.TabIndex = 80;
@@ -396,15 +396,15 @@
             this.dataGridViewContent.RowHeadersVisible = false;
             this.dataGridViewContent.RowHeadersWidth = 46;
             this.dataGridViewContent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
             this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
-            this.dataGridViewContent.RowTemplate.Height = 42;
+            this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1139, 375);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1139, 395);
             this.dataGridViewContent.TabIndex = 79;
             this.dataGridViewContent.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentDoubleClick);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);

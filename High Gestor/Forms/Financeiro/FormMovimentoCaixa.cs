@@ -31,7 +31,7 @@ namespace High_Gestor.Forms.Financeiro
         private void buttonSairCaixa_Paint(object sender, PaintEventArgs e)
         {
             buttonSairCaixa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSairCaixa.Width,
-            buttonSairCaixa.Height, 3, 3));
+            buttonSairCaixa.Height, 4, 4));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)

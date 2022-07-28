@@ -133,17 +133,64 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonControleCaixa_Click(object sender, EventArgs e)
         {
+            buttonConfigContasReceber.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.White;
+            buttonControleCaixa.BackColor = Color.FromArgb(210, 210, 210);
+
             openChildForm(new Outros.Caixa.FormControleCaixa());
         }
 
         private void buttonConfigContasReceber_Click(object sender, EventArgs e)
         {
-
+            buttonControleCaixa.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.White;
+            buttonConfigContasReceber.BackColor = Color.FromArgb(210, 210, 210);
         }
 
         private void buttonConfigContasPagar_Click(object sender, EventArgs e)
         {
+            buttonControleCaixa.BackColor = Color.White;
+            buttonConfigContasReceber.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.FromArgb(210, 210, 210);
+        }
 
+        private void buttonControleContas_Click(object sender, EventArgs e)
+        {
+            buttonControleCaixa.BackColor = Color.White;
+            buttonConfigContasReceber.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.FromArgb(210, 210, 210);
+        }
+
+        private void buttonControleCustos_Click(object sender, EventArgs e)
+        {
+            buttonControleCaixa.BackColor = Color.White;
+            buttonConfigContasReceber.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.FromArgb(210, 210, 210);
+        }
+
+        private void buttonFormaPagamento_Click(object sender, EventArgs e)
+        {
+            buttonControleCaixa.BackColor = Color.White;
+            buttonConfigContasReceber.BackColor = Color.White;
+            buttonConfigContasPagar.BackColor = Color.White;
+            buttonControleContas.BackColor = Color.White;
+            buttonControleCustos.BackColor = Color.White;
+            buttonFormaPagamento.BackColor = Color.FromArgb(210, 210, 210);
         }
     }
 }

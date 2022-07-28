@@ -54,13 +54,13 @@
             // 
             label1.AutoSize = true;
             label1.BackColor = System.Drawing.Color.White;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label1.Location = new System.Drawing.Point(16, 66);
+            label1.Location = new System.Drawing.Point(16, 60);
             label1.Margin = new System.Windows.Forms.Padding(0);
             label1.Name = "label1";
             label1.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            label1.Size = new System.Drawing.Size(56, 20);
+            label1.Size = new System.Drawing.Size(53, 18);
             label1.TabIndex = 95;
             label1.Text = "Caixa";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -69,13 +69,13 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.White;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label3.Location = new System.Drawing.Point(17, 154);
+            label3.Location = new System.Drawing.Point(17, 148);
             label3.Margin = new System.Windows.Forms.Padding(0);
             label3.Name = "label3";
             label3.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            label3.Size = new System.Drawing.Size(150, 20);
+            label3.Size = new System.Drawing.Size(141, 18);
             label3.TabIndex = 99;
             label3.Text = "Contas a receber";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -84,13 +84,13 @@
             // 
             label7.AutoSize = true;
             label7.BackColor = System.Drawing.Color.White;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label7.Location = new System.Drawing.Point(17, 242);
+            label7.Location = new System.Drawing.Point(17, 236);
             label7.Margin = new System.Windows.Forms.Padding(0);
             label7.Name = "label7";
             label7.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            label7.Size = new System.Drawing.Size(135, 20);
+            label7.Size = new System.Drawing.Size(126, 18);
             label7.TabIndex = 100;
             label7.Text = "Contas a pagar";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -99,13 +99,13 @@
             // 
             label8.AutoSize = true;
             label8.BackColor = System.Drawing.Color.White;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label8.Location = new System.Drawing.Point(17, 330);
+            label8.Location = new System.Drawing.Point(17, 324);
             label8.Margin = new System.Windows.Forms.Padding(0);
             label8.Name = "label8";
             label8.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            label8.Size = new System.Drawing.Size(66, 20);
+            label8.Size = new System.Drawing.Size(63, 18);
             label8.TabIndex = 101;
             label8.Text = "Outros";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -138,22 +138,23 @@
             this.buttonFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonFormaPagamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonFormaPagamento.Image")));
             this.buttonFormaPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFormaPagamento.Location = new System.Drawing.Point(30, 520);
+            this.buttonFormaPagamento.Location = new System.Drawing.Point(30, 499);
             this.buttonFormaPagamento.Name = "buttonFormaPagamento";
-            this.buttonFormaPagamento.Size = new System.Drawing.Size(220, 50);
+            this.buttonFormaPagamento.Size = new System.Drawing.Size(220, 45);
             this.buttonFormaPagamento.TabIndex = 107;
             this.buttonFormaPagamento.Text = "   Formas de Pagamento";
             this.buttonFormaPagamento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFormaPagamento.UseVisualStyleBackColor = true;
+            this.buttonFormaPagamento.Click += new System.EventHandler(this.buttonFormaPagamento_Click);
             // 
             // button6
             // 
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button6.Location = new System.Drawing.Point(30, 464);
+            this.button6.Location = new System.Drawing.Point(30, 448);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(220, 50);
+            this.button6.Size = new System.Drawing.Size(220, 45);
             this.button6.TabIndex = 106;
             this.button6.Text = "????";
             this.button6.UseVisualStyleBackColor = true;
@@ -165,13 +166,14 @@
             this.buttonControleCustos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonControleCustos.Image = ((System.Drawing.Image)(resources.GetObject("buttonControleCustos.Image")));
             this.buttonControleCustos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonControleCustos.Location = new System.Drawing.Point(30, 408);
+            this.buttonControleCustos.Location = new System.Drawing.Point(30, 397);
             this.buttonControleCustos.Name = "buttonControleCustos";
-            this.buttonControleCustos.Size = new System.Drawing.Size(220, 50);
+            this.buttonControleCustos.Size = new System.Drawing.Size(220, 45);
             this.buttonControleCustos.TabIndex = 105;
             this.buttonControleCustos.Text = "   Controle de Custos";
             this.buttonControleCustos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonControleCustos.UseVisualStyleBackColor = true;
+            this.buttonControleCustos.Click += new System.EventHandler(this.buttonControleCustos_Click);
             // 
             // buttonControleContas
             // 
@@ -180,13 +182,14 @@
             this.buttonControleContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonControleContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonControleContas.Image")));
             this.buttonControleContas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonControleContas.Location = new System.Drawing.Point(30, 352);
+            this.buttonControleContas.Location = new System.Drawing.Point(30, 346);
             this.buttonControleContas.Name = "buttonControleContas";
-            this.buttonControleContas.Size = new System.Drawing.Size(220, 50);
+            this.buttonControleContas.Size = new System.Drawing.Size(220, 45);
             this.buttonControleContas.TabIndex = 104;
             this.buttonControleContas.Text = "   Controle de Contas";
             this.buttonControleContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonControleContas.UseVisualStyleBackColor = true;
+            this.buttonControleContas.Click += new System.EventHandler(this.buttonControleContas_Click);
             // 
             // buttonConfigContasPagar
             // 
@@ -195,9 +198,9 @@
             this.buttonConfigContasPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonConfigContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigContasPagar.Image")));
             this.buttonConfigContasPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigContasPagar.Location = new System.Drawing.Point(30, 267);
+            this.buttonConfigContasPagar.Location = new System.Drawing.Point(30, 261);
             this.buttonConfigContasPagar.Name = "buttonConfigContasPagar";
-            this.buttonConfigContasPagar.Size = new System.Drawing.Size(220, 50);
+            this.buttonConfigContasPagar.Size = new System.Drawing.Size(220, 45);
             this.buttonConfigContasPagar.TabIndex = 103;
             this.buttonConfigContasPagar.Text = "   Config Contas Pagar";
             this.buttonConfigContasPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -211,9 +214,9 @@
             this.buttonConfigContasReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonConfigContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigContasReceber.Image")));
             this.buttonConfigContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigContasReceber.Location = new System.Drawing.Point(30, 179);
+            this.buttonConfigContasReceber.Location = new System.Drawing.Point(30, 173);
             this.buttonConfigContasReceber.Name = "buttonConfigContasReceber";
-            this.buttonConfigContasReceber.Size = new System.Drawing.Size(220, 50);
+            this.buttonConfigContasReceber.Size = new System.Drawing.Size(220, 45);
             this.buttonConfigContasReceber.TabIndex = 102;
             this.buttonConfigContasReceber.Text = "   Config Contas Receber";
             this.buttonConfigContasReceber.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -227,9 +230,9 @@
             this.buttonControleCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonControleCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonControleCaixa.Image")));
             this.buttonControleCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonControleCaixa.Location = new System.Drawing.Point(30, 90);
+            this.buttonControleCaixa.Location = new System.Drawing.Point(30, 84);
             this.buttonControleCaixa.Name = "buttonControleCaixa";
-            this.buttonControleCaixa.Size = new System.Drawing.Size(220, 50);
+            this.buttonControleCaixa.Size = new System.Drawing.Size(220, 45);
             this.buttonControleCaixa.TabIndex = 94;
             this.buttonControleCaixa.Text = "   Controle de caixa";
             this.buttonControleCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
