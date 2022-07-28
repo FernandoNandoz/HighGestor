@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinanceiro));
             System.Windows.Forms.Label labelMovimentoCaixa;
+            System.Windows.Forms.PictureBox pictureBoxMovimentoCaixa;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinanceiro));
+            System.Windows.Forms.PictureBox pictureBoxContasReceber;
+            System.Windows.Forms.PictureBox pictureBoxContasPagar;
+            System.Windows.Forms.PictureBox pictureBoxConfiguracao;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.PictureBox pictureBoxMovimentoCaixa;
-            System.Windows.Forms.PictureBox pictureBoxContasReceber;
-            System.Windows.Forms.PictureBox pictureBoxContasPagar;
-            System.Windows.Forms.PictureBox pictureBoxConfiguracao;
             this.panelContent = new System.Windows.Forms.Panel();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.labelStatusCaixa = new System.Windows.Forms.Label();
@@ -64,17 +64,67 @@
             pictureBoxContasReceber = new System.Windows.Forms.PictureBox();
             pictureBoxContasPagar = new System.Windows.Forms.PictureBox();
             pictureBoxConfiguracao = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).BeginInit();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             this.panelMovimentoCaixa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).BeginInit();
             this.panelContasReceber.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).BeginInit();
             this.panelContasPagar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).BeginInit();
             this.panelConfiguracao.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).BeginInit();
             this.SuspendLayout();
+            // 
+            // labelMovimentoCaixa
+            // 
+            labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            labelMovimentoCaixa.AutoSize = true;
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
+            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 161);
+            labelMovimentoCaixa.Name = "labelMovimentoCaixa";
+            labelMovimentoCaixa.Size = new System.Drawing.Size(206, 26);
+            labelMovimentoCaixa.TabIndex = 97;
+            labelMovimentoCaixa.Text = "Movimento de caixa";
+            labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // pictureBoxMovimentoCaixa
+            // 
+            pictureBoxMovimentoCaixa.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMovimentoCaixa.Image")));
+            pictureBoxMovimentoCaixa.Location = new System.Drawing.Point(229, 7);
+            pictureBoxMovimentoCaixa.Name = "pictureBoxMovimentoCaixa";
+            pictureBoxMovimentoCaixa.Size = new System.Drawing.Size(38, 33);
+            pictureBoxMovimentoCaixa.TabIndex = 13;
+            pictureBoxMovimentoCaixa.TabStop = false;
+            // 
+            // pictureBoxContasReceber
+            // 
+            pictureBoxContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasReceber.Image")));
+            pictureBoxContasReceber.Location = new System.Drawing.Point(229, 6);
+            pictureBoxContasReceber.Name = "pictureBoxContasReceber";
+            pictureBoxContasReceber.Size = new System.Drawing.Size(38, 33);
+            pictureBoxContasReceber.TabIndex = 12;
+            pictureBoxContasReceber.TabStop = false;
+            // 
+            // pictureBoxContasPagar
+            // 
+            pictureBoxContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasPagar.Image")));
+            pictureBoxContasPagar.Location = new System.Drawing.Point(229, 6);
+            pictureBoxContasPagar.Name = "pictureBoxContasPagar";
+            pictureBoxContasPagar.Size = new System.Drawing.Size(38, 33);
+            pictureBoxContasPagar.TabIndex = 13;
+            pictureBoxContasPagar.TabStop = false;
+            // 
+            // pictureBoxConfiguracao
+            // 
+            pictureBoxConfiguracao.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxConfiguracao.Image")));
+            pictureBoxConfiguracao.Location = new System.Drawing.Point(17, 5);
+            pictureBoxConfiguracao.Name = "pictureBoxConfiguracao";
+            pictureBoxConfiguracao.Size = new System.Drawing.Size(64, 56);
+            pictureBoxConfiguracao.TabIndex = 10;
+            pictureBoxConfiguracao.TabStop = false;
             // 
             // panelContent
             // 
@@ -130,20 +180,6 @@
             this.labelStatusCaixa.Text = "Status do caixa";
             this.labelStatusCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // labelMovimentoCaixa
-            // 
-            labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 161);
-            labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(206, 26);
-            labelMovimentoCaixa.TabIndex = 97;
-            labelMovimentoCaixa.Text = "Movimento de caixa";
-            labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // dataGridViewContent
             // 
             this.dataGridViewContent.AllowUserToAddRows = false;
@@ -159,7 +195,7 @@
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -201,12 +237,11 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Empty;
             this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
-            this.dataGridViewContent.RowTemplate.Height = 45;
+            this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1218, 469);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1226, 469);
             this.dataGridViewContent.TabIndex = 96;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -249,7 +284,7 @@
             // 
             // panelMovimentoCaixa
             // 
-            this.panelMovimentoCaixa.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelMovimentoCaixa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panelMovimentoCaixa.Controls.Add(pictureBoxMovimentoCaixa);
             this.panelMovimentoCaixa.Controls.Add(this.labelMovimentoCaixaValue);
             this.panelMovimentoCaixa.Controls.Add(this.buttonMovimentoCaixa);
@@ -258,15 +293,6 @@
             this.panelMovimentoCaixa.Size = new System.Drawing.Size(270, 104);
             this.panelMovimentoCaixa.TabIndex = 93;
             this.panelMovimentoCaixa.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMovimentoCaixa_Paint);
-            // 
-            // pictureBoxMovimentoCaixa
-            // 
-            pictureBoxMovimentoCaixa.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMovimentoCaixa.Image")));
-            pictureBoxMovimentoCaixa.Location = new System.Drawing.Point(229, 7);
-            pictureBoxMovimentoCaixa.Name = "pictureBoxMovimentoCaixa";
-            pictureBoxMovimentoCaixa.Size = new System.Drawing.Size(38, 33);
-            pictureBoxMovimentoCaixa.TabIndex = 13;
-            pictureBoxMovimentoCaixa.TabStop = false;
             // 
             // labelMovimentoCaixaValue
             // 
@@ -299,7 +325,7 @@
             // 
             // panelContasReceber
             // 
-            this.panelContasReceber.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelContasReceber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panelContasReceber.Controls.Add(pictureBoxContasReceber);
             this.panelContasReceber.Controls.Add(this.buttonContasReceber);
             this.panelContasReceber.Controls.Add(this.labelContasReceberValue);
@@ -308,15 +334,6 @@
             this.panelContasReceber.Size = new System.Drawing.Size(270, 104);
             this.panelContasReceber.TabIndex = 94;
             this.panelContasReceber.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasReceber_Paint);
-            // 
-            // pictureBoxContasReceber
-            // 
-            pictureBoxContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasReceber.Image")));
-            pictureBoxContasReceber.Location = new System.Drawing.Point(229, 6);
-            pictureBoxContasReceber.Name = "pictureBoxContasReceber";
-            pictureBoxContasReceber.Size = new System.Drawing.Size(38, 33);
-            pictureBoxContasReceber.TabIndex = 12;
-            pictureBoxContasReceber.TabStop = false;
             // 
             // buttonContasReceber
             // 
@@ -348,7 +365,7 @@
             // 
             // panelContasPagar
             // 
-            this.panelContasPagar.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelContasPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panelContasPagar.Controls.Add(pictureBoxContasPagar);
             this.panelContasPagar.Controls.Add(this.buttonContasPagar);
             this.panelContasPagar.Controls.Add(this.labelContasPagarValue);
@@ -357,15 +374,6 @@
             this.panelContasPagar.Size = new System.Drawing.Size(270, 104);
             this.panelContasPagar.TabIndex = 95;
             this.panelContasPagar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasPagar_Paint);
-            // 
-            // pictureBoxContasPagar
-            // 
-            pictureBoxContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasPagar.Image")));
-            pictureBoxContasPagar.Location = new System.Drawing.Point(229, 6);
-            pictureBoxContasPagar.Name = "pictureBoxContasPagar";
-            pictureBoxContasPagar.Size = new System.Drawing.Size(38, 33);
-            pictureBoxContasPagar.TabIndex = 13;
-            pictureBoxContasPagar.TabStop = false;
             // 
             // buttonContasPagar
             // 
@@ -397,7 +405,7 @@
             // 
             // panelConfiguracao
             // 
-            this.panelConfiguracao.BackColor = System.Drawing.Color.Gainsboro;
+            this.panelConfiguracao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.panelConfiguracao.Controls.Add(pictureBoxConfiguracao);
             this.panelConfiguracao.Controls.Add(this.buttonConfiguracao);
             this.panelConfiguracao.Location = new System.Drawing.Point(889, 24);
@@ -405,15 +413,6 @@
             this.panelConfiguracao.Size = new System.Drawing.Size(270, 104);
             this.panelConfiguracao.TabIndex = 92;
             this.panelConfiguracao.Paint += new System.Windows.Forms.PaintEventHandler(this.panelConfiguracao_Paint);
-            // 
-            // pictureBoxConfiguracao
-            // 
-            pictureBoxConfiguracao.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxConfiguracao.Image")));
-            pictureBoxConfiguracao.Location = new System.Drawing.Point(17, 5);
-            pictureBoxConfiguracao.Name = "pictureBoxConfiguracao";
-            pictureBoxConfiguracao.Size = new System.Drawing.Size(64, 56);
-            pictureBoxConfiguracao.TabIndex = 10;
-            pictureBoxConfiguracao.TabStop = false;
             // 
             // buttonConfiguracao
             // 
@@ -444,20 +443,20 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFinanceiro";
             this.Load += new System.EventHandler(this.FormFinanceiro_Load);
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).EndInit();
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
             this.panelMovimentoCaixa.ResumeLayout(false);
             this.panelMovimentoCaixa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).EndInit();
             this.panelContasReceber.ResumeLayout(false);
             this.panelContasReceber.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).EndInit();
             this.panelContasPagar.ResumeLayout(false);
             this.panelContasPagar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).EndInit();
             this.panelConfiguracao.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -246,6 +246,8 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("VENDAS");
             alterouSize.receberValidacao(1);
+
+            openChildForm(new Forms.Vendas.FormVendas());
         }
 
         private void buttonProdutos_Click(object sender, EventArgs e)
@@ -261,6 +263,8 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("PRODUTO");
             alterouSize.receberValidacao(1);
+
+            openChildForm(new Forms.Produtos.FormProdutos());
         }
 
         private void buttonClientes_Click(object sender, EventArgs e)
@@ -311,6 +315,8 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("RELATORIO");
             alterouSize.receberValidacao(1);
+
+            openChildForm(new Forms.Relatorios.FormRelatorios());
         }
 
         private void buttonConfiguracoes_Click(object sender, EventArgs e)
@@ -326,6 +332,8 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("CONFIGURACAO");
             alterouSize.receberValidacao(1);
+
+            openChildForm(new Forms.Configuracoes.FormConfiguracoes());
         }
 
         private void buttonTrocarUsuario_Click(object sender, EventArgs e)

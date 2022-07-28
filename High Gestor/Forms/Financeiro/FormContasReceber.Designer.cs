@@ -1,6 +1,6 @@
 ﻿namespace High_Gestor.Forms.Financeiro
 {
-    partial class FormContasPagar
+    partial class FormContasReceber
     {
         /// <summary>
         /// Required designer variable.
@@ -35,7 +35,7 @@
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.PictureBox pictureBoxContasReceber;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContasPagar));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContasReceber));
             System.Windows.Forms.Label label5;
             System.Windows.Forms.PictureBox pictureBoxContasPagar;
             System.Windows.Forms.PictureBox pictureBox1;
@@ -46,15 +46,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.buttonPagarConta = new System.Windows.Forms.Button();
+            this.buttonReceberConta = new System.Windows.Forms.Button();
             this.dateTimeDataFinal = new System.Windows.Forms.DateTimePicker();
             this.comboBoxTipoConta = new System.Windows.Forms.ComboBox();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.dateTimeDateInicial = new System.Windows.Forms.DateTimePicker();
             this.panelTotalContas = new System.Windows.Forms.Panel();
             this.labelTotalContasValue = new System.Windows.Forms.Label();
-            this.panelTotalContasPagas = new System.Windows.Forms.Panel();
-            this.labelTotalContasPagasValue = new System.Windows.Forms.Label();
+            this.panelTotalContasRecebidas = new System.Windows.Forms.Panel();
+            this.labelTotalContasRecebidasValue = new System.Windows.Forms.Label();
             this.panelSaldoAtual = new System.Windows.Forms.Panel();
             this.labelSaldoAtualValue = new System.Windows.Forms.Label();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
@@ -68,7 +68,7 @@
             this.buttonEditarLancamento = new System.Windows.Forms.Button();
             this.buttonGerarRelatorio = new System.Windows.Forms.Button();
             this.buttonLancaManualmente = new System.Windows.Forms.Button();
-            this.buttonSairContasPagar = new System.Windows.Forms.Button();
+            this.buttonSairContasReceber = new System.Windows.Forms.Button();
             label9 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
             this.panelTotalContas.SuspendLayout();
-            this.panelTotalContasPagas.SuspendLayout();
+            this.panelTotalContasRecebidas.SuspendLayout();
             this.panelSaldoAtual.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             this.SuspendLayout();
@@ -93,32 +93,32 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.Location = new System.Drawing.Point(880, 20);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(110, 18);
-            label9.TabIndex = 133;
+            label9.TabIndex = 112;
             label9.Text = "Periodo de final";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label7.Location = new System.Drawing.Point(517, 20);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(98, 18);
-            label7.TabIndex = 131;
+            label7.TabIndex = 110;
             label7.Text = "Tipo de conta";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new System.Drawing.Point(25, 20);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(118, 18);
-            label2.TabIndex = 129;
-            label2.Text = "Pesquisar Conta";
+            label2.Size = new System.Drawing.Size(123, 18);
+            label2.TabIndex = 108;
+            label2.Text = "Pesquisar Cliente";
             // 
             // labelMovimentoCaixa
             // 
@@ -129,19 +129,19 @@
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
             labelMovimentoCaixa.Location = new System.Drawing.Point(25, 138);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(206, 24);
-            labelMovimentoCaixa.TabIndex = 127;
-            labelMovimentoCaixa.Text = "Lista de Contas a Pagar";
+            labelMovimentoCaixa.Size = new System.Drawing.Size(230, 24);
+            labelMovimentoCaixa.TabIndex = 106;
+            labelMovimentoCaixa.Text = "Lista de Contas a Receber";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.Location = new System.Drawing.Point(739, 20);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(100, 18);
-            label6.TabIndex = 126;
+            label6.TabIndex = 105;
             label6.Text = "Periodo inicial";
             // 
             // label3
@@ -176,9 +176,9 @@
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             label5.Location = new System.Drawing.Point(12, 57);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(187, 18);
+            label5.Size = new System.Drawing.Size(222, 18);
             label5.TabIndex = 62;
-            label5.Text = "Total de Contas Pagas";
+            label5.Text = "Total de Contas Recebidas";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBoxContasPagar
@@ -222,39 +222,39 @@
             label8.Location = new System.Drawing.Point(1077, 86);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
-            label8.TabIndex = 148;
+            label8.TabIndex = 142;
             label8.Text = "|";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonPagarConta
+            // buttonReceberConta
             // 
-            this.buttonPagarConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPagarConta.BackColor = System.Drawing.Color.Firebrick;
-            this.buttonPagarConta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonPagarConta.FlatAppearance.BorderSize = 0;
-            this.buttonPagarConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPagarConta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
-            this.buttonPagarConta.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPagarConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonPagarConta.Image")));
-            this.buttonPagarConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagarConta.Location = new System.Drawing.Point(977, 569);
-            this.buttonPagarConta.Name = "buttonPagarConta";
-            this.buttonPagarConta.Size = new System.Drawing.Size(278, 84);
-            this.buttonPagarConta.TabIndex = 134;
-            this.buttonPagarConta.Text = "  Pagar Conta";
-            this.buttonPagarConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonPagarConta.UseVisualStyleBackColor = false;
-            this.buttonPagarConta.Click += new System.EventHandler(this.buttonPagarConta_Click);
-            this.buttonPagarConta.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonPagarConta_Paint);
+            this.buttonReceberConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonReceberConta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(147)))), ((int)(((byte)(59)))));
+            this.buttonReceberConta.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonReceberConta.FlatAppearance.BorderSize = 0;
+            this.buttonReceberConta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReceberConta.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F);
+            this.buttonReceberConta.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonReceberConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonReceberConta.Image")));
+            this.buttonReceberConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonReceberConta.Location = new System.Drawing.Point(976, 569);
+            this.buttonReceberConta.Name = "buttonReceberConta";
+            this.buttonReceberConta.Size = new System.Drawing.Size(278, 84);
+            this.buttonReceberConta.TabIndex = 113;
+            this.buttonReceberConta.Text = "  Receber Conta";
+            this.buttonReceberConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonReceberConta.UseVisualStyleBackColor = false;
+            this.buttonReceberConta.Click += new System.EventHandler(this.buttonReceberConta_Click);
+            this.buttonReceberConta.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonReceberConta_Paint);
             // 
             // dateTimeDataFinal
             // 
             this.dateTimeDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDataFinal.Location = new System.Drawing.Point(884, 43);
+            this.dateTimeDataFinal.Location = new System.Drawing.Point(884, 42);
             this.dateTimeDataFinal.Name = "dateTimeDataFinal";
             this.dateTimeDataFinal.Size = new System.Drawing.Size(135, 26);
-            this.dateTimeDataFinal.TabIndex = 132;
+            this.dateTimeDataFinal.TabIndex = 111;
             // 
             // comboBoxTipoConta
             // 
@@ -264,27 +264,27 @@
             "TODOS",
             "ABERTOS",
             "QUITADOS"});
-            this.comboBoxTipoConta.Location = new System.Drawing.Point(521, 43);
+            this.comboBoxTipoConta.Location = new System.Drawing.Point(521, 42);
             this.comboBoxTipoConta.Name = "comboBoxTipoConta";
             this.comboBoxTipoConta.Size = new System.Drawing.Size(216, 26);
-            this.comboBoxTipoConta.TabIndex = 130;
+            this.comboBoxTipoConta.TabIndex = 109;
             // 
             // textBoxPesquisar
             // 
             this.textBoxPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPesquisar.Location = new System.Drawing.Point(29, 43);
+            this.textBoxPesquisar.Location = new System.Drawing.Point(29, 42);
             this.textBoxPesquisar.Name = "textBoxPesquisar";
             this.textBoxPesquisar.Size = new System.Drawing.Size(485, 26);
-            this.textBoxPesquisar.TabIndex = 128;
+            this.textBoxPesquisar.TabIndex = 107;
             // 
             // dateTimeDateInicial
             // 
             this.dateTimeDateInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeDateInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDateInicial.Location = new System.Drawing.Point(743, 43);
+            this.dateTimeDateInicial.Location = new System.Drawing.Point(743, 42);
             this.dateTimeDateInicial.Name = "dateTimeDateInicial";
             this.dateTimeDateInicial.Size = new System.Drawing.Size(135, 26);
-            this.dateTimeDateInicial.TabIndex = 125;
+            this.dateTimeDateInicial.TabIndex = 104;
             // 
             // panelTotalContas
             // 
@@ -293,10 +293,10 @@
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
-            this.panelTotalContas.Location = new System.Drawing.Point(29, 569);
+            this.panelTotalContas.Location = new System.Drawing.Point(28, 569);
             this.panelTotalContas.Name = "panelTotalContas";
             this.panelTotalContas.Size = new System.Drawing.Size(270, 84);
-            this.panelTotalContas.TabIndex = 123;
+            this.panelTotalContas.TabIndex = 102;
             this.panelTotalContas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContas_Paint);
             // 
             // labelTotalContasValue
@@ -310,29 +310,29 @@
             this.labelTotalContasValue.TabIndex = 4;
             this.labelTotalContasValue.Text = "0,00";
             // 
-            // panelTotalContasPagas
+            // panelTotalContasRecebidas
             // 
-            this.panelTotalContasPagas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelTotalContasPagas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panelTotalContasPagas.Controls.Add(label5);
-            this.panelTotalContasPagas.Controls.Add(pictureBoxContasPagar);
-            this.panelTotalContasPagas.Controls.Add(this.labelTotalContasPagasValue);
-            this.panelTotalContasPagas.Location = new System.Drawing.Point(311, 569);
-            this.panelTotalContasPagas.Name = "panelTotalContasPagas";
-            this.panelTotalContasPagas.Size = new System.Drawing.Size(270, 84);
-            this.panelTotalContasPagas.TabIndex = 124;
-            this.panelTotalContasPagas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContasPagas_Paint);
+            this.panelTotalContasRecebidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelTotalContasRecebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelTotalContasRecebidas.Controls.Add(label5);
+            this.panelTotalContasRecebidas.Controls.Add(pictureBoxContasPagar);
+            this.panelTotalContasRecebidas.Controls.Add(this.labelTotalContasRecebidasValue);
+            this.panelTotalContasRecebidas.Location = new System.Drawing.Point(311, 569);
+            this.panelTotalContasRecebidas.Name = "panelTotalContasRecebidas";
+            this.panelTotalContasRecebidas.Size = new System.Drawing.Size(270, 84);
+            this.panelTotalContasRecebidas.TabIndex = 103;
+            this.panelTotalContasRecebidas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContasRecebidas_Paint);
             // 
-            // labelTotalContasPagasValue
+            // labelTotalContasRecebidasValue
             // 
-            this.labelTotalContasPagasValue.AutoSize = true;
-            this.labelTotalContasPagasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalContasPagasValue.ForeColor = System.Drawing.Color.Green;
-            this.labelTotalContasPagasValue.Location = new System.Drawing.Point(8, 6);
-            this.labelTotalContasPagasValue.Name = "labelTotalContasPagasValue";
-            this.labelTotalContasPagasValue.Size = new System.Drawing.Size(84, 37);
-            this.labelTotalContasPagasValue.TabIndex = 3;
-            this.labelTotalContasPagasValue.Text = "0,00";
+            this.labelTotalContasRecebidasValue.AutoSize = true;
+            this.labelTotalContasRecebidasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalContasRecebidasValue.ForeColor = System.Drawing.Color.Green;
+            this.labelTotalContasRecebidasValue.Location = new System.Drawing.Point(8, 6);
+            this.labelTotalContasRecebidasValue.Name = "labelTotalContasRecebidasValue";
+            this.labelTotalContasRecebidasValue.Size = new System.Drawing.Size(84, 37);
+            this.labelTotalContasRecebidasValue.TabIndex = 3;
+            this.labelTotalContasRecebidasValue.Text = "0,00";
             // 
             // panelSaldoAtual
             // 
@@ -341,10 +341,10 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(592, 569);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(594, 569);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
             this.panelSaldoAtual.Size = new System.Drawing.Size(270, 84);
-            this.panelSaldoAtual.TabIndex = 122;
+            this.panelSaldoAtual.TabIndex = 101;
             this.panelSaldoAtual.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSaldoAtual_Paint);
             // 
             // labelSaldoAtualValue
@@ -398,6 +398,7 @@
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
             this.dataGridViewContent.Location = new System.Drawing.Point(29, 168);
+            this.dataGridViewContent.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -411,7 +412,7 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewContent.RowHeadersVisible = false;
-            this.dataGridViewContent.RowHeadersWidth = 45;
+            this.dataGridViewContent.RowHeadersWidth = 46;
             this.dataGridViewContent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -421,7 +422,7 @@
             this.dataGridViewContent.RowTemplate.Height = 42;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewContent.Size = new System.Drawing.Size(1225, 385);
-            this.dataGridViewContent.TabIndex = 121;
+            this.dataGridViewContent.TabIndex = 100;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
             // Column4
@@ -467,6 +468,8 @@
             this.Column3.Image = ((System.Drawing.Image)(resources.GetObject("Column3.Image")));
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // buttonExcluirLancamento
             // 
@@ -476,7 +479,7 @@
             this.buttonExcluirLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExcluirLancamento.Name = "buttonExcluirLancamento";
             this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 38);
-            this.buttonExcluirLancamento.TabIndex = 153;
+            this.buttonExcluirLancamento.TabIndex = 147;
             this.buttonExcluirLancamento.Text = " Excluir lançamento";
             this.buttonExcluirLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExcluirLancamento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -491,7 +494,7 @@
             this.buttonEditarLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonEditarLancamento.Name = "buttonEditarLancamento";
             this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 38);
-            this.buttonEditarLancamento.TabIndex = 152;
+            this.buttonEditarLancamento.TabIndex = 146;
             this.buttonEditarLancamento.Text = " Editar lançamento";
             this.buttonEditarLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEditarLancamento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -505,9 +508,9 @@
             this.buttonGerarRelatorio.Location = new System.Drawing.Point(613, 85);
             this.buttonGerarRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGerarRelatorio.Name = "buttonGerarRelatorio";
-            this.buttonGerarRelatorio.Size = new System.Drawing.Size(280, 38);
-            this.buttonGerarRelatorio.TabIndex = 151;
-            this.buttonGerarRelatorio.Text = " Gerar relatorio de Contas a Pagar";
+            this.buttonGerarRelatorio.Size = new System.Drawing.Size(289, 38);
+            this.buttonGerarRelatorio.TabIndex = 145;
+            this.buttonGerarRelatorio.Text = " Gerar relatorio de Contas a Receber";
             this.buttonGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGerarRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonGerarRelatorio.UseVisualStyleBackColor = true;
@@ -521,38 +524,38 @@
             this.buttonLancaManualmente.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancaManualmente.Name = "buttonLancaManualmente";
             this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 38);
-            this.buttonLancaManualmente.TabIndex = 150;
+            this.buttonLancaManualmente.TabIndex = 144;
             this.buttonLancaManualmente.Text = " Lançar manualmente";
             this.buttonLancaManualmente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLancaManualmente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLancaManualmente.UseVisualStyleBackColor = true;
             this.buttonLancaManualmente.Click += new System.EventHandler(this.buttonLancaManualmente_Click);
             // 
-            // buttonSairContasPagar
+            // buttonSairContasReceber
             // 
-            this.buttonSairContasPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSairContasPagar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.buttonSairContasPagar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonSairContasPagar.FlatAppearance.BorderSize = 0;
-            this.buttonSairContasPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSairContasPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonSairContasPagar.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSairContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairContasPagar.Image")));
-            this.buttonSairContasPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairContasPagar.Location = new System.Drawing.Point(1101, 85);
-            this.buttonSairContasPagar.Name = "buttonSairContasPagar";
-            this.buttonSairContasPagar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSairContasPagar.Size = new System.Drawing.Size(153, 38);
-            this.buttonSairContasPagar.TabIndex = 149;
-            this.buttonSairContasPagar.TabStop = false;
-            this.buttonSairContasPagar.Text = " Voltar";
-            this.buttonSairContasPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSairContasPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSairContasPagar.UseVisualStyleBackColor = false;
-            this.buttonSairContasPagar.Click += new System.EventHandler(this.buttonSairContasPagar_Click);
-            this.buttonSairContasPagar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonSairContasPagar_Paint);
+            this.buttonSairContasReceber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSairContasReceber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.buttonSairContasReceber.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonSairContasReceber.FlatAppearance.BorderSize = 0;
+            this.buttonSairContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSairContasReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonSairContasReceber.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSairContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairContasReceber.Image")));
+            this.buttonSairContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSairContasReceber.Location = new System.Drawing.Point(1101, 85);
+            this.buttonSairContasReceber.Name = "buttonSairContasReceber";
+            this.buttonSairContasReceber.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonSairContasReceber.Size = new System.Drawing.Size(153, 38);
+            this.buttonSairContasReceber.TabIndex = 143;
+            this.buttonSairContasReceber.TabStop = false;
+            this.buttonSairContasReceber.Text = " Voltar";
+            this.buttonSairContasReceber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSairContasReceber.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSairContasReceber.UseVisualStyleBackColor = false;
+            this.buttonSairContasReceber.Click += new System.EventHandler(this.buttonSairContasReceber_Click);
+            this.buttonSairContasReceber.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonSairContasReceber_Paint);
             // 
-            // FormContasPagar
+            // FormContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -562,9 +565,9 @@
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);
             this.Controls.Add(this.buttonLancaManualmente);
-            this.Controls.Add(this.buttonSairContasPagar);
+            this.Controls.Add(this.buttonSairContasReceber);
             this.Controls.Add(label8);
-            this.Controls.Add(this.buttonPagarConta);
+            this.Controls.Add(this.buttonReceberConta);
             this.Controls.Add(label9);
             this.Controls.Add(this.dateTimeDataFinal);
             this.Controls.Add(label7);
@@ -575,21 +578,21 @@
             this.Controls.Add(label6);
             this.Controls.Add(this.dateTimeDateInicial);
             this.Controls.Add(this.panelTotalContas);
-            this.Controls.Add(this.panelTotalContasPagas);
+            this.Controls.Add(this.panelTotalContasRecebidas);
             this.Controls.Add(this.panelSaldoAtual);
             this.Controls.Add(this.dataGridViewContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormContasPagar";
+            this.Name = "FormContasReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormContasPagar";
-            this.Load += new System.EventHandler(this.FormContasPagar_Load);
+            this.Text = "FormContasReceber";
+            this.Load += new System.EventHandler(this.FormContasReceber_Load);
             ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
             this.panelTotalContas.ResumeLayout(false);
             this.panelTotalContas.PerformLayout();
-            this.panelTotalContasPagas.ResumeLayout(false);
-            this.panelTotalContasPagas.PerformLayout();
+            this.panelTotalContasRecebidas.ResumeLayout(false);
+            this.panelTotalContasRecebidas.PerformLayout();
             this.panelSaldoAtual.ResumeLayout(false);
             this.panelSaldoAtual.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
@@ -600,15 +603,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonPagarConta;
+        private System.Windows.Forms.Button buttonReceberConta;
         private System.Windows.Forms.DateTimePicker dateTimeDataFinal;
         private System.Windows.Forms.ComboBox comboBoxTipoConta;
         private System.Windows.Forms.TextBox textBoxPesquisar;
         private System.Windows.Forms.DateTimePicker dateTimeDateInicial;
         private System.Windows.Forms.Panel panelTotalContas;
         private System.Windows.Forms.Label labelTotalContasValue;
-        private System.Windows.Forms.Panel panelTotalContasPagas;
-        private System.Windows.Forms.Label labelTotalContasPagasValue;
+        private System.Windows.Forms.Panel panelTotalContasRecebidas;
+        private System.Windows.Forms.Label labelTotalContasRecebidasValue;
         private System.Windows.Forms.Panel panelSaldoAtual;
         private System.Windows.Forms.Label labelSaldoAtualValue;
         private System.Windows.Forms.DataGridView dataGridViewContent;
@@ -616,7 +619,7 @@
         private System.Windows.Forms.Button buttonEditarLancamento;
         private System.Windows.Forms.Button buttonGerarRelatorio;
         private System.Windows.Forms.Button buttonLancaManualmente;
-        private System.Windows.Forms.Button buttonSairContasPagar;
+        private System.Windows.Forms.Button buttonSairContasReceber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;

@@ -17,5 +17,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.FormVendas.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormConfiguracao.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormContasPagar.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormContasReceber.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormMovimentoCaixa.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormContasReceber.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Outros.Caixa.FormControleCaixa.resources

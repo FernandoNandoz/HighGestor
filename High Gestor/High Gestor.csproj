@@ -77,6 +77,12 @@
     <Compile Include="Forms\Financeiro\FormContasPagar.Designer.cs">
       <DependentUpon>FormContasPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financeiro\FormContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\FormContasReceber.Designer.cs">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financeiro\FormFinanceiro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,11 +95,11 @@
     <Compile Include="Forms\Financeiro\FormMovimentoCaixa.Designer.cs">
       <DependentUpon>FormMovimentoCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormContasReceber.cs">
+    <Compile Include="Forms\Financeiro\Outros\Caixa\FormControleCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormContasReceber.Designer.cs">
-      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    <Compile Include="Forms\Financeiro\Outros\Caixa\FormControleCaixa.Designer.cs">
+      <DependentUpon>FormControleCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
@@ -136,14 +142,17 @@
     <EmbeddedResource Include="Forms\Financeiro\FormContasPagar.resx">
       <DependentUpon>FormContasPagar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\FormContasReceber.resx">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\FormFinanceiro.resx">
       <DependentUpon>FormFinanceiro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\FormMovimentoCaixa.resx">
       <DependentUpon>FormMovimentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormContasReceber.resx">
-      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Financeiro\Outros\Caixa\FormControleCaixa.resx">
+      <DependentUpon>FormControleCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
@@ -178,7 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DataSource\" />
-    <Folder Include="Forms\Financeiro\Outros\" />
     <Folder Include="Reports\" />
     <Folder Include="Resources\" />
   </ItemGroup>

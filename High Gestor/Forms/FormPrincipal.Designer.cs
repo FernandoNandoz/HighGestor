@@ -382,6 +382,7 @@
             this.Controls.Add(this.paneTitlerBar);
             this.Controls.Add(this.panelMenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1442, 752);
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";

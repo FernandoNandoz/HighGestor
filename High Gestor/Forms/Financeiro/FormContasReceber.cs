@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace High_Gestor.Forms.Financeiro
 {
-    public partial class FormContasPagar : Form
+    public partial class FormContasReceber : Form
     {
         #region Dll
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
@@ -27,17 +27,17 @@ namespace High_Gestor.Forms.Financeiro
         );
         #endregion
 
-        public FormContasPagar()
+        public FormContasReceber()
         {
             InitializeComponent();
         }
 
         #region Paint
 
-        private void buttonSairContasPagar_Paint(object sender, PaintEventArgs e)
+        private void buttonSairContasReceber_Paint(object sender, PaintEventArgs e)
         {
-            buttonSairContasPagar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSairContasPagar.Width,
-            buttonSairContasPagar.Height, 4, 4));
+            buttonSairContasReceber.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSairContasReceber.Width,
+            buttonSairContasReceber.Height, 4, 4));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
@@ -52,10 +52,10 @@ namespace High_Gestor.Forms.Financeiro
             panelTotalContas.Height, 7, 7));
         }
 
-        private void panelTotalContasPagas_Paint(object sender, PaintEventArgs e)
+        private void panelTotalContasRecebidas_Paint(object sender, PaintEventArgs e)
         {
-            panelTotalContasPagas.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelTotalContasPagas.Width,
-            panelTotalContasPagas.Height, 7, 7));
+            panelTotalContasRecebidas.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelTotalContasRecebidas.Width,
+            panelTotalContasRecebidas.Height, 7, 7));
         }
 
         private void panelSaldoAtual_Paint(object sender, PaintEventArgs e)
@@ -64,16 +64,15 @@ namespace High_Gestor.Forms.Financeiro
             panelSaldoAtual.Height, 7, 7));
         }
 
-        private void buttonPagarConta_Paint(object sender, PaintEventArgs e)
+        private void buttonReceberConta_Paint(object sender, PaintEventArgs e)
         {
-            buttonPagarConta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonPagarConta.Width,
-            buttonPagarConta.Height, 7, 7));
+            buttonReceberConta.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonReceberConta.Width,
+            buttonReceberConta.Height, 7, 7));
         }
 
         #endregion
 
-
-        private void FormContasPagar_Load(object sender, System.EventArgs e)
+        private void FormContasReceber_Load(object sender, EventArgs e)
         {
             comboBoxTipoConta.SelectedIndex = 1;
 
@@ -93,7 +92,7 @@ namespace High_Gestor.Forms.Financeiro
             dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
         }
 
-        private void buttonSairContasPagar_Click(object sender, EventArgs e)
+        private void buttonSairContasReceber_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -118,7 +117,7 @@ namespace High_Gestor.Forms.Financeiro
 
         }
 
-        private void buttonPagarConta_Click(object sender, EventArgs e)
+        private void buttonReceberConta_Click(object sender, EventArgs e)
         {
 
         }

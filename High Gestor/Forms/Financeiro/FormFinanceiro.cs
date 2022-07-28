@@ -126,17 +126,17 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonContasReceber_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormContasReceber());
         }
 
         private void buttonContasPagar_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormContasPagar());
         }
 
         private void buttonConfiguracao_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new FormConfiguracao());
         }
     }
 }
