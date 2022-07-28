@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace High_Gestor
@@ -51,7 +45,7 @@ namespace High_Gestor
         {
             Button propriedades = sender as Button;
 
-            if(propriedades.BackColor != Color.FromArgb(0, 32, 80))
+            if (propriedades.BackColor != Color.FromArgb(0, 32, 80))
             {
                 propriedades.BackColor = Color.FromArgb(18, 64, 120);
             }
@@ -203,7 +197,7 @@ namespace High_Gestor
         private void FormHighGestor_Load(object sender, EventArgs e)
         {
             buttonVendas_Click(sender, e);
-        }  
+        }
 
         private void buttonTitlerSair_Click(object sender, EventArgs e)
         {
@@ -212,7 +206,7 @@ namespace High_Gestor
 
         private void buttonTitlerMaximizar_Click(object sender, EventArgs e)
         {
-            if(WindowState != FormWindowState.Maximized)
+            if (WindowState != FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Maximized;
             }
