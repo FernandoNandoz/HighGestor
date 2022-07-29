@@ -63,7 +63,7 @@
             labelSelecioneProduto.AutoSize = true;
             labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelSelecioneProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelSelecioneProduto.Location = new System.Drawing.Point(24, 147);
+            labelSelecioneProduto.Location = new System.Drawing.Point(24, 140);
             labelSelecioneProduto.Name = "labelSelecioneProduto";
             labelSelecioneProduto.Size = new System.Drawing.Size(537, 20);
             labelSelecioneProduto.TabIndex = 131;
@@ -211,7 +211,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(26, 175);
+            this.dataGridViewContent.Location = new System.Drawing.Point(26, 168);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -234,7 +234,7 @@
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1157, 473);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1157, 480);
             this.dataGridViewContent.TabIndex = 130;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 

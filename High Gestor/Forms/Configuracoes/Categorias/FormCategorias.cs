@@ -216,6 +216,8 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
 
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
         {
+            updateData.receberDados(0, false);
+
             openChildForm(new Categorias.FormCadCategorias());
         }
 

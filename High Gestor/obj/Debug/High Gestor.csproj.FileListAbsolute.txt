@@ -29,3 +29,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Categorias.FormCadCategorias.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Fornecedores.FormCadFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormCadFuncionarios.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormCadProduto.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEstoque.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Reports.Produtos.FormReportProdutos.resources
