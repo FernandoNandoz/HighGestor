@@ -16,5 +16,12 @@ namespace High_Gestor.Reports.Produtos
         {
             InitializeComponent();
         }
+
+        private void FormReportProdutos_Load(object sender, EventArgs e)
+        {
+            this.produtosTableAdapter.Fill(this.databaseHighDataDataSet.Produtos);
+
+            this.reportViewerContent.RefreshReport();
+        }
     }
 }
