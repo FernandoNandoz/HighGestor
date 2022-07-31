@@ -111,7 +111,7 @@
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label3.Location = new System.Drawing.Point(27, 103);
+            label3.Location = new System.Drawing.Point(27, 98);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(69, 20);
             label3.TabIndex = 121;
@@ -266,7 +266,7 @@
             this.groupBoxSaldoAnterior.AutoSize = true;
             this.groupBoxSaldoAnterior.Controls.Add(this.labelSandoAnterior);
             this.groupBoxSaldoAnterior.Controls.Add(label13);
-            this.groupBoxSaldoAnterior.Location = new System.Drawing.Point(31, 122);
+            this.groupBoxSaldoAnterior.Location = new System.Drawing.Point(31, 117);
             this.groupBoxSaldoAnterior.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxSaldoAnterior.Name = "groupBoxSaldoAnterior";
             this.groupBoxSaldoAnterior.Padding = new System.Windows.Forms.Padding(0);
@@ -290,7 +290,7 @@
             // 
             this.groupBoxEntradas.Controls.Add(this.labelEntradas);
             this.groupBoxEntradas.Controls.Add(label15);
-            this.groupBoxEntradas.Location = new System.Drawing.Point(320, 122);
+            this.groupBoxEntradas.Location = new System.Drawing.Point(320, 117);
             this.groupBoxEntradas.Name = "groupBoxEntradas";
             this.groupBoxEntradas.Size = new System.Drawing.Size(280, 75);
             this.groupBoxEntradas.TabIndex = 142;
@@ -312,7 +312,7 @@
             // 
             this.groupBoxSaidas.Controls.Add(this.labelSaidas);
             this.groupBoxSaidas.Controls.Add(label14);
-            this.groupBoxSaidas.Location = new System.Drawing.Point(609, 122);
+            this.groupBoxSaidas.Location = new System.Drawing.Point(609, 117);
             this.groupBoxSaidas.Name = "groupBoxSaidas";
             this.groupBoxSaidas.Size = new System.Drawing.Size(280, 75);
             this.groupBoxSaidas.TabIndex = 142;
@@ -334,7 +334,7 @@
             // 
             this.groupBoxSaldo.Controls.Add(this.labelSaldo);
             this.groupBoxSaldo.Controls.Add(label16);
-            this.groupBoxSaldo.Location = new System.Drawing.Point(897, 122);
+            this.groupBoxSaldo.Location = new System.Drawing.Point(897, 118);
             this.groupBoxSaldo.Name = "groupBoxSaldo";
             this.groupBoxSaldo.Size = new System.Drawing.Size(280, 75);
             this.groupBoxSaldo.TabIndex = 142;
@@ -356,7 +356,7 @@
             // 
             this.buttonMovimentarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMovimentarEstoque.Image = ((System.Drawing.Image)(resources.GetObject("buttonMovimentarEstoque.Image")));
-            this.buttonMovimentarEstoque.Location = new System.Drawing.Point(31, 212);
+            this.buttonMovimentarEstoque.Location = new System.Drawing.Point(31, 206);
             this.buttonMovimentarEstoque.Name = "buttonMovimentarEstoque";
             this.buttonMovimentarEstoque.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonMovimentarEstoque.Size = new System.Drawing.Size(194, 35);
@@ -395,9 +395,9 @@
             // 
             this.labelNomeProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.labelNomeProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelNomeProduto.Location = new System.Drawing.Point(31, 20);
+            this.labelNomeProduto.Location = new System.Drawing.Point(31, 18);
             this.labelNomeProduto.Name = "labelNomeProduto";
             this.labelNomeProduto.Size = new System.Drawing.Size(1059, 25);
             this.labelNomeProduto.TabIndex = 18;
@@ -431,7 +431,7 @@
             this.panelDadosProduto.Controls.Add(label10);
             this.panelDadosProduto.Controls.Add(this.labelCodigo);
             this.panelDadosProduto.Controls.Add(label8);
-            this.panelDadosProduto.Location = new System.Drawing.Point(31, 59);
+            this.panelDadosProduto.Location = new System.Drawing.Point(31, 54);
             this.panelDadosProduto.Name = "panelDadosProduto";
             this.panelDadosProduto.Size = new System.Drawing.Size(1147, 35);
             this.panelDadosProduto.TabIndex = 93;
@@ -525,7 +525,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(31, 256);
+            this.dataGridViewContent.Location = new System.Drawing.Point(31, 250);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -547,7 +547,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1147, 330);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1147, 329);
             this.dataGridViewContent.TabIndex = 143;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -623,7 +623,7 @@
             this.panelTotais.Controls.Add(label27);
             this.panelTotais.Controls.Add(this.labelValorMedioCompras);
             this.panelTotais.Controls.Add(label30);
-            this.panelTotais.Location = new System.Drawing.Point(31, 598);
+            this.panelTotais.Location = new System.Drawing.Point(31, 590);
             this.panelTotais.Name = "panelTotais";
             this.panelTotais.Size = new System.Drawing.Size(1147, 40);
             this.panelTotais.TabIndex = 144;
@@ -682,7 +682,7 @@
             this.dateTimePeriodoIncial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePeriodoIncial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePeriodoIncial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePeriodoIncial.Location = new System.Drawing.Point(827, 216);
+            this.dateTimePeriodoIncial.Location = new System.Drawing.Point(827, 212);
             this.dateTimePeriodoIncial.Margin = new System.Windows.Forms.Padding(0);
             this.dateTimePeriodoIncial.Name = "dateTimePeriodoIncial";
             this.dateTimePeriodoIncial.Size = new System.Drawing.Size(109, 26);
@@ -693,7 +693,7 @@
             this.dateTimePeriodoFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePeriodoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePeriodoFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePeriodoFinal.Location = new System.Drawing.Point(948, 216);
+            this.dateTimePeriodoFinal.Location = new System.Drawing.Point(948, 212);
             this.dateTimePeriodoFinal.Name = "dateTimePeriodoFinal";
             this.dateTimePeriodoFinal.Size = new System.Drawing.Size(104, 26);
             this.dateTimePeriodoFinal.TabIndex = 147;
@@ -707,7 +707,7 @@
             this.buttonPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.buttonPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPesquisar.Location = new System.Drawing.Point(1063, 215);
+            this.buttonPesquisar.Location = new System.Drawing.Point(1063, 211);
             this.buttonPesquisar.Name = "buttonPesquisar";
             this.buttonPesquisar.Size = new System.Drawing.Size(115, 28);
             this.buttonPesquisar.TabIndex = 148;
@@ -723,7 +723,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.buttonPesquisar);
             this.Controls.Add(this.dateTimePeriodoFinal);
             this.Controls.Add(this.dateTimePeriodoIncial);

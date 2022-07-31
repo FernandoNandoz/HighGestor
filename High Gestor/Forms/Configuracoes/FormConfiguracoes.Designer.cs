@@ -51,7 +51,7 @@
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(200, 648);
+            this.panelMenu.Size = new System.Drawing.Size(200, 640);
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
@@ -63,7 +63,7 @@
             this.buttonConfigSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonConfigSistema.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigSistema.Image")));
             this.buttonConfigSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigSistema.Location = new System.Drawing.Point(12, 596);
+            this.buttonConfigSistema.Location = new System.Drawing.Point(12, 588);
             this.buttonConfigSistema.Name = "buttonConfigSistema";
             this.buttonConfigSistema.Size = new System.Drawing.Size(186, 40);
             this.buttonConfigSistema.TabIndex = 99;
@@ -80,7 +80,7 @@
             this.buttonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonBackup.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackup.Image")));
             this.buttonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBackup.Location = new System.Drawing.Point(12, 552);
+            this.buttonBackup.Location = new System.Drawing.Point(12, 544);
             this.buttonBackup.Name = "buttonBackup";
             this.buttonBackup.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonBackup.Size = new System.Drawing.Size(186, 40);
@@ -165,7 +165,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(200, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1008, 648);
+            this.panelContent.Size = new System.Drawing.Size(1008, 640);
             this.panelContent.TabIndex = 1;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
@@ -174,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelMenu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

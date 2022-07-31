@@ -146,14 +146,15 @@
             // 
             // label3
             // 
-            label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            label3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label3.Location = new System.Drawing.Point(12, 57);
+            label3.Location = new System.Drawing.Point(10, 44);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(133, 18);
+            label3.Size = new System.Drawing.Size(121, 20);
             label3.TabIndex = 61;
             label3.Text = "Total de Contas";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -169,14 +170,15 @@
             // 
             // label5
             // 
-            label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            label5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label5.Location = new System.Drawing.Point(12, 57);
+            label5.Location = new System.Drawing.Point(10, 44);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(222, 18);
+            label5.Size = new System.Drawing.Size(201, 20);
             label5.TabIndex = 62;
             label5.Text = "Total de Contas Recebidas";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -201,14 +203,15 @@
             // 
             // label4
             // 
-            label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            label4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label4.Location = new System.Drawing.Point(13, 57);
+            label4.Location = new System.Drawing.Point(15, 44);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(99, 18);
+            label4.Size = new System.Drawing.Size(91, 20);
             label4.TabIndex = 62;
             label4.Text = "Saldo Atual";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,9 +240,9 @@
             this.buttonReceberConta.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonReceberConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonReceberConta.Image")));
             this.buttonReceberConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReceberConta.Location = new System.Drawing.Point(900, 547);
+            this.buttonReceberConta.Location = new System.Drawing.Point(900, 559);
             this.buttonReceberConta.Name = "buttonReceberConta";
-            this.buttonReceberConta.Size = new System.Drawing.Size(278, 84);
+            this.buttonReceberConta.Size = new System.Drawing.Size(278, 71);
             this.buttonReceberConta.TabIndex = 113;
             this.buttonReceberConta.Text = "  Receber Conta";
             this.buttonReceberConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -293,20 +296,20 @@
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
-            this.panelTotalContas.Location = new System.Drawing.Point(28, 547);
+            this.panelTotalContas.Location = new System.Drawing.Point(28, 559);
             this.panelTotalContas.Name = "panelTotalContas";
-            this.panelTotalContas.Size = new System.Drawing.Size(270, 84);
+            this.panelTotalContas.Size = new System.Drawing.Size(270, 71);
             this.panelTotalContas.TabIndex = 102;
             this.panelTotalContas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContas_Paint);
             // 
             // labelTotalContasValue
             // 
             this.labelTotalContasValue.AutoSize = true;
-            this.labelTotalContasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalContasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelTotalContasValue.ForeColor = System.Drawing.Color.Red;
-            this.labelTotalContasValue.Location = new System.Drawing.Point(8, 6);
+            this.labelTotalContasValue.Location = new System.Drawing.Point(8, 5);
             this.labelTotalContasValue.Name = "labelTotalContasValue";
-            this.labelTotalContasValue.Size = new System.Drawing.Size(84, 37);
+            this.labelTotalContasValue.Size = new System.Drawing.Size(70, 32);
             this.labelTotalContasValue.TabIndex = 4;
             this.labelTotalContasValue.Text = "0,00";
             // 
@@ -317,20 +320,20 @@
             this.panelTotalContasRecebidas.Controls.Add(label5);
             this.panelTotalContasRecebidas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalContasRecebidas.Controls.Add(this.labelTotalContasRecebidasValue);
-            this.panelTotalContasRecebidas.Location = new System.Drawing.Point(311, 547);
+            this.panelTotalContasRecebidas.Location = new System.Drawing.Point(311, 559);
             this.panelTotalContasRecebidas.Name = "panelTotalContasRecebidas";
-            this.panelTotalContasRecebidas.Size = new System.Drawing.Size(270, 84);
+            this.panelTotalContasRecebidas.Size = new System.Drawing.Size(270, 71);
             this.panelTotalContasRecebidas.TabIndex = 103;
             this.panelTotalContasRecebidas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContasRecebidas_Paint);
             // 
             // labelTotalContasRecebidasValue
             // 
             this.labelTotalContasRecebidasValue.AutoSize = true;
-            this.labelTotalContasRecebidasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalContasRecebidasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelTotalContasRecebidasValue.ForeColor = System.Drawing.Color.Green;
-            this.labelTotalContasRecebidasValue.Location = new System.Drawing.Point(8, 6);
+            this.labelTotalContasRecebidasValue.Location = new System.Drawing.Point(8, 5);
             this.labelTotalContasRecebidasValue.Name = "labelTotalContasRecebidasValue";
-            this.labelTotalContasRecebidasValue.Size = new System.Drawing.Size(84, 37);
+            this.labelTotalContasRecebidasValue.Size = new System.Drawing.Size(70, 32);
             this.labelTotalContasRecebidasValue.TabIndex = 3;
             this.labelTotalContasRecebidasValue.Text = "0,00";
             // 
@@ -341,20 +344,20 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(594, 547);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(594, 559);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
-            this.panelSaldoAtual.Size = new System.Drawing.Size(270, 84);
+            this.panelSaldoAtual.Size = new System.Drawing.Size(270, 71);
             this.panelSaldoAtual.TabIndex = 101;
             this.panelSaldoAtual.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSaldoAtual_Paint);
             // 
             // labelSaldoAtualValue
             // 
             this.labelSaldoAtualValue.AutoSize = true;
-            this.labelSaldoAtualValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoAtualValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelSaldoAtualValue.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.labelSaldoAtualValue.Location = new System.Drawing.Point(9, 6);
+            this.labelSaldoAtualValue.Location = new System.Drawing.Point(9, 5);
             this.labelSaldoAtualValue.Name = "labelSaldoAtualValue";
-            this.labelSaldoAtualValue.Size = new System.Drawing.Size(84, 37);
+            this.labelSaldoAtualValue.Size = new System.Drawing.Size(70, 32);
             this.labelSaldoAtualValue.TabIndex = 63;
             this.labelSaldoAtualValue.Text = "0,00";
             // 
@@ -421,7 +424,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 375);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 390);
             this.dataGridViewContent.TabIndex = 100;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -560,7 +563,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);

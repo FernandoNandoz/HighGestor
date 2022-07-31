@@ -126,7 +126,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1008, 648);
+            this.panelContent.Size = new System.Drawing.Size(1008, 640);
             this.panelContent.TabIndex = 0;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
@@ -226,11 +226,11 @@
             // 
             this.labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelContagem.AutoSize = true;
-            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(836, 11);
+            this.labelContagem.Location = new System.Drawing.Point(868, 4);
             this.labelContagem.Name = "labelContagem";
-            this.labelContagem.Size = new System.Drawing.Size(158, 24);
+            this.labelContagem.Size = new System.Drawing.Size(135, 20);
             this.labelContagem.TabIndex = 142;
             this.labelContagem.Text = "Total: N Registros";
             this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -299,7 +299,7 @@
             this.dataGridViewContent.RowTemplate.Height = 35;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(980, 441);
+            this.dataGridViewContent.Size = new System.Drawing.Size(980, 433);
             this.dataGridViewContent.TabIndex = 143;
             this.dataGridViewContent.TabStop = false;
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
@@ -342,7 +342,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 648);
+            this.ClientSize = new System.Drawing.Size(1008, 640);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCategorias";

@@ -62,7 +62,7 @@
             labelLinhaMenuInferior.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             labelLinhaMenuInferior.AutoSize = true;
             labelLinhaMenuInferior.ForeColor = System.Drawing.Color.White;
-            labelLinhaMenuInferior.Location = new System.Drawing.Point(13, 580);
+            labelLinhaMenuInferior.Location = new System.Drawing.Point(13, 572);
             labelLinhaMenuInferior.Name = "labelLinhaMenuInferior";
             labelLinhaMenuInferior.Size = new System.Drawing.Size(133, 13);
             labelLinhaMenuInferior.TabIndex = 9;
@@ -117,7 +117,7 @@
             this.panelMenuBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuBar.Location = new System.Drawing.Point(0, 0);
             this.panelMenuBar.Name = "panelMenuBar";
-            this.panelMenuBar.Size = new System.Drawing.Size(158, 730);
+            this.panelMenuBar.Size = new System.Drawing.Size(158, 722);
             this.panelMenuBar.TabIndex = 0;
             // 
             // buttonFinanceiro
@@ -149,7 +149,7 @@
             this.buttonTrocarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTrocarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTrocarUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonTrocarUsuario.Location = new System.Drawing.Point(0, 678);
+            this.buttonTrocarUsuario.Location = new System.Drawing.Point(0, 670);
             this.buttonTrocarUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTrocarUsuario.Name = "buttonTrocarUsuario";
             this.buttonTrocarUsuario.Size = new System.Drawing.Size(158, 35);
@@ -168,7 +168,7 @@
             this.buttonConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConfiguracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 641);
+            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 633);
             this.buttonConfiguracoes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonConfiguracoes.Name = "buttonConfiguracoes";
             this.buttonConfiguracoes.Size = new System.Drawing.Size(158, 35);
@@ -187,7 +187,7 @@
             this.buttonRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRelatorio.ForeColor = System.Drawing.Color.White;
-            this.buttonRelatorio.Location = new System.Drawing.Point(0, 604);
+            this.buttonRelatorio.Location = new System.Drawing.Point(0, 596);
             this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRelatorio.Name = "buttonRelatorio";
             this.buttonRelatorio.Size = new System.Drawing.Size(158, 35);
@@ -267,7 +267,7 @@
             this.panelContent.Location = new System.Drawing.Point(158, 82);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1208, 648);
+            this.panelContent.Size = new System.Drawing.Size(1208, 640);
             this.panelContent.TabIndex = 2;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
@@ -377,12 +377,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1366, 730);
+            this.ClientSize = new System.Drawing.Size(1366, 722);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.paneTitlerBar);
             this.Controls.Add(this.panelMenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1366, 730);
+            this.MinimumSize = new System.Drawing.Size(1366, 722);
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";

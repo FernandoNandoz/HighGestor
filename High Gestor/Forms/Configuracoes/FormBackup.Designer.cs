@@ -259,7 +259,7 @@
             this.dataGridViewContent.RowTemplate.Height = 35;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(980, 442);
+            this.dataGridViewContent.Size = new System.Drawing.Size(980, 434);
             this.dataGridViewContent.TabIndex = 159;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -268,7 +268,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 648);
+            this.ClientSize = new System.Drawing.Size(1008, 640);
             this.Controls.Add(labelSelecioneProduto);
             this.Controls.Add(this.dataGridViewContent);
             this.Controls.Add(this.buttonSair);

@@ -81,11 +81,11 @@
             labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 159);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 141);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(179, 24);
+            labelMovimentoCaixa.Size = new System.Drawing.Size(148, 20);
             labelMovimentoCaixa.TabIndex = 97;
             labelMovimentoCaixa.Text = "Movimento de caixa";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,9 +120,10 @@
             // pictureBoxConfiguracao
             // 
             pictureBoxConfiguracao.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxConfiguracao.Image")));
-            pictureBoxConfiguracao.Location = new System.Drawing.Point(17, 5);
+            pictureBoxConfiguracao.Location = new System.Drawing.Point(10, 3);
             pictureBoxConfiguracao.Name = "pictureBoxConfiguracao";
-            pictureBoxConfiguracao.Size = new System.Drawing.Size(64, 56);
+            pictureBoxConfiguracao.Size = new System.Drawing.Size(55, 45);
+            pictureBoxConfiguracao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pictureBoxConfiguracao.TabIndex = 10;
             pictureBoxConfiguracao.TabStop = false;
             // 
@@ -140,7 +141,7 @@
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1208, 648);
+            this.panelContent.Size = new System.Drawing.Size(1208, 640);
             this.panelContent.TabIndex = 0;
             // 
             // buttonVoltar
@@ -171,11 +172,11 @@
             // 
             this.labelStatusCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelStatusCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F, System.Drawing.FontStyle.Bold);
+            this.labelStatusCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelStatusCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelStatusCaixa.Location = new System.Drawing.Point(982, 159);
+            this.labelStatusCaixa.Location = new System.Drawing.Point(897, 138);
             this.labelStatusCaixa.Name = "labelStatusCaixa";
-            this.labelStatusCaixa.Size = new System.Drawing.Size(194, 24);
+            this.labelStatusCaixa.Size = new System.Drawing.Size(287, 24);
             this.labelStatusCaixa.TabIndex = 98;
             this.labelStatusCaixa.Text = "Status do caixa";
             this.labelStatusCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -218,7 +219,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(34, 195);
+            this.dataGridViewContent.Location = new System.Drawing.Point(34, 171);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -241,7 +242,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 453);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 467);
             this.dataGridViewContent.TabIndex = 96;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -290,35 +291,36 @@
             this.panelMovimentoCaixa.Controls.Add(this.buttonMovimentoCaixa);
             this.panelMovimentoCaixa.Location = new System.Drawing.Point(34, 31);
             this.panelMovimentoCaixa.Name = "panelMovimentoCaixa";
-            this.panelMovimentoCaixa.Size = new System.Drawing.Size(270, 104);
+            this.panelMovimentoCaixa.Size = new System.Drawing.Size(270, 90);
             this.panelMovimentoCaixa.TabIndex = 93;
             this.panelMovimentoCaixa.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMovimentoCaixa_Paint);
             // 
             // labelMovimentoCaixaValue
             // 
             this.labelMovimentoCaixaValue.AutoSize = true;
-            this.labelMovimentoCaixaValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovimentoCaixaValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
             this.labelMovimentoCaixaValue.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelMovimentoCaixaValue.Location = new System.Drawing.Point(12, 8);
+            this.labelMovimentoCaixaValue.Location = new System.Drawing.Point(12, 7);
             this.labelMovimentoCaixaValue.Name = "labelMovimentoCaixaValue";
-            this.labelMovimentoCaixaValue.Size = new System.Drawing.Size(100, 44);
+            this.labelMovimentoCaixaValue.Size = new System.Drawing.Size(91, 40);
             this.labelMovimentoCaixaValue.TabIndex = 5;
             this.labelMovimentoCaixaValue.Text = "0,00";
             // 
             // buttonMovimentoCaixa
             // 
+            this.buttonMovimentoCaixa.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonMovimentoCaixa.FlatAppearance.BorderSize = 0;
             this.buttonMovimentoCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMovimentoCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonMovimentoCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonMovimentoCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMovimentoCaixa.Location = new System.Drawing.Point(0, 66);
+            this.buttonMovimentoCaixa.Location = new System.Drawing.Point(0, 60);
             this.buttonMovimentoCaixa.Name = "buttonMovimentoCaixa";
             this.buttonMovimentoCaixa.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonMovimentoCaixa.Size = new System.Drawing.Size(270, 37);
+            this.buttonMovimentoCaixa.Size = new System.Drawing.Size(270, 30);
             this.buttonMovimentoCaixa.TabIndex = 6;
             this.buttonMovimentoCaixa.Text = "   Movimento de Caixa";
-            this.buttonMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.buttonMovimentoCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonMovimentoCaixa.UseVisualStyleBackColor = true;
             this.buttonMovimentoCaixa.Click += new System.EventHandler(this.buttonMovimentoCaixa_Click);
@@ -331,35 +333,36 @@
             this.panelContasReceber.Controls.Add(this.labelContasReceberValue);
             this.panelContasReceber.Location = new System.Drawing.Point(318, 32);
             this.panelContasReceber.Name = "panelContasReceber";
-            this.panelContasReceber.Size = new System.Drawing.Size(270, 104);
+            this.panelContasReceber.Size = new System.Drawing.Size(270, 90);
             this.panelContasReceber.TabIndex = 94;
             this.panelContasReceber.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasReceber_Paint);
             // 
             // buttonContasReceber
             // 
+            this.buttonContasReceber.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonContasReceber.FlatAppearance.BorderSize = 0;
             this.buttonContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContasReceber.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContasReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonContasReceber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonContasReceber.Location = new System.Drawing.Point(0, 65);
+            this.buttonContasReceber.Location = new System.Drawing.Point(0, 60);
             this.buttonContasReceber.Name = "buttonContasReceber";
             this.buttonContasReceber.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonContasReceber.Size = new System.Drawing.Size(270, 38);
+            this.buttonContasReceber.Size = new System.Drawing.Size(270, 30);
             this.buttonContasReceber.TabIndex = 7;
             this.buttonContasReceber.Text = "  Contas a Receber";
-            this.buttonContasReceber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonContasReceber.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.buttonContasReceber.UseVisualStyleBackColor = true;
             this.buttonContasReceber.Click += new System.EventHandler(this.buttonContasReceber_Click);
             // 
             // labelContasReceberValue
             // 
             this.labelContasReceberValue.AutoSize = true;
-            this.labelContasReceberValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContasReceberValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
             this.labelContasReceberValue.ForeColor = System.Drawing.Color.Green;
-            this.labelContasReceberValue.Location = new System.Drawing.Point(8, 8);
+            this.labelContasReceberValue.Location = new System.Drawing.Point(8, 7);
             this.labelContasReceberValue.Name = "labelContasReceberValue";
-            this.labelContasReceberValue.Size = new System.Drawing.Size(100, 44);
+            this.labelContasReceberValue.Size = new System.Drawing.Size(91, 40);
             this.labelContasReceberValue.TabIndex = 4;
             this.labelContasReceberValue.Text = "0,00";
             // 
@@ -371,35 +374,36 @@
             this.panelContasPagar.Controls.Add(this.labelContasPagarValue);
             this.panelContasPagar.Location = new System.Drawing.Point(603, 32);
             this.panelContasPagar.Name = "panelContasPagar";
-            this.panelContasPagar.Size = new System.Drawing.Size(270, 104);
+            this.panelContasPagar.Size = new System.Drawing.Size(270, 90);
             this.panelContasPagar.TabIndex = 95;
             this.panelContasPagar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasPagar_Paint);
             // 
             // buttonContasPagar
             // 
+            this.buttonContasPagar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonContasPagar.FlatAppearance.BorderSize = 0;
             this.buttonContasPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContasPagar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContasPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonContasPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonContasPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonContasPagar.Location = new System.Drawing.Point(0, 64);
+            this.buttonContasPagar.Location = new System.Drawing.Point(0, 60);
             this.buttonContasPagar.Name = "buttonContasPagar";
             this.buttonContasPagar.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonContasPagar.Size = new System.Drawing.Size(270, 39);
+            this.buttonContasPagar.Size = new System.Drawing.Size(270, 30);
             this.buttonContasPagar.TabIndex = 8;
             this.buttonContasPagar.Text = "  Contas a Pagar";
-            this.buttonContasPagar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonContasPagar.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.buttonContasPagar.UseVisualStyleBackColor = true;
             this.buttonContasPagar.Click += new System.EventHandler(this.buttonContasPagar_Click);
             // 
             // labelContasPagarValue
             // 
             this.labelContasPagarValue.AutoSize = true;
-            this.labelContasPagarValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelContasPagarValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
             this.labelContasPagarValue.ForeColor = System.Drawing.Color.Red;
-            this.labelContasPagarValue.Location = new System.Drawing.Point(8, 8);
+            this.labelContasPagarValue.Location = new System.Drawing.Point(8, 7);
             this.labelContasPagarValue.Name = "labelContasPagarValue";
-            this.labelContasPagarValue.Size = new System.Drawing.Size(100, 44);
+            this.labelContasPagarValue.Size = new System.Drawing.Size(91, 40);
             this.labelContasPagarValue.TabIndex = 3;
             this.labelContasPagarValue.Text = "0,00";
             // 
@@ -410,24 +414,25 @@
             this.panelConfiguracao.Controls.Add(this.buttonConfiguracao);
             this.panelConfiguracao.Location = new System.Drawing.Point(889, 32);
             this.panelConfiguracao.Name = "panelConfiguracao";
-            this.panelConfiguracao.Size = new System.Drawing.Size(270, 104);
+            this.panelConfiguracao.Size = new System.Drawing.Size(270, 90);
             this.panelConfiguracao.TabIndex = 92;
             this.panelConfiguracao.Paint += new System.Windows.Forms.PaintEventHandler(this.panelConfiguracao_Paint);
             // 
             // buttonConfiguracao
             // 
+            this.buttonConfiguracao.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonConfiguracao.FlatAppearance.BorderSize = 0;
             this.buttonConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConfiguracao.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfiguracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonConfiguracao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonConfiguracao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonConfiguracao.Location = new System.Drawing.Point(0, 64);
+            this.buttonConfiguracao.Location = new System.Drawing.Point(0, 60);
             this.buttonConfiguracao.Name = "buttonConfiguracao";
             this.buttonConfiguracao.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonConfiguracao.Size = new System.Drawing.Size(270, 39);
+            this.buttonConfiguracao.Size = new System.Drawing.Size(270, 30);
             this.buttonConfiguracao.TabIndex = 9;
             this.buttonConfiguracao.Text = "  Outras opções";
-            this.buttonConfiguracao.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConfiguracao.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.buttonConfiguracao.UseVisualStyleBackColor = true;
             this.buttonConfiguracao.Click += new System.EventHandler(this.buttonConfiguracao_Click);
             // 
@@ -436,7 +441,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormFinanceiro";

@@ -40,6 +40,26 @@
             label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(28, 62);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(154, 20);
+            label1.TabIndex = 49;
+            label1.Text = "Codigo da Categoria";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(29, 144);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(146, 20);
+            label2.TabIndex = 48;
+            label2.Text = "Nome da Categoria";
+            // 
             // checkBoxGerarCodigoAutomaticamente
             // 
             this.checkBoxGerarCodigoAutomaticamente.AutoSize = true;
@@ -56,16 +76,6 @@
             this.checkBoxGerarCodigoAutomaticamente.UseVisualStyleBackColor = true;
             this.checkBoxGerarCodigoAutomaticamente.CheckedChanged += new System.EventHandler(this.checkBoxGerarCodigoAutomaticamente_CheckedChanged);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(28, 62);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(154, 20);
-            label1.TabIndex = 49;
-            label1.Text = "Codigo da Categoria";
-            // 
             // textBoxCodigoCategoria
             // 
             this.textBoxCodigoCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -75,16 +85,6 @@
             this.textBoxCodigoCategoria.Name = "textBoxCodigoCategoria";
             this.textBoxCodigoCategoria.Size = new System.Drawing.Size(266, 29);
             this.textBoxCodigoCategoria.TabIndex = 43;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(29, 144);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(146, 20);
-            label2.TabIndex = 48;
-            label2.Text = "Nome da Categoria";
             // 
             // textBoxNomeCategoria
             // 
@@ -113,7 +113,7 @@
             // 
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(507, 588);
+            this.btnSair.Location = new System.Drawing.Point(507, 580);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(109, 37);
             this.btnSair.TabIndex = 46;
@@ -125,7 +125,7 @@
             // 
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(392, 588);
+            this.buttonSalvar.Location = new System.Drawing.Point(392, 580);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(109, 37);
             this.buttonSalvar.TabIndex = 45;
@@ -139,7 +139,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 648);
+            this.ClientSize = new System.Drawing.Size(1008, 640);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);
             this.Controls.Add(label1);
             this.Controls.Add(this.textBoxCodigoCategoria);

@@ -112,7 +112,7 @@
             this.panelBack.Location = new System.Drawing.Point(0, 0);
             this.panelBack.Margin = new System.Windows.Forms.Padding(0);
             this.panelBack.Name = "panelBack";
-            this.panelBack.Size = new System.Drawing.Size(1208, 648);
+            this.panelBack.Size = new System.Drawing.Size(1208, 640);
             this.panelBack.TabIndex = 0;
             this.panelBack.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBack_Paint);
             // 
@@ -234,7 +234,7 @@
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1157, 480);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1157, 472);
             this.dataGridViewContent.TabIndex = 130;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -309,11 +309,11 @@
             // 
             this.labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelContagem.AutoSize = true;
-            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(1035, 9);
+            this.labelContagem.Location = new System.Drawing.Point(1068, 3);
             this.labelContagem.Name = "labelContagem";
-            this.labelContagem.Size = new System.Drawing.Size(158, 24);
+            this.labelContagem.Size = new System.Drawing.Size(135, 20);
             this.labelContagem.TabIndex = 125;
             this.labelContagem.Text = "Total: N Registros";
             this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -323,7 +323,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.panelBack);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormClientes";

@@ -149,11 +149,11 @@
             label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label3.Location = new System.Drawing.Point(12, 57);
+            label3.Location = new System.Drawing.Point(10, 44);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(133, 18);
+            label3.Size = new System.Drawing.Size(121, 20);
             label3.TabIndex = 61;
             label3.Text = "Total de Contas";
             label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,11 +172,11 @@
             label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label5.Location = new System.Drawing.Point(12, 57);
+            label5.Location = new System.Drawing.Point(10, 44);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(187, 18);
+            label5.Size = new System.Drawing.Size(170, 20);
             label5.TabIndex = 62;
             label5.Text = "Total de Contas Pagas";
             label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -204,11 +204,11 @@
             label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            label4.Location = new System.Drawing.Point(13, 57);
+            label4.Location = new System.Drawing.Point(11, 44);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(99, 18);
+            label4.Size = new System.Drawing.Size(91, 20);
             label4.TabIndex = 62;
             label4.Text = "Saldo Atual";
             label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,9 +237,9 @@
             this.buttonPagarConta.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonPagarConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonPagarConta.Image")));
             this.buttonPagarConta.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagarConta.Location = new System.Drawing.Point(901, 547);
+            this.buttonPagarConta.Location = new System.Drawing.Point(901, 559);
             this.buttonPagarConta.Name = "buttonPagarConta";
-            this.buttonPagarConta.Size = new System.Drawing.Size(278, 84);
+            this.buttonPagarConta.Size = new System.Drawing.Size(278, 71);
             this.buttonPagarConta.TabIndex = 134;
             this.buttonPagarConta.Text = "  Pagar Conta";
             this.buttonPagarConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -293,20 +293,20 @@
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
-            this.panelTotalContas.Location = new System.Drawing.Point(29, 547);
+            this.panelTotalContas.Location = new System.Drawing.Point(29, 559);
             this.panelTotalContas.Name = "panelTotalContas";
-            this.panelTotalContas.Size = new System.Drawing.Size(270, 84);
+            this.panelTotalContas.Size = new System.Drawing.Size(270, 71);
             this.panelTotalContas.TabIndex = 123;
             this.panelTotalContas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContas_Paint);
             // 
             // labelTotalContasValue
             // 
             this.labelTotalContasValue.AutoSize = true;
-            this.labelTotalContasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalContasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelTotalContasValue.ForeColor = System.Drawing.Color.Red;
             this.labelTotalContasValue.Location = new System.Drawing.Point(8, 6);
             this.labelTotalContasValue.Name = "labelTotalContasValue";
-            this.labelTotalContasValue.Size = new System.Drawing.Size(84, 37);
+            this.labelTotalContasValue.Size = new System.Drawing.Size(70, 32);
             this.labelTotalContasValue.TabIndex = 4;
             this.labelTotalContasValue.Text = "0,00";
             // 
@@ -317,20 +317,20 @@
             this.panelTotalContasPagas.Controls.Add(label5);
             this.panelTotalContasPagas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalContasPagas.Controls.Add(this.labelTotalContasPagasValue);
-            this.panelTotalContasPagas.Location = new System.Drawing.Point(311, 547);
+            this.panelTotalContasPagas.Location = new System.Drawing.Point(311, 559);
             this.panelTotalContasPagas.Name = "panelTotalContasPagas";
-            this.panelTotalContasPagas.Size = new System.Drawing.Size(270, 84);
+            this.panelTotalContasPagas.Size = new System.Drawing.Size(270, 71);
             this.panelTotalContasPagas.TabIndex = 124;
             this.panelTotalContasPagas.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTotalContasPagas_Paint);
             // 
             // labelTotalContasPagasValue
             // 
             this.labelTotalContasPagasValue.AutoSize = true;
-            this.labelTotalContasPagasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalContasPagasValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelTotalContasPagasValue.ForeColor = System.Drawing.Color.Green;
             this.labelTotalContasPagasValue.Location = new System.Drawing.Point(8, 6);
             this.labelTotalContasPagasValue.Name = "labelTotalContasPagasValue";
-            this.labelTotalContasPagasValue.Size = new System.Drawing.Size(84, 37);
+            this.labelTotalContasPagasValue.Size = new System.Drawing.Size(70, 32);
             this.labelTotalContasPagasValue.TabIndex = 3;
             this.labelTotalContasPagasValue.Text = "0,00";
             // 
@@ -341,20 +341,20 @@
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
-            this.panelSaldoAtual.Location = new System.Drawing.Point(592, 547);
+            this.panelSaldoAtual.Location = new System.Drawing.Point(592, 559);
             this.panelSaldoAtual.Name = "panelSaldoAtual";
-            this.panelSaldoAtual.Size = new System.Drawing.Size(270, 84);
+            this.panelSaldoAtual.Size = new System.Drawing.Size(270, 71);
             this.panelSaldoAtual.TabIndex = 122;
             this.panelSaldoAtual.Paint += new System.Windows.Forms.PaintEventHandler(this.panelSaldoAtual_Paint);
             // 
             // labelSaldoAtualValue
             // 
             this.labelSaldoAtualValue.AutoSize = true;
-            this.labelSaldoAtualValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoAtualValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20F);
             this.labelSaldoAtualValue.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.labelSaldoAtualValue.Location = new System.Drawing.Point(9, 6);
             this.labelSaldoAtualValue.Name = "labelSaldoAtualValue";
-            this.labelSaldoAtualValue.Size = new System.Drawing.Size(84, 37);
+            this.labelSaldoAtualValue.Size = new System.Drawing.Size(70, 32);
             this.labelSaldoAtualValue.TabIndex = 63;
             this.labelSaldoAtualValue.Text = "0,00";
             // 
@@ -420,7 +420,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 375);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 390);
             this.dataGridViewContent.TabIndex = 121;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -557,7 +557,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);
             this.Controls.Add(this.buttonGerarRelatorio);

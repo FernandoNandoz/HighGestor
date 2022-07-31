@@ -127,7 +127,7 @@
             this.panelMenuConfig.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuConfig.Location = new System.Drawing.Point(0, 0);
             this.panelMenuConfig.Name = "panelMenuConfig";
-            this.panelMenuConfig.Size = new System.Drawing.Size(252, 648);
+            this.panelMenuConfig.Size = new System.Drawing.Size(252, 640);
             this.panelMenuConfig.TabIndex = 0;
             this.panelMenuConfig.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuConfig_Paint);
             // 
@@ -267,7 +267,7 @@
             this.panelContent.Location = new System.Drawing.Point(252, 0);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(956, 648);
+            this.panelContent.Size = new System.Drawing.Size(956, 640);
             this.panelContent.TabIndex = 1;
             // 
             // FormConfiguracao
@@ -275,7 +275,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1208, 648);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelMenuConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
