@@ -280,7 +280,7 @@
             this.buttonTitlerSair.Location = new System.Drawing.Point(1156, 0);
             this.buttonTitlerSair.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerSair.Name = "buttonTitlerSair";
-            this.buttonTitlerSair.Size = new System.Drawing.Size(52, 32);
+            this.buttonTitlerSair.Size = new System.Drawing.Size(52, 30);
             this.buttonTitlerSair.TabIndex = 0;
             this.buttonTitlerSair.Text = "X";
             this.buttonTitlerSair.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@
             this.buttonTitlerMaximizar.Location = new System.Drawing.Point(1109, 0);
             this.buttonTitlerMaximizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMaximizar.Name = "buttonTitlerMaximizar";
-            this.buttonTitlerMaximizar.Size = new System.Drawing.Size(46, 32);
+            this.buttonTitlerMaximizar.Size = new System.Drawing.Size(46, 30);
             this.buttonTitlerMaximizar.TabIndex = 2;
             this.buttonTitlerMaximizar.UseVisualStyleBackColor = true;
             this.buttonTitlerMaximizar.Click += new System.EventHandler(this.buttonTitlerMaximizar_Click);
@@ -313,7 +313,7 @@
             this.buttonTitlerMinimizar.Location = new System.Drawing.Point(1060, 0);
             this.buttonTitlerMinimizar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonTitlerMinimizar.Name = "buttonTitlerMinimizar";
-            this.buttonTitlerMinimizar.Size = new System.Drawing.Size(46, 32);
+            this.buttonTitlerMinimizar.Size = new System.Drawing.Size(46, 30);
             this.buttonTitlerMinimizar.TabIndex = 1;
             this.buttonTitlerMinimizar.UseVisualStyleBackColor = true;
             this.buttonTitlerMinimizar.Click += new System.EventHandler(this.buttonTitlerMinimizar_Click);
@@ -355,7 +355,7 @@
             this.buttonAjuda.Location = new System.Drawing.Point(996, -1);
             this.buttonAjuda.Margin = new System.Windows.Forms.Padding(0);
             this.buttonAjuda.Name = "buttonAjuda";
-            this.buttonAjuda.Size = new System.Drawing.Size(46, 32);
+            this.buttonAjuda.Size = new System.Drawing.Size(46, 30);
             this.buttonAjuda.TabIndex = 6;
             this.buttonAjuda.Text = "?";
             this.buttonAjuda.UseVisualStyleBackColor = true;

@@ -81,11 +81,11 @@
             labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 161);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 159);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(206, 26);
+            labelMovimentoCaixa.Size = new System.Drawing.Size(179, 24);
             labelMovimentoCaixa.TabIndex = 97;
             labelMovimentoCaixa.Text = "Movimento de caixa";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -173,7 +173,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelStatusCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14F, System.Drawing.FontStyle.Bold);
             this.labelStatusCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelStatusCaixa.Location = new System.Drawing.Point(982, 161);
+            this.labelStatusCaixa.Location = new System.Drawing.Point(982, 159);
             this.labelStatusCaixa.Name = "labelStatusCaixa";
             this.labelStatusCaixa.Size = new System.Drawing.Size(194, 24);
             this.labelStatusCaixa.TabIndex = 98;
@@ -218,7 +218,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(34, 201);
+            this.dataGridViewContent.Location = new System.Drawing.Point(34, 195);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -241,7 +241,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 447);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 453);
             this.dataGridViewContent.TabIndex = 96;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 

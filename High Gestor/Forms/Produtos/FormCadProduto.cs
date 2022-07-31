@@ -254,7 +254,6 @@ namespace High_Gestor.Forms.Produtos
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
                 && textBoxEstoqueAtual.Text != string.Empty
-                && maskedValidade.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
                 && textBoxPrecoVenda.Text != string.Empty)
@@ -272,7 +271,6 @@ namespace High_Gestor.Forms.Produtos
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
                 && textBoxEstoqueAtual.Text != string.Empty
-                && maskedValidade.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
                 && textBoxPrecoVenda.Text != string.Empty)
@@ -315,7 +313,7 @@ namespace High_Gestor.Forms.Produtos
             return existente;
         }
 
-        private void insertQuery()
+        private void insertQueryProduto()
         {
             try
             {
@@ -331,7 +329,14 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
                 sqlCommand.Parameters.AddWithValue("@estoqueMinimo", int.Parse(textBoxEstoqueMinimo.Text));
                 sqlCommand.Parameters.AddWithValue("@estoqueAtual", int.Parse(textBoxEstoqueAtual.Text));
-                sqlCommand.Parameters.AddWithValue("@dataValidade", DateTime.Parse(maskedValidade.Text));
+                if(maskedValidade.Text == "  /  /")
+                {
+                    sqlCommand.Parameters.AddWithValue("@dataValidade", DBNull.Value);
+                }
+                else
+                {
+                    sqlCommand.Parameters.AddWithValue("@dataValidade", DateTime.Parse(maskedValidade.Text));
+                }
                 sqlCommand.Parameters.AddWithValue("@valorCusto", decimal.Parse(textBoxValorCusto.Text));
                 sqlCommand.Parameters.AddWithValue("@margemLucro", decimal.Parse(textBoxMargemLucro.Text));
                 sqlCommand.Parameters.AddWithValue("@valorVenda", decimal.Parse(textBoxPrecoVenda.Text));
@@ -341,6 +346,8 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.ExecuteNonQuery();
                 banco.desconectar();
 
+                insertQueryEstoque();
+
                 MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception erro)
@@ -349,7 +356,7 @@ namespace High_Gestor.Forms.Produtos
             }
         }
 
-        private void updateQuery()
+        private void updateQueryProduto()
         {
             try
             {
@@ -366,7 +373,14 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
                 sqlCommand.Parameters.AddWithValue("@estoqueMinimo", int.Parse(textBoxEstoqueMinimo.Text));
                 sqlCommand.Parameters.AddWithValue("@estoqueAtual", int.Parse(textBoxEstoqueAtual.Text));
-                sqlCommand.Parameters.AddWithValue("@dataValidade", DateTime.Parse(maskedValidade.Text));
+                if (maskedValidade.Text == "  /  /")
+                {
+                    sqlCommand.Parameters.AddWithValue("@dataValidade", DBNull.Value);
+                }
+                else
+                {
+                    sqlCommand.Parameters.AddWithValue("@dataValidade", DateTime.Parse(maskedValidade.Text));
+                }
                 sqlCommand.Parameters.AddWithValue("@valorCusto", decimal.Parse(textBoxValorCusto.Text));
                 sqlCommand.Parameters.AddWithValue("@margemLucro", decimal.Parse(textBoxMargemLucro.Text));
                 sqlCommand.Parameters.AddWithValue("@valorVenda", decimal.Parse(textBoxPrecoVenda.Text));
@@ -381,6 +395,42 @@ namespace High_Gestor.Forms.Produtos
             catch (Exception erro)
             {
                 MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void insertQueryEstoque()
+        {
+            try
+            {
+                string produtos = ("INSERT INTO Estoque (idLog, idProdutoFK, tipoMovimento, dataMovimento, descricao, entrada, saida, saldoAtual, valorUnitario) VALUES (@idLog, @idProdutoFK, @tipoMovimento, @dataMovimento, @descricao, @entrada, @saida, @saldoAtual, @valorUnitario)");
+                SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
+
+                sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                sqlCommand.Parameters.AddWithValue("@idProdutoFK", verificarIdProduto());
+                sqlCommand.Parameters.AddWithValue("@tipoMovimento", "ENTRADA");
+                sqlCommand.Parameters.AddWithValue("@dataMovimento", DateTime.Now);
+                sqlCommand.Parameters.AddWithValue("@descricao", "Entrada via cadastro de produtos");
+                sqlCommand.Parameters.AddWithValue("@entrada", int.Parse(textBoxEstoqueAtual.Text));
+                sqlCommand.Parameters.AddWithValue("@saida", 0);
+                sqlCommand.Parameters.AddWithValue("@saldoAtual", int.Parse(textBoxEstoqueAtual.Text));
+                sqlCommand.Parameters.AddWithValue("@valorUnitario", decimal.Parse(textBoxValorCusto.Text));
+
+                banco.conectar();
+                sqlCommand.ExecuteNonQuery();
+                banco.desconectar();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void apenasNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //aceita apenas números, tecla backspace.
+            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
             }
         }
 
@@ -402,6 +452,8 @@ namespace High_Gestor.Forms.Produtos
                 textBoxCodigoProduto.Enabled = true;
                 checkBoxGerarCodigoAutomaticamente.Checked = false;
                 checkBoxGerarCodigoAutomaticamente.Enabled = false;
+
+                textBoxEstoqueAtual.ReadOnly = true;
                 //
                 carregarDados();
             }
@@ -409,6 +461,8 @@ namespace High_Gestor.Forms.Produtos
 
         private void btnSair_Click(object sender, EventArgs e)
         {
+            limparValores();
+
             this.Close();
         }
 
@@ -554,7 +608,7 @@ namespace High_Gestor.Forms.Produtos
         {
             if (updateData._retornarValidacao() == true)
             {
-                updateQuery();
+                updateQueryProduto();
             }
             else
             {
@@ -562,7 +616,7 @@ namespace High_Gestor.Forms.Produtos
                 {
                     if (verificarProdutoExistente() == false)
                     {
-                        insertQuery();
+                        insertQueryProduto();
                         //
                         limparValores();
                     }
@@ -579,11 +633,16 @@ namespace High_Gestor.Forms.Produtos
             if (checkBoxGerarCodigoAutomaticamente.Checked)
             {
                 textBoxCodigoProduto.Enabled = false;
+
+                textBoxNomeProduto.Focus();
             }
             else
             {
                 textBoxCodigoProduto.Enabled = true;
+
+                textBoxCodigoProduto.Focus();
             }
         }
+
     }
 }

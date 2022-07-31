@@ -125,11 +125,11 @@
             labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(25, 138);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(25, 131);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(230, 24);
+            labelMovimentoCaixa.Size = new System.Drawing.Size(198, 20);
             labelMovimentoCaixa.TabIndex = 106;
             labelMovimentoCaixa.Text = "Lista de Contas a Receber";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,7 +219,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1001, 86);
+            label8.Location = new System.Drawing.Point(1001, 82);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 142;
@@ -397,7 +397,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(29, 168);
+            this.dataGridViewContent.Location = new System.Drawing.Point(29, 158);
             this.dataGridViewContent.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
@@ -421,7 +421,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 363);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 375);
             this.dataGridViewContent.TabIndex = 100;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -475,10 +475,10 @@
             // 
             this.buttonExcluirLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirLancamento.Image")));
-            this.buttonExcluirLancamento.Location = new System.Drawing.Point(410, 85);
+            this.buttonExcluirLancamento.Location = new System.Drawing.Point(410, 82);
             this.buttonExcluirLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExcluirLancamento.Name = "buttonExcluirLancamento";
-            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 38);
+            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 35);
             this.buttonExcluirLancamento.TabIndex = 147;
             this.buttonExcluirLancamento.Text = " Excluir lançamento";
             this.buttonExcluirLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -490,10 +490,10 @@
             // 
             this.buttonEditarLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarLancamento.Image")));
-            this.buttonEditarLancamento.Location = new System.Drawing.Point(226, 85);
+            this.buttonEditarLancamento.Location = new System.Drawing.Point(226, 82);
             this.buttonEditarLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonEditarLancamento.Name = "buttonEditarLancamento";
-            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 38);
+            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 35);
             this.buttonEditarLancamento.TabIndex = 146;
             this.buttonEditarLancamento.Text = " Editar lançamento";
             this.buttonEditarLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -505,10 +505,10 @@
             // 
             this.buttonGerarRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonGerarRelatorio.Image")));
-            this.buttonGerarRelatorio.Location = new System.Drawing.Point(613, 85);
+            this.buttonGerarRelatorio.Location = new System.Drawing.Point(613, 82);
             this.buttonGerarRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGerarRelatorio.Name = "buttonGerarRelatorio";
-            this.buttonGerarRelatorio.Size = new System.Drawing.Size(289, 38);
+            this.buttonGerarRelatorio.Size = new System.Drawing.Size(289, 35);
             this.buttonGerarRelatorio.TabIndex = 145;
             this.buttonGerarRelatorio.Text = " Gerar relatorio de Contas a Receber";
             this.buttonGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -520,10 +520,10 @@
             // 
             this.buttonLancaManualmente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLancaManualmente.Image = ((System.Drawing.Image)(resources.GetObject("buttonLancaManualmente.Image")));
-            this.buttonLancaManualmente.Location = new System.Drawing.Point(28, 85);
+            this.buttonLancaManualmente.Location = new System.Drawing.Point(28, 82);
             this.buttonLancaManualmente.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancaManualmente.Name = "buttonLancaManualmente";
-            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 38);
+            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 35);
             this.buttonLancaManualmente.TabIndex = 144;
             this.buttonLancaManualmente.Text = " Lançar manualmente";
             this.buttonLancaManualmente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -542,10 +542,10 @@
             this.buttonSairContasReceber.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSairContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairContasReceber.Image")));
             this.buttonSairContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairContasReceber.Location = new System.Drawing.Point(1025, 85);
+            this.buttonSairContasReceber.Location = new System.Drawing.Point(1025, 82);
             this.buttonSairContasReceber.Name = "buttonSairContasReceber";
             this.buttonSairContasReceber.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSairContasReceber.Size = new System.Drawing.Size(153, 38);
+            this.buttonSairContasReceber.Size = new System.Drawing.Size(153, 35);
             this.buttonSairContasReceber.TabIndex = 143;
             this.buttonSairContasReceber.TabStop = false;
             this.buttonSairContasReceber.Text = " Voltar";

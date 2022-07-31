@@ -76,7 +76,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(991, 88);
+            label8.Location = new System.Drawing.Point(991, 86);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 128;
@@ -122,7 +122,7 @@
             this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
             this.buttonExcluirCadastro.Location = new System.Drawing.Point(556, 87);
             this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
-            this.buttonExcluirCadastro.Size = new System.Drawing.Size(162, 38);
+            this.buttonExcluirCadastro.Size = new System.Drawing.Size(162, 35);
             this.buttonExcluirCadastro.TabIndex = 135;
             this.buttonExcluirCadastro.Text = " Excluir cadastro";
             this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -136,7 +136,7 @@
             this.buttonEditarCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarCadastro.Image")));
             this.buttonEditarCadastro.Location = new System.Drawing.Point(384, 87);
             this.buttonEditarCadastro.Name = "buttonEditarCadastro";
-            this.buttonEditarCadastro.Size = new System.Drawing.Size(166, 38);
+            this.buttonEditarCadastro.Size = new System.Drawing.Size(166, 35);
             this.buttonEditarCadastro.TabIndex = 134;
             this.buttonEditarCadastro.Text = " Editar cadastro";
             this.buttonEditarCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -150,7 +150,7 @@
             this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
             this.buttonRelatorio.Location = new System.Drawing.Point(190, 87);
             this.buttonRelatorio.Name = "buttonRelatorio";
-            this.buttonRelatorio.Size = new System.Drawing.Size(188, 38);
+            this.buttonRelatorio.Size = new System.Drawing.Size(188, 35);
             this.buttonRelatorio.TabIndex = 133;
             this.buttonRelatorio.Text = " Relação de clientes";
             this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -164,7 +164,7 @@
             this.buttonNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCadastro.Image")));
             this.buttonNovoCadastro.Location = new System.Drawing.Point(27, 87);
             this.buttonNovoCadastro.Name = "buttonNovoCadastro";
-            this.buttonNovoCadastro.Size = new System.Drawing.Size(157, 38);
+            this.buttonNovoCadastro.Size = new System.Drawing.Size(157, 35);
             this.buttonNovoCadastro.TabIndex = 132;
             this.buttonNovoCadastro.Text = " Novo cadastro";
             this.buttonNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -284,7 +284,7 @@
             this.buttonSair.Location = new System.Drawing.Point(1015, 87);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSair.Size = new System.Drawing.Size(168, 38);
+            this.buttonSair.Size = new System.Drawing.Size(168, 35);
             this.buttonSair.TabIndex = 129;
             this.buttonSair.TabStop = false;
             this.buttonSair.Text = " Voltar";

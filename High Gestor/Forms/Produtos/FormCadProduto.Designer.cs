@@ -74,19 +74,6 @@
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // comboBoxStatus
-            // 
-            this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F);
-            this.comboBoxStatus.FormattingEnabled = true;
-            this.comboBoxStatus.Items.AddRange(new object[] {
-            "ATIVO",
-            "INATIVO"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(46, 82);
-            this.comboBoxStatus.Name = "comboBoxStatus";
-            this.comboBoxStatus.Size = new System.Drawing.Size(117, 30);
-            this.comboBoxStatus.TabIndex = 127;
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -96,6 +83,129 @@
             label12.Size = new System.Drawing.Size(44, 16);
             label12.TabIndex = 128;
             label12.Text = "Status";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(449, 449);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(130, 16);
+            label11.TabIndex = 120;
+            label11.Text = "Preço de venda - R$";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.Location = new System.Drawing.Point(264, 449);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(130, 16);
+            label10.TabIndex = 119;
+            label10.Text = "Margem de lucro - %";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label9.Location = new System.Drawing.Point(43, 449);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(120, 16);
+            label9.TabIndex = 118;
+            label9.Text = "Valor de custo - R$";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label8.Location = new System.Drawing.Point(485, 373);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(114, 16);
+            label8.TabIndex = 117;
+            label8.Text = "Valida do produto";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label7.Location = new System.Drawing.Point(264, 373);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(89, 16);
+            label7.TabIndex = 116;
+            label7.Text = "Estoque atual";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(43, 373);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(103, 16);
+            label6.TabIndex = 115;
+            label6.Text = "Estoque minimo";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(43, 283);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(134, 16);
+            label5.TabIndex = 114;
+            label5.Text = "Categoria do produto";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(43, 197);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(77, 16);
+            label4.TabIndex = 113;
+            label4.Text = "Fornecedor";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(561, 132);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(84, 16);
+            label3.TabIndex = 112;
+            label3.Text = "Tipo Unitário";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(43, 130);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(112, 16);
+            label2.TabIndex = 111;
+            label2.Text = "Nome do produto";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(166, 64);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(120, 16);
+            label1.TabIndex = 110;
+            label1.Text = "Codigo do Produto";
+            // 
+            // comboBoxStatus
+            // 
+            this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.comboBoxStatus.FormattingEnabled = true;
+            this.comboBoxStatus.Items.AddRange(new object[] {
+            "ATIVO",
+            "INATIVO"});
+            this.comboBoxStatus.Location = new System.Drawing.Point(46, 82);
+            this.comboBoxStatus.Name = "comboBoxStatus";
+            this.comboBoxStatus.Size = new System.Drawing.Size(117, 28);
+            this.comboBoxStatus.TabIndex = 127;
             // 
             // checkBoxGerarCodigoAutomaticamente
             // 
@@ -114,10 +224,10 @@
             // textBoxTipoUnitario
             // 
             this.textBoxTipoUnitario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxTipoUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTipoUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxTipoUnitario.Location = new System.Drawing.Point(564, 149);
             this.textBoxTipoUnitario.Name = "textBoxTipoUnitario";
-            this.textBoxTipoUnitario.Size = new System.Drawing.Size(97, 29);
+            this.textBoxTipoUnitario.Size = new System.Drawing.Size(97, 26);
             this.textBoxTipoUnitario.TabIndex = 99;
             // 
             // linkLimparFornecedor
@@ -186,66 +296,6 @@
             this.linkLabelCadFornecedor.Text = "Cadastrar Fornecedor";
             this.linkLabelCadFornecedor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCadFornecedor_LinkClicked);
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.Location = new System.Drawing.Point(449, 449);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(130, 16);
-            label11.TabIndex = 120;
-            label11.Text = "Preço de venda - R$";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.Location = new System.Drawing.Point(264, 449);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(130, 16);
-            label10.TabIndex = 119;
-            label10.Text = "Margem de lucro - %";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.Location = new System.Drawing.Point(43, 449);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(120, 16);
-            label9.TabIndex = 118;
-            label9.Text = "Valor de custo - R$";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(485, 373);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(114, 16);
-            label8.TabIndex = 117;
-            label8.Text = "Valida do produto";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(264, 373);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(89, 16);
-            label7.TabIndex = 116;
-            label7.Text = "Estoque atual";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(43, 373);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(103, 16);
-            label6.TabIndex = 115;
-            label6.Text = "Estoque minimo";
-            // 
             // comboBoxCategoria
             // 
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -255,16 +305,6 @@
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(615, 28);
             this.comboBoxCategoria.TabIndex = 101;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(43, 283);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(134, 16);
-            label5.TabIndex = 114;
-            label5.Text = "Categoria do produto";
             // 
             // comboBoxFornecedor
             // 
@@ -276,120 +316,87 @@
             this.comboBoxFornecedor.Size = new System.Drawing.Size(615, 28);
             this.comboBoxFornecedor.TabIndex = 100;
             // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(43, 197);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(77, 16);
-            label4.TabIndex = 113;
-            label4.Text = "Fornecedor";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(561, 132);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(84, 16);
-            label3.TabIndex = 112;
-            label3.Text = "Tipo Unitário";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(43, 130);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(112, 16);
-            label2.TabIndex = 111;
-            label2.Text = "Nome do produto";
-            // 
             // maskedValidade
             // 
-            this.maskedValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedValidade.Location = new System.Drawing.Point(488, 392);
             this.maskedValidade.Mask = "00/00/0000";
             this.maskedValidade.Name = "maskedValidade";
-            this.maskedValidade.Size = new System.Drawing.Size(173, 29);
+            this.maskedValidade.Size = new System.Drawing.Size(173, 26);
             this.maskedValidade.TabIndex = 104;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(166, 64);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(120, 16);
-            label1.TabIndex = 110;
-            label1.Text = "Codigo do Produto";
             // 
             // textBoxPrecoVenda
             // 
             this.textBoxPrecoVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxPrecoVenda.Location = new System.Drawing.Point(452, 468);
             this.textBoxPrecoVenda.Name = "textBoxPrecoVenda";
-            this.textBoxPrecoVenda.Size = new System.Drawing.Size(209, 29);
+            this.textBoxPrecoVenda.Size = new System.Drawing.Size(209, 26);
             this.textBoxPrecoVenda.TabIndex = 107;
+            this.textBoxPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxPrecoVenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPrecoVenda_KeyUp);
             // 
             // textBoxMargemLucro
             // 
             this.textBoxMargemLucro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxMargemLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMargemLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxMargemLucro.Location = new System.Drawing.Point(267, 468);
             this.textBoxMargemLucro.Name = "textBoxMargemLucro";
-            this.textBoxMargemLucro.Size = new System.Drawing.Size(179, 29);
+            this.textBoxMargemLucro.Size = new System.Drawing.Size(179, 26);
             this.textBoxMargemLucro.TabIndex = 106;
+            this.textBoxMargemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxMargemLucro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMargemLucro_KeyUp);
             // 
             // textBoxValorCusto
             // 
             this.textBoxValorCusto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxValorCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxValorCusto.Location = new System.Drawing.Point(46, 468);
             this.textBoxValorCusto.Name = "textBoxValorCusto";
-            this.textBoxValorCusto.Size = new System.Drawing.Size(215, 29);
+            this.textBoxValorCusto.Size = new System.Drawing.Size(215, 26);
             this.textBoxValorCusto.TabIndex = 105;
+            this.textBoxValorCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxValorCusto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyUp);
             // 
             // textBoxEstoqueMinimo
             // 
             this.textBoxEstoqueMinimo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxEstoqueMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEstoqueMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEstoqueMinimo.Location = new System.Drawing.Point(46, 392);
             this.textBoxEstoqueMinimo.Name = "textBoxEstoqueMinimo";
-            this.textBoxEstoqueMinimo.Size = new System.Drawing.Size(215, 29);
+            this.textBoxEstoqueMinimo.Size = new System.Drawing.Size(215, 26);
             this.textBoxEstoqueMinimo.TabIndex = 102;
+            this.textBoxEstoqueMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxEstoqueAtual
             // 
             this.textBoxEstoqueAtual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxEstoqueAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxEstoqueAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEstoqueAtual.Location = new System.Drawing.Point(267, 392);
+            this.textBoxEstoqueAtual.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxEstoqueAtual.Name = "textBoxEstoqueAtual";
-            this.textBoxEstoqueAtual.Size = new System.Drawing.Size(215, 29);
+            this.textBoxEstoqueAtual.Size = new System.Drawing.Size(215, 26);
             this.textBoxEstoqueAtual.TabIndex = 103;
+            this.textBoxEstoqueAtual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxNomeProduto
             // 
             this.textBoxNomeProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxNomeProduto.Location = new System.Drawing.Point(46, 149);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
-            this.textBoxNomeProduto.Size = new System.Drawing.Size(512, 29);
+            this.textBoxNomeProduto.Size = new System.Drawing.Size(512, 26);
             this.textBoxNomeProduto.TabIndex = 98;
             // 
             // textBoxCodigoProduto
             // 
             this.textBoxCodigoProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxCodigoProduto.Location = new System.Drawing.Point(169, 83);
             this.textBoxCodigoProduto.Name = "textBoxCodigoProduto";
-            this.textBoxCodigoProduto.Size = new System.Drawing.Size(215, 29);
+            this.textBoxCodigoProduto.Size = new System.Drawing.Size(215, 26);
             this.textBoxCodigoProduto.TabIndex = 97;
+            this.textBoxCodigoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // btnSair
             // 

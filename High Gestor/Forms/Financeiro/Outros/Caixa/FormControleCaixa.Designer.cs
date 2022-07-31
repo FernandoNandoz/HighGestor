@@ -131,7 +131,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(20, 335);
+            this.dataGridViewContent.Location = new System.Drawing.Point(20, 310);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -154,7 +154,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(917, 314);
+            this.dataGridViewContent.Size = new System.Drawing.Size(917, 339);
             this.dataGridViewContent.TabIndex = 17;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -278,7 +278,7 @@
             this.panelStatusCaixa.Controls.Add(this.labelMovimentoCaixaValue);
             this.panelStatusCaixa.Location = new System.Drawing.Point(28, 50);
             this.panelStatusCaixa.Name = "panelStatusCaixa";
-            this.panelStatusCaixa.Size = new System.Drawing.Size(898, 210);
+            this.panelStatusCaixa.Size = new System.Drawing.Size(898, 193);
             this.panelStatusCaixa.TabIndex = 92;
             this.panelStatusCaixa.Paint += new System.Windows.Forms.PaintEventHandler(this.panelStatusCaixa_Paint);
             // 
@@ -287,16 +287,16 @@
             this.buttonDetalhesCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDetalhesCaixa.FlatAppearance.BorderSize = 0;
             this.buttonDetalhesCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDetalhesCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDetalhesCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.buttonDetalhesCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonDetalhesCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonDetalhesCaixa.Image")));
-            this.buttonDetalhesCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonDetalhesCaixa.Location = new System.Drawing.Point(638, 161);
+            this.buttonDetalhesCaixa.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.buttonDetalhesCaixa.Location = new System.Drawing.Point(638, 147);
             this.buttonDetalhesCaixa.Name = "buttonDetalhesCaixa";
             this.buttonDetalhesCaixa.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonDetalhesCaixa.Size = new System.Drawing.Size(246, 37);
+            this.buttonDetalhesCaixa.Size = new System.Drawing.Size(246, 35);
             this.buttonDetalhesCaixa.TabIndex = 30;
-            this.buttonDetalhesCaixa.Text = "Detalhamento de caixa";
+            this.buttonDetalhesCaixa.Text = "Detalhamento de Caixa";
             this.buttonDetalhesCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.buttonDetalhesCaixa.UseVisualStyleBackColor = true;
             // 
@@ -305,7 +305,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(440, 103);
+            this.label13.Location = new System.Drawing.Point(440, 100);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(36, 18);
             this.label13.TabIndex = 29;
@@ -314,10 +314,10 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(427, 79);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(131, 19);
+            this.label14.Size = new System.Drawing.Size(128, 16);
             this.label14.TabIndex = 28;
             this.label14.Text = "Valor de abertura";
             // 
@@ -326,7 +326,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(678, 36);
+            this.label11.Location = new System.Drawing.Point(678, 33);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(174, 18);
             this.label11.TabIndex = 27;
@@ -335,10 +335,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(664, 12);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(50, 19);
+            this.label12.Size = new System.Drawing.Size(47, 16);
             this.label12.TabIndex = 26;
             this.label12.Text = "Conta";
             // 
@@ -346,14 +346,14 @@
             // 
             this.buttonReforcarCaixa.FlatAppearance.BorderSize = 0;
             this.buttonReforcarCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonReforcarCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReforcarCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.buttonReforcarCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonReforcarCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonReforcarCaixa.Image")));
-            this.buttonReforcarCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonReforcarCaixa.Location = new System.Drawing.Point(26, 161);
+            this.buttonReforcarCaixa.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.buttonReforcarCaixa.Location = new System.Drawing.Point(26, 147);
             this.buttonReforcarCaixa.Name = "buttonReforcarCaixa";
             this.buttonReforcarCaixa.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonReforcarCaixa.Size = new System.Drawing.Size(180, 37);
+            this.buttonReforcarCaixa.Size = new System.Drawing.Size(180, 35);
             this.buttonReforcarCaixa.TabIndex = 25;
             this.buttonReforcarCaixa.Text = "Reforçar Caixa";
             this.buttonReforcarCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -363,14 +363,14 @@
             // 
             this.buttonSangriaCaixa.FlatAppearance.BorderSize = 0;
             this.buttonSangriaCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSangriaCaixa.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSangriaCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.buttonSangriaCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonSangriaCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonSangriaCaixa.Image")));
-            this.buttonSangriaCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSangriaCaixa.Location = new System.Drawing.Point(228, 161);
+            this.buttonSangriaCaixa.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.buttonSangriaCaixa.Location = new System.Drawing.Point(228, 147);
             this.buttonSangriaCaixa.Name = "buttonSangriaCaixa";
             this.buttonSangriaCaixa.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonSangriaCaixa.Size = new System.Drawing.Size(172, 37);
+            this.buttonSangriaCaixa.Size = new System.Drawing.Size(172, 35);
             this.buttonSangriaCaixa.TabIndex = 24;
             this.buttonSangriaCaixa.Text = "Sangria Caixa";
             this.buttonSangriaCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -381,7 +381,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(440, 36);
+            this.label9.Location = new System.Drawing.Point(440, 33);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 18);
             this.label9.TabIndex = 22;
@@ -390,10 +390,10 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(427, 12);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(123, 19);
+            this.label10.Size = new System.Drawing.Size(124, 16);
             this.label10.TabIndex = 21;
             this.label10.Text = "Data da operção";
             // 
@@ -402,7 +402,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(230, 36);
+            this.label7.Location = new System.Drawing.Point(230, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 18);
             this.label7.TabIndex = 20;
@@ -411,10 +411,10 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(217, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 19);
+            this.label8.Size = new System.Drawing.Size(46, 16);
             this.label8.TabIndex = 19;
             this.label8.Text = "Caixa";
             // 
@@ -423,7 +423,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label6.Location = new System.Drawing.Point(35, 36);
+            this.label6.Location = new System.Drawing.Point(35, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 18);
             this.label6.TabIndex = 18;
@@ -432,41 +432,41 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(22, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 19);
+            this.label5.Size = new System.Drawing.Size(73, 16);
             this.label5.TabIndex = 17;
             this.label5.Text = "Operador";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(29, 79);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 19);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 16;
             this.label4.Text = "Situação";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(43, 103);
+            this.label3.Location = new System.Drawing.Point(43, 100);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(126, 18);
+            this.label3.Size = new System.Drawing.Size(115, 20);
             this.label3.TabIndex = 15;
             this.label3.Text = "Caixa Fechado";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(664, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 19);
+            this.label2.Size = new System.Drawing.Size(112, 16);
             this.label2.TabIndex = 14;
             this.label2.Text = "Valor em Caixa";
             // 
@@ -475,7 +475,7 @@
             this.labelMovimentoCaixaValue.AutoSize = true;
             this.labelMovimentoCaixaValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMovimentoCaixaValue.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelMovimentoCaixaValue.Location = new System.Drawing.Point(674, 99);
+            this.labelMovimentoCaixaValue.Location = new System.Drawing.Point(674, 96);
             this.labelMovimentoCaixaValue.Name = "labelMovimentoCaixaValue";
             this.labelMovimentoCaixaValue.Size = new System.Drawing.Size(84, 37);
             this.labelMovimentoCaixaValue.TabIndex = 5;
@@ -486,9 +486,9 @@
             this.buttonEditarCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEditarCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarCaixa.Image")));
-            this.buttonEditarCaixa.Location = new System.Drawing.Point(593, 280);
+            this.buttonEditarCaixa.Location = new System.Drawing.Point(593, 262);
             this.buttonEditarCaixa.Name = "buttonEditarCaixa";
-            this.buttonEditarCaixa.Size = new System.Drawing.Size(163, 40);
+            this.buttonEditarCaixa.Size = new System.Drawing.Size(163, 35);
             this.buttonEditarCaixa.TabIndex = 119;
             this.buttonEditarCaixa.Text = " Editar Caixa";
             this.buttonEditarCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -499,9 +499,9 @@
             this.buttonNovoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonNovoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNovoCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCaixa.Image")));
-            this.buttonNovoCaixa.Location = new System.Drawing.Point(439, 280);
+            this.buttonNovoCaixa.Location = new System.Drawing.Point(439, 262);
             this.buttonNovoCaixa.Name = "buttonNovoCaixa";
-            this.buttonNovoCaixa.Size = new System.Drawing.Size(148, 40);
+            this.buttonNovoCaixa.Size = new System.Drawing.Size(148, 35);
             this.buttonNovoCaixa.TabIndex = 118;
             this.buttonNovoCaixa.Text = " Novo Caixa";
             this.buttonNovoCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -512,9 +512,9 @@
             this.buttonExcluirCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonExcluirCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCaixa.Image")));
-            this.buttonExcluirCaixa.Location = new System.Drawing.Point(762, 280);
+            this.buttonExcluirCaixa.Location = new System.Drawing.Point(762, 262);
             this.buttonExcluirCaixa.Name = "buttonExcluirCaixa";
-            this.buttonExcluirCaixa.Size = new System.Drawing.Size(163, 40);
+            this.buttonExcluirCaixa.Size = new System.Drawing.Size(163, 35);
             this.buttonExcluirCaixa.TabIndex = 121;
             this.buttonExcluirCaixa.Text = " Excluir Caixa";
             this.buttonExcluirCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -524,9 +524,9 @@
             // 
             this.buttonAbrirCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAbrirCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonAbrirCaixa.Image")));
-            this.buttonAbrirCaixa.Location = new System.Drawing.Point(28, 280);
+            this.buttonAbrirCaixa.Location = new System.Drawing.Point(28, 262);
             this.buttonAbrirCaixa.Name = "buttonAbrirCaixa";
-            this.buttonAbrirCaixa.Size = new System.Drawing.Size(163, 40);
+            this.buttonAbrirCaixa.Size = new System.Drawing.Size(163, 35);
             this.buttonAbrirCaixa.TabIndex = 122;
             this.buttonAbrirCaixa.Text = " Abrir Caixa";
             this.buttonAbrirCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -536,9 +536,9 @@
             // 
             this.buttonFecharCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFecharCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonFecharCaixa.Image")));
-            this.buttonFecharCaixa.Location = new System.Drawing.Point(197, 280);
+            this.buttonFecharCaixa.Location = new System.Drawing.Point(197, 262);
             this.buttonFecharCaixa.Name = "buttonFecharCaixa";
-            this.buttonFecharCaixa.Size = new System.Drawing.Size(163, 40);
+            this.buttonFecharCaixa.Size = new System.Drawing.Size(163, 35);
             this.buttonFecharCaixa.TabIndex = 123;
             this.buttonFecharCaixa.Text = " Fechar Caixa";
             this.buttonFecharCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

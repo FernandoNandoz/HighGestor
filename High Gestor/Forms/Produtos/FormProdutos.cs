@@ -1898,7 +1898,27 @@ namespace High_Gestor.Forms.Produtos
 
         private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            //Query que deleta dados especificos atraves de parametros no banco de dados
+            if (dataGridViewContent.Rows.Count != 0)
+            {
+                updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+                openChildForm(new FormEstoque());
+            }
+        }
+
+        private void dataGridViewContent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 11)
+            {
+                //Query que deleta dados especificos atraves de parametros no banco de dados
+                if (dataGridViewContent.Rows.Count != 0)
+                {
+                    updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+                    openChildForm(new FormEstoque());
+                }
+            }
         }
 
         private void dataGridViewContent_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

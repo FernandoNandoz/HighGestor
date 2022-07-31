@@ -85,3 +85,4 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\ru\Microsoft.Repor
 C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CopyComplete
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarCaixa.resources

@@ -125,11 +125,11 @@
             labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(25, 138);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(25, 132);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(206, 24);
+            labelMovimentoCaixa.Size = new System.Drawing.Size(179, 20);
             labelMovimentoCaixa.TabIndex = 127;
             labelMovimentoCaixa.Text = "Lista de Contas a Pagar";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,7 +219,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(1001, 86);
+            label8.Location = new System.Drawing.Point(1001, 84);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 148;
@@ -397,7 +397,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(29, 168);
+            this.dataGridViewContent.Location = new System.Drawing.Point(29, 159);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -420,7 +420,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 363);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 375);
             this.dataGridViewContent.TabIndex = 121;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
@@ -475,7 +475,7 @@
             this.buttonExcluirLancamento.Location = new System.Drawing.Point(410, 85);
             this.buttonExcluirLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExcluirLancamento.Name = "buttonExcluirLancamento";
-            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 38);
+            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 35);
             this.buttonExcluirLancamento.TabIndex = 153;
             this.buttonExcluirLancamento.Text = " Excluir lançamento";
             this.buttonExcluirLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -490,7 +490,7 @@
             this.buttonEditarLancamento.Location = new System.Drawing.Point(226, 85);
             this.buttonEditarLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonEditarLancamento.Name = "buttonEditarLancamento";
-            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 38);
+            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 35);
             this.buttonEditarLancamento.TabIndex = 152;
             this.buttonEditarLancamento.Text = " Editar lançamento";
             this.buttonEditarLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -505,7 +505,7 @@
             this.buttonGerarRelatorio.Location = new System.Drawing.Point(613, 85);
             this.buttonGerarRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGerarRelatorio.Name = "buttonGerarRelatorio";
-            this.buttonGerarRelatorio.Size = new System.Drawing.Size(280, 38);
+            this.buttonGerarRelatorio.Size = new System.Drawing.Size(280, 35);
             this.buttonGerarRelatorio.TabIndex = 151;
             this.buttonGerarRelatorio.Text = " Gerar relatorio de Contas a Pagar";
             this.buttonGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -520,7 +520,7 @@
             this.buttonLancaManualmente.Location = new System.Drawing.Point(28, 85);
             this.buttonLancaManualmente.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancaManualmente.Name = "buttonLancaManualmente";
-            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 38);
+            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 35);
             this.buttonLancaManualmente.TabIndex = 150;
             this.buttonLancaManualmente.Text = " Lançar manualmente";
             this.buttonLancaManualmente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -542,7 +542,7 @@
             this.buttonSairContasPagar.Location = new System.Drawing.Point(1025, 85);
             this.buttonSairContasPagar.Name = "buttonSairContasPagar";
             this.buttonSairContasPagar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSairContasPagar.Size = new System.Drawing.Size(153, 38);
+            this.buttonSairContasPagar.Size = new System.Drawing.Size(153, 35);
             this.buttonSairContasPagar.TabIndex = 149;
             this.buttonSairContasPagar.TabStop = false;
             this.buttonSairContasPagar.Text = " Voltar";

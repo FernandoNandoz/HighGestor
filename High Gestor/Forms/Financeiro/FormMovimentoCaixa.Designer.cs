@@ -95,11 +95,11 @@
             labelMovimentoCaixa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             labelMovimentoCaixa.AutoSize = true;
-            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 108);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 100);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
-            labelMovimentoCaixa.Size = new System.Drawing.Size(179, 24);
+            labelMovimentoCaixa.Size = new System.Drawing.Size(148, 20);
             labelMovimentoCaixa.TabIndex = 86;
             labelMovimentoCaixa.Text = "Movimento de caixa";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -108,10 +108,10 @@
             // 
             label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(860, 10);
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.Location = new System.Drawing.Point(882, 9);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(177, 24);
+            label6.Size = new System.Drawing.Size(151, 20);
             label6.TabIndex = 85;
             label6.Text = "Data de movimento:";
             // 
@@ -227,7 +227,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(997, 56);
+            label8.Location = new System.Drawing.Point(997, 50);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 136;
@@ -237,11 +237,11 @@
             // dateTimePeriodo
             // 
             this.dateTimePeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePeriodo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePeriodo.Location = new System.Drawing.Point(1039, 8);
             this.dateTimePeriodo.Name = "dateTimePeriodo";
-            this.dateTimePeriodo.Size = new System.Drawing.Size(135, 29);
+            this.dateTimePeriodo.Size = new System.Drawing.Size(135, 26);
             this.dateTimePeriodo.TabIndex = 84;
             this.dateTimePeriodo.ValueChanged += new System.EventHandler(this.dateTimePeriodo_ValueChanged);
             // 
@@ -380,7 +380,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(34, 139);
+            this.dataGridViewContent.Location = new System.Drawing.Point(34, 128);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -404,7 +404,7 @@
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1139, 395);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1139, 410);
             this.dataGridViewContent.TabIndex = 79;
             this.dataGridViewContent.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentDoubleClick);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
@@ -459,10 +459,10 @@
             // 
             this.buttonExcluirLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirLancamento.Image")));
-            this.buttonExcluirLancamento.Location = new System.Drawing.Point(414, 55);
+            this.buttonExcluirLancamento.Location = new System.Drawing.Point(414, 51);
             this.buttonExcluirLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonExcluirLancamento.Name = "buttonExcluirLancamento";
-            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 38);
+            this.buttonExcluirLancamento.Size = new System.Drawing.Size(196, 35);
             this.buttonExcluirLancamento.TabIndex = 141;
             this.buttonExcluirLancamento.Text = " Excluir lançamento";
             this.buttonExcluirLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -474,10 +474,10 @@
             // 
             this.buttonEditarLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarLancamento.Image")));
-            this.buttonEditarLancamento.Location = new System.Drawing.Point(230, 55);
+            this.buttonEditarLancamento.Location = new System.Drawing.Point(230, 51);
             this.buttonEditarLancamento.Margin = new System.Windows.Forms.Padding(0);
             this.buttonEditarLancamento.Name = "buttonEditarLancamento";
-            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 38);
+            this.buttonEditarLancamento.Size = new System.Drawing.Size(177, 35);
             this.buttonEditarLancamento.TabIndex = 140;
             this.buttonEditarLancamento.Text = " Editar lançamento";
             this.buttonEditarLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -489,10 +489,10 @@
             // 
             this.buttonGerarRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonGerarRelatorio.Image")));
-            this.buttonGerarRelatorio.Location = new System.Drawing.Point(617, 55);
+            this.buttonGerarRelatorio.Location = new System.Drawing.Point(617, 51);
             this.buttonGerarRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonGerarRelatorio.Name = "buttonGerarRelatorio";
-            this.buttonGerarRelatorio.Size = new System.Drawing.Size(211, 38);
+            this.buttonGerarRelatorio.Size = new System.Drawing.Size(211, 35);
             this.buttonGerarRelatorio.TabIndex = 139;
             this.buttonGerarRelatorio.Text = " Gerar relatorio de Caixa";
             this.buttonGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -504,10 +504,10 @@
             // 
             this.buttonLancaManualmente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLancaManualmente.Image = ((System.Drawing.Image)(resources.GetObject("buttonLancaManualmente.Image")));
-            this.buttonLancaManualmente.Location = new System.Drawing.Point(32, 55);
+            this.buttonLancaManualmente.Location = new System.Drawing.Point(32, 51);
             this.buttonLancaManualmente.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancaManualmente.Name = "buttonLancaManualmente";
-            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 38);
+            this.buttonLancaManualmente.Size = new System.Drawing.Size(192, 35);
             this.buttonLancaManualmente.TabIndex = 138;
             this.buttonLancaManualmente.Text = " Lançar manualmente";
             this.buttonLancaManualmente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -526,10 +526,10 @@
             this.buttonSairCaixa.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSairCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonSairCaixa.Image")));
             this.buttonSairCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSairCaixa.Location = new System.Drawing.Point(1021, 55);
+            this.buttonSairCaixa.Location = new System.Drawing.Point(1021, 51);
             this.buttonSairCaixa.Name = "buttonSairCaixa";
             this.buttonSairCaixa.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSairCaixa.Size = new System.Drawing.Size(153, 38);
+            this.buttonSairCaixa.Size = new System.Drawing.Size(153, 35);
             this.buttonSairCaixa.TabIndex = 137;
             this.buttonSairCaixa.TabStop = false;
             this.buttonSairCaixa.Text = " Voltar";

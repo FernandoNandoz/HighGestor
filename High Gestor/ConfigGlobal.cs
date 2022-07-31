@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace High_Gestor
 {
@@ -10,8 +11,19 @@ namespace High_Gestor
 
         public void conectar()
         {
-            connection.ConnectionString = ("Data Source=(local);Initial Catalog=DatabaseHighData;Integrated Security=True");
-            connection.Open();
+            try
+            {
+                connection.ConnectionString = ("Data Source=(local);Initial Catalog=DatabaseHighData;Integrated Security=True");
+                connection.Open();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("there was an issue!" + ex);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("there was another issue!" + ex);
+            }
         }
 
         public void desconectar()
