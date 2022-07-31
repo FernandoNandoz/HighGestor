@@ -386,7 +386,7 @@ namespace High_Gestor.Forms.Produtos
         {
             ViewForms.requestViewForm(false, true);
 
-            FormMovimentarCaixa window = new FormMovimentarCaixa();
+            FormMovimentarEstoque window = new FormMovimentarEstoque();
             window.ShowDialog();
             window.Dispose();
 

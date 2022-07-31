@@ -68,6 +68,9 @@ namespace High_Gestor.Forms.Financeiro
 
         private void FormMovimentoCaixa_Load(object sender, EventArgs e)
         {
+            labelStatusCaixa.Text = "Caixa Fechado";
+            labelStatusCaixa.ForeColor = Color.Red;
+
             //
             dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
             dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");

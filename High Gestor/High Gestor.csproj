@@ -190,11 +190,11 @@
     <Compile Include="Forms\Produtos\FormEstoque.Designer.cs">
       <DependentUpon>FormEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Produtos\FormMovimentarCaixa.cs">
+    <Compile Include="Forms\Produtos\FormMovimentarEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Produtos\FormMovimentarCaixa.Designer.cs">
-      <DependentUpon>FormMovimentarCaixa.cs</DependentUpon>
+    <Compile Include="Forms\Produtos\FormMovimentarEstoque.Designer.cs">
+      <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Produtos\FormProdutos.cs">
       <SubType>Form</SubType>
@@ -283,8 +283,8 @@
     <EmbeddedResource Include="Forms\Produtos\FormEstoque.resx">
       <DependentUpon>FormEstoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Produtos\FormMovimentarCaixa.resx">
-      <DependentUpon>FormMovimentarCaixa.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Produtos\FormMovimentarEstoque.resx">
+      <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormProdutos.resx">
       <DependentUpon>FormProdutos.cs</DependentUpon>

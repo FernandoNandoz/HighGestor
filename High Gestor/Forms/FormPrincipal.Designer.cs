@@ -49,12 +49,14 @@
             this.labelNameEstebelecimento = new System.Windows.Forms.Label();
             this.buttonAjuda = new System.Windows.Forms.Button();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.pictureBoxPapelParede = new System.Windows.Forms.PictureBox();
             labelLinhaMenuInferior = new System.Windows.Forms.Label();
             labelTituloMenu = new System.Windows.Forms.Label();
             labelTitulo = new System.Windows.Forms.Label();
             labelLinhaTopo = new System.Windows.Forms.Label();
             this.panelMenuBar.SuspendLayout();
             this.paneTitlerBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPapelParede)).BeginInit();
             this.SuspendLayout();
             // 
             // labelLinhaMenuInferior
@@ -328,6 +330,7 @@
             this.paneTitlerBar.Controls.Add(this.buttonTitlerMinimizar);
             this.paneTitlerBar.Controls.Add(this.buttonTitlerMaximizar);
             this.paneTitlerBar.Controls.Add(this.buttonTitlerSair);
+            this.paneTitlerBar.Controls.Add(this.pictureBoxPapelParede);
             this.paneTitlerBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.paneTitlerBar.Location = new System.Drawing.Point(158, 0);
             this.paneTitlerBar.Margin = new System.Windows.Forms.Padding(0);
@@ -372,6 +375,15 @@
             this.labelUsuario.TabIndex = 5;
             this.labelUsuario.Text = "Fernando | Desenvolvedor";
             // 
+            // pictureBoxPapelParede
+            // 
+            this.pictureBoxPapelParede.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxPapelParede.Location = new System.Drawing.Point(734, 0);
+            this.pictureBoxPapelParede.Name = "pictureBoxPapelParede";
+            this.pictureBoxPapelParede.Size = new System.Drawing.Size(474, 64);
+            this.pictureBoxPapelParede.TabIndex = 8;
+            this.pictureBoxPapelParede.TabStop = false;
+            // 
             // FormHighGestor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,6 +404,7 @@
             this.panelMenuBar.PerformLayout();
             this.paneTitlerBar.ResumeLayout(false);
             this.paneTitlerBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPapelParede)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -414,6 +427,7 @@
         private System.Windows.Forms.Button buttonProdutos;
         private System.Windows.Forms.Button buttonVendas;
         private System.Windows.Forms.Button buttonAjuda;
+        private System.Windows.Forms.PictureBox pictureBoxPapelParede;
     }
 }
 

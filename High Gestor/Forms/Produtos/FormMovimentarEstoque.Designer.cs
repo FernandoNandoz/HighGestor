@@ -1,6 +1,6 @@
 ﻿namespace High_Gestor.Forms.Produtos
 {
-    partial class FormMovimentarCaixa
+    partial class FormMovimentarEstoque
     {
         /// <summary>
         /// Required designer variable.

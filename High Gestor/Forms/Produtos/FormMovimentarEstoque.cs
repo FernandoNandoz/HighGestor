@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace High_Gestor.Forms.Produtos
 {
-    public partial class FormMovimentarCaixa : Form
+    public partial class FormMovimentarEstoque : Form
     {
         Banco banco = new Banco();
 
-        public FormMovimentarCaixa()
+        public FormMovimentarEstoque()
         {
             InitializeComponent();
         }
