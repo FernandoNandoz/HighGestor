@@ -157,41 +157,48 @@ namespace High_Gestor.Forms.Produtos
 
             if (verificarCampos() == true)
             {
-                if (textBoxDescricao.Text == string.Empty || textBoxDescricao.Text == "")
+                if(calcularAteracaoEstoque(int.Parse(textBoxQuantidade.Text)) >= 0)
                 {
-                    descricao = "Acerto de estoque";
+                    if (textBoxDescricao.Text == string.Empty || textBoxDescricao.Text == "")
+                    {
+                        descricao = "Acerto de estoque";
+                    }
+                    else
+                    {
+                        descricao = textBoxDescricao.Text;
+                    }
+
+                    //
+                    if (comboBoxTipoMovimentacao.Text == "ENTRADA")
+                    {
+                        entrada = int.Parse(textBoxQuantidade.Text);
+                    }
+                    else if (comboBoxTipoMovimentacao.Text == "SAIDA")
+                    {
+                        saida = int.Parse(textBoxQuantidade.Text);
+                    }
+
+                    //
+                    if (textBoxValorUnitario.Text == string.Empty || textBoxValorUnitario.Text == "")
+                    {
+                        valorUnitario = 0;
+                    }
+                    else
+                    {
+                        valorUnitario = decimal.Parse(textBoxValorUnitario.Text);
+                    }
+
+                    //
+                    insertQueryEstoque(entrada, saida, calcularAteracaoEstoque(int.Parse(textBoxQuantidade.Text)), descricao, valorUnitario);
+
+                    limparValore();
+
+                    this.Close();
                 }
                 else
                 {
-                    descricao = textBoxDescricao.Text;
+                    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "A quantidade informada é MAIOR que o ESTOQUE ATUAL!", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                //
-                if (comboBoxTipoMovimentacao.Text == "ENTRADA")
-                {
-                    entrada = int.Parse(textBoxQuantidade.Text);
-                }
-                else if (comboBoxTipoMovimentacao.Text == "SAIDA")
-                {
-                    saida = int.Parse(textBoxQuantidade.Text);
-                }
-
-                //
-                if(textBoxValorUnitario.Text == string.Empty || textBoxValorUnitario.Text == "")
-                {
-                    valorUnitario = 0;
-                }
-                else
-                {
-                    valorUnitario = decimal.Parse(textBoxValorUnitario.Text);
-                }
-
-                //
-                insertQueryEstoque(entrada, saida, calcularAteracaoEstoque(int.Parse(textBoxQuantidade.Text)), descricao, valorUnitario);
-
-                limparValore();
-
-                this.Close();
             }
             else
             {

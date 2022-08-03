@@ -131,6 +131,13 @@ namespace High_Gestor
                 openChildForm(new Forms.Financeiro.FormFinanceiro());
             }
 
+            if (alterouSize._retornarFormName() == "COMPRAS")
+            {
+                alterouSize.receberOpenSecundario("REDIMENCIONAR");
+                //
+                openChildForm(new Forms.Compras.FormCompras());
+            }
+
             if (alterouSize._retornarFormName() == "RELATORIO")
             {
                 //
@@ -192,7 +199,7 @@ namespace High_Gestor
             buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonVendas.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -209,7 +216,7 @@ namespace High_Gestor
             buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonProdutos.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -226,7 +233,7 @@ namespace High_Gestor
             buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonClientes.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -243,7 +250,7 @@ namespace High_Gestor
             buttonClientes.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonFinanceiro.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -254,6 +261,23 @@ namespace High_Gestor
             openChildForm(new Forms.Financeiro.FormFinanceiro());
         }
 
+        private void buttonCompras_Click(object sender, EventArgs e)
+        {
+            buttonVendas.BackColor = Color.FromArgb(43, 87, 154);
+            buttonProdutos.BackColor = Color.FromArgb(43, 87, 154);
+            buttonClientes.BackColor = Color.FromArgb(43, 87, 154);
+            buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
+            buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
+            buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(0, 32, 80);
+
+            ViewForms.requestBackMenu(false);
+            alterouSize.receberName("COMPRAS");
+            alterouSize.receberValidacao(1);
+
+            openChildForm(new Forms.Compras.FormCompras());
+        }
+
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
             buttonVendas.BackColor = Color.FromArgb(43, 87, 154);
@@ -261,7 +285,7 @@ namespace High_Gestor
             buttonClientes.BackColor = Color.FromArgb(43, 87, 154);
             buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -278,7 +302,7 @@ namespace High_Gestor
             buttonClientes.BackColor = Color.FromArgb(43, 87, 154);
             buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
             buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(43, 87, 154);
+            buttonCompras.BackColor = Color.FromArgb(43, 87, 154);
             buttonConfiguracoes.BackColor = Color.FromArgb(0, 32, 80);
 
             ViewForms.requestBackMenu(false);
@@ -286,17 +310,6 @@ namespace High_Gestor
             alterouSize.receberValidacao(1);
 
             openChildForm(new Forms.Configuracoes.FormConfiguracoes());
-        }
-
-        private void buttonTrocarUsuario_Click(object sender, EventArgs e)
-        {
-            buttonVendas.BackColor = Color.FromArgb(43, 87, 154);
-            buttonProdutos.BackColor = Color.FromArgb(43, 87, 154);
-            buttonClientes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonFinanceiro.BackColor = Color.FromArgb(43, 87, 154);
-            buttonRelatorio.BackColor = Color.FromArgb(43, 87, 154);
-            buttonConfiguracoes.BackColor = Color.FromArgb(43, 87, 154);
-            buttonTrocarUsuario.BackColor = Color.FromArgb(0, 32, 80);
         }
 
         private void panelContent_ControlRemoved(object sender, ControlEventArgs e)

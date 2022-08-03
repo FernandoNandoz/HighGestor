@@ -26,6 +26,7 @@ namespace High_Gestor.Forms.Produtos
             textBoxCodigoProduto.Clear();
             textBoxNomeProduto.Clear();
             textBoxTipoUnitario.Clear();
+            textBoxMarca.Clear();
             dataComboBoxFornecedor();
             dataComboBoxCategoria();
             comboBoxCategoria.Text = "";
@@ -81,7 +82,7 @@ namespace High_Gestor.Forms.Produtos
             int idFornecedorFK = 0, idCategoriaFK = 0;
 
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT status, codigoProduto, nomeProduto, tipoUnitario, idFornecedorFK, idCategoriaFK, estoqueMinimo, estoqueAtual, dataValidade, valorCusto, margemLucro, valorVenda FROM Produtos WHERE idProduto = @ID");
+            string query = ("SELECT status, codigoProduto, nomeProduto, tipoUnitario, idFornecedorFK, idCategoriaFK, marca, estoqueMinimo, estoqueAtual, dataValidade, valorCusto, margemLucro, valorVenda FROM Produtos WHERE idProduto = @ID");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -97,12 +98,13 @@ namespace High_Gestor.Forms.Produtos
                 textBoxTipoUnitario.Text = datareader[3].ToString();
                 idFornecedorFK = int.Parse(datareader[4].ToString());
                 idCategoriaFK = int.Parse(datareader[5].ToString());
-                textBoxEstoqueMinimo.Text = datareader[6].ToString();
-                textBoxEstoqueAtual.Text = datareader[7].ToString();
-                maskedValidade.Text = datareader[8].ToString();
-                textBoxValorCusto.Text = datareader[9].ToString();
-                textBoxMargemLucro.Text = datareader[10].ToString();
-                textBoxPrecoVenda.Text = datareader[11].ToString();
+                textBoxMarca.Text = datareader[6].ToString();
+                textBoxEstoqueMinimo.Text = datareader[7].ToString();
+                textBoxEstoqueAtual.Text = datareader[8].ToString();
+                maskedValidade.Text = datareader[9].ToString();
+                textBoxValorCusto.Text = datareader[10].ToString();
+                textBoxMargemLucro.Text = datareader[11].ToString();
+                textBoxPrecoVenda.Text = datareader[12].ToString();
             }
 
             banco.desconectar();
@@ -250,6 +252,7 @@ namespace High_Gestor.Forms.Produtos
                 if (comboBoxStatus.Text != ""
                 && textBoxNomeProduto.Text != string.Empty
                 && textBoxTipoUnitario.Text != string.Empty
+                && textBoxMarca.Text != string.Empty
                 && comboBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
@@ -267,6 +270,7 @@ namespace High_Gestor.Forms.Produtos
                 && textBoxCodigoProduto.Text != string.Empty
                 && textBoxNomeProduto.Text != string.Empty
                 && textBoxTipoUnitario.Text != string.Empty
+                && textBoxMarca.Text != string.Empty
                 && comboBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
@@ -317,7 +321,7 @@ namespace High_Gestor.Forms.Produtos
         {
             try
             {
-                string produtos = ("INSERT INTO Produtos (idLog, idFornecedorFK, idCategoriaFK, status, codigoProduto, nomeProduto, tipoUnitario, estoqueMinimo, estoqueAtual, dataValidade, valorCusto, margemLucro, valorVenda, createdAt) VALUES (@idLog, @idFornecedorFK, @idCategoriaFK, @status, @codigoProduto, @nomeProduto, @tipoUnitario, @estoqueMinimo, @estoqueAtual, @dataValidade, @valorCusto, @margemLucro, @valorVenda, @createdAt)");
+                string produtos = ("INSERT INTO Produtos (idLog, idFornecedorFK, idCategoriaFK, status, codigoProduto, nomeProduto, tipoUnitario, marca, estoqueMinimo, estoqueAtual, dataValidade, valorCusto, margemLucro, valorVenda, createdAt) VALUES (@idLog, @idFornecedorFK, @idCategoriaFK, @status, @codigoProduto, @nomeProduto, @tipoUnitario, @marca, @estoqueMinimo, @estoqueAtual, @dataValidade, @valorCusto, @margemLucro, @valorVenda, @createdAt)");
                 SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
 
                 sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
@@ -327,6 +331,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
                 sqlCommand.Parameters.AddWithValue("@nomeProduto", textBoxNomeProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
+                sqlCommand.Parameters.AddWithValue("@marca", textBoxMarca.Text);
                 sqlCommand.Parameters.AddWithValue("@estoqueMinimo", int.Parse(textBoxEstoqueMinimo.Text));
                 sqlCommand.Parameters.AddWithValue("@estoqueAtual", int.Parse(textBoxEstoqueAtual.Text));
                 if(maskedValidade.Text == "  /  /")
@@ -360,7 +365,7 @@ namespace High_Gestor.Forms.Produtos
         {
             try
             {
-                string produtos = ("UPDATE Produtos SET idLog = @idLog, idFornecedorFK = @idFornecedorFK, idCategoriaFK = @idCategoriaFK, status = @status, codigoProduto = @codigoProduto, nomeProduto = @nomeProduto, tipoUnitario = @tipoUnitario, estoqueMinimo = @estoqueMinimo, estoqueAtual = @estoqueAtual, dataValidade = @dataValidade, valorCusto = @valorCusto, margemLucro = @margemLucro, valorVenda = @valorVenda, updatedAt = @updatedAt WHERE idProduto = @ID");
+                string produtos = ("UPDATE Produtos SET idLog = @idLog, idFornecedorFK = @idFornecedorFK, idCategoriaFK = @idCategoriaFK, status = @status, codigoProduto = @codigoProduto, nomeProduto = @nomeProduto, tipoUnitario = @tipoUnitario, marca = @marca, estoqueMinimo = @estoqueMinimo, estoqueAtual = @estoqueAtual, dataValidade = @dataValidade, valorCusto = @valorCusto, margemLucro = @margemLucro, valorVenda = @valorVenda, updatedAt = @updatedAt WHERE idProduto = @ID");
                 SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
 
                 sqlCommand.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -371,6 +376,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
                 sqlCommand.Parameters.AddWithValue("@nomeProduto", textBoxNomeProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
+                sqlCommand.Parameters.AddWithValue("@marca", textBoxMarca.Text);
                 sqlCommand.Parameters.AddWithValue("@estoqueMinimo", int.Parse(textBoxEstoqueMinimo.Text));
                 sqlCommand.Parameters.AddWithValue("@estoqueAtual", int.Parse(textBoxEstoqueAtual.Text));
                 if (maskedValidade.Text == "  /  /")
@@ -434,8 +440,35 @@ namespace High_Gestor.Forms.Produtos
             }
         }
 
+        private void pesquisaAutoCompleteMarca()
+        {
+            try
+            {
+                SqlCommand exePesquisa = new SqlCommand("SELECT marca FROM Produtos", banco.connection);
+
+                banco.conectar();
+                SqlDataReader dr = exePesquisa.ExecuteReader();
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                }
+                banco.desconectar();
+
+                textBoxMarca.AutoCompleteCustomSource = lista;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void FormCadProduto_Load(object sender, EventArgs e)
         {
+            pesquisaAutoCompleteMarca();
+            //
             dataComboBoxFornecedor();
             dataComboBoxCategoria();
             //
@@ -643,6 +676,5 @@ namespace High_Gestor.Forms.Produtos
                 textBoxCodigoProduto.Focus();
             }
         }
-
     }
 }

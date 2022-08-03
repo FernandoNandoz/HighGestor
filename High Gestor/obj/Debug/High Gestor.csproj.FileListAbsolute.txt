@@ -86,3 +86,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.R
 C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CopyComplete
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarEstoque.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormCompras.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.EntradaMercadoria.FormEntradaMercadoria.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEditarMassa.resources

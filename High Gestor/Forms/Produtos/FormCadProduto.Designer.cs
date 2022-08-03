@@ -40,6 +40,7 @@
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label13;
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.checkBoxGerarCodigoAutomaticamente = new System.Windows.Forms.CheckBox();
             this.textBoxTipoUnitario = new System.Windows.Forms.TextBox();
@@ -60,6 +61,7 @@
             this.textBoxCodigoProduto = new System.Windows.Forms.TextBox();
             this.btnSair = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.textBoxMarca = new System.Windows.Forms.TextBox();
             label12 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -72,6 +74,7 @@
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label12
@@ -148,7 +151,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(43, 283);
+            label5.Location = new System.Drawing.Point(359, 283);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(134, 16);
             label5.TabIndex = 114;
@@ -194,6 +197,16 @@
             label1.TabIndex = 110;
             label1.Text = "Codigo do Produto";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.Location = new System.Drawing.Point(43, 283);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(45, 16);
+            label13.TabIndex = 130;
+            label13.Text = "Marca";
+            // 
             // comboBoxStatus
             // 
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -205,7 +218,7 @@
             this.comboBoxStatus.Location = new System.Drawing.Point(46, 82);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(117, 28);
-            this.comboBoxStatus.TabIndex = 127;
+            this.comboBoxStatus.TabIndex = 0;
             // 
             // checkBoxGerarCodigoAutomaticamente
             // 
@@ -228,7 +241,7 @@
             this.textBoxTipoUnitario.Location = new System.Drawing.Point(564, 149);
             this.textBoxTipoUnitario.Name = "textBoxTipoUnitario";
             this.textBoxTipoUnitario.Size = new System.Drawing.Size(97, 26);
-            this.textBoxTipoUnitario.TabIndex = 99;
+            this.textBoxTipoUnitario.TabIndex = 3;
             // 
             // linkLimparFornecedor
             // 
@@ -248,7 +261,7 @@
             this.linkLimparCategoria.ActiveLinkColor = System.Drawing.Color.Gray;
             this.linkLimparCategoria.AutoSize = true;
             this.linkLimparCategoria.LinkColor = System.Drawing.Color.Black;
-            this.linkLimparCategoria.Location = new System.Drawing.Point(43, 333);
+            this.linkLimparCategoria.Location = new System.Drawing.Point(360, 333);
             this.linkLimparCategoria.Name = "linkLimparCategoria";
             this.linkLimparCategoria.Size = new System.Drawing.Size(86, 13);
             this.linkLimparCategoria.TabIndex = 124;
@@ -301,10 +314,10 @@
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(46, 302);
+            this.comboBoxCategoria.Location = new System.Drawing.Point(362, 302);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(615, 28);
-            this.comboBoxCategoria.TabIndex = 101;
+            this.comboBoxCategoria.Size = new System.Drawing.Size(299, 28);
+            this.comboBoxCategoria.TabIndex = 6;
             // 
             // comboBoxFornecedor
             // 
@@ -314,7 +327,7 @@
             this.comboBoxFornecedor.Location = new System.Drawing.Point(46, 216);
             this.comboBoxFornecedor.Name = "comboBoxFornecedor";
             this.comboBoxFornecedor.Size = new System.Drawing.Size(615, 28);
-            this.comboBoxFornecedor.TabIndex = 100;
+            this.comboBoxFornecedor.TabIndex = 4;
             // 
             // maskedValidade
             // 
@@ -323,7 +336,7 @@
             this.maskedValidade.Mask = "00/00/0000";
             this.maskedValidade.Name = "maskedValidade";
             this.maskedValidade.Size = new System.Drawing.Size(173, 26);
-            this.maskedValidade.TabIndex = 104;
+            this.maskedValidade.TabIndex = 9;
             // 
             // textBoxPrecoVenda
             // 
@@ -332,7 +345,7 @@
             this.textBoxPrecoVenda.Location = new System.Drawing.Point(452, 468);
             this.textBoxPrecoVenda.Name = "textBoxPrecoVenda";
             this.textBoxPrecoVenda.Size = new System.Drawing.Size(209, 26);
-            this.textBoxPrecoVenda.TabIndex = 107;
+            this.textBoxPrecoVenda.TabIndex = 12;
             this.textBoxPrecoVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxPrecoVenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPrecoVenda_KeyUp);
             // 
@@ -343,7 +356,7 @@
             this.textBoxMargemLucro.Location = new System.Drawing.Point(267, 468);
             this.textBoxMargemLucro.Name = "textBoxMargemLucro";
             this.textBoxMargemLucro.Size = new System.Drawing.Size(179, 26);
-            this.textBoxMargemLucro.TabIndex = 106;
+            this.textBoxMargemLucro.TabIndex = 11;
             this.textBoxMargemLucro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxMargemLucro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMargemLucro_KeyUp);
             // 
@@ -354,7 +367,7 @@
             this.textBoxValorCusto.Location = new System.Drawing.Point(46, 468);
             this.textBoxValorCusto.Name = "textBoxValorCusto";
             this.textBoxValorCusto.Size = new System.Drawing.Size(215, 26);
-            this.textBoxValorCusto.TabIndex = 105;
+            this.textBoxValorCusto.TabIndex = 10;
             this.textBoxValorCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             this.textBoxValorCusto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyUp);
             // 
@@ -365,7 +378,7 @@
             this.textBoxEstoqueMinimo.Location = new System.Drawing.Point(46, 392);
             this.textBoxEstoqueMinimo.Name = "textBoxEstoqueMinimo";
             this.textBoxEstoqueMinimo.Size = new System.Drawing.Size(215, 26);
-            this.textBoxEstoqueMinimo.TabIndex = 102;
+            this.textBoxEstoqueMinimo.TabIndex = 7;
             this.textBoxEstoqueMinimo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxEstoqueAtual
@@ -376,7 +389,7 @@
             this.textBoxEstoqueAtual.Margin = new System.Windows.Forms.Padding(0);
             this.textBoxEstoqueAtual.Name = "textBoxEstoqueAtual";
             this.textBoxEstoqueAtual.Size = new System.Drawing.Size(215, 26);
-            this.textBoxEstoqueAtual.TabIndex = 103;
+            this.textBoxEstoqueAtual.TabIndex = 8;
             this.textBoxEstoqueAtual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxNomeProduto
@@ -386,7 +399,7 @@
             this.textBoxNomeProduto.Location = new System.Drawing.Point(46, 149);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
             this.textBoxNomeProduto.Size = new System.Drawing.Size(512, 26);
-            this.textBoxNomeProduto.TabIndex = 98;
+            this.textBoxNomeProduto.TabIndex = 2;
             // 
             // textBoxCodigoProduto
             // 
@@ -395,7 +408,7 @@
             this.textBoxCodigoProduto.Location = new System.Drawing.Point(169, 83);
             this.textBoxCodigoProduto.Name = "textBoxCodigoProduto";
             this.textBoxCodigoProduto.Size = new System.Drawing.Size(215, 26);
-            this.textBoxCodigoProduto.TabIndex = 97;
+            this.textBoxCodigoProduto.TabIndex = 1;
             this.textBoxCodigoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // btnSair
@@ -405,7 +418,7 @@
             this.btnSair.Location = new System.Drawing.Point(607, 579);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
-            this.btnSair.TabIndex = 109;
+            this.btnSair.TabIndex = 14;
             this.btnSair.Text = "Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
@@ -417,10 +430,21 @@
             this.buttonSalvar.Location = new System.Drawing.Point(481, 579);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
-            this.buttonSalvar.TabIndex = 108;
+            this.buttonSalvar.TabIndex = 13;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
+            // 
+            // textBoxMarca
+            // 
+            this.textBoxMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBoxMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxMarca.Location = new System.Drawing.Point(46, 302);
+            this.textBoxMarca.Name = "textBoxMarca";
+            this.textBoxMarca.Size = new System.Drawing.Size(307, 26);
+            this.textBoxMarca.TabIndex = 5;
             // 
             // FormCadProduto
             // 
@@ -428,6 +452,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1208, 640);
+            this.Controls.Add(label13);
+            this.Controls.Add(this.textBoxMarca);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(label12);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);
@@ -493,5 +519,6 @@
         private System.Windows.Forms.TextBox textBoxCodigoProduto;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.TextBox textBoxMarca;
     }
 }

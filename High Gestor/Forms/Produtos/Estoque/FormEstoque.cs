@@ -211,7 +211,7 @@ namespace High_Gestor.Forms.Produtos
         private void carregarDadosEstoque()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT idProdutoFK, dataMovimento, entrada, saida, descricao, valorUnitario, saldoAtual FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            string query = ("SELECT idProdutoFK, dataMovimento, entrada, saida, descricao, valorUnitario, saldoAtual FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim ORDER BY dataMovimento DESC");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -227,11 +227,11 @@ namespace High_Gestor.Forms.Produtos
             {
                 dataGridViewContent.Rows.Add(datareader[0],
                                              datareader[1],
-                                             datareader[2],
-                                             datareader[3],
+                                             datareader.GetInt32(2).ToString("N"),
+                                             datareader.GetInt32(3).ToString("N"),
                                              datareader[4],
-                                             datareader[5],
-                                             datareader[6]);
+                                             datareader.GetDecimal(5).ToString("C2"),
+                                             datareader.GetInt32(6).ToString("N"));
             }
 
             banco.desconectar();
@@ -253,8 +253,8 @@ namespace High_Gestor.Forms.Produtos
             dataInicioAnteriro = dataInicioAnteriro.AddMonths(-1);
 
             DateTime dataFimAnteriro = new DateTime(anoFim, mesFim, diaFim);
-            dataFimAnteriro.AddMonths(-1);
-            dataFimAnteriro.AddDays(-1);
+            dataFimAnteriro = dataFimAnteriro.AddMonths(-1);
+            dataFimAnteriro = dataFimAnteriro.AddDays(-1);
 
 
             string query = ("SELECT (SELECT SUM(entrada) - SUM(saida) as TOTOAL FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicioAnterior AND @dataFimAnterior), SUM(entrada), SUM(saida), SUM(entrada) - SUM(saida) FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
@@ -308,57 +308,83 @@ namespace High_Gestor.Forms.Produtos
             labelSaldo.Text = SaldoAtual.ToString("N");
         }
 
-        //private void carregarTotais()
-        //{
-        //    int TotalEntradas = 0, TotalSaidas = 0, TotalVendas = 0, TotalCompras = 0;
+        private void carregarDadosTotalEntrada()
+        {
+            decimal QntdEntrada = 0, MediaEntrada = 0, TotalEntrada = 0;
 
-        //    DateTime dataInicioAnteriro = new DateTime(dateTimePeriodoIncial.Value.Year, (dateTimePeriodoIncial.Value.Month - 1), dateTimePeriodoIncial.Value.Day);
-        //    DateTime dataFimAnteriro = new DateTime(dateTimePeriodoFinal.Value.Year, (dateTimePeriodoFinal.Value.Month - 1), (dateTimePeriodoFinal.Value.Day - 1));
+            string query = ("SELECT SUM(entrada), SUM(entrada * valorUnitario), (SELECT SUM(entrada * valorUnitario) / SUM(entrada) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Estoque WHERE idProdutoFK = @ID AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
 
-        //    string query = ("SELECT SUM(entrada), SUM(saida), SUM(valorUnitario) FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
-        //    SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-        //    banco.conectar();
-
-        //    exeVerificacao.Parameters.AddWithValue("@ID", updateData._retornarID());
-        //    exeVerificacao.Parameters.AddWithValue("@dataInicio", DateTime.Parse(dateTimePeriodoIncial.Text));
-        //    exeVerificacao.Parameters.AddWithValue("@dataFim", DateTime.Parse(dateTimePeriodoFinal.Text));
+            exeVerificacao.Parameters.AddWithValue("@ID", updateData._retornarID());
+            exeVerificacao.Parameters.AddWithValue("@dataInicio", DateTime.Parse(dateTimePeriodoIncial.Text));
+            exeVerificacao.Parameters.AddWithValue("@dataFim", DateTime.Parse(dateTimePeriodoFinal.Text));
 
 
-        //    SqlDataReader datareader = exeVerificacao.ExecuteReader();
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
-        //    if (datareader.Read())
-        //    {
-        //        if (datareader[0].ToString() != string.Empty)
-        //        {
-        //            TotalEntradas = int.Parse(datareader[0].ToString());
-        //        }
+            if (datareader.Read())
+            {
+                if (datareader[0].ToString() != string.Empty)
+                {
+                    QntdEntrada = decimal.Parse(datareader[0].ToString());
+                }
 
-        //        if (datareader[1].ToString() != string.Empty)
-        //        {
-        //            TotalSaidas = int.Parse(datareader[1].ToString());
-        //        }
+                if (datareader[1].ToString() != string.Empty)
+                {
+                    TotalEntrada = decimal.Parse(datareader[1].ToString());
+                }
 
-        //        if (datareader[2].ToString() != string.Empty)
-        //        {
-        //            SaldoAt = int.Parse(datareader[2].ToString());
-        //        }
-        //    }
-        //    banco.desconectar();
+                if (datareader[2].ToString() != string.Empty)
+                {
+                    MediaEntrada = decimal.Parse(datareader[2].ToString());
+                }
+            }
+            banco.desconectar();
 
-        //    if (SaldoAtual > 0)
-        //    {
-        //        labelSaldo.ForeColor = Color.Green;
-        //    }
-        //    else
-        //    {
-        //        labelSaldo.ForeColor = Color.Red;
-        //    }
 
-        //    labelSandoAnterior.Text = SaldoAnterior.ToString("N");
-        //    labelEntradas.Text = TotalEntradas.ToString("N");
-        //    labelSaidas.Text = TotalSaidas.ToString("N");
-        //    labelSaldo.Text = SaldoAtual.ToString("N");
-        //}
+            labelMedioEntradas.Text = MediaEntrada.ToString("C2");
+            labelTotalEntradas.Text = TotalEntrada.ToString("C2");
+        }
+
+        private void carregarDadosTotalSaida()
+        {
+            decimal QntdSaida = 0, MediaSaida = 0, TotalSaida = 0;
+
+            string query = ("SELECT SUM(saida), SUM(saida * valorUnitario), (SELECT SUM(saida * valorUnitario) / SUM(saida) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Estoque WHERE idProdutoFK = @ID AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            exeVerificacao.Parameters.AddWithValue("@ID", updateData._retornarID());
+            exeVerificacao.Parameters.AddWithValue("@dataInicio", DateTime.Parse(dateTimePeriodoIncial.Text));
+            exeVerificacao.Parameters.AddWithValue("@dataFim", DateTime.Parse(dateTimePeriodoFinal.Text));
+
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            if (datareader.Read())
+            {
+                if (datareader[0].ToString() != string.Empty)
+                {
+                    QntdSaida = decimal.Parse(datareader[0].ToString());
+                }
+
+                if (datareader[1].ToString() != string.Empty)
+                {
+                    TotalSaida = decimal.Parse(datareader[1].ToString());
+                }
+
+                if (datareader[2].ToString() != string.Empty)
+                {
+                    MediaSaida = decimal.Parse(datareader[2].ToString());
+                }
+            }
+            banco.desconectar();
+            
+
+            labelMedioSaidas.Text = MediaSaida.ToString("C2");
+            labelTotalSaidas.Text = TotalSaida.ToString("C2");
+        }
 
         private void FormEstoque_Load(object sender, EventArgs e)
         {
@@ -378,8 +404,10 @@ namespace High_Gestor.Forms.Produtos
             dateTimePeriodoFinal.Value = DateTime.Now;
 
             carregarDadosProduto();
-            carregarDataResumo();
             carregarDadosEstoque();
+            carregarDataResumo();
+            carregarDadosTotalEntrada();
+            carregarDadosTotalSaida();
         }
 
         private void buttonMovimentarEstoque_Click(object sender, EventArgs e)
@@ -392,18 +420,19 @@ namespace High_Gestor.Forms.Produtos
 
             if (ViewForms._responseViewForm() == true)
             {
-                carregarDataResumo();
                 carregarDadosEstoque();
+                carregarDataResumo();
+                carregarDadosTotalEntrada();
+                carregarDadosTotalSaida();
             }
         }
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            DateTime dataInicioAnteriro = new DateTime(dateTimePeriodoIncial.Value.Year, (dateTimePeriodoIncial.Value.Month - 1), dateTimePeriodoIncial.Value.Day);
-            DateTime dataFimAnteriro = new DateTime(dateTimePeriodoFinal.Value.Year, (dateTimePeriodoFinal.Value.Month - 1), (dateTimePeriodoFinal.Value.Day - 1));
-
-            MessageBox.Show("" + dataInicioAnteriro);
-            MessageBox.Show("" + dataFimAnteriro);
+            carregarDadosEstoque();
+            carregarDataResumo();
+            carregarDadosTotalEntrada();
+            carregarDadosTotalSaida();
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)

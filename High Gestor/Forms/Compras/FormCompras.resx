@@ -117,31 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="label5.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label7.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label6.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <metadata name="label8.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <metadata name="labelSelecioneProduto.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
   </metadata>
   <metadata name="Column7.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Column5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="cliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -154,9 +139,6 @@
     <value>True</value>
   </metadata>
   <metadata name="Column4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Column12.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="Column8.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -188,7 +170,7 @@
         1MvB6rKTa9FJK9f+6hBrRXqJuI3zc3tJ/p7h+QJfOPdFAwXZxQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonExcluirCadastro.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonImportarProdutos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
         IgAALiIBquLdkgAAAVlJREFUOE/t1DsvREEYxvFxzZIoJCISWZevodC6VVg6lURLbKMR0aBwbyhcEgpx
@@ -200,16 +182,16 @@
         dTulyEon7wAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonEditarMassa.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="buttonExcluirCadastro.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IgAALiIBquLdkgAAAVZJREFUOE+tlLlKBEEURVvFTEQwMDB2CRTcI//DQD/BLzCfdCJDwUTcUNwV9QPE
-        fxDERAOXSAxEac991aUPme6eHubCma77qurypnpJ0jRtK+GnNY3DCyjgUAUf2Alr8AhP2dWj2gOMgDQB
-        2ngLy9l4ywfuZcVd2IadBmxCB0yC1l5C1AEQ9Rf4BdpUpmHQhitzQbOgWs0H6i/ta1CgKdDiC3NB06Ca
-        7fWBOie1nad4Zr6zOVDtzBxqNjB2dm4uKHbma00FxhtwbS4odnZizqkscAw06c8sdntqLjxGPWFYHvgO
-        d2FoinczdtYF8gvmUFHgKGii11ySzIC877YfVFsyh4oCV+EVhmAdtOgIvPpA9dIO9TZ8gybEB9TgvyoF
-        bkAd5lXIUWHgM+gdrqJu0OZFc8gHfoK+HFU0CLmBK/AGeiSOs2sRWnMD9zAApt/AdtKw2Dpp8gNQ7IMu
-        0/lqTgAAAABJRU5ErkJggg==
+        IgAALiIBquLdkgAAAVlJREFUOE/t1DsvREEYxvFxzZIoJCISWZevodC6VVg6lURLbKMR0aBwbyhcEgpx
+        iU4hOolEIYiK2gc5/s+ckZ2XxLEhKk/yy8w7m/c9m7Nnj0uS5FfZ4nOasY19HGAUJnG/n2GKUqpRiSPc
+        oIAxvKIJVaiA6fczTOFcN05xGDziHItYwB3OoM90sWLc72eYwrlrqLkGdToI0T6Xbv1n2tfiIe73M0yR
+        XvkKy1jJoAvfx/1+himca8UTpjGMnrD2YhD9GMAQXjAX9/sZpkijb9mQbr/MJkbifj/DFOm90k3vUEH2
+        wrqOFhQxoQOyi/G4388wRWlgmwqi+6kcI48lzOiAlDWwXQXRXtmB7u8sJnVA/gf+8cD3X/k2rBfQo7SB
+        eR2QsgZ2qiBTYdWz1wj9Q/p0QL41sB6X0OspK1vIfNtokF5LJ1iDXgLxuhron/OMrrjfz/h48DOJewNm
+        dTulyEon7wAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="buttonRelatorio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -242,4 +224,16 @@
         BR0A1Q0TAzWAGFQ4gAwmhFuAGB9Qg9mcA8QzKcTZYMMGOWBgAABgbFLM+wCSQQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="label8.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label7.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label6.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
 </root>

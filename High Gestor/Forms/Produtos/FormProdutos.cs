@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -25,9 +26,13 @@ namespace High_Gestor.Forms.Produtos
 
         Banco banco = new Banco();
 
+        DataTable produtos = new DataTable();
+
         public FormProdutos()
         {
             InitializeComponent();
+
+            dataTableProdutos();
         }
 
         #region Event Components
@@ -70,6 +75,21 @@ namespace High_Gestor.Forms.Produtos
 
         #endregion
 
+        private void dataTableProdutos()
+        {
+            produtos.Columns.Add("IdProdutos", typeof(int));
+            produtos.Columns.Add("NomeProduto", typeof(string));
+            produtos.Columns.Add("Codigo", typeof(string));
+            produtos.Columns.Add("EstoqueAtual", typeof(int));
+            produtos.Columns.Add("ValorVenda", typeof(decimal));
+            produtos.Columns.Add("Categoria", typeof(string));
+            produtos.Columns.Add("Marca", typeof(string));
+            produtos.Columns.Add("Fornecedor", typeof(string));
+            produtos.Columns.Add("EstoqueMinimo", typeof(int));
+            produtos.Columns.Add("Status", typeof(string));
+            produtos.Columns.Add("SituacaoEstoque", typeof(string));
+            produtos.Columns.Add("Validade", typeof(string));
+        }
 
         private void dataComboBoxCategoria()
         {
@@ -171,62 +191,52 @@ namespace High_Gestor.Forms.Produtos
 
             int contagem = 0;
 
-            string Produtos = ("SELECT COUNT(*) FROM Produtos WHERE Produtos.status = 'ATIVO'");
-            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                contagem = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
+            contagem = dataGridViewContent.Rows.Count;
 
             labelContagem.Text = ("Total: " + contagem + " Registros");
-
         }
 
         private void dataProdutos()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
+            string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Produtos.marca, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
             SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
             banco.conectar();
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
-            dataGridViewContent.Rows.Clear();
             while (datareader.Read())
             {
-                dataGridViewContent.Rows.Add(datareader[0],
-                                            datareader[1].ToString(),
-                                            datareader[2].ToString(),
-                                            datareader[3].ToString(),
-                                            datareader[4].ToString(),
-                                            datareader[5].ToString(),
-                                            datareader[6].ToString(),
-                                            datareader[7].ToString(),
-                                            datareader[8].ToString(),
-                                            datareader[9].ToString(),
-                                            datareader[10].ToString());
+                produtos.Rows.Add(datareader[0],
+                                  datareader[1].ToString(),
+                                  datareader[2].ToString(),
+                                  datareader.GetInt32(3),
+                                  datareader.GetDecimal(4),
+                                  datareader[5].ToString(),
+                                  datareader[6].ToString(),
+                                  datareader[7].ToString(),
+                                  datareader[8].ToString(),
+                                  datareader[9].ToString(),
+                                  datareader[10].ToString(),
+                                  datareader[11].ToString());
             }
 
             banco.desconectar();
 
-            dataGridViewContent.Refresh();
+            dataGridViewContent.AutoGenerateColumns = false;
+
+            dataGridViewContent.DataSource = produtos;
         }
 
         private void FormProdutos_Load(object sender, System.EventArgs e)
         {
-            comboBoxFiltroGeral.SelectedIndex = 0;
+            dataProdutos();
 
             verificarQuantidadeProdutos();
+
             dataComboBoxCategoria();
             dataComboBoxFornecedor();
-            //
+
             buttonLimparFiltros_Click(sender, e);
         }
 
@@ -242,1728 +252,75 @@ namespace High_Gestor.Forms.Produtos
             if (ViewForms._responseViewForm() == true)
             {
                 verificarQuantidadeProdutos();
-
-                //
-                buttonLimparFiltros_Click(sender, e);
-
-                dataGridViewContent.Refresh();
             }
         }
 
         private void buttonLimparFiltros_Click(object sender, EventArgs e)
         {
+            textBoxPesquisarNome.Clear();
+
             comboBoxFiltroGeral.SelectedIndex = 0;
             comboBoxCategoria.SelectedIndex = 0;
             comboBoxFornecedor.SelectedIndex = 0;
+
+            verificarQuantidadeProdutos();
         }
 
         private void textBoxPesquisarNome_KeyUp(object sender, KeyEventArgs e)
         {
-            if (textBoxPesquisarNome.Text != string.Empty)
-            {
-                if (comboBoxFiltroGeral.Text != "TODOS" && comboBoxFiltroGeral.Text != "")
-                {
-                    if (comboBoxFiltroGeral.Text == "INATIVOS")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'INATIVO' ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
+            produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "NomeProduto", textBoxPesquisarNome.Text);
 
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                        {
-                            if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                            {
-                                string condicao = string.Empty;
-                                string dado = string.Empty;
-
-                                dado = textBoxPesquisarNome.Text;
-
-                                //Pesquisa por Numero (Numeros)
-                                if (dado.All(Char.IsNumber))
-                                {
-                                    //Retorna os dados da tabela Produtos para o DataGridView
-                                    string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND codigoProduto LIKE (@codigo + '%') AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                    exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                                    exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                                    banco.conectar();
-
-                                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                    dataGridViewContent.Rows.Clear();
-                                    while (datareader.Read())
-                                    {
-                                        dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                    }
-
-                                    banco.desconectar();
-
-                                    dataGridViewContent.Refresh();
-                                }
-
-                                //Pesquisa por Nome (LETRAS)
-                                if (dado.All(Char.IsLetter))
-                                {
-                                    //Retorna os dados da tabela Produtos para o DataGridView
-                                    string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND nomeProduto LIKE (@produto + '%') AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                    exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                                    exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                                    banco.conectar();
-
-                                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                    dataGridViewContent.Rows.Clear();
-                                    while (datareader.Read())
-                                    {
-                                        dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                    }
-
-                                    banco.desconectar();
-
-                                    dataGridViewContent.Refresh();
-                                }
-                            }
-                            else
-                            {
-                                string condicao = string.Empty;
-                                string dado = string.Empty;
-
-                                dado = textBoxPesquisarNome.Text;
-
-                                //Pesquisa por Numero (Numeros)
-                                if (dado.All(Char.IsNumber))
-                                {
-                                    //Retorna os dados da tabela Produtos para o DataGridView
-                                    string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND codigoProduto LIKE (@codigo + '%') AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                    exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                                    banco.conectar();
-
-                                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                    dataGridViewContent.Rows.Clear();
-                                    while (datareader.Read())
-                                    {
-                                        dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                    }
-
-                                    banco.desconectar();
-
-                                    dataGridViewContent.Refresh();
-                                }
-
-                                //Pesquisa por Nome (LETRAS)
-                                if (dado.All(Char.IsLetter))
-                                {
-                                    //Retorna os dados da tabela Produtos para o DataGridView
-                                    string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND nomeProduto LIKE (@produto + '%') AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                    exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-                                    exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                                    banco.conectar();
-
-                                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                    dataGridViewContent.Rows.Clear();
-                                    while (datareader.Read())
-                                    {
-                                        dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                    }
-
-                                    banco.desconectar();
-
-                                    dataGridViewContent.Refresh();
-                                }
-                            }
-                        }
-                        else
-                        {
-                            string condicao = string.Empty;
-                            string dado = string.Empty;
-
-                            dado = textBoxPesquisarNome.Text;
-
-                            //Pesquisa por Numero (Numeros)
-                            if (dado.All(Char.IsNumber))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND codigoProduto LIKE (@codigo + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-
-                            //Pesquisa por Nome (LETRAS)
-                            if (dado.All(Char.IsLetter))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND nomeProduto LIKE (@produto + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                                exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            string dado = string.Empty;
-
-                            dado = textBoxPesquisarNome.Text;
-
-                            //Pesquisa por Numero (Numeros)
-                            if (dado.All(Char.IsNumber))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND codigoProduto LIKE (@codigo + '%') AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-                                exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                                exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-
-                            //Pesquisa por Nome (LETRAS)
-                            if (dado.All(Char.IsLetter))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND nomeProduto LIKE (@produto + '%') AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-                                exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                                exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-                        }
-                        else
-                        {
-                            string dado = string.Empty;
-
-                            dado = textBoxPesquisarNome.Text;
-
-                            //Pesquisa por Numero (Numeros)
-                            if (dado.All(Char.IsNumber))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND codigoProduto LIKE (@codigo + '%') AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-                                exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-
-                            //Pesquisa por Nome (LETRAS)
-                            if (dado.All(Char.IsLetter))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND nomeProduto LIKE (@produto + '%') AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-                                exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            string dado = string.Empty;
-
-                            dado = textBoxPesquisarNome.Text;
-
-                            //Pesquisa por Numero (Numeros)
-                            if (dado.All(Char.IsNumber))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND codigoProduto LIKE (@codigo + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-
-                            //Pesquisa por Nome (LETRAS)
-                            if (dado.All(Char.IsLetter))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND nomeProduto LIKE (@produto + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-                        }
-                        else
-                        {
-                            string dado = string.Empty;
-
-                            dado = textBoxPesquisarNome.Text;
-
-                            //Pesquisa por Numero (Numeros)
-                            if (dado.All(Char.IsNumber))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND codigoProduto LIKE (@codigo + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-
-                            //Pesquisa por Nome (LETRAS)
-                            if (dado.All(Char.IsLetter))
-                            {
-                                //Retorna os dados da tabela Produtos para o DataGridView
-                                string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND nomeProduto LIKE (@produto + '%') ORDER BY nomeProduto");
-                                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                                exeVerificacao.Parameters.AddWithValue("@produto", textBoxPesquisarNome.Text);
-
-                                banco.conectar();
-
-                                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                                dataGridViewContent.Rows.Clear();
-                                while (datareader.Read())
-                                {
-                                    dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                                }
-
-                                banco.desconectar();
-
-                                dataGridViewContent.Refresh();
-                            }
-                        }
-                    }
-                }
-            }
-            else // Quando o TEXTBOX fica vazio
-            {
-                if (comboBoxFiltroGeral.Text != "TODOS" && comboBoxFiltroGeral.Text != "")
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            string condicao = string.Empty;
-
-                            //Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                            exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            string condicao = string.Empty;
-
-                            //Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                    else
-                    {
-                        string condicao = string.Empty;
-
-                        //Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                        exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-
-                }
-                else
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            //Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND idCategoriaFK = @idCategoriaFK AND idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdFornecedor());
-                            exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            //Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                    else
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            //Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND idFornecedorFK = @ID ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            dataProdutos();
-                        }
-                    }
-                }
-            }
+            verificarQuantidadeProdutos();
         }
 
         private void comboBoxFiltroGeral_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string condicao = string.Empty;
-
-            //Verifica se combobox Filtro Geral esta como o valor diferente de TODOS ou se esta Vazio
-            //Se SIM. Será verificado se os comboBox Categoria e Fornecedor foram alterados, para ser identificado qual query usar
-            //Se NÃO. Será executada uma query de pesquisa padrão sem condição
-
             if (comboBoxFiltroGeral.Text == "TODOS")
             {
-                if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                {
-                    //Verifica tambem se combobox Fornecedor esta como o valor diferente de TODOS ou se esta Vazio
-                    //Se SIM. Será executada uma query de pesquisa com o id de Categoria e o de Fornecedores,
-                    //Se NÃO. Será executada uma query de pesquisa com o id de Categoria apensa.
-
-                    if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idCategoriaFK = @ID AND Produtos.idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-                        exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                }
-                else
-                {
-                    if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        dataProdutos();
-                    }
-                }
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "SituacaoEstoque", "");
             }
             else
             {
-                if (comboBoxFiltroGeral.Text == "INATIVOS")
-                {
-                    ////Retorna os dados da tabela Produtos para o DataGridView
-                    string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'INATIVO' ORDER BY nomeProduto");
-                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                    banco.conectar();
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                            datareader[1].ToString(),
-                                                            datareader[2].ToString(),
-                                                            datareader[3].ToString(),
-                                                            datareader[4].ToString(),
-                                                            datareader[5].ToString(),
-                                                            datareader[6].ToString(),
-                                                            datareader[7].ToString(),
-                                                            datareader[8].ToString(),
-                                                            datareader[9].ToString(),
-                                                            datareader[10].ToString());
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
-                else
-                {
-                    //Verifica se combobox Categoria esta como o valor diferente de TODOS ou se esta Vazio
-                    //Se SIM. Será verificado se os comboBox Categoria e Fornecedor foram alterados, para ser identificado qual query usar
-                    //Se NÃO. Será verificado apenas se o comboBox Fonecedor foi alterado, para ser idenficado qual query usar
-
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        //Verifica tambem se combobox Fornecedor esta como o valor diferente de TODOS ou se esta Vazio
-                        //Se SIM. Será executada uma query de pesquisa com o id de Categoria e o de Fornecedores,
-                        //Se NÃO. Será executada uma query de pesquisa com o id de Categoria apensa.
-
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idCategoriaFK = @ID AND Produtos.idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-                            exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                    else
-                    {
-                        //Verifica se combobox Fornecedor esta como o valor diferente de TODOS ou se esta Vazio
-                        //Se SIM. Será executada uma query de pesquisa com o id de Fornecedores,
-                        //Se NÃO. Será executada uma query de pesquisa padrão.
-
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                }
-                
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "SituacaoEstoque", comboBoxFiltroGeral.Text);
             }
+
+            verificarQuantidadeProdutos();
         }
 
         private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string condicao = string.Empty;
-
             if (comboBoxCategoria.Text == "TODOS")
             {
-                if (comboBoxFiltroGeral.Text != "TODOS" && comboBoxFiltroGeral.Text != "")
-                {
-                    if (comboBoxFiltroGeral.Text == "INATIVOS")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'INATIVO' ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                }
-                else
-                {
-                    if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        dataProdutos();
-                    }
-                }
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Categoria", "");
             }
             else
             {
-                if (comboBoxFiltroGeral.Text != "TODOS")
-                {
-                    if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idCategoriaFK = @ID AND Produtos.idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
+                string nomeCategoria = comboBoxCategoria.Text;
 
-                        exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-                        exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
+                string[] result = nomeCategoria.Split('-');
 
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                }
-                else
-                {
-                    if (comboBoxFornecedor.Text != "TODOS" && comboBoxFornecedor.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idCategoriaFK = @ID AND Produtos.idFornecedorFK = @idFornecedorFK ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-                        exeVerificacao.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                }
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Categoria", result[1].TrimStart());
             }
+
+            verificarQuantidadeProdutos();
         }
 
         private void comboBoxFornecedor_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string condicao = string.Empty;
-
             if (comboBoxFornecedor.Text == "TODOS")
             {
-                if (comboBoxFiltroGeral.Text != "TODOS" && comboBoxFiltroGeral.Text != "")
-                {
-                    if (comboBoxFiltroGeral.Text == "INATIVOS")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'INATIVO' ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                            exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                        else
-                        {
-                            ////Retorna os dados da tabela Produtos para o DataGridView
-                            string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque ORDER BY nomeProduto");
-                            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                            exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-
-                            banco.conectar();
-
-                            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                            dataGridViewContent.Rows.Clear();
-                            while (datareader.Read())
-                            {
-                                dataGridViewContent.Rows.Add(datareader[0],
-                                                                    datareader[1].ToString(),
-                                                                    datareader[2].ToString(),
-                                                                    datareader[3].ToString(),
-                                                                    datareader[4].ToString(),
-                                                                    datareader[5].ToString(),
-                                                                    datareader[6].ToString(),
-                                                                    datareader[7].ToString(),
-                                                                    datareader[8].ToString(),
-                                                                    datareader[9].ToString(),
-                                                                    datareader[10].ToString());
-                            }
-
-                            banco.desconectar();
-
-                            dataGridViewContent.Refresh();
-                        }
-                    }
-                }
-                else
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idCategoriaFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdCategoria());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        dataProdutos();
-                    }
-                }
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Fornecedor", "");
             }
             else
             {
-                if (comboBoxFiltroGeral.Text != "TODOS")
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idFornecedorFK = @ID AND Produtos.idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
+                string nomeFantasia = comboBoxFornecedor.Text;
 
-                        exeVerificacao.Parameters.AddWithValue("@situacaoEstoque", comboBoxFiltroGeral.Text);
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-                        exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
+                string[] result = nomeFantasia.Split('-');
 
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.situacaoEstoque = @situacaoEstoque AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                }
-                else
-                {
-                    if (comboBoxCategoria.Text != "TODOS" && comboBoxCategoria.Text != "")
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idFornecedorFK = @ID AND Produtos.idCategoriaFK = @idCategoriaFK ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-                        exeVerificacao.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                    else
-                    {
-                        ////Retorna os dados da tabela Produtos para o DataGridView
-                        string Produtos = ("SELECT Produtos.idProduto, Produtos.codigoProduto, Produtos.nomeProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' AND Produtos.idFornecedorFK = @ID ORDER BY nomeProduto");
-                        SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-
-                        exeVerificacao.Parameters.AddWithValue("@ID", consultarIdFornecedor());
-
-                        banco.conectar();
-
-                        SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                        dataGridViewContent.Rows.Clear();
-                        while (datareader.Read())
-                        {
-                            dataGridViewContent.Rows.Add(datareader[0],
-                                                                datareader[1].ToString(),
-                                                                datareader[2].ToString(),
-                                                                datareader[3].ToString(),
-                                                                datareader[4].ToString(),
-                                                                datareader[5].ToString(),
-                                                                datareader[6].ToString(),
-                                                                datareader[7].ToString(),
-                                                                datareader[8].ToString(),
-                                                                datareader[9].ToString(),
-                                                                datareader[10].ToString());
-                        }
-
-                        banco.desconectar();
-
-                        dataGridViewContent.Refresh();
-                    }
-                }
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Fornecedor", result[1].TrimStart());
             }
+
+            verificarQuantidadeProdutos();
         }
 
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
@@ -1973,20 +330,9 @@ namespace High_Gestor.Forms.Produtos
             openChildForm(new Forms.Produtos.FormCadProduto());
         }
 
-        private void buttonImportarProdutos_Click(object sender, EventArgs e)
+        private void buttonEditarMassa_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonEditarCadastro_Click(object sender, EventArgs e)
-        {
-            //Query que deleta dados especificos atraves de parametros no banco de dados
-            if (dataGridViewContent.Rows.Count != 0)
-            {
-                updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
-
-                openChildForm(new Forms.Produtos.FormCadProduto());
-            }
+            openChildForm(new FormEditarMassa());
         }
 
         private void buttonExcluirCadastro_Click(object sender, EventArgs e)
@@ -2038,13 +384,13 @@ namespace High_Gestor.Forms.Produtos
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 
-                openChildForm(new FormEstoque());
+                openChildForm(new Forms.Produtos.FormCadProduto());
             }
         }
 
         private void dataGridViewContent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 11)
+            if (e.ColumnIndex == 12)
             {
                 //Query que deleta dados especificos atraves de parametros no banco de dados
                 if (dataGridViewContent.Rows.Count != 0)
@@ -2060,19 +406,19 @@ namespace High_Gestor.Forms.Produtos
         {
             for (int i = 0; i < dataGridViewContent.Rows.Count - 0; ++i)
             {
-                if (dataGridViewContent.Rows[i].Cells[9].Value.ToString() == "ESTOQUE BAIXO" && dataGridViewContent.Rows[i].Cells[9].Value.ToString() != "ESTOQUE ZERADO")
+                if (dataGridViewContent.Rows[i].Cells[10].Value.ToString() == "ESTOQUE BAIXO" && dataGridViewContent.Rows[i].Cells[10].Value.ToString() != "ESTOQUE ZERADO")
                 {
                     dataGridViewContent.Rows[i].DefaultCellStyle.BackColor = Color.BurlyWood;
                     dataGridViewContent.Rows[i].DefaultCellStyle.SelectionBackColor = Color.SandyBrown;
                 }
 
-                if (dataGridViewContent.Rows[i].Cells[9].Value.ToString() == "ESTOQUE ZERADO")
+                if (dataGridViewContent.Rows[i].Cells[10].Value.ToString() == "ESTOQUE ZERADO")
                 {
                     dataGridViewContent.Rows[i].DefaultCellStyle.BackColor = Color.RosyBrown;
                     dataGridViewContent.Rows[i].DefaultCellStyle.SelectionBackColor = Color.IndianRed;
                 }
 
-                if (dataGridViewContent.Rows[i].Cells[10].Value.ToString() == "ESTOQUE VENCIDO")
+                if (dataGridViewContent.Rows[i].Cells[11].Value.ToString() == "ESTOQUE VENCIDO")
                 {
                     dataGridViewContent.Rows[i].DefaultCellStyle.BackColor = Color.RosyBrown;
                     dataGridViewContent.Rows[i].DefaultCellStyle.SelectionBackColor = Color.IndianRed;

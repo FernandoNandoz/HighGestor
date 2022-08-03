@@ -76,10 +76,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTotais = new System.Windows.Forms.Panel();
-            this.labelValorTotalVendas = new System.Windows.Forms.Label();
-            this.labelValorTotalCompras = new System.Windows.Forms.Label();
-            this.labelValorMedioVendas = new System.Windows.Forms.Label();
-            this.labelValorMedioCompras = new System.Windows.Forms.Label();
+            this.labelTotalSaidas = new System.Windows.Forms.Label();
+            this.labelTotalEntradas = new System.Windows.Forms.Label();
+            this.labelMedioSaidas = new System.Windows.Forms.Label();
+            this.labelMedioEntradas = new System.Windows.Forms.Label();
             this.dateTimePeriodoIncial = new System.Windows.Forms.DateTimePicker();
             this.dateTimePeriodoFinal = new System.Windows.Forms.DateTimePicker();
             this.buttonPesquisar = new System.Windows.Forms.Button();
@@ -210,45 +210,45 @@
             // 
             label25.Anchor = System.Windows.Forms.AnchorStyles.None;
             label25.AutoSize = true;
-            label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label25.Location = new System.Drawing.Point(882, 10);
+            label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label25.Location = new System.Drawing.Point(854, 10);
             label25.Name = "label25";
-            label25.Size = new System.Drawing.Size(148, 20);
+            label25.Size = new System.Drawing.Size(132, 18);
             label25.TabIndex = 28;
-            label25.Text = "Valor Total Vendas:";
+            label25.Text = "Valor Total Saídas:";
             // 
             // label26
             // 
             label26.Anchor = System.Windows.Forms.AnchorStyles.None;
             label26.AutoSize = true;
-            label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label26.Location = new System.Drawing.Point(598, 10);
+            label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label26.Location = new System.Drawing.Point(559, 10);
             label26.Name = "label26";
-            label26.Size = new System.Drawing.Size(157, 20);
+            label26.Size = new System.Drawing.Size(146, 18);
             label26.TabIndex = 27;
-            label26.Text = "Valor Total Compras:";
+            label26.Text = "Valor Total Entradas:";
             // 
             // label27
             // 
             label27.Anchor = System.Windows.Forms.AnchorStyles.None;
             label27.AutoSize = true;
-            label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label27.Location = new System.Drawing.Point(317, 10);
+            label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label27.Location = new System.Drawing.Point(293, 10);
             label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(156, 20);
+            label27.Size = new System.Drawing.Size(140, 18);
             label27.TabIndex = 26;
-            label27.Text = "Valor Médio Vendas:";
+            label27.Text = "Valor Médio Saídas:";
             // 
             // label30
             // 
             label30.Anchor = System.Windows.Forms.AnchorStyles.None;
             label30.AutoSize = true;
-            label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label30.Location = new System.Drawing.Point(15, 10);
+            label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label30.Location = new System.Drawing.Point(10, 10);
             label30.Name = "label30";
-            label30.Size = new System.Drawing.Size(165, 20);
+            label30.Size = new System.Drawing.Size(154, 18);
             label30.TabIndex = 19;
-            label30.Text = "Valor Médio Compras:";
+            label30.Text = "Valor Médio Entradas:";
             // 
             // label5
             // 
@@ -615,13 +615,13 @@
             this.panelTotais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTotais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panelTotais.Controls.Add(this.labelValorTotalVendas);
-            this.panelTotais.Controls.Add(this.labelValorTotalCompras);
-            this.panelTotais.Controls.Add(this.labelValorMedioVendas);
+            this.panelTotais.Controls.Add(this.labelTotalSaidas);
+            this.panelTotais.Controls.Add(this.labelTotalEntradas);
+            this.panelTotais.Controls.Add(this.labelMedioSaidas);
             this.panelTotais.Controls.Add(label25);
             this.panelTotais.Controls.Add(label26);
             this.panelTotais.Controls.Add(label27);
-            this.panelTotais.Controls.Add(this.labelValorMedioCompras);
+            this.panelTotais.Controls.Add(this.labelMedioEntradas);
             this.panelTotais.Controls.Add(label30);
             this.panelTotais.Location = new System.Drawing.Point(31, 590);
             this.panelTotais.Name = "panelTotais";
@@ -629,53 +629,53 @@
             this.panelTotais.TabIndex = 144;
             this.panelTotais.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
-            // labelValorTotalVendas
+            // labelTotalSaidas
             // 
-            this.labelValorTotalVendas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelValorTotalVendas.AutoSize = true;
-            this.labelValorTotalVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValorTotalVendas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelValorTotalVendas.Location = new System.Drawing.Point(1028, 10);
-            this.labelValorTotalVendas.Name = "labelValorTotalVendas";
-            this.labelValorTotalVendas.Size = new System.Drawing.Size(44, 20);
-            this.labelValorTotalVendas.TabIndex = 32;
-            this.labelValorTotalVendas.Text = "0,00";
+            this.labelTotalSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTotalSaidas.AutoSize = true;
+            this.labelTotalSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelTotalSaidas.Location = new System.Drawing.Point(985, 11);
+            this.labelTotalSaidas.Name = "labelTotalSaidas";
+            this.labelTotalSaidas.Size = new System.Drawing.Size(40, 18);
+            this.labelTotalSaidas.TabIndex = 32;
+            this.labelTotalSaidas.Text = "0,00";
             // 
-            // labelValorTotalCompras
+            // labelTotalEntradas
             // 
-            this.labelValorTotalCompras.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelValorTotalCompras.AutoSize = true;
-            this.labelValorTotalCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValorTotalCompras.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelValorTotalCompras.Location = new System.Drawing.Point(753, 10);
-            this.labelValorTotalCompras.Name = "labelValorTotalCompras";
-            this.labelValorTotalCompras.Size = new System.Drawing.Size(44, 20);
-            this.labelValorTotalCompras.TabIndex = 31;
-            this.labelValorTotalCompras.Text = "0,00";
+            this.labelTotalEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTotalEntradas.AutoSize = true;
+            this.labelTotalEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelTotalEntradas.Location = new System.Drawing.Point(704, 11);
+            this.labelTotalEntradas.Name = "labelTotalEntradas";
+            this.labelTotalEntradas.Size = new System.Drawing.Size(40, 18);
+            this.labelTotalEntradas.TabIndex = 31;
+            this.labelTotalEntradas.Text = "0,00";
             // 
-            // labelValorMedioVendas
+            // labelMedioSaidas
             // 
-            this.labelValorMedioVendas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelValorMedioVendas.AutoSize = true;
-            this.labelValorMedioVendas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValorMedioVendas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelValorMedioVendas.Location = new System.Drawing.Point(471, 10);
-            this.labelValorMedioVendas.Name = "labelValorMedioVendas";
-            this.labelValorMedioVendas.Size = new System.Drawing.Size(44, 20);
-            this.labelValorMedioVendas.TabIndex = 30;
-            this.labelValorMedioVendas.Text = "0,00";
+            this.labelMedioSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMedioSaidas.AutoSize = true;
+            this.labelMedioSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedioSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMedioSaidas.Location = new System.Drawing.Point(432, 11);
+            this.labelMedioSaidas.Name = "labelMedioSaidas";
+            this.labelMedioSaidas.Size = new System.Drawing.Size(40, 18);
+            this.labelMedioSaidas.TabIndex = 30;
+            this.labelMedioSaidas.Text = "0,00";
             // 
-            // labelValorMedioCompras
+            // labelMedioEntradas
             // 
-            this.labelValorMedioCompras.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelValorMedioCompras.AutoSize = true;
-            this.labelValorMedioCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValorMedioCompras.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelValorMedioCompras.Location = new System.Drawing.Point(177, 10);
-            this.labelValorMedioCompras.Name = "labelValorMedioCompras";
-            this.labelValorMedioCompras.Size = new System.Drawing.Size(44, 20);
-            this.labelValorMedioCompras.TabIndex = 20;
-            this.labelValorMedioCompras.Text = "0,00";
+            this.labelMedioEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMedioEntradas.AutoSize = true;
+            this.labelMedioEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedioEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMedioEntradas.Location = new System.Drawing.Point(163, 11);
+            this.labelMedioEntradas.Name = "labelMedioEntradas";
+            this.labelMedioEntradas.Size = new System.Drawing.Size(40, 18);
+            this.labelMedioEntradas.TabIndex = 20;
+            this.labelMedioEntradas.Text = "0,00";
             // 
             // dateTimePeriodoIncial
             // 
@@ -776,10 +776,10 @@
         private System.Windows.Forms.Label labelSaldo;
         private System.Windows.Forms.DataGridView dataGridViewContent;
         private System.Windows.Forms.Panel panelTotais;
-        private System.Windows.Forms.Label labelValorTotalVendas;
-        private System.Windows.Forms.Label labelValorTotalCompras;
-        private System.Windows.Forms.Label labelValorMedioVendas;
-        private System.Windows.Forms.Label labelValorMedioCompras;
+        private System.Windows.Forms.Label labelTotalSaidas;
+        private System.Windows.Forms.Label labelTotalEntradas;
+        private System.Windows.Forms.Label labelMedioSaidas;
+        private System.Windows.Forms.Label labelMedioEntradas;
         private System.Windows.Forms.DateTimePicker dateTimePeriodoIncial;
         private System.Windows.Forms.DateTimePicker dateTimePeriodoFinal;
         private System.Windows.Forms.Button buttonPesquisar;

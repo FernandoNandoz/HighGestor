@@ -35,7 +35,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHighGestor));
             this.panelMenuBar = new System.Windows.Forms.Panel();
             this.buttonFinanceiro = new System.Windows.Forms.Button();
-            this.buttonTrocarUsuario = new System.Windows.Forms.Button();
+            this.buttonCompras = new System.Windows.Forms.Button();
             this.buttonConfiguracoes = new System.Windows.Forms.Button();
             this.buttonRelatorio = new System.Windows.Forms.Button();
             this.buttonClientes = new System.Windows.Forms.Button();
@@ -108,7 +108,7 @@
             // 
             this.panelMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.panelMenuBar.Controls.Add(this.buttonFinanceiro);
-            this.panelMenuBar.Controls.Add(this.buttonTrocarUsuario);
+            this.panelMenuBar.Controls.Add(this.buttonCompras);
             this.panelMenuBar.Controls.Add(this.buttonConfiguracoes);
             this.panelMenuBar.Controls.Add(this.buttonRelatorio);
             this.panelMenuBar.Controls.Add(labelLinhaMenuInferior);
@@ -143,24 +143,24 @@
             this.buttonFinanceiro.MouseLeave += new System.EventHandler(this.paint_MouseLeave);
             this.buttonFinanceiro.MouseMove += new System.Windows.Forms.MouseEventHandler(this.paint_MouseMove);
             // 
-            // buttonTrocarUsuario
+            // buttonCompras
             // 
-            this.buttonTrocarUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonTrocarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.buttonTrocarUsuario.FlatAppearance.BorderSize = 0;
-            this.buttonTrocarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTrocarUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTrocarUsuario.ForeColor = System.Drawing.Color.White;
-            this.buttonTrocarUsuario.Location = new System.Drawing.Point(0, 670);
-            this.buttonTrocarUsuario.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonTrocarUsuario.Name = "buttonTrocarUsuario";
-            this.buttonTrocarUsuario.Size = new System.Drawing.Size(158, 35);
-            this.buttonTrocarUsuario.TabIndex = 12;
-            this.buttonTrocarUsuario.Text = "Trocar de usuário";
-            this.buttonTrocarUsuario.UseVisualStyleBackColor = false;
-            this.buttonTrocarUsuario.Click += new System.EventHandler(this.buttonTrocarUsuario_Click);
-            this.buttonTrocarUsuario.MouseLeave += new System.EventHandler(this.paint_MouseLeave);
-            this.buttonTrocarUsuario.MouseMove += new System.Windows.Forms.MouseEventHandler(this.paint_MouseMove);
+            this.buttonCompras.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonCompras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.buttonCompras.FlatAppearance.BorderSize = 0;
+            this.buttonCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCompras.ForeColor = System.Drawing.Color.White;
+            this.buttonCompras.Location = new System.Drawing.Point(0, 596);
+            this.buttonCompras.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonCompras.Name = "buttonCompras";
+            this.buttonCompras.Size = new System.Drawing.Size(158, 35);
+            this.buttonCompras.TabIndex = 12;
+            this.buttonCompras.Text = "Compras";
+            this.buttonCompras.UseVisualStyleBackColor = false;
+            this.buttonCompras.Click += new System.EventHandler(this.buttonCompras_Click);
+            this.buttonCompras.MouseLeave += new System.EventHandler(this.paint_MouseLeave);
+            this.buttonCompras.MouseMove += new System.Windows.Forms.MouseEventHandler(this.paint_MouseMove);
             // 
             // buttonConfiguracoes
             // 
@@ -170,7 +170,7 @@
             this.buttonConfiguracoes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConfiguracoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfiguracoes.ForeColor = System.Drawing.Color.White;
-            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 633);
+            this.buttonConfiguracoes.Location = new System.Drawing.Point(0, 670);
             this.buttonConfiguracoes.Margin = new System.Windows.Forms.Padding(0);
             this.buttonConfiguracoes.Name = "buttonConfiguracoes";
             this.buttonConfiguracoes.Size = new System.Drawing.Size(158, 35);
@@ -189,7 +189,7 @@
             this.buttonRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRelatorio.ForeColor = System.Drawing.Color.White;
-            this.buttonRelatorio.Location = new System.Drawing.Point(0, 596);
+            this.buttonRelatorio.Location = new System.Drawing.Point(0, 633);
             this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRelatorio.Name = "buttonRelatorio";
             this.buttonRelatorio.Size = new System.Drawing.Size(158, 35);
@@ -419,7 +419,7 @@
         private System.Windows.Forms.Panel paneTitlerBar;
         private System.Windows.Forms.Label labelNameEstebelecimento;
         private System.Windows.Forms.Label labelUsuario;
-        private System.Windows.Forms.Button buttonTrocarUsuario;
+        private System.Windows.Forms.Button buttonCompras;
         private System.Windows.Forms.Button buttonConfiguracoes;
         private System.Windows.Forms.Button buttonRelatorio;
         private System.Windows.Forms.Button buttonFinanceiro;

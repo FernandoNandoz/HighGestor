@@ -82,6 +82,12 @@
     <Compile Include="Forms\Clientes\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\FormCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FormCompras.Designer.cs">
+      <DependentUpon>FormCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,23 +184,35 @@
     <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.Designer.cs">
+      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Produtos\FormCadProduto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Produtos\FormCadProduto.Designer.cs">
       <DependentUpon>FormCadProduto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Produtos\FormEstoque.cs">
+    <Compile Include="Forms\Produtos\Estoque\FormEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Produtos\FormEstoque.Designer.cs">
+    <Compile Include="Forms\Produtos\Estoque\FormEstoque.Designer.cs">
       <DependentUpon>FormEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Produtos\FormMovimentarEstoque.cs">
+    <Compile Include="Forms\Produtos\Estoque\FormMovimentarEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Produtos\FormMovimentarEstoque.Designer.cs">
+    <Compile Include="Forms\Produtos\Estoque\FormMovimentarEstoque.Designer.cs">
       <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\FormEditarMassa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\FormEditarMassa.Designer.cs">
+      <DependentUpon>FormEditarMassa.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Produtos\FormProdutos.cs">
       <SubType>Form</SubType>
@@ -228,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Clientes\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FormCompras.resx">
+      <DependentUpon>FormCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCadCategorias.resx">
       <DependentUpon>FormCadCategorias.cs</DependentUpon>
@@ -277,14 +298,20 @@
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.resx">
+      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormCadProduto.resx">
       <DependentUpon>FormCadProduto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Produtos\FormEstoque.resx">
+    <EmbeddedResource Include="Forms\Produtos\Estoque\FormEstoque.resx">
       <DependentUpon>FormEstoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Produtos\FormMovimentarEstoque.resx">
+    <EmbeddedResource Include="Forms\Produtos\Estoque\FormMovimentarEstoque.resx">
       <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\FormEditarMassa.resx">
+      <DependentUpon>FormEditarMassa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormProdutos.resx">
       <DependentUpon>FormProdutos.cs</DependentUpon>
