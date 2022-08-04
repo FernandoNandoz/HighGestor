@@ -482,6 +482,7 @@
             this.Name = "FormEditarMassa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormEditarMassa";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEditarMassa_FormClosing);
             this.Load += new System.EventHandler(this.FormEditarMassa_Load);
             this.Click += new System.EventHandler(this.FormEditarMassa_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();

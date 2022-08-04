@@ -198,34 +198,41 @@ namespace High_Gestor.Forms.Produtos
 
         private void dataProdutos()
         {
-            //Retorna os dados da tabela Produtos para o DataGridView
-            string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Produtos.marca, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
-            SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
+            try
             {
-                produtos.Rows.Add(datareader[0],
-                                  datareader[1].ToString(),
-                                  datareader[2].ToString(),
-                                  datareader.GetInt32(3),
-                                  datareader.GetDecimal(4),
-                                  datareader[5].ToString(),
-                                  datareader[6].ToString(),
-                                  datareader[7].ToString(),
-                                  datareader[8].ToString(),
-                                  datareader[9].ToString(),
-                                  datareader[10].ToString(),
-                                  datareader[11].ToString());
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Produtos.marca, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
+                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
+                banco.conectar();
+
+                SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    produtos.Rows.Add(datareader[0],
+                                      datareader[1].ToString(),
+                                      datareader[2].ToString(),
+                                      datareader.GetInt32(3),
+                                      datareader.GetDecimal(4),
+                                      datareader[5].ToString(),
+                                      datareader[6].ToString(),
+                                      datareader[7].ToString(),
+                                      datareader[8].ToString(),
+                                      datareader[9].ToString(),
+                                      datareader[10].ToString(),
+                                      datareader[11].ToString());
+                }
+
+                banco.desconectar();
+
+                dataGridViewContent.AutoGenerateColumns = false;
+
+                dataGridViewContent.DataSource = produtos;
             }
-
-            banco.desconectar();
-
-            dataGridViewContent.AutoGenerateColumns = false;
-
-            dataGridViewContent.DataSource = produtos;
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void FormProdutos_Load(object sender, System.EventArgs e)
@@ -252,6 +259,10 @@ namespace High_Gestor.Forms.Produtos
             if (ViewForms._responseViewForm() == true)
             {
                 verificarQuantidadeProdutos();
+
+                produtos.Rows.Clear();
+
+                dataProdutos();
             }
         }
 

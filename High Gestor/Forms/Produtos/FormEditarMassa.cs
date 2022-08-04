@@ -60,6 +60,7 @@ namespace High_Gestor.Forms.Produtos
 
         private void dataTableProdutos()
         {
+            //DataTable - PRODUTOS
             produtos.Columns.Add("IdProdutos", typeof(int));
             produtos.Columns.Add("NomeProduto", typeof(string));
             produtos.Columns.Add("Codigo", typeof(string));
@@ -73,6 +74,21 @@ namespace High_Gestor.Forms.Produtos
             produtos.Columns.Add("ValorCusto", typeof(decimal));
             produtos.Columns.Add("MargemLucro", typeof(decimal));
             produtos.Columns.Add("ValorVenda", typeof(decimal));
+
+            //DataTable - PRODUTOS ALTERADOS
+            produtosAlterados.Columns.Add("IdProdutos", typeof(int));
+            produtosAlterados.Columns.Add("NomeProduto", typeof(string));
+            produtosAlterados.Columns.Add("Codigo", typeof(string));
+            produtosAlterados.Columns.Add("Status", typeof(string));
+            produtosAlterados.Columns.Add("TipoUnitario", typeof(string));
+            produtosAlterados.Columns.Add("Marca", typeof(string));
+            produtosAlterados.Columns.Add("Fornecedor", typeof(string));
+            produtosAlterados.Columns.Add("Categoria", typeof(string));
+            produtosAlterados.Columns.Add("EstoqueMinimo", typeof(int));
+            produtosAlterados.Columns.Add("Validade", typeof(string));
+            produtosAlterados.Columns.Add("ValorCusto", typeof(decimal));
+            produtosAlterados.Columns.Add("MargemLucro", typeof(decimal));
+            produtosAlterados.Columns.Add("ValorVenda", typeof(decimal));
         }
 
         private void dataComboBoxCategoria()
@@ -142,10 +158,10 @@ namespace High_Gestor.Forms.Produtos
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string fornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE razaoSocial = @razao");
+            string fornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE nomeFantasia = @nomeFantasia");
             SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
 
-            exeVerificacao.Parameters.AddWithValue("@razao", fornecedorName);
+            exeVerificacao.Parameters.AddWithValue("@nomeFantasia", fornecedorName);
 
             banco.conectar();
 
@@ -272,23 +288,35 @@ namespace High_Gestor.Forms.Produtos
             banco.desconectar();
         }
 
+        private bool verificarCamposVazios()
+        {
+            bool liberado = true;
+
+            for(int i=0; i < dataGridViewContent.Rows.Count; i++)
+            {
+                if(produtos.Rows[i][0].ToString() == string.Empty ||
+                        produtos.Rows[i][1].ToString() == string.Empty ||
+                        produtos.Rows[i][2].ToString() == string.Empty ||
+                        produtos.Rows[i][3].ToString() == string.Empty ||
+                        produtos.Rows[i][4].ToString() == string.Empty ||
+                        produtos.Rows[i][5].ToString() == string.Empty ||
+                        produtos.Rows[i][6].ToString() == string.Empty ||
+                        produtos.Rows[i][7].ToString() == string.Empty ||
+                        produtos.Rows[i][8].ToString() == string.Empty ||
+                        produtos.Rows[i][10].ToString() == string.Empty ||
+                        produtos.Rows[i][11].ToString() == string.Empty ||
+                        produtos.Rows[i][12].ToString() == string.Empty
+                 )
+                {
+                    liberado = false;
+                }
+            }
+
+            return liberado;
+        }
+
         private bool verificarAlteracoes()
         {
-            produtosAlterados.Columns.Add("IdProdutos", typeof(int));
-            produtosAlterados.Columns.Add("NomeProduto", typeof(string));
-            produtosAlterados.Columns.Add("Codigo", typeof(string));
-            produtosAlterados.Columns.Add("Status", typeof(string));
-            produtosAlterados.Columns.Add("TipoUnitario", typeof(string));
-            produtosAlterados.Columns.Add("Marca", typeof(string));
-            produtosAlterados.Columns.Add("Fornecedor", typeof(string));
-            produtosAlterados.Columns.Add("Categoria", typeof(string));
-            produtosAlterados.Columns.Add("EstoqueMinimo", typeof(int));
-            produtosAlterados.Columns.Add("Validade", typeof(string));
-            produtosAlterados.Columns.Add("ValorCusto", typeof(decimal));
-            produtosAlterados.Columns.Add("MargemLucro", typeof(decimal));
-            produtosAlterados.Columns.Add("ValorVenda", typeof(decimal));
-
-
             //Retorna os dados da tabela Produtos para o DataGridView
             string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.status, Produtos.tipoUnitario, Produtos.marca, Fornecedor.nomeFantasia, Categoria.categoria, Produtos.estoqueMinimo, Produtos.dataValidade, Produtos.valorCusto, Produtos.margemLucro, Produtos.valorVenda FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
             SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
@@ -604,13 +632,28 @@ namespace High_Gestor.Forms.Produtos
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if(verificarAlteracoes() == true)
+            //Adicionar verificação de campos vazios.......................
+            if (verificarCamposVazios() == true)
             {
-                //Adicionar verificação de campos vazios.......................
+                if (MessageBox.Show("Tem certeza que deseja atualizar?" + "\n" + "\n" + "Uma vez atualizados, não será mais possivel voltar atras!", "Ola! Você esta atualizando algo do seu sistema!?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                {
+                    if (verificarAlteracoes() == true)
+                    {
+                        updateQuery();
 
-                updateQuery();
+                        produtos.Rows.Clear();
+
+                        dataProdutos();
+                    }
+                }
             }
+            else
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "NÃO PODE HAVER CAMPOS VAZIOS!!!", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
         }
+
         private void dataGridViewContent_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             if (liberadoAutoComplete == true)
@@ -660,6 +703,11 @@ namespace High_Gestor.Forms.Produtos
             {
                 ((TextBox)(e.Control)).CharacterCasing = CharacterCasing.Upper;
             }
+        }
+
+        private void FormEditarMassa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ViewForms.requestViewForm(true, false);
         }
     }
 }
