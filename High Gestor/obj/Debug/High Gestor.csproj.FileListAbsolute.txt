@@ -24,10 +24,8 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Categorias.FormCategorias.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.FormBackup.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.FormConfigSistema.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Fornecedores.FormFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormFuncionarios.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Categorias.FormCadCategorias.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Fornecedores.FormCadFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormCadFuncionarios.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormCadProduto.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEstoque.resources
@@ -87,5 +85,9 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.R
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CopyComplete
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarEstoque.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormCompras.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.EntradaMercadoria.FormEntradaMercadoria.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEditarMassa.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormAcaoCompras.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.FormEntradaMercadoria.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormCadFornecedores.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormFornecedores.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormRelatorio.resources

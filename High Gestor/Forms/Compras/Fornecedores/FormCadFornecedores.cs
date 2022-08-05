@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.Fornecedores
+namespace High_Gestor.Forms.Compras.Fornecedores
 {
     public partial class FormCadFornecedores : Form
     {

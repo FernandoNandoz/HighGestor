@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.Fornecedores
+namespace High_Gestor.Forms.Compras.Fornecedores
 {
     public partial class FormFornecedores : Form
     {
@@ -133,8 +133,6 @@ namespace High_Gestor.Forms.Configuracoes.Fornecedores
 
         private void buttonSair_Click(object sender, EventArgs e)
         {
-            ViewForms.requestBackMenu(true);
-
             this.Close();
         }
 

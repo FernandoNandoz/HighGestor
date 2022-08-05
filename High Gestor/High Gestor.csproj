@@ -12,6 +12,21 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -82,11 +97,29 @@
     <Compile Include="Forms\Clientes\FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.Designer.cs">
+      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FormAcaoCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FormAcaoCompras.Designer.cs">
+      <DependentUpon>FormAcaoCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Compras\FormCompras.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Compras\FormCompras.Designer.cs">
       <DependentUpon>FormCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\FormRelatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\FormRelatorio.Designer.cs">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.cs">
       <SubType>Form</SubType>
@@ -118,16 +151,16 @@
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.Designer.cs">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.cs">
+    <Compile Include="Forms\Compras\Fornecedores\FormCadFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.Designer.cs">
+    <Compile Include="Forms\Compras\Fornecedores\FormCadFornecedores.Designer.cs">
       <DependentUpon>FormCadFornecedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Fornecedores\FormFornecedores.cs">
+    <Compile Include="Forms\Compras\Fornecedores\FormFornecedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Fornecedores\FormFornecedores.Designer.cs">
+    <Compile Include="Forms\Compras\Fornecedores\FormFornecedores.Designer.cs">
       <DependentUpon>FormFornecedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\Funcionarios\FormCadFuncionarios.cs">
@@ -183,12 +216,6 @@
     </Compile>
     <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.Designer.cs">
-      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Produtos\FormCadProduto.cs">
       <SubType>Form</SubType>
@@ -247,8 +274,17 @@
     <EmbeddedResource Include="Forms\Clientes\FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.resx">
+      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FormAcaoCompras.resx">
+      <DependentUpon>FormAcaoCompras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FormCompras.resx">
       <DependentUpon>FormCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCadCategorias.resx">
       <DependentUpon>FormCadCategorias.cs</DependentUpon>
@@ -265,10 +301,10 @@
     <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\Fornecedores\FormCadFornecedores.resx">
+    <EmbeddedResource Include="Forms\Compras\Fornecedores\FormCadFornecedores.resx">
       <DependentUpon>FormCadFornecedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\Fornecedores\FormFornecedores.resx">
+    <EmbeddedResource Include="Forms\Compras\Fornecedores\FormFornecedores.resx">
       <DependentUpon>FormFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Funcionarios\FormCadFuncionarios.resx">
@@ -297,9 +333,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.resx">
-      <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormCadProduto.resx">
       <DependentUpon>FormCadProduto.cs</DependentUpon>
@@ -377,6 +410,18 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

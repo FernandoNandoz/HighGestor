@@ -92,15 +92,6 @@ namespace High_Gestor.Forms.Configuracoes
                     //    
                 }
 
-                if (alterouSize._retornarFormNameSecundario() == "FORNECEDOR")
-                {
-
-
-                    ViewForms.requestBackMenu(false);
-                    //
-                    openChildForm(new Forms.Configuracoes.Fornecedores.FormFornecedores());
-                }
-
                 if (alterouSize._retornarFormNameSecundario() == "FUNCIONARIO")
                 {
 
@@ -146,7 +137,6 @@ namespace High_Gestor.Forms.Configuracoes
 
         private void buttonCategorias_Click(object sender, EventArgs e)
         {
-            buttonFornecedores.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonConfigSistema.BackColor = Color.White;
@@ -160,26 +150,9 @@ namespace High_Gestor.Forms.Configuracoes
             openChildForm(new Categorias.FormCategorias());
         }
 
-        private void buttonFornecedores_Click(object sender, EventArgs e)
-        {
-            buttonCategorias.BackColor = Color.White;
-            buttonFuncionarios.BackColor = Color.White;
-            buttonBackup.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.White;
-            buttonFornecedores.BackColor = Color.FromArgb(210, 210, 210);
-
-            ViewForms.requestBackMenu(false);
-            //
-            alterouSize.receberNameSecundario("FORNECEDOR");
-            alterouSize.receberValidacaoSecundario(1);
-
-            openChildForm(new Fornecedores.FormFornecedores());
-        }
-
         private void buttonFuncionarios_Click(object sender, EventArgs e)
         {
             buttonCategorias.BackColor = Color.White;
-            buttonFornecedores.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonConfigSistema.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.FromArgb(210, 210, 210);
@@ -195,7 +168,6 @@ namespace High_Gestor.Forms.Configuracoes
         private void buttonBackup_Click(object sender, EventArgs e)
         {
             buttonCategorias.BackColor = Color.White;
-            buttonFornecedores.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;        
             buttonConfigSistema.BackColor = Color.White;
             buttonBackup.BackColor = Color.FromArgb(210, 210, 210);
@@ -211,7 +183,6 @@ namespace High_Gestor.Forms.Configuracoes
         private void buttonConfigSistema_Click(object sender, EventArgs e)
         {
             buttonCategorias.BackColor = Color.White;
-            buttonFornecedores.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonConfigSistema.BackColor = Color.FromArgb(210, 210, 210);
@@ -229,7 +200,6 @@ namespace High_Gestor.Forms.Configuracoes
             if (ViewForms._responseBackMenu() == true)
             {
                 buttonCategorias.BackColor = Color.White;
-                buttonFornecedores.BackColor = Color.White;
                 buttonFuncionarios.BackColor = Color.White;
                 buttonBackup.BackColor = Color.White;
                 buttonConfigSistema.BackColor = Color.White;

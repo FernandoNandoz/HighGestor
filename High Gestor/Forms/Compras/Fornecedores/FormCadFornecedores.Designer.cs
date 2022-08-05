@@ -1,4 +1,4 @@
-﻿namespace High_Gestor.Forms.Configuracoes.Fornecedores
+﻿namespace High_Gestor.Forms.Compras.Fornecedores
 {
     partial class FormCadFornecedores
     {
@@ -65,7 +65,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label9.Location = new System.Drawing.Point(34, 63);
+            label9.Location = new System.Drawing.Point(45, 63);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(149, 17);
             label9.TabIndex = 95;
@@ -75,7 +75,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(346, 254);
+            label7.Location = new System.Drawing.Point(357, 254);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(277, 16);
             label7.TabIndex = 94;
@@ -85,7 +85,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(346, 455);
+            label6.Location = new System.Drawing.Point(357, 455);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(141, 16);
             label6.TabIndex = 93;
@@ -95,7 +95,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(34, 455);
+            label5.Location = new System.Drawing.Point(45, 455);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(63, 16);
             label5.TabIndex = 92;
@@ -105,7 +105,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(34, 386);
+            label4.Location = new System.Drawing.Point(45, 386);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(66, 16);
             label4.TabIndex = 91;
@@ -115,7 +115,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(34, 321);
+            label3.Location = new System.Drawing.Point(45, 321);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(96, 16);
             label3.TabIndex = 90;
@@ -125,7 +125,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(34, 191);
+            label1.Location = new System.Drawing.Point(45, 191);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(99, 16);
             label1.TabIndex = 89;
@@ -135,7 +135,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(34, 254);
+            label8.Location = new System.Drawing.Point(45, 254);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(42, 16);
             label8.TabIndex = 88;
@@ -145,7 +145,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(34, 128);
+            label2.Location = new System.Drawing.Point(45, 128);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(135, 16);
             label2.TabIndex = 87;
@@ -154,7 +154,7 @@
             // maskedTelefoneContato
             // 
             this.maskedTelefoneContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskedTelefoneContato.Location = new System.Drawing.Point(349, 474);
+            this.maskedTelefoneContato.Location = new System.Drawing.Point(360, 474);
             this.maskedTelefoneContato.Mask = "(00) 0 0000-0000";
             this.maskedTelefoneContato.Name = "maskedTelefoneContato";
             this.maskedTelefoneContato.Size = new System.Drawing.Size(306, 26);
@@ -163,7 +163,7 @@
             // maskedWhatsApp
             // 
             this.maskedWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskedWhatsApp.Location = new System.Drawing.Point(37, 474);
+            this.maskedWhatsApp.Location = new System.Drawing.Point(48, 474);
             this.maskedWhatsApp.Mask = "(00) 0 0000-0000";
             this.maskedWhatsApp.Name = "maskedWhatsApp";
             this.maskedWhatsApp.Size = new System.Drawing.Size(306, 26);
@@ -175,7 +175,7 @@
             this.checkBoxGerarCodigoAutomaticamente.Checked = true;
             this.checkBoxGerarCodigoAutomaticamente.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxGerarCodigoAutomaticamente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxGerarCodigoAutomaticamente.Location = new System.Drawing.Point(329, 83);
+            this.checkBoxGerarCodigoAutomaticamente.Location = new System.Drawing.Point(340, 83);
             this.checkBoxGerarCodigoAutomaticamente.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxGerarCodigoAutomaticamente.Name = "checkBoxGerarCodigoAutomaticamente";
             this.checkBoxGerarCodigoAutomaticamente.Size = new System.Drawing.Size(248, 24);
@@ -190,7 +190,7 @@
             this.textBoxCodigoFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoFornecedor.Enabled = false;
             this.textBoxCodigoFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxCodigoFornecedor.Location = new System.Drawing.Point(37, 83);
+            this.textBoxCodigoFornecedor.Location = new System.Drawing.Point(48, 83);
             this.textBoxCodigoFornecedor.Name = "textBoxCodigoFornecedor";
             this.textBoxCodigoFornecedor.Size = new System.Drawing.Size(266, 26);
             this.textBoxCodigoFornecedor.TabIndex = 75;
@@ -198,7 +198,7 @@
             // maskedCPF
             // 
             this.maskedCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskedCPF.Location = new System.Drawing.Point(349, 273);
+            this.maskedCPF.Location = new System.Drawing.Point(360, 273);
             this.maskedCPF.Mask = "000.000.000-00";
             this.maskedCPF.Name = "maskedCPF";
             this.maskedCPF.Size = new System.Drawing.Size(306, 26);
@@ -208,7 +208,7 @@
             // 
             this.textBoxEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxEndereco.Location = new System.Drawing.Point(37, 405);
+            this.textBoxEndereco.Location = new System.Drawing.Point(48, 405);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(618, 26);
             this.textBoxEndereco.TabIndex = 81;
@@ -217,7 +217,7 @@
             // 
             this.textBoxRepresentante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRepresentante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxRepresentante.Location = new System.Drawing.Point(37, 340);
+            this.textBoxRepresentante.Location = new System.Drawing.Point(48, 340);
             this.textBoxRepresentante.Name = "textBoxRepresentante";
             this.textBoxRepresentante.Size = new System.Drawing.Size(618, 26);
             this.textBoxRepresentante.TabIndex = 80;
@@ -226,7 +226,7 @@
             // 
             this.textBoxNomeFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeFantasia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxNomeFantasia.Location = new System.Drawing.Point(37, 210);
+            this.textBoxNomeFantasia.Location = new System.Drawing.Point(48, 210);
             this.textBoxNomeFantasia.Name = "textBoxNomeFantasia";
             this.textBoxNomeFantasia.Size = new System.Drawing.Size(618, 26);
             this.textBoxNomeFantasia.TabIndex = 77;
@@ -234,7 +234,7 @@
             // maskedCNPJ
             // 
             this.maskedCNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.maskedCNPJ.Location = new System.Drawing.Point(37, 273);
+            this.maskedCNPJ.Location = new System.Drawing.Point(48, 273);
             this.maskedCNPJ.Mask = "00.000.000/0000-00";
             this.maskedCNPJ.Name = "maskedCNPJ";
             this.maskedCNPJ.Size = new System.Drawing.Size(306, 26);
@@ -244,7 +244,7 @@
             // 
             this.textBoxRazaoSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRazaoSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxRazaoSocial.Location = new System.Drawing.Point(37, 147);
+            this.textBoxRazaoSocial.Location = new System.Drawing.Point(48, 147);
             this.textBoxRazaoSocial.Name = "textBoxRazaoSocial";
             this.textBoxRazaoSocial.Size = new System.Drawing.Size(618, 26);
             this.textBoxRazaoSocial.TabIndex = 76;
@@ -256,7 +256,7 @@
             this.labelContagem.AutoSize = true;
             this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(13, 11);
+            this.labelContagem.Location = new System.Drawing.Point(24, 11);
             this.labelContagem.Name = "labelContagem";
             this.labelContagem.Size = new System.Drawing.Size(194, 24);
             this.labelContagem.TabIndex = 86;
@@ -267,7 +267,7 @@
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(507, 579);
+            this.btnSair.Location = new System.Drawing.Point(607, 579);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 85;
@@ -279,7 +279,7 @@
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(381, 579);
+            this.buttonSalvar.Location = new System.Drawing.Point(481, 579);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 84;
@@ -293,7 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.maskedTelefoneContato);
             this.Controls.Add(this.maskedWhatsApp);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);

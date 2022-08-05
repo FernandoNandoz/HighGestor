@@ -32,7 +32,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonConfigSistema = new System.Windows.Forms.Button();
             this.buttonBackup = new System.Windows.Forms.Button();
-            this.buttonFornecedores = new System.Windows.Forms.Button();
             this.buttonFuncionarios = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
@@ -44,7 +43,6 @@
             // 
             this.panelMenu.Controls.Add(this.buttonConfigSistema);
             this.panelMenu.Controls.Add(this.buttonBackup);
-            this.panelMenu.Controls.Add(this.buttonFornecedores);
             this.panelMenu.Controls.Add(this.buttonFuncionarios);
             this.panelMenu.Controls.Add(this.buttonCategorias);
             this.panelMenu.Controls.Add(this.buttonVoltar);
@@ -90,22 +88,6 @@
             this.buttonBackup.UseVisualStyleBackColor = true;
             this.buttonBackup.Click += new System.EventHandler(this.buttonBackup_Click);
             // 
-            // buttonFornecedores
-            // 
-            this.buttonFornecedores.FlatAppearance.BorderSize = 0;
-            this.buttonFornecedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFornecedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonFornecedores.Image = ((System.Drawing.Image)(resources.GetObject("buttonFornecedores.Image")));
-            this.buttonFornecedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFornecedores.Location = new System.Drawing.Point(12, 98);
-            this.buttonFornecedores.Name = "buttonFornecedores";
-            this.buttonFornecedores.Size = new System.Drawing.Size(186, 40);
-            this.buttonFornecedores.TabIndex = 97;
-            this.buttonFornecedores.Text = "   Fornecedores";
-            this.buttonFornecedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonFornecedores.UseVisualStyleBackColor = true;
-            this.buttonFornecedores.Click += new System.EventHandler(this.buttonFornecedores_Click);
-            // 
             // buttonFuncionarios
             // 
             this.buttonFuncionarios.FlatAppearance.BorderSize = 0;
@@ -113,7 +95,7 @@
             this.buttonFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("buttonFuncionarios.Image")));
             this.buttonFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFuncionarios.Location = new System.Drawing.Point(12, 142);
+            this.buttonFuncionarios.Location = new System.Drawing.Point(12, 98);
             this.buttonFuncionarios.Name = "buttonFuncionarios";
             this.buttonFuncionarios.Size = new System.Drawing.Size(186, 40);
             this.buttonFuncionarios.TabIndex = 96;
@@ -194,7 +176,6 @@
         private System.Windows.Forms.Button buttonVoltar;
         private System.Windows.Forms.Button buttonConfigSistema;
         private System.Windows.Forms.Button buttonBackup;
-        private System.Windows.Forms.Button buttonFornecedores;
         private System.Windows.Forms.Button buttonFuncionarios;
         private System.Windows.Forms.Button buttonCategorias;
     }

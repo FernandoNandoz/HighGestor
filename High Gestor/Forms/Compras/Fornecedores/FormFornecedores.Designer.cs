@@ -1,4 +1,4 @@
-﻿namespace High_Gestor.Forms.Configuracoes.Fornecedores
+﻿namespace High_Gestor.Forms.Compras.Fornecedores
 {
     partial class FormFornecedores
     {
@@ -66,7 +66,7 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            label1.Location = new System.Drawing.Point(10, 11);
+            label1.Location = new System.Drawing.Point(21, 10);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(130, 24);
             label1.TabIndex = 43;
@@ -78,7 +78,7 @@
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            label6.Location = new System.Drawing.Point(10, 51);
+            label6.Location = new System.Drawing.Point(21, 50);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(123, 20);
             label6.TabIndex = 42;
@@ -91,7 +91,7 @@
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(806, 120);
+            label8.Location = new System.Drawing.Point(997, 119);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(21, 31);
             label8.TabIndex = 158;
@@ -103,7 +103,7 @@
             labelSelecioneProduto.AutoSize = true;
             labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelSelecioneProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelSelecioneProduto.Location = new System.Drawing.Point(14, 178);
+            labelSelecioneProduto.Location = new System.Drawing.Point(21, 178);
             labelSelecioneProduto.Name = "labelSelecioneProduto";
             labelSelecioneProduto.Size = new System.Drawing.Size(452, 20);
             labelSelecioneProduto.TabIndex = 161;
@@ -127,7 +127,7 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1008, 640);
+            this.panelContent.Size = new System.Drawing.Size(1208, 640);
             this.panelContent.TabIndex = 0;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
@@ -169,7 +169,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(14, 207);
+            this.dataGridViewContent.Location = new System.Drawing.Point(24, 207);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -192,7 +192,7 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 35;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(980, 433);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1160, 433);
             this.dataGridViewContent.TabIndex = 160;
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
@@ -243,7 +243,7 @@
             this.buttonSair.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonSair.Image = ((System.Drawing.Image)(resources.GetObject("buttonSair.Image")));
             this.buttonSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSair.Location = new System.Drawing.Point(830, 120);
+            this.buttonSair.Location = new System.Drawing.Point(1021, 119);
             this.buttonSair.Name = "buttonSair";
             this.buttonSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonSair.Size = new System.Drawing.Size(164, 35);
@@ -260,7 +260,7 @@
             // 
             this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
-            this.buttonExcluirCadastro.Location = new System.Drawing.Point(580, 120);
+            this.buttonExcluirCadastro.Location = new System.Drawing.Point(591, 119);
             this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
             this.buttonExcluirCadastro.Size = new System.Drawing.Size(162, 35);
             this.buttonExcluirCadastro.TabIndex = 157;
@@ -274,7 +274,7 @@
             // 
             this.buttonEditarCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarCadastro.Image")));
-            this.buttonEditarCadastro.Location = new System.Drawing.Point(408, 120);
+            this.buttonEditarCadastro.Location = new System.Drawing.Point(419, 119);
             this.buttonEditarCadastro.Name = "buttonEditarCadastro";
             this.buttonEditarCadastro.Size = new System.Drawing.Size(166, 35);
             this.buttonEditarCadastro.TabIndex = 156;
@@ -288,7 +288,7 @@
             // 
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
-            this.buttonRelatorio.Location = new System.Drawing.Point(177, 120);
+            this.buttonRelatorio.Location = new System.Drawing.Point(188, 119);
             this.buttonRelatorio.Name = "buttonRelatorio";
             this.buttonRelatorio.Size = new System.Drawing.Size(225, 35);
             this.buttonRelatorio.TabIndex = 155;
@@ -302,7 +302,7 @@
             // 
             this.buttonNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCadastro.Image")));
-            this.buttonNovoCadastro.Location = new System.Drawing.Point(14, 120);
+            this.buttonNovoCadastro.Location = new System.Drawing.Point(25, 119);
             this.buttonNovoCadastro.Name = "buttonNovoCadastro";
             this.buttonNovoCadastro.Size = new System.Drawing.Size(157, 35);
             this.buttonNovoCadastro.TabIndex = 154;
@@ -317,7 +317,7 @@
             this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxPesquisarNome.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.textBoxPesquisarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.textBoxPesquisarNome.Location = new System.Drawing.Point(14, 74);
+            this.textBoxPesquisarNome.Location = new System.Drawing.Point(25, 73);
             this.textBoxPesquisarNome.Name = "textBoxPesquisarNome";
             this.textBoxPesquisarNome.Size = new System.Drawing.Size(728, 27);
             this.textBoxPesquisarNome.TabIndex = 41;
@@ -329,7 +329,7 @@
             this.labelContagem.AutoSize = true;
             this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(869, 5);
+            this.labelContagem.Location = new System.Drawing.Point(1069, 5);
             this.labelContagem.Name = "labelContagem";
             this.labelContagem.Size = new System.Drawing.Size(135, 20);
             this.labelContagem.TabIndex = 40;
@@ -341,7 +341,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormFornecedores";

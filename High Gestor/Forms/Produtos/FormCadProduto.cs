@@ -513,7 +513,7 @@ namespace High_Gestor.Forms.Produtos
         {
             ViewForms.requestViewForm(false, true);
 
-            Configuracoes.Fornecedores.FormFornecedores window = new Configuracoes.Fornecedores.FormFornecedores();
+            Compras.Fornecedores.FormFornecedores window = new Compras.Fornecedores.FormFornecedores();
             window.ShowDialog();
             window.Dispose();
 
