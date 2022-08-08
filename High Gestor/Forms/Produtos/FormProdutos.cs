@@ -207,6 +207,8 @@ namespace High_Gestor.Forms.Produtos
 
                 SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
+                produtos.Rows.Clear();
+
                 while (datareader.Read())
                 {
                     produtos.Rows.Add(datareader[0],
@@ -358,7 +360,7 @@ namespace High_Gestor.Forms.Produtos
                         string query = ("DELETE FROM Produtos WHERE idProduto = @ID");
                         SqlCommand command = new SqlCommand(query, banco.connection);
 
-                        command.Parameters.AddWithValue("@ID", dataGridViewContent.CurrentRow.Cells[0].Value);
+                        command.Parameters.AddWithValue("@ID", produtos.Rows[dataGridViewContent.CurrentRow.Index][0].ToString());
 
                         banco.conectar();
                         command.ExecuteNonQuery();
@@ -415,7 +417,7 @@ namespace High_Gestor.Forms.Produtos
 
         private void dataGridViewContent_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            for (int i = 0; i < dataGridViewContent.Rows.Count - 0; ++i)
+            for (int i = 0; i < dataGridViewContent.Rows.Count; ++i)
             {
                 if (dataGridViewContent.Rows[i].Cells[10].Value.ToString() == "ESTOQUE BAIXO" && dataGridViewContent.Rows[i].Cells[10].Value.ToString() != "ESTOQUE ZERADO")
                 {
@@ -429,7 +431,7 @@ namespace High_Gestor.Forms.Produtos
                     dataGridViewContent.Rows[i].DefaultCellStyle.SelectionBackColor = Color.IndianRed;
                 }
 
-                if (dataGridViewContent.Rows[i].Cells[11].Value.ToString() == "ESTOQUE VENCIDO")
+                if (dataGridViewContent.Rows[i].Cells[10].Value.ToString() == "ESTOQUE VENCIDO")
                 {
                     dataGridViewContent.Rows[i].DefaultCellStyle.BackColor = Color.RosyBrown;
                     dataGridViewContent.Rows[i].DefaultCellStyle.SelectionBackColor = Color.IndianRed;

@@ -27,7 +27,7 @@ namespace High_Gestor.Forms.Produtos
             textBoxNomeProduto.Clear();
             textBoxTipoUnitario.Clear();
             textBoxMarca.Clear();
-            dataComboBoxFornecedor();
+            textBoxFornecedor.Clear();
             dataComboBoxCategoria();
             comboBoxCategoria.Text = "";
             textBoxEstoqueMinimo.Clear();
@@ -36,6 +36,12 @@ namespace High_Gestor.Forms.Produtos
             textBoxValorCusto.Text = Decimal.Parse("0").ToString("N2");
             textBoxMargemLucro.Text = Decimal.Parse("0").ToString("N2");
             textBoxPrecoVenda.Text = Decimal.Parse("0").ToString("N2");
+            //
+            labelStatusTextFornecedor.Text = "NENHUM";
+            labelStatusTextFornecedor.ForeColor = Color.Black;
+            //
+            labelStatusMarca.Text = "NENHUM";
+            labelStatusMarca.ForeColor = Color.Black;
             //
             textBoxCodigoProduto.Focus();
         }
@@ -109,32 +115,15 @@ namespace High_Gestor.Forms.Produtos
 
             banco.desconectar();
 
-            comboBoxFornecedor.Text = dataComboBoxFornecedor_update(idFornecedorFK);
+            textBoxFornecedor.Text = dataComboBoxFornecedor_update(idFornecedorFK);
             comboBoxCategoria.Text = dataComboBoxCategoria_update(idCategoriaFK);
-        }
-
-        private void dataComboBoxFornecedor()
-        {
-            string query = ("SELECT * FROM Fornecedor ORDER BY nomeFantasia ASC");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            comboBoxFornecedor.Items.Clear();
-
-            while (datareader.Read())
-            {
-                comboBoxFornecedor.Items.Add(datareader[2].ToString() + " - " + datareader[4].ToString());
-            }
-            banco.desconectar();
         }
 
         private string dataComboBoxFornecedor_update(int idFornecedorFK)
         {
             string result = string.Empty;
 
-            string query = ("SELECT * FROM Fornecedor WHERE idFornecedor = @ID");
+            string query = ("SELECT nomeFantasia, codigoFornecedor FROM Fornecedor WHERE idFornecedor = @ID");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -144,7 +133,7 @@ namespace High_Gestor.Forms.Produtos
 
             while (datareader.Read())
             {
-                result = datareader[2].ToString() + " - " + datareader[4].ToString();
+                result = (datareader.GetString(0) + "  -  " + datareader.GetString(1));
             }
             banco.desconectar();
 
@@ -189,20 +178,43 @@ namespace High_Gestor.Forms.Produtos
             return result;
         }
 
-        private int consultarIdFornecedor()
+        private void pesquisaAutoCompleteFornecedor()
+        {
+            try
+            {
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia, codigoFornecedor FROM Fornecedor", banco.connection);
+
+                banco.conectar();
+                SqlDataReader dr = exePesquisa.ExecuteReader();
+
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0) + "  -  " + dr.GetString(1));
+                }
+                banco.desconectar();
+
+               textBoxFornecedor.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private int consultarIdFornecedor(string Fornecedor)
         {
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string fornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE codigoFornecedor = @codigo");
-            SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
+            string FornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE codigoFornecedor = @codigo");
+            SqlCommand exeVerificacao = new SqlCommand(FornecedorSELECT, banco.connection);
             banco.conectar();
 
-            string nomeFantasia = comboBoxFornecedor.Text;
+            string[] result = Fornecedor.Split('-');
 
-            string[] result = nomeFantasia.Split('-');
-
-            exeVerificacao.Parameters.AddWithValue("@codigo", result[0]);
+            exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
@@ -253,13 +265,14 @@ namespace High_Gestor.Forms.Produtos
                 && textBoxNomeProduto.Text != string.Empty
                 && textBoxTipoUnitario.Text != string.Empty
                 && textBoxMarca.Text != string.Empty
-                && comboBoxFornecedor.Text != string.Empty
+                && textBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
                 && textBoxEstoqueAtual.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
-                && textBoxPrecoVenda.Text != string.Empty)
+                && textBoxPrecoVenda.Text != string.Empty
+                && labelStatusTextFornecedor.ForeColor == Color.Green)
                 {
                     liberado = true;
                 }
@@ -271,13 +284,14 @@ namespace High_Gestor.Forms.Produtos
                 && textBoxNomeProduto.Text != string.Empty
                 && textBoxTipoUnitario.Text != string.Empty
                 && textBoxMarca.Text != string.Empty
-                && comboBoxFornecedor.Text != string.Empty
+                && textBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
                 && textBoxEstoqueAtual.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
-                && textBoxPrecoVenda.Text != string.Empty)
+                && textBoxPrecoVenda.Text != string.Empty
+                && labelStatusTextFornecedor.ForeColor == Color.Green)
                 {
                     liberado = true;
                 }
@@ -325,7 +339,7 @@ namespace High_Gestor.Forms.Produtos
                 SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
 
                 sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-                sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
+                sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
                 sqlCommand.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
                 sqlCommand.Parameters.AddWithValue("@status", comboBoxStatus.Text);
                 sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
@@ -370,7 +384,7 @@ namespace High_Gestor.Forms.Produtos
 
                 sqlCommand.Parameters.AddWithValue("@ID", updateData._retornarID());
                 sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-                sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor());
+                sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
                 sqlCommand.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
                 sqlCommand.Parameters.AddWithValue("@status", comboBoxStatus.Text);
                 sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
@@ -467,9 +481,9 @@ namespace High_Gestor.Forms.Produtos
 
         private void FormCadProduto_Load(object sender, EventArgs e)
         {
+            pesquisaAutoCompleteFornecedor();
             pesquisaAutoCompleteMarca();
             //
-            dataComboBoxFornecedor();
             dataComboBoxCategoria();
             //
             comboBoxStatus.SelectedIndex = 0;
@@ -504,9 +518,57 @@ namespace High_Gestor.Forms.Produtos
             ViewForms.requestViewForm(true, false);
         }
 
-        private void linkLimparFornecedor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void textBoxFornecedor_KeyUp(object sender, KeyEventArgs e)
         {
-            dataComboBoxFornecedor();
+            if (e.KeyCode == Keys.Enter)
+            {
+                //Pega o ultimo ID resgitrado na tabela log
+                string fornecedorSELECT = ("SELECT codigoFornecedor, nomeFantasia FROM Fornecedor WHERE codigoFornecedor = @codigo");
+                SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
+
+                string fornecedor = textBoxFornecedor.Text;
+
+                if (fornecedor.Contains("-"))
+                {
+                    banco.conectar();
+
+                    string[] result = fornecedor.Split('-');
+
+                    exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
+
+                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+                    if (datareader.Read())
+                    {
+                        labelStatusTextFornecedor.Text = datareader[0].ToString() + " - " + datareader[1].ToString();
+                        labelStatusTextFornecedor.ForeColor = Color.Green;
+
+                        textBoxMarca.Focus();
+                    }
+                    else
+                    {
+                        labelStatusTextFornecedor.Text = "Fornecedor não encontrada...";
+                        labelStatusTextFornecedor.ForeColor = Color.Red;
+                    }
+
+                    banco.desconectar();
+                }
+                else
+                {
+                    labelStatusTextFornecedor.Text = "Fornecedor não encontrada...";
+                    labelStatusTextFornecedor.ForeColor = Color.Red;
+                }
+
+            }
+        }
+
+        private void linkLabelLimparFornecedor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            textBoxFornecedor.Clear();
+            labelStatusTextFornecedor.Text = "NENHUM";
+            labelStatusTextFornecedor.ForeColor = Color.Black;
+
+            textBoxFornecedor.Focus();
         }
 
         private void linkLabelCadFornecedor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -519,8 +581,9 @@ namespace High_Gestor.Forms.Produtos
 
             if (ViewForms._responseViewForm() == true)
             {
-                dataComboBoxFornecedor();
-                comboBoxFornecedor.Refresh();
+                pesquisaAutoCompleteFornecedor();
+
+                textBoxFornecedor.Focus();
             }
         }
 
@@ -542,6 +605,38 @@ namespace High_Gestor.Forms.Produtos
                 dataComboBoxCategoria();
                 comboBoxCategoria.Refresh();
             }
+        }
+
+        private void textBoxMarca_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBoxMarca.Text != "")
+                {
+                    string marcaSelecionada = textBoxMarca.Text;
+
+                    labelStatusMarca.Text = marcaSelecionada.ToUpper();
+                    labelStatusMarca.ForeColor = Color.Green;
+
+                    textBoxMarca.Focus();
+                }
+                else
+                {
+                    labelStatusMarca.Text = "A Marca não foi informada...";
+                    labelStatusMarca.ForeColor = Color.Red;
+                }
+
+                comboBoxCategoria.Focus();
+            }
+        }
+
+        private void linkLabelLimparMarca_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            textBoxMarca.Clear();
+            labelStatusMarca.Text = "NENHUM";
+            labelStatusMarca.ForeColor = Color.Black;
+
+            textBoxMarca.Focus();
         }
 
         private void textBoxValorCusto_KeyUp(object sender, KeyEventArgs e)
@@ -676,5 +771,6 @@ namespace High_Gestor.Forms.Produtos
                 textBoxCodigoProduto.Focus();
             }
         }
+
     }
 }

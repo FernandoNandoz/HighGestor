@@ -91,3 +91,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormCadFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormRelatorio.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas.UserControl_itemParcela.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Outros.CentroCustos.FormCadCustos.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Outros.CentroCustos.FormCentroCustos.resources

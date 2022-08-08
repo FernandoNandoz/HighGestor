@@ -44,13 +44,11 @@
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.checkBoxGerarCodigoAutomaticamente = new System.Windows.Forms.CheckBox();
             this.textBoxTipoUnitario = new System.Windows.Forms.TextBox();
-            this.linkLimparFornecedor = new System.Windows.Forms.LinkLabel();
             this.linkLimparCategoria = new System.Windows.Forms.LinkLabel();
             this.labelContagem = new System.Windows.Forms.Label();
             this.linkLabelCadCategoria = new System.Windows.Forms.LinkLabel();
             this.linkLabelCadFornecedor = new System.Windows.Forms.LinkLabel();
             this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
             this.maskedValidade = new System.Windows.Forms.MaskedTextBox();
             this.textBoxPrecoVenda = new System.Windows.Forms.TextBox();
             this.textBoxMargemLucro = new System.Windows.Forms.TextBox();
@@ -62,6 +60,11 @@
             this.btnSair = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.textBoxMarca = new System.Windows.Forms.TextBox();
+            this.textBoxFornecedor = new System.Windows.Forms.TextBox();
+            this.labelStatusTextFornecedor = new System.Windows.Forms.Label();
+            this.linkLabelLimparFornecedor = new System.Windows.Forms.LinkLabel();
+            this.labelStatusMarca = new System.Windows.Forms.Label();
+            this.linkLabelLimparMarca = new System.Windows.Forms.LinkLabel();
             label12 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -163,9 +166,9 @@
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.Location = new System.Drawing.Point(43, 197);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(77, 16);
+            label4.Size = new System.Drawing.Size(92, 16);
             label4.TabIndex = 113;
-            label4.Text = "Fornecedor";
+            label4.Text = "Fornecedor:   |";
             // 
             // label3
             // 
@@ -203,9 +206,9 @@
             label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.Location = new System.Drawing.Point(43, 283);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(45, 16);
+            label13.Size = new System.Drawing.Size(60, 16);
             label13.TabIndex = 130;
-            label13.Text = "Marca";
+            label13.Text = "Marca:   |";
             // 
             // comboBoxStatus
             // 
@@ -242,19 +245,6 @@
             this.textBoxTipoUnitario.Name = "textBoxTipoUnitario";
             this.textBoxTipoUnitario.Size = new System.Drawing.Size(97, 26);
             this.textBoxTipoUnitario.TabIndex = 3;
-            // 
-            // linkLimparFornecedor
-            // 
-            this.linkLimparFornecedor.ActiveLinkColor = System.Drawing.Color.Gray;
-            this.linkLimparFornecedor.AutoSize = true;
-            this.linkLimparFornecedor.LinkColor = System.Drawing.Color.Black;
-            this.linkLimparFornecedor.Location = new System.Drawing.Point(43, 247);
-            this.linkLimparFornecedor.Name = "linkLimparFornecedor";
-            this.linkLimparFornecedor.Size = new System.Drawing.Size(95, 13);
-            this.linkLimparFornecedor.TabIndex = 125;
-            this.linkLimparFornecedor.TabStop = true;
-            this.linkLimparFornecedor.Text = "Limpar Fornecedor";
-            this.linkLimparFornecedor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLimparFornecedor_LinkClicked);
             // 
             // linkLimparCategoria
             // 
@@ -318,16 +308,6 @@
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(299, 28);
             this.comboBoxCategoria.TabIndex = 6;
-            // 
-            // comboBoxFornecedor
-            // 
-            this.comboBoxFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFornecedor.FormattingEnabled = true;
-            this.comboBoxFornecedor.Location = new System.Drawing.Point(46, 216);
-            this.comboBoxFornecedor.Name = "comboBoxFornecedor";
-            this.comboBoxFornecedor.Size = new System.Drawing.Size(615, 28);
-            this.comboBoxFornecedor.TabIndex = 4;
             // 
             // maskedValidade
             // 
@@ -445,6 +425,63 @@
             this.textBoxMarca.Name = "textBoxMarca";
             this.textBoxMarca.Size = new System.Drawing.Size(307, 26);
             this.textBoxMarca.TabIndex = 5;
+            this.textBoxMarca.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxMarca_KeyUp);
+            // 
+            // textBoxFornecedor
+            // 
+            this.textBoxFornecedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBoxFornecedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxFornecedor.Location = new System.Drawing.Point(46, 218);
+            this.textBoxFornecedor.Name = "textBoxFornecedor";
+            this.textBoxFornecedor.Size = new System.Drawing.Size(615, 26);
+            this.textBoxFornecedor.TabIndex = 4;
+            this.textBoxFornecedor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxFornecedor_KeyUp);
+            // 
+            // labelStatusTextFornecedor
+            // 
+            this.labelStatusTextFornecedor.AutoSize = true;
+            this.labelStatusTextFornecedor.Location = new System.Drawing.Point(137, 199);
+            this.labelStatusTextFornecedor.Name = "labelStatusTextFornecedor";
+            this.labelStatusTextFornecedor.Size = new System.Drawing.Size(150, 13);
+            this.labelStatusTextFornecedor.TabIndex = 132;
+            this.labelStatusTextFornecedor.Text = "Nenhum fornecedor informado";
+            // 
+            // linkLabelLimparFornecedor
+            // 
+            this.linkLabelLimparFornecedor.ActiveLinkColor = System.Drawing.Color.Gray;
+            this.linkLabelLimparFornecedor.AutoSize = true;
+            this.linkLabelLimparFornecedor.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelLimparFornecedor.Location = new System.Drawing.Point(43, 247);
+            this.linkLabelLimparFornecedor.Name = "linkLabelLimparFornecedor";
+            this.linkLabelLimparFornecedor.Size = new System.Drawing.Size(95, 13);
+            this.linkLabelLimparFornecedor.TabIndex = 133;
+            this.linkLabelLimparFornecedor.TabStop = true;
+            this.linkLabelLimparFornecedor.Text = "Limpar Fornecedor";
+            this.linkLabelLimparFornecedor.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLimparFornecedor_LinkClicked);
+            // 
+            // labelStatusMarca
+            // 
+            this.labelStatusMarca.AutoSize = true;
+            this.labelStatusMarca.Location = new System.Drawing.Point(105, 286);
+            this.labelStatusMarca.Name = "labelStatusMarca";
+            this.labelStatusMarca.Size = new System.Drawing.Size(128, 13);
+            this.labelStatusMarca.TabIndex = 134;
+            this.labelStatusMarca.Text = "Nenhum marca informada";
+            // 
+            // linkLabelLimparMarca
+            // 
+            this.linkLabelLimparMarca.ActiveLinkColor = System.Drawing.Color.Gray;
+            this.linkLabelLimparMarca.AutoSize = true;
+            this.linkLabelLimparMarca.LinkColor = System.Drawing.Color.Black;
+            this.linkLabelLimparMarca.Location = new System.Drawing.Point(43, 331);
+            this.linkLabelLimparMarca.Name = "linkLabelLimparMarca";
+            this.linkLabelLimparMarca.Size = new System.Drawing.Size(71, 13);
+            this.linkLabelLimparMarca.TabIndex = 135;
+            this.linkLabelLimparMarca.TabStop = true;
+            this.linkLabelLimparMarca.Text = "Limpar Marca";
+            this.linkLabelLimparMarca.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLimparMarca_LinkClicked);
             // 
             // FormCadProduto
             // 
@@ -452,13 +489,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1208, 640);
+            this.Controls.Add(this.linkLabelLimparMarca);
+            this.Controls.Add(this.labelStatusMarca);
+            this.Controls.Add(this.linkLabelLimparFornecedor);
+            this.Controls.Add(this.labelStatusTextFornecedor);
+            this.Controls.Add(this.textBoxFornecedor);
             this.Controls.Add(label13);
             this.Controls.Add(this.textBoxMarca);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(label12);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);
             this.Controls.Add(this.textBoxTipoUnitario);
-            this.Controls.Add(this.linkLimparFornecedor);
             this.Controls.Add(this.linkLimparCategoria);
             this.Controls.Add(this.labelContagem);
             this.Controls.Add(this.linkLabelCadCategoria);
@@ -471,7 +512,6 @@
             this.Controls.Add(label6);
             this.Controls.Add(this.comboBoxCategoria);
             this.Controls.Add(label5);
-            this.Controls.Add(this.comboBoxFornecedor);
             this.Controls.Add(label4);
             this.Controls.Add(label3);
             this.Controls.Add(label2);
@@ -502,13 +542,11 @@
         private System.Windows.Forms.ComboBox comboBoxStatus;
         private System.Windows.Forms.CheckBox checkBoxGerarCodigoAutomaticamente;
         private System.Windows.Forms.TextBox textBoxTipoUnitario;
-        private System.Windows.Forms.LinkLabel linkLimparFornecedor;
         private System.Windows.Forms.LinkLabel linkLimparCategoria;
         private System.Windows.Forms.Label labelContagem;
         private System.Windows.Forms.LinkLabel linkLabelCadCategoria;
         private System.Windows.Forms.LinkLabel linkLabelCadFornecedor;
         private System.Windows.Forms.ComboBox comboBoxCategoria;
-        private System.Windows.Forms.ComboBox comboBoxFornecedor;
         private System.Windows.Forms.MaskedTextBox maskedValidade;
         private System.Windows.Forms.TextBox textBoxPrecoVenda;
         private System.Windows.Forms.TextBox textBoxMargemLucro;
@@ -520,5 +558,10 @@
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button buttonSalvar;
         private System.Windows.Forms.TextBox textBoxMarca;
+        private System.Windows.Forms.TextBox textBoxFornecedor;
+        private System.Windows.Forms.Label labelStatusTextFornecedor;
+        private System.Windows.Forms.LinkLabel linkLabelLimparFornecedor;
+        private System.Windows.Forms.Label labelStatusMarca;
+        private System.Windows.Forms.LinkLabel linkLabelLimparMarca;
     }
 }

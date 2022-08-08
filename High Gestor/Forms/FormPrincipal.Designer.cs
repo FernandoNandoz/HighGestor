@@ -398,7 +398,7 @@
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.MaximizedBoundsChanged += new System.EventHandler(this.FormHighGestor_MaximizedBoundsChanged);
             this.Load += new System.EventHandler(this.FormHighGestor_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormHighGestor_Paint);
             this.panelMenuBar.ResumeLayout(false);

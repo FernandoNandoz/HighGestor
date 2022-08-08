@@ -357,6 +357,7 @@
             this.Name = "FormFuncionarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFuncionarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormFuncionarios_FormClosing);
             this.Load += new System.EventHandler(this.FormFuncionarios_Load);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();

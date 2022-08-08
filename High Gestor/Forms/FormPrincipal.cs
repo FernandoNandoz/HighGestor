@@ -181,10 +181,6 @@ namespace High_Gestor
         private void buttonTitlerMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-
-            resposividade();
-
-            this.Refresh();
         }
 
         private void buttonAjuda_Click(object sender, EventArgs e)
@@ -320,6 +316,11 @@ namespace High_Gestor
             }
         }
 
-       
+        private void FormHighGestor_MaximizedBoundsChanged(object sender, EventArgs e)
+        {
+            resposividade();
+
+            this.Refresh();
+        }
     }
 }

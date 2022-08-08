@@ -33,6 +33,11 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         public FormFuncionarios()
         {
             InitializeComponent();
+
+            if (ViewForms._responseViewFormLink() == true)
+            {
+                FormBorderStyle = FormBorderStyle.FixedSingle;
+            }
         }
 
         #region Paint
@@ -276,6 +281,11 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
 
                 openChildForm(new Funcionarios.FormCadFuncionarios());
             }
+        }
+
+        private void FormFuncionarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ViewForms.requestViewForm(true, false);
         }
     }
 }

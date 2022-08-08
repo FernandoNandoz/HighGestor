@@ -103,6 +103,12 @@
     <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.Designer.cs">
       <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.Designer.cs">
+      <DependentUpon>UserControl_itemParcela.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Compras\FormAcaoCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,18 @@
     <Compile Include="Forms\Financeiro\Outros\Caixa\FormControleCaixa.Designer.cs">
       <DependentUpon>FormControleCaixa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financeiro\Outros\CentroCustos\FormCadCustos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Outros\CentroCustos\FormCadCustos.Designer.cs">
+      <DependentUpon>FormCadCustos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Outros\CentroCustos\FormCentroCustos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Outros\CentroCustos\FormCentroCustos.Designer.cs">
+      <DependentUpon>FormCentroCustos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +295,9 @@
     <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.resx">
       <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.resx">
+      <DependentUpon>UserControl_itemParcela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FormAcaoCompras.resx">
       <DependentUpon>FormAcaoCompras.cs</DependentUpon>
     </EmbeddedResource>
@@ -330,6 +351,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\Outros\Caixa\FormControleCaixa.resx">
       <DependentUpon>FormControleCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\Outros\CentroCustos\FormCadCustos.resx">
+      <DependentUpon>FormCadCustos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\Outros\CentroCustos\FormCentroCustos.resx">
+      <DependentUpon>FormCentroCustos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
