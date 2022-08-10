@@ -26,7 +26,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         private DateTime _dataVencimento;
         private decimal _valorParcela;
         private string _formaPagamento;
-        private string _situacao;
+        private string _ContaBancaria;
 
 
         [Category("Custom Props")]
@@ -58,10 +58,9 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         }
 
         [Category("Custom Props")]
-        public string Situacao
+        public string ContaBancaria
         {
-            get { return _situacao; }
-            set { _situacao = value; comboBoxSituacao.Text = value; }
+            get { return _ContaBancaria = comboBoxFormaPagamento.Text; }
         }
 
         #endregion
@@ -84,9 +83,35 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
             banco.desconectar();
         }
 
+        public int verificarIdFormaPagamento()
+        {
+            int id = 0;
+
+            //Pega o ultimo ID resgitrado na tabela log
+            string categoriaSELECT = ("SELECT idFormaPagamento FROM FormaPagamento WHERE descricao = @FormaPagamento");
+            SqlCommand exeVerificacao = new SqlCommand(categoriaSELECT, banco.connection);
+
+            exeVerificacao.Parameters.AddWithValue("@FormaPagamento", comboBoxFormaPagamento.Text);
+
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                id = int.Parse(datareader[0].ToString());
+            }
+
+            banco.desconectar();
+
+            return id;
+        }
+
         private void UserControl_itemParcela_Load(object sender, EventArgs e)
         {
             dataComboBoxFormaPagamento();
+
+            comboBoxFormaPagamento.SelectedIndex = 0;
         }
     }
 }

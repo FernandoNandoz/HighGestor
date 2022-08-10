@@ -28,38 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxSituacao = new System.Windows.Forms.ComboBox();
             this.comboBoxFormaPagamento = new System.Windows.Forms.ComboBox();
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.dateTimeVencimento = new System.Windows.Forms.DateTimePicker();
             this.labelNumero = new System.Windows.Forms.Label();
+            this.textBoxObservacao = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // comboBoxSituacao
-            // 
-            this.comboBoxSituacao.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxSituacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.comboBoxSituacao.FormattingEnabled = true;
-            this.comboBoxSituacao.Items.AddRange(new object[] {
-            "ABERTO",
-            "PAGO"});
-            this.comboBoxSituacao.Location = new System.Drawing.Point(565, 5);
-            this.comboBoxSituacao.Name = "comboBoxSituacao";
-            this.comboBoxSituacao.Size = new System.Drawing.Size(148, 24);
-            this.comboBoxSituacao.TabIndex = 9;
             // 
             // comboBoxFormaPagamento
             // 
             this.comboBoxFormaPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxFormaPagamento.FormattingEnabled = true;
-            this.comboBoxFormaPagamento.Items.AddRange(new object[] {
-            "Dinheiro",
-            "Crédito",
-            "Débito",
-            "Cheque",
-            "Crédito Loja",
-            "Outro"});
             this.comboBoxFormaPagamento.Location = new System.Drawing.Point(358, 5);
             this.comboBoxFormaPagamento.Name = "comboBoxFormaPagamento";
             this.comboBoxFormaPagamento.Size = new System.Drawing.Size(197, 24);
@@ -92,11 +72,19 @@
             this.labelNumero.Text = "0";
             this.labelNumero.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBoxObservacao
+            // 
+            this.textBoxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxObservacao.Location = new System.Drawing.Point(566, 5);
+            this.textBoxObservacao.Name = "textBoxObservacao";
+            this.textBoxObservacao.Size = new System.Drawing.Size(313, 23);
+            this.textBoxObservacao.TabIndex = 9;
+            // 
             // UserControl_itemParcela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.comboBoxSituacao);
+            this.Controls.Add(this.textBoxObservacao);
             this.Controls.Add(this.comboBoxFormaPagamento);
             this.Controls.Add(this.textBoxValor);
             this.Controls.Add(this.dateTimeVencimento);
@@ -111,11 +99,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ComboBox comboBoxSituacao;
-        private System.Windows.Forms.ComboBox comboBoxFormaPagamento;
         private System.Windows.Forms.TextBox textBoxValor;
         private System.Windows.Forms.DateTimePicker dateTimeVencimento;
         private System.Windows.Forms.Label labelNumero;
+        public System.Windows.Forms.ComboBox comboBoxFormaPagamento;
+        private System.Windows.Forms.TextBox textBoxObservacao;
     }
 }

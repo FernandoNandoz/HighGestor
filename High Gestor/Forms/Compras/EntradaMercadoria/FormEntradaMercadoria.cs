@@ -34,6 +34,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         bool liberaSacola = false;
 
+        Parcelas.UserControl_itemParcela[] listaItem = new Parcelas.UserControl_itemParcela[200];
 
         public FormEntradaMercadoria()
         {
@@ -54,6 +55,29 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         }
 
         #endregion
+
+        private void limparValores()
+        {
+            textBoxFornecedor.Clear();
+            textBoxVendedor.Clear();
+            textBoxNumeroNota.Clear();
+
+            limparValoresProduto();
+
+            dataGridViewContentProdutos.Rows.Clear();
+
+            labelValueTotalItensLancados.Text = "0";
+            labelValueTotalProdutos.Text = "0";
+            labelValueTotalEntrada.Text = Convert.ToDecimal(0).ToString("C2");
+
+            textBoxQuantidadeParcela.Clear();
+            flowLayoutPanel_ItemParcela.Controls.Clear();
+
+            dateTimeDataEntrada.Value = DateTime.Now;
+            comboBoxAplicacaoProdutos.Text = "";
+            textBoxCentroCustos.Clear();
+            textBoxObservacao.Clear();
+        }
 
         private void apenasNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -152,7 +176,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT usuario, codigoFuncionario FROM Funcionario", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT vendedor FROM PedidosCompra", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -161,7 +185,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0) + "  -  " + dr.GetString(1));
+                    lista.Add(dr.GetString(0));
                 }
                 banco.desconectar();
 
@@ -171,52 +195,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private int consultarIdVendedor(string Vendedor)
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string VendedorSELECT = ("SELECT idFuncionario FROM Funcionario WHERE codigoFuncionario = @codigo");
-            SqlCommand exeVerificacao = new SqlCommand(VendedorSELECT, banco.connection);
-            banco.conectar();
-
-            string[] result = Vendedor.Split('-');
-
-            exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private string dataVendedor_update(int idVendedorFK)
-        {
-            string result = string.Empty;
-
-            string query = ("SELECT usuario, codigoFuncionario FROM Funcionario WHERE idFuncionario = @ID");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            exeVerificacao.Parameters.AddWithValue("@ID", idVendedorFK);
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                result = (datareader.GetString(0) + "  -  " + datareader.GetString(1));
-            }
-            banco.desconectar();
-
-            return result;
         }
 
         private void pesquisaAutoCompleteCentroCusto()
@@ -427,6 +405,11 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return SubTotal_Novo;
         }
 
+        private decimal calcularTotalPago()
+        {
+            return 0;
+        }
+
         private int verificarIdPedidosCompra()
         {
             int id = 0;
@@ -490,16 +473,81 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return id;
         }
 
-        private string numeroPedido()
+        private int verificarIdContasPagar()
+        {
+            int id = 0;
+
+            //Pega o ultimo ID resgitrado na tabela log
+            string query = ("SELECT idContasPagar FROM ContasPagar WHERE idContasPagar=(SELECT MAX(idContasPagar) FROM ContasPagar)");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                id = int.Parse(datareader[0].ToString());
+            }
+
+            banco.desconectar();
+
+            return id;
+        }
+
+        private string numeroNotaPedidosCompra()
         {
             string codigoProduto;
             int numeroNota = 0;
 
-            numeroNota = int.Parse(textBoxNumeroNota.Text);
+            if (textBoxNumeroNota.Text == string.Empty)
+            {
+                numeroNota = int.Parse(textBoxNumeroNota.Text);
 
-            codigoProduto = (verificarIdPedidosCompra() + numeroNota).ToString();
+                codigoProduto = (verificarIdContasPagar() + numeroNota).ToString();
+            }
+            else
+            {
+                codigoProduto = textBoxNumeroNota.Text;
+            }
 
             return codigoProduto;
+        }
+
+        private string numeroNotaContas(int parcela)
+        {
+            string codigoProduto;
+            int numeroNota = 0;
+
+            if(textBoxNumeroNota.Text == string.Empty)
+            {
+                numeroNota = int.Parse(textBoxNumeroNota.Text);
+
+                codigoProduto = (verificarIdContasPagar() + numeroNota).ToString() + " - " + parcela;
+            }
+            else
+            {
+                codigoProduto = textBoxNumeroNota.Text + " - " + parcela;
+            }
+
+            return codigoProduto;
+        }
+
+        private string gerarTituloConta()
+        {
+            string descricao = string.Empty;
+
+            descricao = "Entrada de mercadoria nº " + verificarIdPedidosCompra();
+
+            return descricao;
+        }
+
+        private string gerarDescricaoConta(int parcela)
+        {
+            string descricao = string.Empty;
+
+            descricao = "Entrada nº " + verificarIdPedidosCompra() + " - Parc:" + parcela;
+
+            return descricao;
         }
 
         private int calcularAteracaoEstoque(int quantidade)
@@ -528,6 +576,49 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return novaQuatidade;
         }
 
+        private void queryInsertPedidosCompra()
+        {
+            try
+            {
+                string query = ("INSERT INTO PedidosCompra (vendedor, numeroNota, situacao, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@vendedor, @numeroNota, @situacao, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
+                SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                exeQuery.Parameters.AddWithValue("@vendedor", textBoxVendedor.Text);
+                exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaPedidosCompra());
+                exeQuery.Parameters.AddWithValue("@situacao", "ABERTO");
+                exeQuery.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcela.Text));
+                exeQuery.Parameters.AddWithValue("@valorTotalEntrada", calcularTotalEntrada(3, 0));
+                exeQuery.Parameters.AddWithValue("@dataEntrada", dateTimeDataEntrada.Value);
+                exeQuery.Parameters.AddWithValue("@aplicacaoProdutos", comboBoxAplicacaoProdutos.Text);
+                exeQuery.Parameters.AddWithValue("@observacao", textBoxObservacao.Text);
+                exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
+                exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
+                exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
+                exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+                banco.conectar();
+                exeQuery.ExecuteNonQuery();
+                banco.desconectar();
+
+                queryInsertItensPedido();
+                queryInsertEstoque();
+                queryInsertContasPagar();
+
+                MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query PedidosCompra " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void queryUpdatePedidosCompra()
+        {
+
+        }
+
         private void queryInsertItensPedido()
         {
             try
@@ -540,10 +631,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     exeQuery.Parameters.Clear();
                     exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
                     exeQuery.Parameters.AddWithValue("@dataPedido", dateTimeDataEntrada.Value);
-                    exeQuery.Parameters.AddWithValue("@quantidadePedido", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].ToString()));
-                    exeQuery.Parameters.AddWithValue("@valorUnitario", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[4].ToString()));
-                    exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[5].ToString()));
-                    exeQuery.Parameters.AddWithValue("@idProdutoFK", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[0].ToString()));
+                    exeQuery.Parameters.AddWithValue("@quantidadePedido", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].Value.ToString()));
+                    exeQuery.Parameters.AddWithValue("@valorUnitario", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[4].Value.ToString()));
+                    exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[5].Value.ToString()));
+                    exeQuery.Parameters.AddWithValue("@idProdutoFK", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[0].Value.ToString()));
                     exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
                     exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
 
@@ -572,12 +663,12 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     sqlCommand.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
                     sqlCommand.Parameters.AddWithValue("@tipoMovimento", "ENTRADA");
                     sqlCommand.Parameters.AddWithValue("@dataMovimento", DateTime.Now);
-                    sqlCommand.Parameters.AddWithValue("@descricao", "Entrada via cadastro de produtos");
-                    sqlCommand.Parameters.AddWithValue("@entrada", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].ToString()));
+                    sqlCommand.Parameters.AddWithValue("@descricao", gerarTituloConta());
+                    sqlCommand.Parameters.AddWithValue("@entrada", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].Value.ToString()));
                     sqlCommand.Parameters.AddWithValue("@saida", 0);
-                    sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].ToString())));
-                    sqlCommand.Parameters.AddWithValue("@valorUnitario", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[4].ToString()));
-                    sqlCommand.Parameters.AddWithValue("@idProdutoFK", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[0].ToString()));
+                    sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].Value.ToString())));
+                    sqlCommand.Parameters.AddWithValue("@valorUnitario", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[4].Value.ToString()));
+                    sqlCommand.Parameters.AddWithValue("@idProdutoFK", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[0].Value.ToString()));
                     sqlCommand.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
 
                     banco.conectar();
@@ -594,39 +685,54 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             
         }
 
-        private void queryInsertPedidosCompra()
+        private void queryInsertContasPagar()
         {
-            string query = ("INSERT INTO PedidosCompra (numeroPedido, numeroNota, situacao, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@numeroPedido, @numeroNota, @situacao, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
+            int quantidadeParcela = 0;
+            decimal valorTotalEntrada = 0, valorParcela = 0;
+            //
+            quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
+            //
+            string subTotal_Label = labelValueTotalEntrada.Text;
+            string[] subTotal_Value = subTotal_Label.Split(' ');
+            //
+            valorTotalEntrada = decimal.Parse(subTotal_Value[1]);
+            //
+            valorParcela = valorTotalEntrada / quantidadeParcela;
+
+            DateTime dataVencimento = DateTime.Now;
+
+            string query = ("INSERT INTO ContasPagar (numeroNota, tituloDespesa, situacao, descricao, dataEmissao, dataVencimento, valorTotal, valorPago, idPedidosCompraFK, idFornecedorFK, idFuncionarioFK, idCategoriaFK, idCentroCustosFK, idFormaPagamentoFK, idContaBancariaFK, idLog, createdAt) VALUES (@numeroNota, @tituloDespesa, @situacao, @descricao, @dataEmissao, @dataVencimento, @valorTotal, @valorPago, @idPedidosCompraFK, @idFornecedorFK, @idFuncionarioFK, @idCategoriaFK, @idCentroCustosFK, @idFormaPagamentoFK, @idContaBancariaFK, @idLog, @createdAt)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-            exeQuery.Parameters.AddWithValue("@numeroPedido", numeroPedido());
-            exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
-            exeQuery.Parameters.AddWithValue("@situacao", "ABERTO");
-            exeQuery.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcela.Text));
-            exeQuery.Parameters.AddWithValue("@valorTotalEntrada", calcularTotalEntrada(3, 0));
-            exeQuery.Parameters.AddWithValue("@dataEntrada", dateTimeDataEntrada.Value);
-            exeQuery.Parameters.AddWithValue("@aplicacaoProdutos", comboBoxAplicacaoProdutos.Text);
-            exeQuery.Parameters.AddWithValue("@observacao", textBoxObservacao.Text);
-            exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
-            exeQuery.Parameters.AddWithValue("@idFuncionarioFK", consultarIdVendedor(textBoxVendedor.Text));
-            exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
-            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+            for (int i = 0; i < quantidadeParcela; i++)
+            {
+                int parcela = i + 1;
 
-            banco.conectar();
-            exeQuery.ExecuteNonQuery();
-            banco.desconectar();
+                dataVencimento = dataVencimento.AddMonths(+1);
 
-            queryInsertItensPedido();
-            queryInsertEstoque();
+                exeQuery.Parameters.Clear();
+                exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaContas(parcela));
+                exeQuery.Parameters.AddWithValue("@tituloDespesa", gerarTituloConta());
+                exeQuery.Parameters.AddWithValue("@situacao", "ABERTO");
+                exeQuery.Parameters.AddWithValue("@descricao", gerarDescricaoConta(parcela));
+                exeQuery.Parameters.AddWithValue("@dataEmissao", dateTimeDataEntrada.Value);
+                exeQuery.Parameters.AddWithValue("@dataVencimento", dataVencimento);
+                exeQuery.Parameters.AddWithValue("@valorTotal", calcularTotalEntrada(3, 0));
+                exeQuery.Parameters.AddWithValue("@valorPago", calcularTotalPago());
+                exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
+                exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
+                exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
+                exeQuery.Parameters.AddWithValue("@idCategoriaFK", 0);
+                exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
+                exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", listaItem[i].verificarIdFormaPagamento());
+                exeQuery.Parameters.AddWithValue("@idContaBancariaFK", 1);
+                exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
 
-            MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        }
-
-        private void queryUpdatePedidosCompra()
-        {
-
+                banco.conectar();
+                exeQuery.ExecuteNonQuery();
+                banco.desconectar();
+            }
         }
 
         private bool VerificarCampos()
@@ -634,13 +740,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             bool liberado = false;
 
             if(textBoxFornecedor.Text != string.Empty
-                && textBoxVendedor.Text != string.Empty
                 && textBoxNumeroNota.Text != string.Empty
                 && dataGridViewContentProdutos.Rows.Count != 0
                 && textBoxQuantidadeParcela.Text != string.Empty
                 && comboBoxAplicacaoProdutos.Text != string.Empty
-                && textBoxCentroCustos.Text != string.Empty
-                && textBoxObservacao.Text != string.Empty
                )
             {
                 liberado = true;
@@ -730,76 +833,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 pesquisaAutoCompleteFornecedor();
 
                 textBoxFornecedor.Focus();
-            }
-        }
-
-        private void textBoxVendedor_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                //Pega o ultimo ID resgitrado na tabela log
-                string VendedorSELECT = ("SELECT codigoFuncionario, usuario FROM Funcionario WHERE codigoFuncionario = @codigo");
-                SqlCommand exeVerificacao = new SqlCommand(VendedorSELECT, banco.connection);
-
-                string Vendedor = textBoxVendedor.Text;
-
-                if (Vendedor.Contains("-"))
-                {
-                    banco.conectar();
-
-                    string[] result = Vendedor.Split('-');
-
-                    exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    if (datareader.Read())
-                    {
-                        labelStatusVendedor.Text = datareader[0].ToString() + " - " + datareader[1].ToString();
-                        labelStatusVendedor.ForeColor = Color.Green;
-
-                        textBoxNumeroNota.Focus();
-                    }
-                    else
-                    {
-                        labelStatusVendedor.Text = "Fornecedor não encontrada...";
-                        labelStatusVendedor.ForeColor = Color.Red;
-                    }
-
-                    banco.desconectar();
-                }
-                else
-                {
-                    labelStatusVendedor.Text = "Fornecedor não encontrada...";
-                    labelStatusVendedor.ForeColor = Color.Red;
-                }
-
-            }
-
-        }
-
-        private void linkLabelLimparVendedor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            textBoxVendedor.Clear();
-            labelStatusVendedor.Text = "NENHUM";
-            labelStatusVendedor.ForeColor = Color.Black;
-
-            textBoxVendedor.Focus();
-        }
-
-        private void linkLabelCadastrarVendedor_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ViewForms.requestViewForm(false, true);
-
-            Configuracoes.Funcionarios.FormFuncionarios window = new Configuracoes.Funcionarios.FormFuncionarios();
-            window.ShowDialog();
-            window.Dispose();
-
-            if (ViewForms._responseViewForm() == true)
-            {
-                pesquisaAutoCompleteVendedor();
-
-                textBoxVendedor.Focus();
             }
         }
 
@@ -962,7 +995,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 if(valorParcela > 0)
                 {
-                    Parcelas.UserControl_itemParcela[] listaItem = new Parcelas.UserControl_itemParcela[quantidadeParcela];
+                    //Parcelas.UserControl_itemParcela[] listaItem = new Parcelas.UserControl_itemParcela[quantidadeParcela];
 
                     flowLayoutPanel_ItemParcela.Controls.Clear();
 
@@ -976,10 +1009,9 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                         listaItem[i].NumeroParcela = contagem;
                         listaItem[i].DataVencimento = dataVencimento;
                         listaItem[i].ValorParcela = valorParcela;
-                        listaItem[i].FormaPagamento = "";
-                        listaItem[i].Situacao = "ABERTO";
 
                         flowLayoutPanel_ItemParcela.Controls.Add(listaItem[i]);
+
                     }
                 }
                 else
@@ -1069,11 +1101,20 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if(VerificarCampos() == true)
+            if (VerificarCampos() == true)
             {
                 queryInsertPedidosCompra();
+
+                limparValores();
+
+                this.Close();
+            }
+            else
+            {
+
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Campos vazio " + "\n" + "\n" + "Verifique se todos os campos obrigatorios foram preenchidos e tente novamente!", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
-
     }
 }

@@ -171,6 +171,7 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleCustos.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.White;
             buttonControleContas.BackColor = Color.FromArgb(210, 210, 210);
+
         }
 
         private void buttonControleCustos_Click(object sender, EventArgs e)
@@ -181,6 +182,8 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleContas.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.White;
             buttonControleCustos.BackColor = Color.FromArgb(210, 210, 210);
+
+            openChildForm(new Outros.CentroCustos.FormCentroCustos());
         }
 
         private void buttonFormaPagamento_Click(object sender, EventArgs e)

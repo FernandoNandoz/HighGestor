@@ -97,6 +97,11 @@ namespace High_Gestor.Forms.Compras
 
         #endregion
 
+        private void desenharSituacao()
+        {
+            
+        }
+
 
         private void FormCompras_Load(object sender, EventArgs e)
         {
@@ -137,5 +142,6 @@ namespace High_Gestor.Forms.Compras
         {
 
         }
+
     }
 }
