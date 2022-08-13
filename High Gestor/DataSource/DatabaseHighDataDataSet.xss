@@ -18,7 +18,7 @@
     <Shape ID="DesignTable:Pagamentos" ZOrder="4" X="6780" Y="70" Height="305" Width="216" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:PedidosCompra" ZOrder="3" X="7353" Y="70" Height="305" Width="236" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
     <Shape ID="DesignTable:ContasPagar" ZOrder="2" X="7659" Y="70" Height="305" Width="217" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:ItensPedido" ZOrder="1" X="7946" Y="70" Height="267" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
+    <Shape ID="DesignTable:ItensPedido" ZOrder="1" X="7946" Y="70" Height="305" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

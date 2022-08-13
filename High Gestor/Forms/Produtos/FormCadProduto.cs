@@ -268,7 +268,6 @@ namespace High_Gestor.Forms.Produtos
                 && textBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
-                && textBoxEstoqueAtual.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
                 && textBoxPrecoVenda.Text != string.Empty
@@ -287,7 +286,6 @@ namespace High_Gestor.Forms.Produtos
                 && textBoxFornecedor.Text != string.Empty
                 && comboBoxCategoria.Text != string.Empty
                 && textBoxEstoqueMinimo.Text != string.Empty
-                && textBoxEstoqueAtual.Text != string.Empty
                 && textBoxValorCusto.Text != string.Empty
                 && textBoxMargemLucro.Text != string.Empty
                 && textBoxPrecoVenda.Text != string.Empty
@@ -333,6 +331,17 @@ namespace High_Gestor.Forms.Produtos
 
         private void insertQueryProduto()
         {
+            int estoqueAtual = 0;
+
+            if(textBoxEstoqueAtual.Text != string.Empty)
+            {
+                estoqueAtual = int.Parse(textBoxEstoqueAtual.Text);
+            }
+            else
+            {
+                estoqueAtual = 0;
+            }
+
             try
             {
                 string produtos = ("INSERT INTO Produtos (idLog, idFornecedorFK, idCategoriaFK, status, codigoProduto, nomeProduto, tipoUnitario, marca, estoqueMinimo, estoqueAtual, dataValidade, valorCusto, margemLucro, valorVenda, createdAt) VALUES (@idLog, @idFornecedorFK, @idCategoriaFK, @status, @codigoProduto, @nomeProduto, @tipoUnitario, @marca, @estoqueMinimo, @estoqueAtual, @dataValidade, @valorCusto, @margemLucro, @valorVenda, @createdAt)");
@@ -347,7 +356,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
                 sqlCommand.Parameters.AddWithValue("@marca", textBoxMarca.Text);
                 sqlCommand.Parameters.AddWithValue("@estoqueMinimo", int.Parse(textBoxEstoqueMinimo.Text));
-                sqlCommand.Parameters.AddWithValue("@estoqueAtual", int.Parse(textBoxEstoqueAtual.Text));
+                sqlCommand.Parameters.AddWithValue("@estoqueAtual", estoqueAtual);
                 if(maskedValidade.Text == "  /  /")
                 {
                     sqlCommand.Parameters.AddWithValue("@dataValidade", DBNull.Value);
@@ -365,7 +374,10 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.ExecuteNonQuery();
                 banco.desconectar();
 
-                insertQueryEstoque();
+                if(estoqueAtual > 0)
+                {
+                    insertQueryEstoque();
+                }
 
                 MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

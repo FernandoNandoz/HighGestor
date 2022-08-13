@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace High_Gestor.Forms.Compras
 {
-    public partial class FormAcaoCompras : Form
+    public partial class FormAlterarSituacao : Form
     {
-        public FormAcaoCompras()
+        public FormAlterarSituacao()
         {
             InitializeComponent();
         }

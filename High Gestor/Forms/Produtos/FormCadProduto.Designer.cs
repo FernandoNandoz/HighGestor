@@ -86,9 +86,9 @@
             label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label12.Location = new System.Drawing.Point(43, 63);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(44, 16);
+            label12.Size = new System.Drawing.Size(52, 16);
             label12.TabIndex = 128;
-            label12.Text = "Status";
+            label12.Text = "Status *";
             // 
             // label11
             // 
@@ -96,9 +96,9 @@
             label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.Location = new System.Drawing.Point(449, 449);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(130, 16);
+            label11.Size = new System.Drawing.Size(141, 16);
             label11.TabIndex = 120;
-            label11.Text = "Preço de venda - R$";
+            label11.Text = "Preço de venda - R$  *";
             // 
             // label10
             // 
@@ -106,9 +106,9 @@
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label10.Location = new System.Drawing.Point(264, 449);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(130, 16);
+            label10.Size = new System.Drawing.Size(141, 16);
             label10.TabIndex = 119;
-            label10.Text = "Margem de lucro - %";
+            label10.Text = "Margem de lucro - %  *";
             // 
             // label9
             // 
@@ -116,9 +116,9 @@
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.Location = new System.Drawing.Point(43, 449);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(120, 16);
+            label9.Size = new System.Drawing.Size(131, 16);
             label9.TabIndex = 118;
-            label9.Text = "Valor de custo - R$";
+            label9.Text = "Valor de custo - R$  *";
             // 
             // label8
             // 
@@ -146,9 +146,9 @@
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label6.Location = new System.Drawing.Point(43, 373);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(103, 16);
+            label6.Size = new System.Drawing.Size(111, 16);
             label6.TabIndex = 115;
-            label6.Text = "Estoque minimo";
+            label6.Text = "Estoque minimo *";
             // 
             // label5
             // 
@@ -156,9 +156,9 @@
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label5.Location = new System.Drawing.Point(359, 283);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(134, 16);
+            label5.Size = new System.Drawing.Size(142, 16);
             label5.TabIndex = 114;
-            label5.Text = "Categoria do produto";
+            label5.Text = "Categoria do produto *";
             // 
             // label4
             // 
@@ -166,9 +166,9 @@
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.Location = new System.Drawing.Point(43, 197);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(92, 16);
+            label4.Size = new System.Drawing.Size(97, 16);
             label4.TabIndex = 113;
-            label4.Text = "Fornecedor:   |";
+            label4.Text = "Fornecedor: *  |";
             // 
             // label3
             // 
@@ -176,9 +176,9 @@
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.Location = new System.Drawing.Point(561, 132);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(84, 16);
+            label3.Size = new System.Drawing.Size(92, 16);
             label3.TabIndex = 112;
-            label3.Text = "Tipo Unitário";
+            label3.Text = "Tipo Unitário *";
             // 
             // label2
             // 
@@ -186,9 +186,9 @@
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label2.Location = new System.Drawing.Point(43, 130);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(112, 16);
+            label2.Size = new System.Drawing.Size(120, 16);
             label2.TabIndex = 111;
-            label2.Text = "Nome do produto";
+            label2.Text = "Nome do produto *";
             // 
             // label1
             // 
@@ -196,9 +196,9 @@
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.Location = new System.Drawing.Point(166, 64);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(120, 16);
+            label1.Size = new System.Drawing.Size(128, 16);
             label1.TabIndex = 110;
-            label1.Text = "Codigo do Produto";
+            label1.Text = "Codigo do Produto *";
             // 
             // label13
             // 
@@ -206,9 +206,9 @@
             label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label13.Location = new System.Drawing.Point(43, 283);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(60, 16);
+            label13.Size = new System.Drawing.Size(65, 16);
             label13.TabIndex = 130;
-            label13.Text = "Marca:   |";
+            label13.Text = "Marca: *  |";
             // 
             // comboBoxStatus
             // 
@@ -442,7 +442,7 @@
             // labelStatusTextFornecedor
             // 
             this.labelStatusTextFornecedor.AutoSize = true;
-            this.labelStatusTextFornecedor.Location = new System.Drawing.Point(137, 199);
+            this.labelStatusTextFornecedor.Location = new System.Drawing.Point(142, 199);
             this.labelStatusTextFornecedor.Name = "labelStatusTextFornecedor";
             this.labelStatusTextFornecedor.Size = new System.Drawing.Size(150, 13);
             this.labelStatusTextFornecedor.TabIndex = 132;
@@ -464,7 +464,7 @@
             // labelStatusMarca
             // 
             this.labelStatusMarca.AutoSize = true;
-            this.labelStatusMarca.Location = new System.Drawing.Point(105, 286);
+            this.labelStatusMarca.Location = new System.Drawing.Point(111, 286);
             this.labelStatusMarca.Name = "labelStatusMarca";
             this.labelStatusMarca.Size = new System.Drawing.Size(128, 13);
             this.labelStatusMarca.TabIndex = 134;

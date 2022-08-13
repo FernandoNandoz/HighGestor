@@ -220,7 +220,6 @@ namespace High_Gestor.Forms.Produtos
             dataGridViewContent.AutoGenerateColumns = false;
 
             dataGridViewContent.DataSource = produtos;
-
         }
 
         private void dataGridReset()

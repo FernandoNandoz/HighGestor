@@ -32,6 +32,11 @@ namespace High_Gestor.Forms.Produtos
         {
             InitializeComponent();
 
+            if (ViewForms._responseViewFormLink() == true)
+            {
+                FormBorderStyle = FormBorderStyle.FixedSingle;
+            }
+
             dataTableProdutos();
         }
 
@@ -110,34 +115,6 @@ namespace High_Gestor.Forms.Produtos
             banco.desconectar();
         }
 
-        private int consultarIdCategoria()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string categoriaSELECT = ("SELECT idCategoria FROM Categoria WHERE codigoCategoria = @codigo");
-            SqlCommand exeVerificacao = new SqlCommand(categoriaSELECT, banco.connection);
-
-            string Categoria = comboBoxCategoria.Text;
-
-            string[] result = Categoria.Split('-');
-
-            exeVerificacao.Parameters.AddWithValue("@codigo", result[0]);
-
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
         private void dataComboBoxFornecedor()
         {
             string Membros = ("SELECT * FROM Fornecedor ORDER BY nomeFantasia ASC");
@@ -155,34 +132,6 @@ namespace High_Gestor.Forms.Produtos
                 comboBoxFornecedor.Items.Add(datareader[2].ToString() + " - " + datareader[4].ToString());
             }
             banco.desconectar();
-        }
-
-        private int consultarIdFornecedor()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string fornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE codigoFornecedor = @codigo");
-            SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
-
-            string nomeFantasia = comboBoxFornecedor.Text;
-
-            string[] result = nomeFantasia.Split('-');
-
-            exeVerificacao.Parameters.AddWithValue("@codigo", result[0]);
-
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
         }
 
         private void verificarQuantidadeProdutos()
@@ -393,7 +342,7 @@ namespace High_Gestor.Forms.Produtos
         private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Query que deleta dados especificos atraves de parametros no banco de dados
-            if (dataGridViewContent.Rows.Count != 0)
+            if (dataGridViewContent.Rows.Count != 0 && e.ColumnIndex != 12)
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 

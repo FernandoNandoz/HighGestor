@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -103,17 +103,24 @@
     <Compile Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.Designer.cs">
       <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\ItensProduto\UserControl_ItemProduto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\ItensProduto\UserControl_ItemProduto.Designer.cs">
+      <DependentUpon>UserControl_ItemProduto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\EntradaMercadoria\Model\Calculos.cs" />
     <Compile Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.Designer.cs">
       <DependentUpon>UserControl_itemParcela.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Compras\FormAcaoCompras.cs">
+    <Compile Include="Forms\Compras\FormAlterarSituacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Compras\FormAcaoCompras.Designer.cs">
-      <DependentUpon>FormAcaoCompras.cs</DependentUpon>
+    <Compile Include="Forms\Compras\FormAlterarSituacao.Designer.cs">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\FormCompras.cs">
       <SubType>Form</SubType>
@@ -295,11 +302,14 @@
     <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\FormEntradaMercadoria.resx">
       <DependentUpon>FormEntradaMercadoria.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\ItensProduto\UserControl_ItemProduto.resx">
+      <DependentUpon>UserControl_ItemProduto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.resx">
       <DependentUpon>UserControl_itemParcela.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Compras\FormAcaoCompras.resx">
-      <DependentUpon>FormAcaoCompras.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Compras\FormAlterarSituacao.resx">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\FormCompras.resx">
       <DependentUpon>FormCompras.cs</DependentUpon>
@@ -390,6 +400,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\Produtos\FormReportProdutos.resx">
       <DependentUpon>FormReportProdutos.cs</DependentUpon>
@@ -420,10 +431,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\amarelo.png" />
+    <None Include="Resources\vermelho.png" />
+    <None Include="Resources\verde.png" />
+    <None Include="Resources\cinza.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

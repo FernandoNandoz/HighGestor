@@ -226,7 +226,7 @@ namespace High_Gestor.Forms.Produtos
             while (datareader.Read())
             {
                 dataGridViewContent.Rows.Add(datareader[0],
-                                             datareader[1],
+                                             datareader.GetDateTime(1),
                                              datareader.GetInt32(2).ToString("N"),
                                              datareader.GetInt32(3).ToString("N"),
                                              datareader[4],

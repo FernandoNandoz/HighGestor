@@ -1,6 +1,6 @@
 ﻿namespace High_Gestor.Forms.Compras
 {
-    partial class FormAcaoCompras
+    partial class FormAlterarSituacao
     {
         /// <summary>
         /// Required designer variable.
@@ -30,17 +30,18 @@
         {
             this.SuspendLayout();
             // 
-            // FormAcaoCompras
+            // FormAlterarSituacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(797, 439);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormAcaoCompras";
+            this.Name = "FormAlterarSituacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAcaoCompras";
+            this.Text = "Alterar Situacao";
             this.ResumeLayout(false);
 
         }

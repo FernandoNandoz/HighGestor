@@ -75,7 +75,7 @@
             // textBoxObservacao
             // 
             this.textBoxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxObservacao.Location = new System.Drawing.Point(566, 5);
+            this.textBoxObservacao.Location = new System.Drawing.Point(566, 6);
             this.textBoxObservacao.Name = "textBoxObservacao";
             this.textBoxObservacao.Size = new System.Drawing.Size(313, 23);
             this.textBoxObservacao.TabIndex = 9;
@@ -84,6 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.textBoxObservacao);
             this.Controls.Add(this.comboBoxFormaPagamento);
             this.Controls.Add(this.textBoxValor);
@@ -99,10 +100,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBoxValor;
-        private System.Windows.Forms.DateTimePicker dateTimeVencimento;
-        private System.Windows.Forms.Label labelNumero;
         public System.Windows.Forms.ComboBox comboBoxFormaPagamento;
-        private System.Windows.Forms.TextBox textBoxObservacao;
+        public System.Windows.Forms.TextBox textBoxValor;
+        public System.Windows.Forms.DateTimePicker dateTimeVencimento;
+        public System.Windows.Forms.TextBox textBoxObservacao;
+        public System.Windows.Forms.Label labelNumero;
     }
 }

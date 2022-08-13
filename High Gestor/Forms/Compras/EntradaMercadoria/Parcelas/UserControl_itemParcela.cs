@@ -18,16 +18,25 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         public UserControl_itemParcela()
         {
             InitializeComponent();
+
         }
 
         #region Header
 
+        private bool _editarParcelas = false;
         private int _numeroParcela;
         private DateTime _dataVencimento;
         private decimal _valorParcela;
-        private string _formaPagamento;
-        private string _ContaBancaria;
+        private int _formaPagamento;
+        private string _observacao;
 
+
+        [Category("Custom Props")]
+        public bool EditarParcelas
+        {
+            get { return _editarParcelas; }
+            set { _editarParcelas = value; }
+        }
 
         [Category("Custom Props")]
         public int NumeroParcela
@@ -51,16 +60,17 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         }
 
         [Category("Custom Props")]
-        public string FormaPagamento
+        public int FormaPagamento
         {
             get { return _formaPagamento; }
-            set { _formaPagamento = value; comboBoxFormaPagamento.Text = value; }
+            set { _formaPagamento = value; }
         }
 
         [Category("Custom Props")]
-        public string ContaBancaria
+        public string Observacao
         {
-            get { return _ContaBancaria = comboBoxFormaPagamento.Text; }
+            get { return _observacao; }
+            set { _observacao = value; textBoxObservacao.Text = value; }
         }
 
         #endregion
@@ -81,6 +91,28 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
                 comboBoxFormaPagamento.Items.Add(datareader[3].ToString());
             }
             banco.desconectar();
+        }
+
+        public string EditarDataComboBoxFormaPagamento(int ID)
+        {
+            string result = string.Empty;
+
+            string Membros = ("SELECT * FROM FormaPagamento WHERE idFormaPagamento = @ID");
+            SqlCommand exeVerificacao = new SqlCommand(Membros, banco.connection);
+
+            exeVerificacao.Parameters.AddWithValue("@ID", ID);
+
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                result = datareader[3].ToString();
+            }
+            banco.desconectar();
+
+            return result;
         }
 
         public int verificarIdFormaPagamento()
@@ -111,7 +143,12 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         {
             dataComboBoxFormaPagamento();
 
-            comboBoxFormaPagamento.SelectedIndex = 0;
+            comboBoxFormaPagamento.Text = EditarDataComboBoxFormaPagamento(FormaPagamento);
+
+            if (EditarParcelas == false)
+            {
+                comboBoxFormaPagamento.SelectedIndex = 0;
+            }
         }
     }
 }
