@@ -30,6 +30,8 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         #endregion
 
+        string adicionados = string.Empty, removidos = string.Empty, alterados = string.Empty;
+
         Banco banco = new Banco();
 
         int indexItemProduto = 0;
@@ -59,7 +61,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 carregarDadosPedidosCompra();
                 carregarItensPedido();
-                carregarParcelas();
                 pesquisarNomeFornecedor();
                 pesquisarNomeCusto();
                 textBoxNumeroNota.Focus();
@@ -109,6 +110,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             ItensPedidoAlterado.Columns.Add("Quantidade", typeof(int));
             ItensPedidoAlterado.Columns.Add("ValorCusto", typeof(decimal));
             ItensPedidoAlterado.Columns.Add("ValorVenda", typeof(decimal));
+            ItensPedidoAlterado.Columns.Add("status", typeof(string));
 
 
             //DataTable - ItensAdicionados
@@ -121,7 +123,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             ItensAdicionados.Columns.Add("status", typeof(string));
 
             //DataTable - ItensRemovidos
+            ItensRemovidos.Columns.Add("StatusItem", typeof(string));
+            ItensRemovidos.Columns.Add("EditarProduto", typeof(bool));
             ItensRemovidos.Columns.Add("IdProduto", typeof(int));
+            ItensRemovidos.Columns.Add("NumeroItem", typeof(int));
             ItensRemovidos.Columns.Add("NomeProduto", typeof(string));
             ItensRemovidos.Columns.Add("Codigo", typeof(string));
             ItensRemovidos.Columns.Add("Quantidade", typeof(int));
@@ -522,8 +527,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 indexItemProduto += 1;
 
-                flowLayoutPanel_ItemParcela.Controls.Clear();
-
                 ItensProduto[indexItemProduto] = new ItensProduto.UserControl_ItemProduto(this);
                 ItensProduto[indexItemProduto].EditarProduto = false;
                 ItensProduto[indexItemProduto].NumeroItem = indexItemProduto;
@@ -533,8 +536,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             else
             {
                 indexItemProduto += 1;
-
-                flowLayoutPanel_ItemParcela.Controls.Clear();
 
                 ItensProduto[indexItemProduto] = new ItensProduto.UserControl_ItemProduto(this);
                 ItensProduto[indexItemProduto].EditarProduto = false;
@@ -564,12 +565,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     TotalItensLancados += ItensProduto[i].Quantidade;
                     TotalEntrada += ItensProduto[i].ValorTotal;
                 }
-
-                labelValueTotalProdutos.Text = TotalItensLancados.ToString();
-                labelValueTotalItensLancados.Text = indexItemProduto.ToString();
-                labelValueTotalEntrada.Text = TotalEntrada.ToString("C2");
-
-                return TotalEntrada;
             }
             else
             {
@@ -578,18 +573,22 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     TotalItensLancados += ItensProduto[i].Quantidade;
                     TotalEntrada += ItensProduto[i].ValorTotal;
                 }
-
-                labelValueTotalProdutos.Text = TotalItensLancados.ToString();
-                labelValueTotalItensLancados.Text = indexItemProduto.ToString();
-                labelValueTotalEntrada.Text = TotalEntrada.ToString("C2");
-
-                return TotalEntrada;
             }
+
+
+            labelValueTotalProdutos.Text = TotalItensLancados.ToString();
+            labelValueTotalItensLancados.Text = indexItemProduto.ToString();
+            labelValueTotalEntrada.Text = TotalEntrada.ToString("C2");
+
+            return TotalEntrada;
         }
 
         private void carregarDadosPedidosCompra()
         {
-            string query = ("SELECT Fornecedor.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
+            int quantidadeParcela = 0;
+            string situacaoContas = string.Empty;
+
+            string query = ("SELECT Fornecedor.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao, PedidosCompra.situacaoContas FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -602,15 +601,26 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 textBoxFornecedor.Text = datareader.GetString(0);
                 textBoxVendedor.Text = datareader.GetString(1);
                 textBoxNumeroNota.Text = datareader.GetString(2);
-                //labelValueTotalEntrada.Text = datareader.GetDecimal(3).ToString("C2");
                 textBoxQuantidadeParcela.Text = datareader.GetInt32(4).ToString();
                 dateTimeDataEntrada.Value = datareader.GetDateTime(5);
                 comboBoxAplicacaoProdutos.Text = datareader.GetString(6);
                 textBoxCentroCustos.Text = datareader.GetString(7);
                 textBoxObservacao.Text = datareader.GetString(8);
+                //
+                quantidadeParcela = datareader.GetInt32(4);
+                situacaoContas = datareader.GetString(9);
             }
 
             banco.desconectar();
+
+            if(situacaoContas == "LANCADO")
+            {
+                carregarParcelasContas();
+            }
+            else if (situacaoContas == "NAO LANCADO")
+            {
+                carregarParcelasNota(quantidadeParcela);
+            }
         }
 
         private void carregarItensPedido()
@@ -623,57 +633,73 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
             SqlDataReader datareader = exeQuery.ExecuteReader();
 
-            ItensAdicionados.Rows.Clear();
-
-            while (datareader.Read())
-            {
-                ItensAdicionados.Rows.Add(
-                    datareader.GetInt32(0),
-                    datareader.GetString(1),
-                    datareader.GetString(2),
-                    datareader.GetInt32(3),
-                    datareader.GetDecimal(4),
-                    datareader.GetDecimal(5),
-                    "IN_DATABASE"
-                );
-            }
-            banco.desconectar();
-
             decimal TotalItensLancados = 0, TotalEntrada = 0;
 
             CalculandoEmMassa = true;
 
-            flowLayoutPanel_ItemParcela.Controls.Clear();
+            flowLayoutPanelContentProdutos.Controls.Clear();
 
-            for (int i = 0; i < ItensAdicionados.Rows.Count; i++)
+            while (datareader.Read())
             {
-                int contagem = i + 1;
+                indexItemProduto++;
 
-                ItensProduto[contagem] = new ItensProduto.UserControl_ItemProduto(this);
-                ItensProduto[contagem].EditarProduto = true;
-                ItensProduto[contagem].NumeroItem = contagem;
-                ItensProduto[contagem].NomeProduto = ItensAdicionados.Rows[i][1].ToString();
-                ItensProduto[contagem].Codigo = ItensAdicionados.Rows[i][2].ToString();
-                ItensProduto[contagem].Quantidade = int.Parse(ItensAdicionados.Rows[i][3].ToString());
-                ItensProduto[contagem].ValorCusto = decimal.Parse(ItensAdicionados.Rows[i][4].ToString());
-                ItensProduto[contagem].ValorTotal = decimal.Parse(ItensAdicionados.Rows[i][5].ToString());
+                ItensProduto[indexItemProduto] = new ItensProduto.UserControl_ItemProduto(this);
+                ItensProduto[indexItemProduto].StatusItem = "IN_DATABASE";
+                ItensProduto[indexItemProduto].EditarProduto = true;
+                ItensProduto[indexItemProduto].NumeroItem = indexItemProduto;
+                ItensProduto[indexItemProduto].IdProduto = datareader.GetInt32(0);
+                ItensProduto[indexItemProduto].NomeProduto = datareader.GetString(1);
+                ItensProduto[indexItemProduto].Codigo = datareader.GetString(2);
+                ItensProduto[indexItemProduto].Quantidade = datareader.GetInt32(3);
+                ItensProduto[indexItemProduto].ValorCusto = datareader.GetDecimal(4);
+                ItensProduto[indexItemProduto].ValorTotal = datareader.GetDecimal(5);
 
-                flowLayoutPanelContentProdutos.Controls.Add(ItensProduto[contagem]);
+                flowLayoutPanelContentProdutos.Controls.Add(ItensProduto[indexItemProduto]);
 
-                TotalItensLancados += ItensProduto[contagem].Quantidade;
-                TotalEntrada += ItensProduto[contagem].ValorTotal;
+                TotalItensLancados += ItensProduto[indexItemProduto].Quantidade;
+                TotalEntrada += ItensProduto[indexItemProduto].ValorTotal;
 
                 labelValueTotalProdutos.Text = TotalItensLancados.ToString();
-                labelValueTotalItensLancados.Text = contagem.ToString();
+                labelValueTotalItensLancados.Text = indexItemProduto.ToString();
                 labelValueTotalEntrada.Text = TotalEntrada.ToString("C2");
             }
 
-            CalculandoEmMassa = false;
+            banco.desconectar();
 
-            indexItemProduto += ItensAdicionados.Rows.Count;
+            CalculandoEmMassa = false;
         }
 
-        private void carregarParcelas()
+        private void carregarParcelasNota(int quantidadeParcela)
+        {
+            string query = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
+            banco.conectar();
+
+            SqlDataReader datareader = exeQuery.ExecuteReader();
+
+            flowLayoutPanel_ItemParcela.Controls.Clear();
+
+            for (int i = 0; i < quantidadeParcela; i++)
+            {
+                if (datareader.Read())
+                {
+                    listaItem[i] = new Parcelas.UserControl_itemParcela();
+                    listaItem[i].EditarParcelas = true;
+                    listaItem[i].NumeroParcela = int.Parse(datareader[0].ToString());
+                    listaItem[i].DataVencimento = datareader.GetDateTime(1);
+                    listaItem[i].ValorParcela = datareader.GetDecimal(2);
+                    listaItem[i].FormaPagamento = datareader.GetInt32(3);
+                    listaItem[i].Observacao = datareader.GetString(4);
+
+                    flowLayoutPanel_ItemParcela.Controls.Add(listaItem[i]);
+                }
+            }
+            banco.desconectar();
+        }
+
+        private void carregarParcelasContas()
         {
             int i = 0;
 
@@ -708,12 +734,14 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             try
             {
-                string query = ("INSERT INTO PedidosCompra (vendedor, numeroNota, situacao, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@vendedor, @numeroNota, @situacao, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
+                string query = ("INSERT INTO PedidosCompra (vendedor, numeroNota, situacao, situacaoContas, situacaoEstoque, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@vendedor, @numeroNota, @situacao, @situacaoContas, @situacaoEstoque, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                 exeQuery.Parameters.AddWithValue("@vendedor", textBoxVendedor.Text);
                 exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaPedidosCompra());
                 exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
+                exeQuery.Parameters.AddWithValue("@situacaoContas", "NAO LANCADO");
+                exeQuery.Parameters.AddWithValue("@situacaoEstoque", "NAO LANCADO");
                 exeQuery.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcela.Text));
                 exeQuery.Parameters.AddWithValue("@valorTotalEntrada", CalcularTotaisEntrada());
                 exeQuery.Parameters.AddWithValue("@dataEntrada", dateTimeDataEntrada.Value);
@@ -730,8 +758,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 banco.desconectar();
 
                 queryInsertItensPedido();
-                queryInsertEstoque();
-                queryInsertContasPagar();
+                queryInsertParcelasNota();
 
                 MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -773,46 +800,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
         }
 
-        private void queryInsertEstoque()
-        {
-            try
-            {
-                string produtos = ("INSERT INTO Estoque (idLog, numeroNota, tipoMovimento, dataMovimento, descricao, entrada, saida, saldoAtual, valorUnitario, idProdutoFK, idPedidosCompraFK) VALUES (@idLog, @numeroNota, @tipoMovimento, @dataMovimento, @descricao, @entrada, @saida, @saldoAtual, @valorUnitario, @idProdutoFK, @idPedidosCompraFK)");
-                SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
-
-                for (int i = 1; i < indexItemProduto; i++)
-                {
-                    sqlCommand.Parameters.Clear();
-                    sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-                    sqlCommand.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
-                    sqlCommand.Parameters.AddWithValue("@tipoMovimento", "ENTRADA");
-                    sqlCommand.Parameters.AddWithValue("@dataMovimento", DateTime.Now);
-                    sqlCommand.Parameters.AddWithValue("@descricao", gerarTituloConta());
-                    sqlCommand.Parameters.AddWithValue("@entrada", ItensProduto[i].Quantidade);
-                    sqlCommand.Parameters.AddWithValue("@saida", 0);
-                    sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(ItensProduto[i].Quantidade));
-                    sqlCommand.Parameters.AddWithValue("@valorUnitario", ItensProduto[i].ValorCusto);
-                    sqlCommand.Parameters.AddWithValue("@idProdutoFK", ItensProduto[i].IdProduto);
-                    sqlCommand.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
-
-                    banco.conectar();
-                    sqlCommand.ExecuteNonQuery();
-                    banco.desconectar();
-                }
-            }
-            catch (Exception erro)
-            {
-                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryEstoque " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void queryInsertContasPagar()
+        private void queryInsertParcelasNota()
         {
             try
             {
                 int quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
 
-                string query = ("INSERT INTO ContasPagar (numeroNota, tituloDespesa, situacao, descricao, dataEmissao, dataVencimento, valorTotal, valorPago, idPedidosCompraFK, idFornecedorFK, idFuncionarioFK, idCategoriaFK, idCentroCustosFK, idFormaPagamentoFK, idContaBancariaFK, idLog, createdAt) VALUES (@numeroNota, @tituloDespesa, @situacao, @descricao, @dataEmissao, @dataVencimento, @valorTotal, @valorPago, @idPedidosCompraFK, @idFornecedorFK, @idFuncionarioFK, @idCategoriaFK, @idCentroCustosFK, @idFormaPagamentoFK, @idContaBancariaFK, @idLog, @createdAt)");
+                string query = ("INSERT INTO ParcelasNota (numeroParcela, dataVencimento, valorTotal, observacao, idFormaPagamentoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@numeroParcela, @dataVencimento, @valorTotal, @observacao, @idFormaPagamentoFK, @idPedidosCompraFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                 for (int i = 0; i < quantidadeParcela; i++)
@@ -820,21 +814,12 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     int parcela = i + 1;
 
                     exeQuery.Parameters.Clear();
-                    exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaContas(parcela));
-                    exeQuery.Parameters.AddWithValue("@tituloDespesa", gerarTituloConta());
-                    exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
-                    exeQuery.Parameters.AddWithValue("@descricao", gerarDescricaoConta(parcela, listaItem[i].textBoxObservacao.Text));
-                    exeQuery.Parameters.AddWithValue("@dataEmissao", dateTimeDataEntrada.Value);
+                    exeQuery.Parameters.AddWithValue("@numeroParcela", parcela);
                     exeQuery.Parameters.AddWithValue("@dataVencimento", listaItem[i].dateTimeVencimento.Value);
                     exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(listaItem[i].textBoxValor.Text));
-                    exeQuery.Parameters.AddWithValue("@valorPago", calcularTotalPago());
-                    exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
-                    exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
-                    exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
-                    exeQuery.Parameters.AddWithValue("@idCategoriaFK", 0);
-                    exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
+                    exeQuery.Parameters.AddWithValue("@observacao", gerarDescricaoConta(parcela, listaItem[i].textBoxObservacao.Text));
                     exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", listaItem[i].verificarIdFormaPagamento());
-                    exeQuery.Parameters.AddWithValue("@idContaBancariaFK", 1);
+                    exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
                     exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
                     exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
 
@@ -845,7 +830,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
             catch (Exception erro)
             {
-                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryContasPagar " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryParcelasNota " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -859,7 +844,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 exeQuery.Parameters.AddWithValue("@vendedor", textBoxVendedor.Text);
                 exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaPedidosCompra());
                 exeQuery.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcela.Text));
-                //exeQuery.Parameters.AddWithValue("@valorTotalEntrada", calcularTotalEntrada(3, 0));
+                exeQuery.Parameters.AddWithValue("@valorTotalEntrada", CalcularTotaisEntrada());
                 exeQuery.Parameters.AddWithValue("@dataEntrada", dateTimeDataEntrada.Value);
                 exeQuery.Parameters.AddWithValue("@aplicacaoProdutos", comboBoxAplicacaoProdutos.Text);
                 exeQuery.Parameters.AddWithValue("@observacao", textBoxObservacao.Text);
@@ -874,9 +859,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 exeQuery.ExecuteNonQuery();
                 banco.desconectar();
 
-                //queryUpdateItensPedido();
-                //queryInsertEstoque();
-                //queryInsertContasPagar();
+                queryUpdateItensPedido();
 
                 MessageBox.Show("Cadastro atualizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -888,120 +871,84 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private bool verificarAlteracoesItensPedido()
         {
-            int quantidadeItemBanco = 0;
+            ItensPedidoAlterado.Rows.Clear();
 
-            #region Verificando quantidade de Itens
-
-            //Retorna a quatidade de Itens Armazenados
-            string queryCont = ("SELECT COUNT(*) FROM ItensPedido WHERE idPedidosCompraFK = @ID");
-            SqlCommand exeQueryCont = new SqlCommand(queryCont, banco.connection);
-
-            exeQueryCont.Parameters.AddWithValue("@ID", updateData._retornarID());
-
-            banco.conectar();
-
-            SqlDataReader datareaderCont = exeQueryCont.ExecuteReader();
-
-            if (datareaderCont.Read())
+            for (int i = 1; i <= indexItemProduto; i++)
             {
-                quantidadeItemBanco = datareaderCont.GetInt32(0);
-            }
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string query = ("SELECT ItensPedido.idProdutoFK, Produtos.nomeProduto, produtos.codigoProduto, ItensPedido.quantidadePedido, ItensPedido.valorUnitario, ItensPedido.valorTotal FROM ItensPedido INNER JOIN Produtos ON ItensPedido.idProdutoFK = Produtos.idProduto WHERE ItensPedido.idPedidosCompraFK = @ID AND ItensPedido.idProdutoFK = @idProdutoFK");
+                SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-            banco.desconectar();
+                exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQuery.Parameters.AddWithValue("@idProdutoFK", ItensProduto[i].IdProduto);
 
-            #endregion
+                banco.conectar();
 
-            //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT ItensPedido.idProdutoFK, Produtos.nomeProduto, produtos.codigoProduto, ItensPedido.quantidadePedido, ItensPedido.valorUnitario, ItensPedido.valorTotal FROM ItensPedido INNER JOIN Produtos ON ItensPedido.idProdutoFK = Produtos.idProduto WHERE ItensPedido.idPedidosCompraFK = @ID");
-            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+                SqlDataReader datareader = exeQuery.ExecuteReader();
 
-            exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
-
-            banco.conectar();
-
-            SqlDataReader datareader = exeQuery.ExecuteReader();
-
-            for (int i = 0; i < ItensAdicionados.Rows.Count; i++)
-            {
                 if (datareader.Read())
                 {
-                    if (ItensAdicionados.Rows[i][6].ToString() == "IN_DATABASE")
+                    if (ItensProduto[i].StatusItem == "IN_DATABASE")
                     {
-                        if (ItensAdicionados.Rows[i][0].ToString() == datareader[0].ToString() &&
-                            ItensAdicionados.Rows[i][1].ToString() != datareader[1].ToString() ||
-                            ItensAdicionados.Rows[i][2].ToString() != datareader[2].ToString() ||
-                            ItensAdicionados.Rows[i][3].ToString() != datareader[3].ToString() ||
-                            ItensAdicionados.Rows[i][4].ToString() != datareader[4].ToString() ||
-                            ItensAdicionados.Rows[i][5].ToString() != datareader[5].ToString()
+                        if (ItensProduto[i].NomeProduto != datareader.GetString(1) ||
+                            ItensProduto[i].Codigo != datareader.GetString(2) ||
+                            ItensProduto[i].Quantidade != datareader.GetInt32(3) ||
+                            ItensProduto[i].ValorCusto != datareader.GetDecimal(4) ||
+                            ItensProduto[i].ValorTotal != datareader.GetDecimal(5)
                             )
                         {
-                            MessageBox.Show("" + ItensAdicionados.Rows[i][0].ToString() + " | " + ItensAdicionados.Rows[i][1].ToString() + " | " + ItensAdicionados.Rows[i][2].ToString() + " | " + ItensAdicionados.Rows[i][3].ToString() + " | " + ItensAdicionados.Rows[i][4].ToString() + " | " + ItensAdicionados.Rows[i][5].ToString());
-                            MessageBox.Show("" + datareader[0].ToString() + " | " + datareader[1].ToString() + " | " + datareader[2].ToString() + " | " + datareader[3].ToString() + " | " + datareader[4].ToString() + " | " + datareader[5].ToString());
+                            //MessageBox.Show("IN DATA - " + ItensProduto[i].IdProduto + " | " + ItensProduto[i].NomeProduto + " | " + ItensProduto[i].Codigo + " | " + ItensProduto[i].Quantidade + " | " + ItensProduto[i].ValorCusto + " | " + ItensProduto[i].ValorTotal);
+                            //MessageBox.Show("IN DATA - " + datareader[0].ToString() + " | " + datareader[1].ToString() + " | " + datareader[2].ToString() + " | " + datareader[3].ToString() + " | " + datareader[4].ToString() + " | " + datareader[5].ToString());
 
-                            ItensPedidoAlterado.Rows.Add(ItensAdicionados.Rows[i][0].ToString(),
-                                ItensAdicionados.Rows[i][1].ToString(),
-                                ItensAdicionados.Rows[i][2].ToString(),
-                                ItensAdicionados.Rows[i][3].ToString(),
-                                ItensAdicionados.Rows[i][4].ToString(),
-                                ItensAdicionados.Rows[i][5].ToString()
+                            ItensPedidoAlterado.Rows.Add(ItensProduto[i].IdProduto,
+                                ItensProduto[i].NomeProduto,
+                                ItensProduto[i].Codigo,
+                                ItensProduto[i].Quantidade,
+                                ItensProduto[i].ValorCusto,
+                                ItensProduto[i].ValorTotal,
+                                ItensProduto[i].StatusItem
                             );
                         }
                     }
                 }
-            }
-
-            MessageBox.Show("" + ItensPedidoAlterado.Rows.Count);
-
-
-            banco.desconectar();
-
-
-            if (ItensPedidoAlterado.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private bool verificarItensPedidoAdicionados()
-        {
-            for (int i = 0; i < ItensAdicionados.Rows.Count; i++)
-            {
-                if (ItensAdicionados.Rows[i][6].ToString() == "NEW_UPDATE")
+                else if (ItensProduto[i].StatusItem == "NEW_ITEM")
                 {
-                    ItensPedidoAlterado.Rows.Add(ItensAdicionados.Rows[i][0].ToString(),
-                        ItensAdicionados.Rows[i][1].ToString(),
-                        ItensAdicionados.Rows[i][2].ToString(),
-                        ItensAdicionados.Rows[i][3].ToString(),
-                        ItensAdicionados.Rows[i][4].ToString(),
-                        ItensAdicionados.Rows[i][5].ToString()
+                    //MessageBox.Show("NEW ITEM - " + ItensProduto[i].IdProduto + " | " + ItensProduto[i].NomeProduto + " | " + ItensProduto[i].Codigo + " | " + ItensProduto[i].Quantidade + " | " + ItensProduto[i].ValorCusto + " | " + ItensProduto[i].ValorTotal);
+
+                    ItensPedidoAlterado.Rows.Add(ItensProduto[i].IdProduto,
+                        ItensProduto[i].NomeProduto,
+                        ItensProduto[i].Codigo,
+                        ItensProduto[i].Quantidade,
+                        ItensProduto[i].ValorCusto,
+                        ItensProduto[i].ValorTotal,
+                        ItensProduto[i].StatusItem
                     );
+                }
+
+                banco.desconectar();
+            };
+
+
+            for (int i = 1; i <= indexItemProduto; i++)
+            {
+                for (int x = 0; x < ItensRemovidos.Rows.Count; x++)
+                {
+                    if (ItensProduto[i].IdProduto == int.Parse(ItensRemovidos.Rows[x][2].ToString()))
+                    {
+                        ItensPedidoAlterado.Rows.Add(ItensProduto[i].IdProduto,
+                            ItensProduto[i].NomeProduto,
+                            ItensProduto[i].Codigo,
+                            ItensProduto[i].Quantidade,
+                            ItensProduto[i].ValorCusto,
+                            ItensProduto[i].ValorTotal,
+                            ItensProduto[i].StatusItem
+                        );
+
+                        ItensRemovidos.Rows.RemoveAt(x);
+                    }
                 }
             }
 
-            MessageBox.Show("" + ItensPedidoAlterado.Rows.Count);
-
-            if (ItensPedidoAlterado.Rows.Count > 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private bool verificarItensPedidoRemovidos()
-        {
-            for (int i = 0; i < ItensRemovidos.Rows.Count; i++)
-            {
-                MessageBox.Show("" + ItensRemovidos.Rows[i][0].ToString() + " | " + ItensRemovidos.Rows[i][1].ToString() + " | " + ItensRemovidos.Rows[i][2].ToString() + " | " + ItensRemovidos.Rows[i][3].ToString() + " | " + ItensRemovidos.Rows[i][4].ToString() + " | " + ItensRemovidos.Rows[i][5].ToString());
-            }
-
-            MessageBox.Show("" + ItensRemovidos.Rows.Count);
 
             if (ItensPedidoAlterado.Rows.Count > 0)
             {
@@ -1015,35 +962,144 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private void queryUpdateItensPedido()
         {
-            //try
-            //{
-            //    string query = ("UPDATE ItensPedido SET numeroNota = @numeroNota, dataPedido = @dataPedido, quantidadePedido = @quantidadePedido, valorUnitario = @valorUnitario, valorTotal = @valorTotal, idProdutoFK = @idProdutoFK, idPedidosCompraFK = @idPedidosCompraFK, idLog = @idLog, updatedAt = @updatedAt WHERE idPedidosCompraFK = @ID");
-            //    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+            verificarAlteracoesItensPedido();
 
-            //    for (int i = 0; i < dataGridViewContentProdutos.Rows.Count; i++)
-            //    {
-            //        exeQuery.Parameters.Clear();
-            //        exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
-            //        exeQuery.Parameters.AddWithValue("@dataPedido", dateTimeDataEntrada.Value);
-            //        exeQuery.Parameters.AddWithValue("@quantidadePedido", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[3].Value.ToString()));
-            //        exeQuery.Parameters.AddWithValue("@valorUnitario", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[4].Value.ToString()));
-            //        exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(dataGridViewContentProdutos.Rows[i].Cells[5].Value.ToString()));
-            //        exeQuery.Parameters.AddWithValue("@idProdutoFK", int.Parse(dataGridViewContentProdutos.Rows[i].Cells[0].Value.ToString()));
-            //        exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
-            //        exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-            //        exeQuery.Parameters.AddWithValue("@updatedAt", DateTime.Now);
-            //        exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
+            queryDeleteItem();
+            queryUpdateItem();
+            queryInsertItem();
+        }
 
+        private void queryDeleteItem()
+        {
+            for (int i = 0; i < ItensRemovidos.Rows.Count; i++)
+            {
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string queryConsulta = ("SELECT ItensPedido.idProdutoFK, Produtos.nomeProduto, produtos.codigoProduto, ItensPedido.quantidadePedido, ItensPedido.valorUnitario, ItensPedido.valorTotal FROM ItensPedido INNER JOIN Produtos ON ItensPedido.idProdutoFK = Produtos.idProduto WHERE ItensPedido.idPedidosCompraFK = @ID AND idProdutoFK = @idProdutoFK");
+                SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
 
-            //        banco.conectar();
-            //        exeQuery.ExecuteNonQuery();
-            //        banco.desconectar();
-            //    }
-            //}
-            //catch (Exception erro)
-            //{
-            //    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensPedido " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+                exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQueryConsulta.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensRemovidos.Rows[i][2].ToString()));
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                if (datareader.Read())
+                {
+                    try
+                    {
+                        string queryDeleteString = ("DELETE FROM ItensPedido WHERE idPedidosCompraFK = @ID AND idProdutoFK = @idProdutoFK");
+                        SqlCommand queryDelete = new SqlCommand(queryDeleteString, banco.connection);
+
+                        queryDelete.Parameters.Clear();
+                        queryDelete.Parameters.AddWithValue("@ID", updateData._retornarID());
+                        queryDelete.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensRemovidos.Rows[i][2].ToString()));
+
+                        datareader.Close();
+                        queryDelete.ExecuteNonQuery();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensPedido " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                banco.desconectar();
+            }
+        }
+
+        private void queryUpdateItem()
+        {
+            for (int i = 0; i < ItensPedidoAlterado.Rows.Count; i++)
+            {
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string queryConsulta = ("SELECT ItensPedido.idProdutoFK, Produtos.nomeProduto, produtos.codigoProduto, ItensPedido.quantidadePedido, ItensPedido.valorUnitario, ItensPedido.valorTotal FROM ItensPedido INNER JOIN Produtos ON ItensPedido.idProdutoFK = Produtos.idProduto WHERE ItensPedido.idPedidosCompraFK = @ID AND idProdutoFK = @idProdutoFK");
+                SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
+
+                exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQueryConsulta.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensPedidoAlterado.Rows[i][0].ToString()));
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                if (datareader.Read())
+                {
+                    try
+                    {
+                        string queryUpdate = ("UPDATE ItensPedido SET numeroNota = @numeroNota, dataPedido = @dataPedido, quantidadePedido = @quantidadePedido, valorUnitario = @valorUnitario, valorTotal = @valorTotal, idLog = @idLog, updatedAt = @updatedAt WHERE idPedidosCompraFK = @ID AND idProdutoFK = @idProdutoFK");
+                        SqlCommand exeQueryUpdate = new SqlCommand(queryUpdate, banco.connection);
+
+                        exeQueryUpdate.Parameters.Clear();
+                        exeQueryUpdate.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
+                        exeQueryUpdate.Parameters.AddWithValue("@dataPedido", dateTimeDataEntrada.Value);
+                        exeQueryUpdate.Parameters.AddWithValue("@quantidadePedido", int.Parse(ItensPedidoAlterado.Rows[i][3].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@valorUnitario", decimal.Parse(ItensPedidoAlterado.Rows[i][4].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@valorTotal", decimal.Parse(ItensPedidoAlterado.Rows[i][5].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                        exeQueryUpdate.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                        exeQueryUpdate.Parameters.AddWithValue("@ID", updateData._retornarID());
+                        exeQueryUpdate.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensPedidoAlterado.Rows[i][0].ToString()));
+
+                        datareader.Close();
+                        exeQueryUpdate.ExecuteNonQuery();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensPedido " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                banco.desconectar();
+            }
+        }
+
+        private void queryInsertItem()
+        {
+            for (int i = 0; i < ItensPedidoAlterado.Rows.Count; i++)
+            {
+                if (ItensPedidoAlterado.Rows[i][6].ToString() == "NEW_ITEM")
+                {
+                    //Retorna os dados da tabela Produtos para o DataGridView
+                    string queryConsulta = ("SELECT ItensPedido.idProdutoFK, Produtos.nomeProduto, produtos.codigoProduto, ItensPedido.quantidadePedido, ItensPedido.valorUnitario, ItensPedido.valorTotal FROM ItensPedido INNER JOIN Produtos ON ItensPedido.idProdutoFK = Produtos.idProduto WHERE ItensPedido.idPedidosCompraFK = @ID AND idProdutoFK = @idProdutoFK");
+                    SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
+
+                    exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                    exeQueryConsulta.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensPedidoAlterado.Rows[i][0].ToString()));
+
+                    banco.conectar();
+
+                    SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                    if (!datareader.Read())
+                    {
+                        try
+                        {
+                            string query = ("INSERT INTO ItensPedido (numeroNota, dataPedido, quantidadePedido, valorUnitario, valorTotal, idProdutoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@numeroNota, @dataPedido, @quantidadePedido, @valorUnitario, @valorTotal, @idProdutoFK, @idPedidosCompraFK, @idLog, @createdAt)");
+                            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                            exeQuery.Parameters.Clear();
+                            exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
+                            exeQuery.Parameters.AddWithValue("@dataPedido", dateTimeDataEntrada.Value);
+                            exeQuery.Parameters.AddWithValue("@quantidadePedido", int.Parse(ItensPedidoAlterado.Rows[i][3].ToString()));
+                            exeQuery.Parameters.AddWithValue("@valorUnitario", decimal.Parse(ItensPedidoAlterado.Rows[i][4].ToString()));
+                            exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(ItensPedidoAlterado.Rows[i][5].ToString()));
+                            exeQuery.Parameters.AddWithValue("@idProdutoFK", int.Parse(ItensPedidoAlterado.Rows[i][0].ToString()));
+                            exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", updateData._retornarID());
+                            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+                            datareader.Close();
+                            exeQuery.ExecuteNonQuery();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensPedido " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    banco.desconectar();
+                }   
+            }
         }
 
         private void FormEntradaMercadoria_Load(object sender, EventArgs e)
@@ -1240,6 +1296,18 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         public void removerItem(int value)
         {
+            ItensRemovidos.Rows.Add(
+                ItensProduto[value].StatusItem,
+                ItensProduto[value].EditarProduto,
+                ItensProduto[value].IdProduto,
+                ItensProduto[value].NumeroItem,
+                ItensProduto[value].NomeProduto,
+                ItensProduto[value].Codigo,
+                ItensProduto[value].Quantidade,
+                ItensProduto[value].ValorCusto,
+                ItensProduto[value].ValorTotal
+                );
+
             flowLayoutPanelContentProdutos.Controls.Remove(ItensProduto[value]);
 
             var lista = ItensProduto.ToList();
@@ -1251,7 +1319,23 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             indexItemProduto -= 1;     
 
             CalcularTotaisEntrada();
+
+            //Reordena a numeraçao do Itens
+            for (int i = 1; i <= indexItemProduto; i++)
+            {
+                ItensProduto[i].NumeroItem = i;
+            }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+
+            //MessageBox.Show("" + ItensRemovidos.Rows.Count);
+
+            //MessageBox.Show("" + ItensRemovidos.Rows[0][0].ToString() + " | " + ItensRemovidos.Rows[0][1].ToString() + " | " + ItensRemovidos.Rows[0][2].ToString() + " | " + ItensRemovidos.Rows[0][3].ToString() + " | " + ItensRemovidos.Rows[0][4].ToString() + " | " + ItensRemovidos.Rows[0][5].ToString() + " | " + ItensRemovidos.Rows[0][6].ToString() + " | " + ItensRemovidos.Rows[0][7].ToString() +" | " + ItensRemovidos.Rows[0][8].ToString());
+
+        }
     }
 }

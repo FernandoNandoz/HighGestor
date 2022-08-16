@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace High_Gestor.Forms.Compras.EntradaMercadoria.Model
 {
-    public class ProtudoItens : INotifyPropertyChanged
+    public class Calculos : INotifyPropertyChanged
     {
         static int TotalItensLancados = 0;
         static int TotalProdutos = 0;

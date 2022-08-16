@@ -60,7 +60,7 @@
             System.Windows.Forms.Label label28;
             System.Windows.Forms.Label label29;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntradaMercadoria));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelValueTotalEntrada = new System.Windows.Forms.Label();
             this.labelValueTotalItensLancados = new System.Windows.Forms.Label();
             this.labelValueTotalProdutos = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.comboBoxAplicacaoProdutos = new System.Windows.Forms.ComboBox();
             this.textBoxCentroCustos = new System.Windows.Forms.TextBox();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.linkLabelNovoItemProduto = new System.Windows.Forms.LinkLabel();
             this.linkLabelCadProduto = new System.Windows.Forms.LinkLabel();
@@ -656,6 +657,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(this.button1);
             this.panelContent.Controls.Add(this.label31);
             this.panelContent.Controls.Add(this.linkLabelNovoItemProduto);
             this.panelContent.Controls.Add(this.linkLabelCadProduto);
@@ -699,6 +701,16 @@
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1293, 1275);
             this.panelContent.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1008, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 270;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label31
             // 
@@ -869,9 +881,9 @@
             // 
             // dataGridViewImageColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
-            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            this.dataGridViewImageColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewImageColumn1.HeaderText = " Ação";
             this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
             this.dataGridViewImageColumn1.MinimumWidth = 6;
@@ -938,5 +950,6 @@
         public System.Windows.Forms.Label labelValueTotalProdutos;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContentProdutos;
         public System.Windows.Forms.TextBox textBoxQuantidadeParcela;
+        private System.Windows.Forms.Button button1;
     }
 }

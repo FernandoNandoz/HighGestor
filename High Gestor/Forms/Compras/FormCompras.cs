@@ -193,6 +193,82 @@ namespace High_Gestor.Forms.Compras
             }
         }
 
+        private void queryInsertEstoque()
+        {
+            //try
+            //{
+            //    string produtos = ("INSERT INTO Estoque (idLog, numeroNota, tipoMovimento, dataMovimento, descricao, entrada, saida, saldoAtual, valorUnitario, idProdutoFK, idPedidosCompraFK) VALUES (@idLog, @numeroNota, @tipoMovimento, @dataMovimento, @descricao, @entrada, @saida, @saldoAtual, @valorUnitario, @idProdutoFK, @idPedidosCompraFK)");
+            //    SqlCommand sqlCommand = new SqlCommand(produtos, banco.connection);
+
+            //    for (int i = 1; i < indexItemProduto; i++)
+            //    {
+            //        sqlCommand.Parameters.Clear();
+            //        sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            //        sqlCommand.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
+            //        sqlCommand.Parameters.AddWithValue("@tipoMovimento", "ENTRADA");
+            //        sqlCommand.Parameters.AddWithValue("@dataMovimento", DateTime.Now);
+            //        sqlCommand.Parameters.AddWithValue("@descricao", gerarTituloConta());
+            //        sqlCommand.Parameters.AddWithValue("@entrada", ItensProduto[i].Quantidade);
+            //        sqlCommand.Parameters.AddWithValue("@saida", 0);
+            //        sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(ItensProduto[i].Quantidade));
+            //        sqlCommand.Parameters.AddWithValue("@valorUnitario", ItensProduto[i].ValorCusto);
+            //        sqlCommand.Parameters.AddWithValue("@idProdutoFK", ItensProduto[i].IdProduto);
+            //        sqlCommand.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
+
+            //        banco.conectar();
+            //        sqlCommand.ExecuteNonQuery();
+            //        banco.desconectar();
+            //    }
+            //}
+            //catch (Exception erro)
+            //{
+            //    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryEstoque " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+        }
+
+        private void queryInsertContasPagar()
+        {
+            //try
+            //{
+            //    int quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
+
+            //    string query = ("INSERT INTO ContasPagar (numeroNota, tituloDespesa, situacao, descricao, dataEmissao, dataVencimento, valorTotal, valorPago, idPedidosCompraFK, idFornecedorFK, idFuncionarioFK, idCategoriaFK, idCentroCustosFK, idFormaPagamentoFK, idContaBancariaFK, idLog, createdAt) VALUES (@numeroNota, @tituloDespesa, @situacao, @descricao, @dataEmissao, @dataVencimento, @valorTotal, @valorPago, @idPedidosCompraFK, @idFornecedorFK, @idFuncionarioFK, @idCategoriaFK, @idCentroCustosFK, @idFormaPagamentoFK, @idContaBancariaFK, @idLog, @createdAt)");
+            //    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            //    for (int i = 0; i < quantidadeParcela; i++)
+            //    {
+            //        int parcela = i + 1;
+
+            //        exeQuery.Parameters.Clear();
+            //        exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaContas(parcela));
+            //        exeQuery.Parameters.AddWithValue("@tituloDespesa", gerarTituloConta());
+            //        exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
+            //        exeQuery.Parameters.AddWithValue("@descricao", gerarDescricaoConta(parcela, listaItem[i].textBoxObservacao.Text));
+            //        exeQuery.Parameters.AddWithValue("@dataEmissao", dateTimeDataEntrada.Value);
+            //        exeQuery.Parameters.AddWithValue("@dataVencimento", listaItem[i].dateTimeVencimento.Value);
+            //        exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(listaItem[i].textBoxValor.Text));
+            //        exeQuery.Parameters.AddWithValue("@valorPago", calcularTotalPago());
+            //        exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
+            //        exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
+            //        exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
+            //        exeQuery.Parameters.AddWithValue("@idCategoriaFK", 0);
+            //        exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
+            //        exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", listaItem[i].verificarIdFormaPagamento());
+            //        exeQuery.Parameters.AddWithValue("@idContaBancariaFK", 1);
+            //        exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            //        exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            //        banco.conectar();
+            //        exeQuery.ExecuteNonQuery();
+            //        banco.desconectar();
+            //    }
+            //}
+            //catch (Exception erro)
+            //{
+            //    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryContasPagar " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+        }
+
         private void FormCompras_Load(object sender, EventArgs e)
         {
             dataCompras();

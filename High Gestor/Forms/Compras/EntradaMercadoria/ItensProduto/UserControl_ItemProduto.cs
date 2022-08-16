@@ -49,6 +49,14 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
         private bool _editarProduto = false;
         private int _numeroItem;
         private int _idProduto = 0;
+        private string _statusItem = string.Empty;
+
+        [Category("Custom Props")]
+        public string StatusItem
+        {
+            get { return _statusItem; }
+            set { _statusItem = value; }
+        }
 
         [Category("Custom Props")]
         public bool EditarProduto
@@ -61,6 +69,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
         public int IdProduto
         {
             get { return _idProduto; }
+            set { _idProduto = value; }
         }
 
         [Category("Custom Props")]
@@ -207,9 +216,9 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
 
                 if (datareader.Read())
                 {
-                    ProtudoItens.receberValidacao(true);
+                    Model.ProtudoItens.receberValidacao(true);
                     //
-                    ProtudoItens.receberProdutoItem(
+                    Model.ProtudoItens.receberProdutoItem(
                         int.Parse(datareader[0].ToString()),
                         datareader.GetString(1),
                         datareader.GetString(2),
@@ -219,7 +228,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
                 }
                 else
                 {
-                    ProtudoItens.receberValidacao(false);
+                    Model.ProtudoItens.receberValidacao(false);
                 }
 
                 banco.desconectar();
@@ -266,14 +275,15 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
             {
                 encontrarProdutos();
 
-                if (ProtudoItens._ItemEncontrado() == true)
+                if (Model.ProtudoItens._ItemEncontrado() == true)
                 {
                     //
-                    _idProduto = ProtudoItens._IdProduto();
-                    textBoxNomeProduto.Text = ProtudoItens._NomeProduto();
-                    textBoxCodigo.Text = ProtudoItens._CodigoProduto().ToString();
-                    textBoxQuantidade.Text = ProtudoItens._Quantidade().ToString();
-                    textBoxValorCusto.Text = ProtudoItens._ValorUnitario().ToString("N2");
+                    StatusItem = "NEW_ITEM";
+                    _idProduto = Model.ProtudoItens._IdProduto();
+                    textBoxNomeProduto.Text = Model.ProtudoItens._NomeProduto();
+                    textBoxCodigo.Text = Model.ProtudoItens._CodigoProduto().ToString();
+                    textBoxQuantidade.Text = Model.ProtudoItens._Quantidade().ToString();
+                    textBoxValorCusto.Text = Model.ProtudoItens._ValorUnitario().ToString("N2");
                     textBoxValorTotal.Text = calcularValorTotal_Produto().ToString("N2");
 
                     instancia.CalcularTotaisEntrada();

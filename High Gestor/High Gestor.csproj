@@ -110,6 +110,7 @@
       <DependentUpon>UserControl_ItemProduto.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\EntradaMercadoria\Model\Calculos.cs" />
+    <Compile Include="Forms\Compras\EntradaMercadoria\Model\ProdutosItens.cs" />
     <Compile Include="Forms\Compras\EntradaMercadoria\Parcelas\UserControl_itemParcela.cs">
       <SubType>UserControl</SubType>
     </Compile>
