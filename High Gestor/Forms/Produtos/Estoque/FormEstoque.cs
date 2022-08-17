@@ -312,7 +312,7 @@ namespace High_Gestor.Forms.Produtos
         {
             decimal QntdEntrada = 0, MediaEntrada = 0, TotalEntrada = 0;
 
-            string query = ("SELECT SUM(entrada), SUM(entrada * valorUnitario), (SELECT SUM(entrada * valorUnitario) / SUM(entrada) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Estoque WHERE idProdutoFK = @ID AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            string query = ("SELECT SUM(entrada), SUM(entrada * valorUnitario), (SELECT SUM(entrada * valorUnitario) / SUM(entrada) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim AND descricao != 'Acerto de estoque') FROM Estoque WHERE idProdutoFK = @ID AND entrada != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim AND descricao != 'Acerto de estoque'");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -351,7 +351,7 @@ namespace High_Gestor.Forms.Produtos
         {
             decimal QntdSaida = 0, MediaSaida = 0, TotalSaida = 0;
 
-            string query = ("SELECT SUM(saida), SUM(saida * valorUnitario), (SELECT SUM(saida * valorUnitario) / SUM(saida) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Estoque WHERE idProdutoFK = @ID AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            string query = ("SELECT SUM(saida), SUM(saida * valorUnitario), (SELECT SUM(saida * valorUnitario) / SUM(saida) FROM Estoque WHERE idProdutoFK = @ID AND valorUnitario != '0' AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim AND descricao != 'Acerto de estoque') FROM Estoque WHERE idProdutoFK = @ID AND saida != '0' AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim AND descricao != 'Acerto de estoque'");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -407,7 +407,7 @@ namespace High_Gestor.Forms.Produtos
             carregarDadosEstoque();
             carregarDataResumo();
             carregarDadosTotalEntrada();
-            carregarDadosTotalSaida();
+            //carregarDadosTotalSaida();
         }
 
         private void buttonMovimentarEstoque_Click(object sender, EventArgs e)

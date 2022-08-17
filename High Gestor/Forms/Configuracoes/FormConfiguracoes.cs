@@ -192,7 +192,9 @@ namespace High_Gestor.Forms.Configuracoes
             alterouSize.receberNameSecundario("CONFIG_SYSTEM");
             alterouSize.receberValidacaoSecundario(1);
 
-            openChildForm(new FormConfigSistema());
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            //openChildForm(new FormConfigSistema());
         }
 
         private void panelContent_ControlRemoved(object sender, ControlEventArgs e)

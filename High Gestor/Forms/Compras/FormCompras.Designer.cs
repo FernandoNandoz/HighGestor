@@ -41,6 +41,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.PictureBox pictureBox8;
+            System.Windows.Forms.PictureBox pictureBox4;
+            System.Windows.Forms.PictureBox pictureBox5;
+            System.Windows.Forms.PictureBox pictureBox9;
             this.panelContent = new System.Windows.Forms.Panel();
             this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
             this.textBoxPesquisarFornecedor = new System.Windows.Forms.TextBox();
@@ -64,11 +68,19 @@
             this.ColumnSituacao = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAcao = new System.Windows.Forms.DataGridViewImageColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             labelMovimentoCaixa = new System.Windows.Forms.Label();
             pictureBoxMovimentoCaixa = new System.Windows.Forms.PictureBox();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox9 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
@@ -79,6 +91,10 @@
             this.panelEntradaMercadoria.SuspendLayout();
             this.panelFornecedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -137,6 +153,14 @@
             // 
             // panelContent
             // 
+            this.panelContent.Controls.Add(pictureBox9);
+            this.panelContent.Controls.Add(pictureBox5);
+            this.panelContent.Controls.Add(pictureBox4);
+            this.panelContent.Controls.Add(pictureBox8);
+            this.panelContent.Controls.Add(this.label9);
+            this.panelContent.Controls.Add(this.label3);
+            this.panelContent.Controls.Add(this.label2);
+            this.panelContent.Controls.Add(this.label1);
             this.panelContent.Controls.Add(this.linkLabelBuscaAvancada);
             this.panelContent.Controls.Add(this.textBoxPesquisarFornecedor);
             this.panelContent.Controls.Add(this.buttonPesquisar);
@@ -153,6 +177,7 @@
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(1208, 640);
             this.panelContent.TabIndex = 3;
+            this.panelContent.Click += new System.EventHandler(this.panelContent_Click);
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
             // linkLabelBuscaAvancada
@@ -412,10 +437,11 @@
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 461);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 440);
             this.dataGridViewContent.TabIndex = 106;
             this.dataGridViewContent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentClick);
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
+            this.dataGridViewContent.Click += new System.EventHandler(this.dataGridViewContent_Click);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
             // Column3
@@ -499,6 +525,90 @@
             this.ColumnAcao.Name = "ColumnAcao";
             this.ColumnAcao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1123, 621);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 13);
+            this.label9.TabIndex = 161;
+            this.label9.Text = "Cancelado";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1034, 621);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 159;
+            this.label3.Text = "Atendido";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(913, 621);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 157;
+            this.label2.Text = "Em andamento";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(807, 621);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 155;
+            this.label1.Text = "Em aberto";
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
+            pictureBox8.Location = new System.Drawing.Point(1104, 620);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(15, 15);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 14;
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
+            pictureBox4.Location = new System.Drawing.Point(1013, 620);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(15, 15);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 162;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox5.Image = global::High_Gestor.Properties.Resources.amarelo;
+            pictureBox5.Location = new System.Drawing.Point(892, 620);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(15, 15);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 163;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
+            pictureBox9.Location = new System.Drawing.Point(786, 620);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(15, 15);
+            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 164;
+            pictureBox9.TabStop = false;
+            // 
             // FormCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,6 +632,10 @@
             this.panelEntradaMercadoria.ResumeLayout(false);
             this.panelFornecedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -532,7 +646,6 @@
         private System.Windows.Forms.Panel panelRelatorio;
         private System.Windows.Forms.Button buttonRelatorio;
         private System.Windows.Forms.Button buttonVoltar;
-        private System.Windows.Forms.DataGridView dataGridViewContent;
         private System.Windows.Forms.Panel panelEntradaMercadoria;
         private System.Windows.Forms.Button buttonEntradaMercadoria;
         private System.Windows.Forms.Panel panelFornecedor;
@@ -542,6 +655,7 @@
         private System.Windows.Forms.Button buttonPesquisar;
         private System.Windows.Forms.LinkLabel linkLabelBuscaAvancada;
         private System.Windows.Forms.TextBox textBoxPesquisarFornecedor;
+        public System.Windows.Forms.DataGridView dataGridViewContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
@@ -551,5 +665,9 @@
         private System.Windows.Forms.DataGridViewImageColumn ColumnSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn ColumnAcao;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -223,7 +223,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonEditarCadastro_Click(object sender, EventArgs e)

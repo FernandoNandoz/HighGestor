@@ -78,19 +78,8 @@ namespace High_Gestor.Forms.Financeiro
             comboBoxTipoConta.SelectedIndex = 1;
 
             //
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
+            dataGridViewContent.Rows.Add("1", "VENDA TEST", "DESCRICAO TESTE", "20,00", "0,00");
+            
         }
 
         private void buttonSairContasPagar_Click(object sender, EventArgs e)
@@ -100,26 +89,31 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonLancaManualmente_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonEditarLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonExcluirLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonGerarRelatorio_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonPagarConta_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

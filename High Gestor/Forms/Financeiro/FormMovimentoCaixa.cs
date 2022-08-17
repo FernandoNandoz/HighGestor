@@ -72,19 +72,9 @@ namespace High_Gestor.Forms.Financeiro
             labelStatusCaixa.ForeColor = Color.Red;
 
             //
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
+            dataGridViewContent.Rows.Add("1", "VENDA TESTE", "DESCRICAO TESTE", "20,00", "0,00");
+            dataGridViewContent.Rows.Add("2", "VENDA TESTE", "DESCRICAO TESTE", "20,00", "0,00");
+            
         }
 
         private void buttonSairCaixa_Click(object sender, EventArgs e)
@@ -94,31 +84,37 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonLancaManualmente_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonEditarLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonExcluirLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonGerarRelatorio_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void dataGridViewContent_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void dateTimePeriodo_ValueChanged(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

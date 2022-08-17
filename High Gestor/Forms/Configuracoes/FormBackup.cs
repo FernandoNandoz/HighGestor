@@ -63,16 +63,19 @@ namespace High_Gestor.Forms.Configuracoes
 
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonExcluirCadastro_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

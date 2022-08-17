@@ -815,6 +815,8 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             banco.desconectar();
         }
 
+        //Insert
+
         private void queryInsertPedidosCompra()
         {
             try
@@ -845,6 +847,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
                 queryInsertItensPedido();
                 queryInsertParcelasNota();
+                queryInsertStatusEntradaMercadoria();
 
                 MessageBox.Show("Cadastro realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -919,6 +922,26 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryParcelasNota " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void queryInsertStatusEntradaMercadoria()
+        {
+            string query = ("INSERT INTO StatusEntradaMercadoria (data, observacao, status, idPedidosCompraFK, idFuncionarioFK, idLog, createdAt) VALUES (@data, @observacao, @status, @idPedidosCompraFK, @idFuncionarioFK, @idLog, @createdAt)");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@data", dateTimeDataEntrada.Value);
+            exeQuery.Parameters.AddWithValue("@observacao", "ENTRADA CADASTRADA");
+            exeQuery.Parameters.AddWithValue("@status", "EM ABERTO");
+            exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
+            exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
+            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            exeQuery.ExecuteNonQuery();
+            banco.desconectar();
+        }
+
+        //
 
         private void queryUpdatePedidosCompra()
         {

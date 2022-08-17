@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCentroCustos));
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label6;
             System.Windows.Forms.Label labelSelecioneProduto;
+            System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCentroCustos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label1;
             this.panelContent = new System.Windows.Forms.Panel();
             this.buttonSair = new System.Windows.Forms.Button();
             this.buttonExcluirCadastro = new System.Windows.Forms.Button();
@@ -57,6 +57,57 @@
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label8
+            // 
+            label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            label8.Location = new System.Drawing.Point(754, 117);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(21, 31);
+            label8.TabIndex = 152;
+            label8.Text = "|";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            label6.ForeColor = System.Drawing.SystemColors.ControlText;
+            label6.Location = new System.Drawing.Point(10, 51);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(123, 20);
+            label6.TabIndex = 145;
+            label6.Text = "Pesquisar nome";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelSelecioneProduto
+            // 
+            labelSelecioneProduto.AutoSize = true;
+            labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            labelSelecioneProduto.ForeColor = System.Drawing.SystemColors.ControlText;
+            labelSelecioneProduto.Location = new System.Drawing.Point(14, 178);
+            labelSelecioneProduto.Name = "labelSelecioneProduto";
+            labelSelecioneProduto.Size = new System.Drawing.Size(483, 17);
+            labelSelecioneProduto.TabIndex = 147;
+            labelSelecioneProduto.Text = "Selecione um nome para ver a Ficha, Editar, Vizualizar ou Excluir Cadastro:";
+            labelSelecioneProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label1.Location = new System.Drawing.Point(11, 11);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(155, 24);
+            label1.TabIndex = 154;
+            label1.Text = "Centro de Custos";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelContent
             // 
@@ -102,19 +153,6 @@
             this.buttonSair.UseVisualStyleBackColor = false;
             this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
             this.buttonSair.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonSair_Paint);
-            // 
-            // label8
-            // 
-            label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            label8.Location = new System.Drawing.Point(754, 117);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(21, 31);
-            label8.TabIndex = 152;
-            label8.Text = "|";
-            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonExcluirCadastro
             // 
@@ -172,18 +210,6 @@
             this.buttonNovoCadastro.UseVisualStyleBackColor = true;
             this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            label6.ForeColor = System.Drawing.SystemColors.ControlText;
-            label6.Location = new System.Drawing.Point(10, 51);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(123, 20);
-            label6.TabIndex = 145;
-            label6.Text = "Pesquisar nome";
-            label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // textBoxPesquisarNome
             // 
             this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -207,18 +233,6 @@
             this.labelContagem.TabIndex = 142;
             this.labelContagem.Text = "Total: N Registros";
             this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelSelecioneProduto
-            // 
-            labelSelecioneProduto.AutoSize = true;
-            labelSelecioneProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            labelSelecioneProduto.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelSelecioneProduto.Location = new System.Drawing.Point(14, 178);
-            labelSelecioneProduto.Name = "labelSelecioneProduto";
-            labelSelecioneProduto.Size = new System.Drawing.Size(483, 17);
-            labelSelecioneProduto.TabIndex = 147;
-            labelSelecioneProduto.Text = "Selecione um nome para ver a Ficha, Editar, Vizualizar ou Excluir Cadastro:";
-            labelSelecioneProduto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewContent
             // 
@@ -289,20 +303,6 @@
             this.dataGridViewContent.TabStop = false;
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
-            // 
-            // label1
-            // 
-            label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label1.Location = new System.Drawing.Point(11, 11);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(160, 24);
-            label1.TabIndex = 154;
-            label1.Text = "Controle de Caixa";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Column4
             // 

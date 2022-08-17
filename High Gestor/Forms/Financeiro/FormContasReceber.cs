@@ -99,26 +99,31 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonLancaManualmente_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonEditarLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonExcluirLancamento_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonGerarRelatorio_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
         private void buttonReceberConta_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
     }

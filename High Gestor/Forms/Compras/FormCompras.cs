@@ -146,7 +146,7 @@ namespace High_Gestor.Forms.Compras
             ItensEstoque.Columns.Add("DataPedido", typeof(DateTime));
         }
 
-        private void dataCompras()
+        public void dataCompras()
         {
             Image image = null;
 
@@ -263,14 +263,23 @@ namespace High_Gestor.Forms.Compras
             return codigoProduto;
         }
 
-        private string gerarTituloConta()
+        private string gerarTituloConta(string operation)
         {
-            string descricao = "Entrada de mercadoria nº " + int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString());
+            string descricao = string.Empty;
+
+            if (operation == "LANCAR ESTOQUE")
+            {
+                descricao = "Entrada de mercadoria nº " + int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString());
+            }
+            else if (operation == "ESTORNAR ESTOQUE")
+            {
+                descricao = "Estorno Entrada de mercadoria nº " + int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString());
+            }
 
             return descricao;
         }
 
-        private decimal calcularAteracaoEstoque(decimal quantidade)
+        private decimal calcularAteracaoEstoque(string operation, decimal quantidade)
         {
             decimal quantidadeAtual = 0, novaQuatidade = 0;
 
@@ -290,34 +299,53 @@ namespace High_Gestor.Forms.Compras
 
             banco.desconectar();
 
-            novaQuatidade = quantidadeAtual + quantidade;
+            if (operation == "LANCAR ESTOQUE")
+            {
+                novaQuatidade = quantidadeAtual + quantidade;
+            }
+            else if (operation == "ESTORNAR ESTOQUE")
+            {
+                novaQuatidade = quantidadeAtual - quantidade;
+            }
 
             return 0;
         }
 
-        public void queryInsertEstoque()
+        private void carregarDadosEstoque()
         {
-            //Retorna os dados da tabela Produtos para o DataGridView
-            string queryConsulta = ("SELECT idProdutoFK, quantidadePedido, valorUnitario, numeroNota, dataPedido FROM ItensPedido WHERE idPedidosCompraFK = @ID");
-            SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
-
-            exeQueryConsulta.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
-
-            banco.conectar();
-
-            SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
-
-            while (datareader.Read())
+            try
             {
-                ItensEstoque.Rows.Add(
-                    datareader.GetInt32(0),
-                    datareader.GetInt32(1),
-                    datareader.GetDecimal(2),
-                    datareader.GetString(3),
-                    datareader.GetDateTime(4));
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string queryConsulta = ("SELECT idProdutoFK, quantidadePedido, valorUnitario, numeroNota, dataPedido FROM ItensPedido WHERE idPedidosCompraFK = @ID");
+                SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
 
+                exeQueryConsulta.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                while (datareader.Read())
+                {
+                    ItensEstoque.Rows.Add(
+                        datareader.GetInt32(0),
+                        datareader.GetInt32(1),
+                        datareader.GetDecimal(2),
+                        datareader.GetString(3),
+                        datareader.GetDateTime(4));
+
+                }
+                banco.desconectar();
             }
-            banco.desconectar();
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryEstoque " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        public void queryInsertEstoque(string operation)
+        {
+            carregarDadosEstoque();
 
             try
             {
@@ -326,15 +354,29 @@ namespace High_Gestor.Forms.Compras
 
                 for (int i = 0; i < ItensEstoque.Rows.Count; i++)
                 {
+                    int entrada = 0, saida = 0;
+                    string tipoMovimento = string.Empty, message = string.Empty;
+
+                    if (operation == "LANCAR ESTOQUE")
+                    {
+                        entrada = int.Parse(ItensEstoque.Rows[i][1].ToString());
+                        tipoMovimento = "ENTRADA";
+                    }
+                    else if (operation == "ESTORNAR ESTOQUE")
+                    {
+                        saida = int.Parse(ItensEstoque.Rows[i][1].ToString());
+                        tipoMovimento = "SAIDA";
+                    }
+
                     sqlCommand.Parameters.Clear();
                     sqlCommand.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
                     sqlCommand.Parameters.AddWithValue("@numeroNota", ItensEstoque.Rows[i][3]);
                     sqlCommand.Parameters.AddWithValue("@tipoMovimento", "ENTRADA");
                     sqlCommand.Parameters.AddWithValue("@dataMovimento", ItensEstoque.Rows[i][4]);
-                    sqlCommand.Parameters.AddWithValue("@descricao", gerarTituloConta());
-                    sqlCommand.Parameters.AddWithValue("@entrada", ItensEstoque.Rows[i][1]);
-                    sqlCommand.Parameters.AddWithValue("@saida", 0);
-                    sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(decimal.Parse(ItensEstoque.Rows[i][1].ToString())));
+                    sqlCommand.Parameters.AddWithValue("@descricao", gerarTituloConta(operation));
+                    sqlCommand.Parameters.AddWithValue("@entrada", entrada);
+                    sqlCommand.Parameters.AddWithValue("@saida", saida);
+                    sqlCommand.Parameters.AddWithValue("@saldoAtual", calcularAteracaoEstoque(operation, decimal.Parse(ItensEstoque.Rows[i][1].ToString())));
                     sqlCommand.Parameters.AddWithValue("@valorUnitario", ItensEstoque.Rows[i][2]);
                     sqlCommand.Parameters.AddWithValue("@idProdutoFK", ItensEstoque.Rows[i][0]);
                     sqlCommand.Parameters.AddWithValue("@idPedidosCompraFK", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
@@ -344,7 +386,18 @@ namespace High_Gestor.Forms.Compras
                     banco.desconectar();
                 }
 
-                MessageBox.Show("Estoque lançado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (operation == "LANCAR ESTOQUE")
+                {
+                    queryUpdatePedidosCompra_Estoque("LANCADO");
+
+                    MessageBox.Show("Estoque lançado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (operation == "ESTORNAR ESTOQUE")
+                {
+                    queryUpdatePedidosCompra_Estoque("ESTOQUE ESTORNADO");
+
+                    MessageBox.Show("Estoque estornado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception erro)
             {
@@ -395,10 +448,35 @@ namespace High_Gestor.Forms.Compras
             //}
         }
 
+        private void queryUpdatePedidosCompra_Contas(string situacao)
+        {
+            string query = ("UPDATE PedidosCompra SET situacaoContas = @situacao WHERE idPedidosCompra = @ID");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@situacao", situacao);
+            exeQuery.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
+
+            banco.conectar();
+            exeQuery.ExecuteNonQuery();
+            banco.desconectar();
+        }
+
+        private void queryUpdatePedidosCompra_Estoque(string situacao)
+        {
+            string query = ("UPDATE PedidosCompra SET situacaoEstoque = @situacao WHERE idPedidosCompra = @ID");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@situacao", situacao);
+            exeQuery.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
+
+            banco.conectar();
+            exeQuery.ExecuteNonQuery();
+            banco.desconectar();
+        }
+
         private void FormCompras_Load(object sender, EventArgs e)
         {
             dataCompras();
-
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)
@@ -420,6 +498,8 @@ namespace High_Gestor.Forms.Compras
 
         private void buttonEntradaMercadoria_Click(object sender, EventArgs e)
         {
+            FecharAcoes();
+
             updateData.receberDados(0, false);
             //
             openChildForm(new EntradaMercadoria.FormEntradaMercadoria());
@@ -432,16 +512,22 @@ namespace High_Gestor.Forms.Compras
 
         private void buttonFornecedor_Click(object sender, EventArgs e)
         {
+            FecharAcoes();
+
             openChildForm(new Fornecedores.FormFornecedores());
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
+            FecharAcoes();
 
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void linkLabelBuscaAvancada_Click(object sender, EventArgs e)
         {
+            FecharAcoes();
+
             MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -452,6 +538,8 @@ namespace High_Gestor.Forms.Compras
 
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
+            FecharAcoes();
+
             compras.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "NomeFornecedor", textBoxPesquisarFornecedor.Text);
         }
 
@@ -467,12 +555,18 @@ namespace High_Gestor.Forms.Compras
 
         private void dataGridViewContent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == 6)
             {
-                FormAlterarSituacao window = new FormAlterarSituacao();
-                window.ShowDialog();
-                window.Dispose();
+                if (dataGridViewContent.Rows.Count != 0 && e.ColumnIndex != 8)
+                {
+                    updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+                    FormAlterarSituacao window = new FormAlterarSituacao();
+                    window.ShowDialog();
+                    window.Dispose();
+
+                    dataCompras();
+                }
             }
 
             if (e.ColumnIndex == 8)
@@ -512,10 +606,20 @@ namespace High_Gestor.Forms.Compras
 
         public void FecharAcoes()
         {
-            acoes.SendToBack();
             panelContent.Controls.Remove(acoes);
 
             acoesOpen = false;
         }
+
+        private void dataGridViewContent_Click(object sender, EventArgs e)
+        {
+            FecharAcoes();
+        }
+
+        private void panelContent_Click(object sender, EventArgs e)
+        {
+            FecharAcoes();
+        }
+
     }
 }

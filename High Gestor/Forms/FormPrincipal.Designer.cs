@@ -367,20 +367,20 @@
             // labelUsuario
             // 
             this.labelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.Location = new System.Drawing.Point(803, 8);
+            this.labelUsuario.Location = new System.Drawing.Point(655, 8);
             this.labelUsuario.Name = "labelUsuario";
-            this.labelUsuario.Size = new System.Drawing.Size(175, 17);
+            this.labelUsuario.Size = new System.Drawing.Size(328, 17);
             this.labelUsuario.TabIndex = 5;
             this.labelUsuario.Text = "Fernando | Desenvolvedor";
+            this.labelUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pictureBoxPapelParede
             // 
             this.pictureBoxPapelParede.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxPapelParede.Location = new System.Drawing.Point(734, 0);
+            this.pictureBoxPapelParede.Location = new System.Drawing.Point(709, 0);
             this.pictureBoxPapelParede.Name = "pictureBoxPapelParede";
-            this.pictureBoxPapelParede.Size = new System.Drawing.Size(474, 64);
+            this.pictureBoxPapelParede.Size = new System.Drawing.Size(499, 64);
             this.pictureBoxPapelParede.TabIndex = 8;
             this.pictureBoxPapelParede.TabStop = false;
             // 
@@ -398,6 +398,7 @@
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MaximizedBoundsChanged += new System.EventHandler(this.FormHighGestor_MaximizedBoundsChanged);
             this.Load += new System.EventHandler(this.FormHighGestor_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormHighGestor_Paint);

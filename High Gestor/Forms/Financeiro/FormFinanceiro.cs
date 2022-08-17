@@ -97,19 +97,9 @@ namespace High_Gestor.Forms.Financeiro
             labelStatusCaixa.ForeColor = Color.Red;
 
             //
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
-            dataGridViewContent.Rows.Add("1", "VENDA", "DESCRICAO", "20,00", "0,00");
+            dataGridViewContent.Rows.Add("1", "VENDA TESTE", "DESCRICAO TESTE", "20,00", "0,00");
+            dataGridViewContent.Rows.Add("2", "VENDA TESTE", "DESCRICAO TESTE", "20,00", "0,00");
+            
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)

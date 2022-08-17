@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -20,6 +22,8 @@ namespace High_Gestor
             int nHeightEllipse
         );
         #endregion
+
+        Banco banco = new Banco();
 
         public FormHighGestor()
         {
@@ -152,8 +156,44 @@ namespace High_Gestor
             }
         }
 
+        private void dataFuncionario()
+        {
+            //Retorna os dados da tabela Produtos para o DataGridView
+            string query = ("SELECT Funcionario.idFuncionario, Funcionario.codigoFuncionario, Funcionario.nomeCompleto, Perfil.perfil, Funcionario.situacao, Funcionario.usuario, Funcionario.senha FROM Funcionario INNER JOIN Perfil ON Funcionario.idPerfilFK = Perfil.idPerfil WHERE Funcionario.idFuncionario = @ID ORDER BY nomeCompleto");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            exeVerificacao.Parameters.AddWithValue("@ID", 1);
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            if (datareader.Read())
+            {
+                Autenticacao.login(datareader.GetInt32(0), datareader.GetString(2), datareader.GetString(5), datareader.GetString(6), datareader.GetString(3));
+            }
+            else 
+            {
+                Autenticacao.login(1, "USUARIO TESTE", "USUARIO", "SENHA", "TESTE");
+            }
+
+            banco.desconectar();
+        }
+
+
         private void FormHighGestor_Load(object sender, EventArgs e)
         {
+            dataFuncionario();
+
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
+
+            string nome = Autenticacao._nome() + " | " + Autenticacao._perfil();
+
+            nome = nome.ToLower();
+
+            nome = myTI.ToTitleCase(nome);
+
+            labelUsuario.Text = nome;
+
             buttonVendas_Click(sender, e);
         }
 

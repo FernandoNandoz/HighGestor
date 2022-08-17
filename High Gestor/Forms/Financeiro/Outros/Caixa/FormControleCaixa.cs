@@ -66,6 +66,52 @@ namespace High_Gestor.Forms.Financeiro.Outros.Caixa
             this.Close();
         }
 
-       
+        private void buttonReforcarCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonSangriaCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonDetalhesCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonAbrirCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonFecharCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonNovoCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonEditarCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void buttonExcluirCaixa_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 }

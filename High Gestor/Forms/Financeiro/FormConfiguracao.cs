@@ -151,6 +151,9 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleCustos.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.White;
             buttonConfigContasReceber.BackColor = Color.FromArgb(210, 210, 210);
+
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void buttonConfigContasPagar_Click(object sender, EventArgs e)
@@ -161,6 +164,9 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleCustos.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.White;
             buttonConfigContasPagar.BackColor = Color.FromArgb(210, 210, 210);
+
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void buttonControleContas_Click(object sender, EventArgs e)
@@ -171,6 +177,9 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleCustos.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.White;
             buttonControleContas.BackColor = Color.FromArgb(210, 210, 210);
+
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 
         }
 
@@ -194,6 +203,9 @@ namespace High_Gestor.Forms.Financeiro
             buttonControleContas.BackColor = Color.White;
             buttonControleCustos.BackColor = Color.White;
             buttonFormaPagamento.BackColor = Color.FromArgb(210, 210, 210);
+
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
     }
 }

@@ -68,22 +68,7 @@ namespace High_Gestor.Forms.Clientes
 
         private void FormClientes_Load(object sender, EventArgs e)
         {
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
-            dataGridViewContent.Rows.Add("Fernando Souza Damasceno", "ATIVO", "R$ 450,00");
+            dataGridViewContent.Rows.Add("CLIENTE TESTE", "ATIVO", "R$ 450,00");
         }
 
         private void buttonSair_Click(object sender, EventArgs e)
@@ -95,24 +80,26 @@ namespace High_Gestor.Forms.Clientes
 
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
         {
-            updateData.receberDados(0, false);
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            openChildForm(new FormCadCliente());
+            //updateData.receberDados(0, false);
+
+            //openChildForm(new FormCadCliente());
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonEditarCadastro_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonExcluirCadastro_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void panelBack_Paint(object sender, PaintEventArgs e)
