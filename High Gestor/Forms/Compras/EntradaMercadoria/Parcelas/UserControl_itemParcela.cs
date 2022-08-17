@@ -24,12 +24,20 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         #region Header
 
         private bool _editarParcelas = false;
+        private int _idParcelaNota = 0;
         private int _numeroParcela;
         private DateTime _dataVencimento;
         private decimal _valorParcela;
         private int _formaPagamento;
         private string _observacao;
+        private string _statusItem = string.Empty;
 
+        [Category("Custom Props")]
+        public string StatusItem
+        {
+            get { return _statusItem; }
+            set { _statusItem = value; }
+        }
 
         [Category("Custom Props")]
         public bool EditarParcelas
@@ -39,23 +47,39 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         }
 
         [Category("Custom Props")]
+        public int IdParcelaNota
+        {
+            get { return _idParcelaNota; }
+            set { _idParcelaNota = value; }
+        }
+
+        [Category("Custom Props")]
         public int NumeroParcela
         {
-            get { return _numeroParcela; }
+            get { return _numeroParcela = int.Parse(labelNumero.Text); }
             set { _numeroParcela = value; labelNumero.Text = value.ToString(); }
         }
 
         [Category("Custom Props")]
         public DateTime DataVencimento
         {
-            get { return _dataVencimento; }
+            get { return _dataVencimento = dateTimeVencimento.Value; }
             set { _dataVencimento = value; dateTimeVencimento.Value = value; }
         }
 
         [Category("Custom Props")]
         public decimal ValorParcela
         {
-            get { return _valorParcela; }
+            get {
+                decimal value = 0;
+
+                if(textBoxValor.Text != "" && textBoxValor.Text != string.Empty)
+                {
+                    value = decimal.Parse(textBoxValor.Text);
+                }
+
+                return _valorParcela = value; 
+            }
             set { _valorParcela = value; textBoxValor.Text = value.ToString("N2"); }
         }
 
@@ -69,7 +93,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         [Category("Custom Props")]
         public string Observacao
         {
-            get { return _observacao; }
+            get { return _observacao = textBoxObservacao.Text; }
             set { _observacao = value; textBoxObservacao.Text = value; }
         }
 
@@ -132,6 +156,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
             while (datareader.Read())
             {
                 id = int.Parse(datareader[0].ToString());
+                _formaPagamento = int.Parse(datareader[0].ToString());
             }
 
             banco.desconectar();
@@ -149,6 +174,16 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
             {
                 comboBoxFormaPagamento.SelectedIndex = 0;
             }
+        }
+
+        private void comboBoxFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            verificarIdFormaPagamento();
+        }
+
+        private void textBoxValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

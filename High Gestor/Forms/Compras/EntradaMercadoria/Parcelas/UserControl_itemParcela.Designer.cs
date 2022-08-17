@@ -44,6 +44,7 @@
             this.comboBoxFormaPagamento.Name = "comboBoxFormaPagamento";
             this.comboBoxFormaPagamento.Size = new System.Drawing.Size(197, 24);
             this.comboBoxFormaPagamento.TabIndex = 8;
+            this.comboBoxFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxFormaPagamento_SelectedIndexChanged);
             // 
             // textBoxValor
             // 
@@ -52,6 +53,7 @@
             this.textBoxValor.Name = "textBoxValor";
             this.textBoxValor.Size = new System.Drawing.Size(152, 23);
             this.textBoxValor.TabIndex = 7;
+            this.textBoxValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValor_KeyPress);
             // 
             // dateTimeVencimento
             // 

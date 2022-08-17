@@ -55,6 +55,7 @@
             // 
             this.textBoxNomeProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxNomeProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxNomeProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomeProduto.Location = new System.Drawing.Point(41, 6);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
@@ -64,6 +65,7 @@
             // 
             // textBoxCodigo
             // 
+            this.textBoxCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCodigo.Location = new System.Drawing.Point(445, 6);
             this.textBoxCodigo.Name = "textBoxCodigo";

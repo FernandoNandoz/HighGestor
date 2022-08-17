@@ -30,21 +30,17 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         #endregion
 
-        string adicionados = string.Empty, removidos = string.Empty, alterados = string.Empty;
-
         Banco banco = new Banco();
 
-        int indexItemProduto = 0;
+        int indexItemProduto = 0, indexItemParcela = 0;
         bool CalculandoEmMassa = true;
 
         DataTable ItensPedidoAlterado = new DataTable();
-
-        public DataTable ItensAdicionados = new DataTable();
-
         DataTable ItensRemovidos = new DataTable();
+        DataTable ItensParcelaAlterado = new DataTable();
+        DataTable ItensParcelaRemovidos = new DataTable();
 
         ItensProduto.UserControl_ItemProduto[] ItensProduto = new ItensProduto.UserControl_ItemProduto[1000];
-
         Parcelas.UserControl_itemParcela[] listaItem = new Parcelas.UserControl_itemParcela[200];
 
 
@@ -52,13 +48,14 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             InitializeComponent();
 
-            dataTableItensPedido();
             pesquisaAutoCompleteFornecedor();
             pesquisaAutoCompleteVendedor();
             pesquisaAutoCompleteCentroCusto();
 
             if (updateData._retornarValidacao() == true)
             {
+                dataTableItensPedido();
+
                 carregarDadosPedidosCompra();
                 carregarItensPedido();
                 pesquisarNomeFornecedor();
@@ -69,6 +66,9 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 textBoxFornecedor.Focus();
                 NovoItemProduto();
+
+                textBoxQuantidadeParcela.Text = "1";
+                gerarParcelas();
             }
         }
 
@@ -112,17 +112,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             ItensPedidoAlterado.Columns.Add("ValorVenda", typeof(decimal));
             ItensPedidoAlterado.Columns.Add("status", typeof(string));
 
-
-            //DataTable - ItensAdicionados
-            ItensAdicionados.Columns.Add("IdProduto", typeof(int));
-            ItensAdicionados.Columns.Add("NomeProduto", typeof(string));
-            ItensAdicionados.Columns.Add("Codigo", typeof(string));
-            ItensAdicionados.Columns.Add("Quantidade", typeof(int));
-            ItensAdicionados.Columns.Add("ValorCusto", typeof(decimal));
-            ItensAdicionados.Columns.Add("ValorVenda", typeof(decimal));
-            ItensAdicionados.Columns.Add("status", typeof(string));
-
-            //DataTable - ItensRemovidos
+            //DataTable - ItensParcelaRemovidos
             ItensRemovidos.Columns.Add("StatusItem", typeof(string));
             ItensRemovidos.Columns.Add("EditarProduto", typeof(bool));
             ItensRemovidos.Columns.Add("IdProduto", typeof(int));
@@ -132,6 +122,26 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             ItensRemovidos.Columns.Add("Quantidade", typeof(int));
             ItensRemovidos.Columns.Add("ValorCusto", typeof(decimal));
             ItensRemovidos.Columns.Add("ValorVenda", typeof(decimal));
+
+
+            //DataTable - ItensParcelaAlterados
+            ItensParcelaAlterado.Columns.Add("IdParcelaNota", typeof(int));
+            ItensParcelaAlterado.Columns.Add("NumeroParcela", typeof(int));
+            ItensParcelaAlterado.Columns.Add("DataVencimento", typeof(DateTime));
+            ItensParcelaAlterado.Columns.Add("ValorParcela", typeof(decimal));
+            ItensParcelaAlterado.Columns.Add("idFormaPagamento", typeof(int));
+            ItensParcelaAlterado.Columns.Add("observacao", typeof(string));
+            ItensParcelaAlterado.Columns.Add("status", typeof(string));
+
+            //DataTable - ItensParcelaRemovidos
+            ItensParcelaRemovidos.Columns.Add("StatusItem", typeof(string));
+            ItensParcelaRemovidos.Columns.Add("EditarParcela", typeof(bool));
+            ItensParcelaRemovidos.Columns.Add("IdParcelaNota", typeof(int));
+            ItensParcelaRemovidos.Columns.Add("NumeroParcela", typeof(int));
+            ItensParcelaRemovidos.Columns.Add("DataVencimento", typeof(DateTime));
+            ItensParcelaRemovidos.Columns.Add("ValorParcela", typeof(decimal));
+            ItensParcelaRemovidos.Columns.Add("idFormaPagamento", typeof(int));
+            ItensParcelaRemovidos.Columns.Add("observacao", typeof(string));
         }
 
         private void apenasNumero_KeyPress(object sender, KeyPressEventArgs e)
@@ -352,48 +362,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return id;
         }
 
-        private int verificarIdItensPedido()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idItensPedido FROM ItensPedido WHERE idItensPedido=(SELECT MAX(idItensPedido) FROM ItensPedido)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private int verificarIdEstoque()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idEstoque FROM Estoque WHERE idEstoque=(SELECT MAX(idEstoque) FROM Estoque)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
         private int verificarIdContasPagar()
         {
             int id = 0;
@@ -434,34 +402,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return codigoProduto;
         }
 
-        private string numeroNotaContas(int parcela)
-        {
-            string codigoProduto;
-            int numeroNota = 0;
-
-            if(textBoxNumeroNota.Text == string.Empty)
-            {
-                numeroNota = int.Parse(textBoxNumeroNota.Text);
-
-                codigoProduto = (verificarIdContasPagar() + numeroNota).ToString() + " - " + parcela;
-            }
-            else
-            {
-                codigoProduto = textBoxNumeroNota.Text + " - " + parcela;
-            }
-
-            return codigoProduto;
-        }
-
-        private string gerarTituloConta()
-        {
-            string descricao = string.Empty;
-
-            descricao = "Entrada de mercadoria nº " + verificarIdPedidosCompra();
-
-            return descricao;
-        }
-
         private string gerarDescricaoConta(int parcela, string observacao)
         {
             string descricao = string.Empty;
@@ -472,35 +412,17 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
             else
             {
-                descricao = "Entrada nº " + verificarIdPedidosCompra() + " - Parc:" + parcela;
+                if (updateData._retornarValidacao() == true)
+                {
+                    descricao = "Entrada nº " + updateData._retornarID() + " - Parc:" + parcela;
+                }
+                else
+                {
+                    descricao = "Entrada nº " + verificarIdPedidosCompra() + " - Parc:" + parcela;
+                }
             }
 
             return descricao;
-        }
-
-        private decimal calcularAteracaoEstoque(decimal quantidade)
-        {
-            decimal quantidadeAtual = 0, novaQuatidade = 0;
-
-            //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT estoqueAtual FROM Produtos WHERE idProduto = @ID");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            exeVerificacao.Parameters.AddWithValue("@ID", updateData._retornarID());
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                quantidadeAtual = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            novaQuatidade = quantidadeAtual + quantidade;
-
-            return novaQuatidade;
         }
 
         private bool VerificarCampos()
@@ -520,7 +442,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
             return liberado;
         }
-        
+       
         public void NovoItemProduto()
         {
             if (updateData._retornarValidacao() == true)
@@ -528,7 +450,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 indexItemProduto += 1;
 
                 ItensProduto[indexItemProduto] = new ItensProduto.UserControl_ItemProduto(this);
-                ItensProduto[indexItemProduto].EditarProduto = false;
+                ItensProduto[indexItemProduto].EditarProduto = true;
                 ItensProduto[indexItemProduto].NumeroItem = indexItemProduto;
 
                 flowLayoutPanelContentProdutos.Controls.Add(ItensProduto[indexItemProduto]);
@@ -546,11 +468,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
             int change = flowLayoutPanelContentProdutos.VerticalScroll.Value + flowLayoutPanelContentProdutos.VerticalScroll.SmallChange * 30;
             flowLayoutPanelContentProdutos.AutoScrollPosition = new Point(0, change);
-        }
-
-        private decimal calcularTotalPago()
-        {
-            return 0;
         }
 
         public decimal CalcularTotaisEntrada()
@@ -575,12 +492,178 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 }
             }
 
-
             labelValueTotalProdutos.Text = TotalItensLancados.ToString();
             labelValueTotalItensLancados.Text = indexItemProduto.ToString();
             labelValueTotalEntrada.Text = TotalEntrada.ToString("C2");
 
             return TotalEntrada;
+        }
+
+        private void gerarParcelas()
+        {
+            DateTime dataVencimento;
+            int quantidadeParcela = 0;
+            decimal valorTotalEntrada = 0, valorParcela = 0;
+
+            #region Pega o valor Total da Nota
+
+            string subTotal_Label = labelValueTotalEntrada.Text;
+            string[] subTotal_Value = subTotal_Label.Split(' ');
+            valorTotalEntrada = decimal.Parse(subTotal_Value[1]);
+
+            #endregion
+
+
+            if (textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+            {
+                quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
+            }
+
+            if (indexItemParcela < quantidadeParcela)
+            {
+                quantidadeParcela -= indexItemParcela;
+
+                if (quantidadeParcela <= 0)
+                {
+                    valorParcela = valorTotalEntrada;
+                }
+                else
+                {
+                    valorParcela = valorTotalEntrada / quantidadeParcela;
+                }
+
+                if (flowLayoutPanel_ItemParcela.Controls.Count > 0)
+                {
+                    dataVencimento = listaItem[indexItemParcela].DataVencimento;
+                }
+                else
+                {
+                    dataVencimento = DateTime.Now;
+                }
+
+                if (updateData._retornarValidacao() == true)
+                {
+                    for (int i = 0; i < quantidadeParcela; i++)
+                    {
+                        indexItemParcela += 1;
+
+                        dataVencimento = dataVencimento.AddMonths(+1);
+
+                        listaItem[indexItemParcela] = new Parcelas.UserControl_itemParcela();
+                        listaItem[indexItemParcela].StatusItem = "NEW_ITEM";
+                        listaItem[indexItemParcela].EditarParcelas = true;
+                        listaItem[indexItemParcela].NumeroParcela = indexItemParcela;
+                        listaItem[indexItemParcela].DataVencimento = dataVencimento;
+
+                        flowLayoutPanel_ItemParcela.Controls.Add(listaItem[indexItemParcela]);
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < quantidadeParcela; i++)
+                    {
+                        indexItemParcela += 1;
+
+                        dataVencimento = dataVencimento.AddMonths(+1);
+
+                        listaItem[indexItemParcela] = new Parcelas.UserControl_itemParcela();
+                        listaItem[indexItemParcela].StatusItem = "NEW_ITEM";
+                        listaItem[indexItemParcela].EditarParcelas = false;
+                        listaItem[indexItemParcela].NumeroParcela = indexItemParcela;
+                        listaItem[indexItemParcela].DataVencimento = dataVencimento;
+
+                        flowLayoutPanel_ItemParcela.Controls.Add(listaItem[indexItemParcela]);
+                    }
+                }
+            }
+            else if (indexItemParcela > quantidadeParcela)
+            {
+                quantidadeParcela = indexItemParcela - quantidadeParcela;
+
+                if (quantidadeParcela <= 0)
+                {
+                    valorParcela = valorTotalEntrada;
+                }
+                else
+                {
+                    valorParcela = valorTotalEntrada / quantidadeParcela;
+                }
+
+                if (flowLayoutPanel_ItemParcela.Controls.Count > 0)
+                {
+                    dataVencimento = listaItem[indexItemParcela].DataVencimento;
+                }
+                else
+                {
+                    dataVencimento = DateTime.Now;
+                }
+
+                var lista = listaItem.ToList();
+
+                for (int i = 1; i <= quantidadeParcela; i++)
+                {
+                    //MessageBox.Show("" + listaItem[indexItemParcela].NumeroParcela + " | " + listaItem[indexItemParcela].DataVencimento + " | " + listaItem[indexItemParcela].ValorParcela + " | " + listaItem[indexItemParcela].FormaPagamento + " | " + listaItem[indexItemParcela].Observacao);
+
+                    ItensParcelaRemovidos.Rows.Add(
+                        listaItem[indexItemParcela].StatusItem,
+                        listaItem[indexItemParcela].EditarParcelas,
+                        listaItem[indexItemParcela].IdParcelaNota,
+                        listaItem[indexItemParcela].NumeroParcela,
+                        listaItem[indexItemParcela].DataVencimento,
+                        listaItem[indexItemParcela].ValorParcela,
+                        listaItem[indexItemParcela].FormaPagamento,
+                        listaItem[indexItemParcela].Observacao);
+
+                    flowLayoutPanel_ItemParcela.Controls.Remove(listaItem[indexItemParcela]);
+
+                    lista.RemoveAt(indexItemParcela);
+
+                    indexItemParcela -= 1;
+                }
+
+                listaItem = lista.ToArray();
+            }
+
+            recalcularParcelas();
+
+            int change = flowLayoutPanel_ItemParcela.VerticalScroll.Value + flowLayoutPanel_ItemParcela.VerticalScroll.SmallChange * 30;
+            flowLayoutPanel_ItemParcela.AutoScrollPosition = new Point(0, change);
+        }
+
+        public decimal recalcularParcelas()
+        {
+            int quantidadeParcela = 0;
+
+            decimal valorTotalEntrada = 0, valorParcela = 0;
+
+            //
+            if (textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+            {
+                quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
+            }
+            //
+            string subTotal_Label = labelValueTotalEntrada.Text;
+            string[] subTotal_Value = subTotal_Label.Split(' ');
+
+            //
+            valorTotalEntrada = decimal.Parse(subTotal_Value[1]);
+
+            //
+            if (indexItemParcela == 0)
+            {
+                valorParcela = valorTotalEntrada;
+            }
+            else
+            {
+                valorParcela = valorTotalEntrada / indexItemParcela;
+            }
+
+            for (int i = 1; i <= indexItemParcela; i++)
+            {
+                listaItem[i].ValorParcela = valorParcela;
+            }
+
+            return valorParcela;
         }
 
         private void carregarDadosPedidosCompra()
@@ -671,7 +754,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private void carregarParcelasNota(int quantidadeParcela)
         {
-            string query = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID");
+            string query = ("SELECT idParcelaNota, numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -681,21 +764,23 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
             flowLayoutPanel_ItemParcela.Controls.Clear();
 
-            for (int i = 0; i < quantidadeParcela; i++)
+            while (datareader.Read())
             {
-                if (datareader.Read())
-                {
-                    listaItem[i] = new Parcelas.UserControl_itemParcela();
-                    listaItem[i].EditarParcelas = true;
-                    listaItem[i].NumeroParcela = int.Parse(datareader[0].ToString());
-                    listaItem[i].DataVencimento = datareader.GetDateTime(1);
-                    listaItem[i].ValorParcela = datareader.GetDecimal(2);
-                    listaItem[i].FormaPagamento = datareader.GetInt32(3);
-                    listaItem[i].Observacao = datareader.GetString(4);
+                indexItemParcela++;
 
-                    flowLayoutPanel_ItemParcela.Controls.Add(listaItem[i]);
-                }
+                listaItem[indexItemParcela] = new Parcelas.UserControl_itemParcela();
+                listaItem[indexItemParcela].StatusItem = "IN_DATABASE";
+                listaItem[indexItemParcela].EditarParcelas = true;
+                listaItem[indexItemParcela].IdParcelaNota = int.Parse(datareader[0].ToString());
+                listaItem[indexItemParcela].NumeroParcela = int.Parse(datareader[1].ToString());
+                listaItem[indexItemParcela].DataVencimento = datareader.GetDateTime(2);
+                listaItem[indexItemParcela].ValorParcela = datareader.GetDecimal(3);
+                listaItem[indexItemParcela].FormaPagamento = datareader.GetInt32(4);
+                listaItem[indexItemParcela].Observacao = datareader.GetString(5);
+
+                flowLayoutPanel_ItemParcela.Controls.Add(listaItem[indexItemParcela]);
             }
+
             banco.desconectar();
         }
 
@@ -734,9 +819,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             try
             {
-                string query = ("INSERT INTO PedidosCompra (vendedor, numeroNota, situacao, situacaoContas, situacaoEstoque, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@vendedor, @numeroNota, @situacao, @situacaoContas, @situacaoEstoque, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
+                string query = ("INSERT INTO PedidosCompra (numeroPedido, vendedor, numeroNota, situacao, situacaoContas, situacaoEstoque, quantidadeParcela, valorTotalEntrada, dataEntrada, aplicacaoProdutos, observacao, idFornecedorFK, idFuncionarioFK, idCentroCustosFK, idLog, createdAt) VALUES (@numeroPedido, @vendedor, @numeroNota, @situacao, @situacaoContas, @situacaoEstoque, @quantidadeParcela, @valorTotalEntrada, @dataEntrada, @aplicacaoProdutos, @observacao, @idFornecedorFK, @idFuncionarioFK, @idCentroCustosFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
+                exeQuery.Parameters.AddWithValue("@numeroPedido", verificarIdPedidosCompra() + 1);
                 exeQuery.Parameters.AddWithValue("@vendedor", textBoxVendedor.Text);
                 exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaPedidosCompra());
                 exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
@@ -809,13 +895,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 string query = ("INSERT INTO ParcelasNota (numeroParcela, dataVencimento, valorTotal, observacao, idFormaPagamentoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@numeroParcela, @dataVencimento, @valorTotal, @observacao, @idFormaPagamentoFK, @idPedidosCompraFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-                for (int i = 0; i < quantidadeParcela; i++)
+                for (int i = 1; i <= indexItemParcela; i++)
                 {
-                    int parcela = i + 1;
+                    int parcela = i;
 
                     exeQuery.Parameters.Clear();
                     exeQuery.Parameters.AddWithValue("@numeroParcela", parcela);
-                    exeQuery.Parameters.AddWithValue("@dataVencimento", listaItem[i].dateTimeVencimento.Value);
+                    exeQuery.Parameters.AddWithValue("@dataVencimento", listaItem[i].DataVencimento);
                     exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(listaItem[i].textBoxValor.Text));
                     exeQuery.Parameters.AddWithValue("@observacao", gerarDescricaoConta(parcela, listaItem[i].textBoxObservacao.Text));
                     exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", listaItem[i].verificarIdFormaPagamento());
@@ -860,6 +946,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 banco.desconectar();
 
                 queryUpdateItensPedido();
+                queryUpdateParcelasNota();
 
                 MessageBox.Show("Cadastro atualizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -867,6 +954,15 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             {
                 MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryUpdate PedidosCompra " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void queryUpdateItensPedido()
+        {
+            verificarAlteracoesItensPedido();
+
+            queryDeleteItemProduto();
+            queryUpdateItemProduto();
+            queryInsertItemProduto();
         }
 
         private bool verificarAlteracoesItensPedido()
@@ -960,16 +1056,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
         }
 
-        private void queryUpdateItensPedido()
-        {
-            verificarAlteracoesItensPedido();
-
-            queryDeleteItem();
-            queryUpdateItem();
-            queryInsertItem();
-        }
-
-        private void queryDeleteItem()
+        private void queryDeleteItemProduto()
         {
             for (int i = 0; i < ItensRemovidos.Rows.Count; i++)
             {
@@ -1008,7 +1095,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
         }
 
-        private void queryUpdateItem()
+        private void queryUpdateItemProduto()
         {
             for (int i = 0; i < ItensPedidoAlterado.Rows.Count; i++)
             {
@@ -1054,7 +1141,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
         }
 
-        private void queryInsertItem()
+        private void queryInsertItemProduto()
         {
             for (int i = 0; i < ItensPedidoAlterado.Rows.Count; i++)
             {
@@ -1099,6 +1186,237 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                     }
                     banco.desconectar();
                 }   
+            }
+        }
+
+        private void queryUpdateParcelasNota()
+        {
+            verificarAlteracoesItensParcela();
+
+            queryDeleteItemParcela();
+            queryUpdateItemParecela();
+            queryInsertItemParcela();
+        }
+
+        private bool verificarAlteracoesItensParcela()
+        {
+            ItensPedidoAlterado.Rows.Clear();
+
+            for (int i = 1; i <= indexItemParcela; i++)
+            {
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string query = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQuery.Parameters.AddWithValue("@idParcelaNota", listaItem[i].IdParcelaNota);
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQuery.ExecuteReader();
+
+                if (datareader.Read())
+                {
+                    if (listaItem[i].StatusItem == "IN_DATABASE")
+                    {
+                        if (listaItem[i].NumeroParcela != int.Parse(datareader.GetString(0)) ||
+                            listaItem[i].DataVencimento != datareader.GetDateTime(1) ||
+                            listaItem[i].ValorParcela != datareader.GetDecimal(2) ||
+                            listaItem[i].FormaPagamento != datareader.GetInt32(3) ||
+                            listaItem[i].Observacao != datareader.GetString(4)
+                            )
+                        {
+                            //MessageBox.Show("IN DATA - " + listaItem[i].NumeroParcela + " | " + listaItem[i].DataVencimento + " | " + listaItem[i].ValorParcela + " | " + listaItem[i].FormaPagamento + " | " + listaItem[i].Observacao);
+                            //MessageBox.Show("IN DATA - " + datareader[0].ToString() + " | " + datareader[1].ToString() + " | " + datareader[2].ToString() + " | " + datareader[3].ToString() + " | " + datareader[4].ToString());
+
+                            ItensParcelaAlterado.Rows.Add(listaItem[i].IdParcelaNota,
+                                listaItem[i].NumeroParcela,
+                                listaItem[i].DataVencimento,
+                                listaItem[i].ValorParcela,
+                                listaItem[i].FormaPagamento,
+                                listaItem[i].Observacao,
+                                listaItem[i].StatusItem
+                            );
+                        }
+                    }
+                }
+                else
+                {
+                    //MessageBox.Show("NEW ITEM - " + listaItem[i].NumeroParcela + " | " + listaItem[i].DataVencimento + " | " + listaItem[i].ValorParcela + " | " + listaItem[i].FormaPagamento + " | " + listaItem[i].Observacao);
+
+                    ItensParcelaAlterado.Rows.Add(listaItem[i].IdParcelaNota,
+                                listaItem[i].NumeroParcela,
+                                listaItem[i].DataVencimento,
+                                listaItem[i].ValorParcela,
+                                listaItem[i].FormaPagamento,
+                                listaItem[i].Observacao,
+                                listaItem[i].StatusItem);
+                }
+
+                banco.desconectar();
+            };
+
+
+            for (int i = 1; i <= indexItemParcela; i++)
+            {
+                for (int x = 0; x < ItensParcelaRemovidos.Rows.Count; x++)
+                {
+                    if (listaItem[i].IdParcelaNota == int.Parse(ItensParcelaRemovidos.Rows[x][2].ToString()))
+                    {
+                        ItensParcelaAlterado.Rows.Add(listaItem[i].IdParcelaNota,
+                                listaItem[i].NumeroParcela,
+                                listaItem[i].DataVencimento,
+                                listaItem[i].ValorParcela,
+                                listaItem[i].FormaPagamento,
+                                listaItem[i].Observacao,
+                                listaItem[i].StatusItem);
+
+                        ItensParcelaRemovidos.Rows.RemoveAt(x);
+                    }
+                }
+            }
+
+            //MessageBox.Show("Total de alterados: " + ItensParcelaAlterado.Rows.Count);
+
+            if (ItensParcelaAlterado.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void queryDeleteItemParcela()
+        {
+            for (int i = 0; i < ItensParcelaRemovidos.Rows.Count; i++)
+            {
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string queryConsulta = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
+
+                exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQueryConsulta.Parameters.AddWithValue("@idParcelaNota", int.Parse(ItensParcelaRemovidos.Rows[i][2].ToString()));
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                if (datareader.Read())
+                {
+                    try
+                    {
+                        string queryDeleteString = ("DELETE FROM ParcelasNota WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                        SqlCommand queryDelete = new SqlCommand(queryDeleteString, banco.connection);
+
+                        queryDelete.Parameters.Clear();
+                        queryDelete.Parameters.AddWithValue("@ID", updateData._retornarID());
+                        queryDelete.Parameters.AddWithValue("@idParcelaNota", int.Parse(ItensParcelaRemovidos.Rows[i][2].ToString()));
+
+                        datareader.Close();
+                        queryDelete.ExecuteNonQuery();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensDelete " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                banco.desconectar();
+            }
+        }
+
+        private void queryUpdateItemParecela()
+        {
+            for (int i = 0; i < ItensParcelaAlterado.Rows.Count; i++)
+            {
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string queryConsulta = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
+
+                exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                exeQueryConsulta.Parameters.AddWithValue("@idParcelaNota", int.Parse(ItensParcelaAlterado.Rows[i][0].ToString()));
+
+                banco.conectar();
+
+                SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                if (datareader.Read())
+                {
+                    try
+                    {
+                        string queryUpdate = ("UPDATE ParcelasNota SET numeroParcela = @numeroParcela, dataVencimento = @dataVencimento, valorTotal = @valorTotal, observacao = @observacao, idFormaPagamentoFK = @idFormaPagamentoFK, idLog = @idLog, updatedAt = @updatedAt WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                        SqlCommand exeQueryUpdate = new SqlCommand(queryUpdate, banco.connection);
+
+                        exeQueryUpdate.Parameters.Clear();
+                        exeQueryUpdate.Parameters.AddWithValue("@numeroParcela", ItensParcelaAlterado.Rows[i][1].ToString());
+                        exeQueryUpdate.Parameters.AddWithValue("@dataVencimento", DateTime.Parse(ItensParcelaAlterado.Rows[i][2].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@valorTotal", decimal.Parse(ItensParcelaAlterado.Rows[i][3].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@observacao", ItensParcelaAlterado.Rows[i][5].ToString());
+                        exeQueryUpdate.Parameters.AddWithValue("@idFormaPagamentoFK", int.Parse(ItensParcelaAlterado.Rows[i][4].ToString()));
+                        exeQueryUpdate.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                        exeQueryUpdate.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                        exeQueryUpdate.Parameters.AddWithValue("@ID", updateData._retornarID());
+                        exeQueryUpdate.Parameters.AddWithValue("@idParcelaNota", int.Parse(ItensParcelaAlterado.Rows[i][0].ToString()));
+
+                        datareader.Close();
+                        exeQueryUpdate.ExecuteNonQuery();
+                    }
+                    catch (Exception erro)
+                    {
+                        MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensParcela " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+
+                banco.desconectar();
+            }
+        }
+
+        private void queryInsertItemParcela()
+        {
+            for (int i = 0; i < ItensParcelaAlterado.Rows.Count; i++)
+            {
+                if (ItensParcelaAlterado.Rows[i][6].ToString() == "NEW_ITEM")
+                {
+                    //Retorna os dados da tabela Produtos para o DataGridView
+                    string queryConsulta = ("SELECT numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, observacao FROM ParcelasNota WHERE idPedidosCompraFK = @ID AND idParcelaNota = @idParcelaNota");
+                    SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
+
+                    exeQueryConsulta.Parameters.AddWithValue("@ID", updateData._retornarID());
+                    exeQueryConsulta.Parameters.AddWithValue("@idParcelaNota", int.Parse(ItensParcelaAlterado.Rows[i][0].ToString()));
+
+                    banco.conectar();
+
+                    SqlDataReader datareader = exeQueryConsulta.ExecuteReader();
+
+                    if (!datareader.Read())
+                    {
+                        try
+                        {
+                            string query = ("INSERT INTO ParcelasNota (numeroParcela, dataVencimento, valorTotal, observacao, idFormaPagamentoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@numeroParcela, @dataVencimento, @valorTotal, @observacao, @idFormaPagamentoFK, @idPedidosCompraFK, @idLog, @createdAt)");
+                            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                            exeQuery.Parameters.Clear();
+                            exeQuery.Parameters.AddWithValue("@numeroParcela", ItensParcelaAlterado.Rows[i][1].ToString());
+                            exeQuery.Parameters.AddWithValue("@dataVencimento", DateTime.Parse(ItensParcelaAlterado.Rows[i][2].ToString()));
+                            exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(ItensParcelaAlterado.Rows[i][3].ToString()));
+                            exeQuery.Parameters.AddWithValue("@observacao", gerarDescricaoConta(int.Parse(ItensParcelaAlterado.Rows[i][1].ToString()), ItensParcelaAlterado.Rows[i][5].ToString()));
+                            exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", int.Parse(ItensParcelaAlterado.Rows[i][4].ToString()));
+                            exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", updateData._retornarID());
+                            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+                            datareader.Close();
+                            exeQuery.ExecuteNonQuery();
+                        }
+                        catch (Exception erro)
+                        {
+                            MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: Query ItensParcela " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    banco.desconectar();
+                }
             }
         }
 
@@ -1173,62 +1491,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private void buttonGerarParcela_Click(object sender, EventArgs e)
         {
-            int quantidadeParcela = 0;
-
-            decimal valorTotalEntrada = 0, valorParcela = 0;
-
-            //
-            quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
-
-            //
-            string subTotal_Label = labelValueTotalEntrada.Text;
-            string[] subTotal_Value = subTotal_Label.Split(' ');
-
-            //
-            valorTotalEntrada = decimal.Parse(subTotal_Value[1]);
-
-            //
-            valorParcela = valorTotalEntrada / quantidadeParcela;
-
-            DateTime dataVencimento = DateTime.Now;
-
-            if (valorTotalEntrada > 0)
-            {
-                if(valorParcela > 0)
-                {
-                    flowLayoutPanel_ItemParcela.Controls.Clear();
-
-                    for (int i = 0; i < quantidadeParcela; i++)
-                    {
-                        int contagem = i + 1;
-
-                        dataVencimento = dataVencimento.AddMonths(+1);
-
-                        listaItem[i] = new Parcelas.UserControl_itemParcela();
-                        listaItem[i].EditarParcelas = false;
-                        listaItem[i].NumeroParcela = contagem;
-                        listaItem[i].DataVencimento = dataVencimento;
-                        listaItem[i].ValorParcela = valorParcela;
-
-                        flowLayoutPanel_ItemParcela.Controls.Add(listaItem[i]);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "A valor da parcela não pode ser inferio a 1,00", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "A Nota esta VAZIA! Por favor adicione algum produto!", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
+            gerarParcelas();
         }
 
         private void buttonLimparParcela_Click(object sender, EventArgs e)
         {
-            textBoxQuantidadeParcela.Clear();
-            flowLayoutPanel_ItemParcela.Controls.Clear();
+            textBoxQuantidadeParcela.Text = "1";
+            gerarParcelas();
 
             textBoxQuantidadeParcela.Focus();
         }
@@ -1296,7 +1565,9 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         public void removerItem(int value)
         {
-            ItensRemovidos.Rows.Add(
+            if (ItensProduto[value].ProdutoEncontrado == true)
+            {
+                ItensRemovidos.Rows.Add(
                 ItensProduto[value].StatusItem,
                 ItensProduto[value].EditarProduto,
                 ItensProduto[value].IdProduto,
@@ -1307,7 +1578,8 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 ItensProduto[value].ValorCusto,
                 ItensProduto[value].ValorTotal
                 );
-
+            }
+            
             flowLayoutPanelContentProdutos.Controls.Remove(ItensProduto[value]);
 
             var lista = ItensProduto.ToList();
@@ -1320,22 +1592,16 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
             CalcularTotaisEntrada();
 
+            if(textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+            {
+                recalcularParcelas();
+            }
+
             //Reordena a numeraçao do Itens
             for (int i = 1; i <= indexItemProduto; i++)
             {
                 ItensProduto[i].NumeroItem = i;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-
-
-            //MessageBox.Show("" + ItensRemovidos.Rows.Count);
-
-            //MessageBox.Show("" + ItensRemovidos.Rows[0][0].ToString() + " | " + ItensRemovidos.Rows[0][1].ToString() + " | " + ItensRemovidos.Rows[0][2].ToString() + " | " + ItensRemovidos.Rows[0][3].ToString() + " | " + ItensRemovidos.Rows[0][4].ToString() + " | " + ItensRemovidos.Rows[0][5].ToString() + " | " + ItensRemovidos.Rows[0][6].ToString() + " | " + ItensRemovidos.Rows[0][7].ToString() +" | " + ItensRemovidos.Rows[0][8].ToString());
-
         }
     }
 }

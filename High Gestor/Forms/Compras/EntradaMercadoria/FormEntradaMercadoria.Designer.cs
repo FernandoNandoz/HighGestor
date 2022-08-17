@@ -76,7 +76,6 @@
             this.comboBoxAplicacaoProdutos = new System.Windows.Forms.ComboBox();
             this.textBoxCentroCustos = new System.Windows.Forms.TextBox();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.linkLabelNovoItemProduto = new System.Windows.Forms.LinkLabel();
             this.linkLabelCadProduto = new System.Windows.Forms.LinkLabel();
@@ -563,7 +562,7 @@
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(523, 1212);
+            this.buttonSalvar.Location = new System.Drawing.Point(532, 1212);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 14;
@@ -575,7 +574,7 @@
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(649, 1212);
+            this.btnSair.Location = new System.Drawing.Point(658, 1212);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 15;
@@ -657,7 +656,6 @@
             // 
             // panelContent
             // 
-            this.panelContent.Controls.Add(this.button1);
             this.panelContent.Controls.Add(this.label31);
             this.panelContent.Controls.Add(this.linkLabelNovoItemProduto);
             this.panelContent.Controls.Add(this.linkLabelCadProduto);
@@ -699,18 +697,8 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1293, 1275);
+            this.panelContent.Size = new System.Drawing.Size(1310, 1275);
             this.panelContent.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1008, 71);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 270;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label31
             // 
@@ -867,7 +855,7 @@
             this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
             this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(1188, 5);
+            this.buttonVoltar.Location = new System.Drawing.Point(1205, 5);
             this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(99, 36);
@@ -896,7 +884,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1310, 640);
+            this.ClientSize = new System.Drawing.Size(1327, 640);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEntradaMercadoria";
@@ -950,6 +938,5 @@
         public System.Windows.Forms.Label labelValueTotalProdutos;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContentProdutos;
         public System.Windows.Forms.TextBox textBoxQuantidadeParcela;
-        private System.Windows.Forms.Button button1;
     }
 }
