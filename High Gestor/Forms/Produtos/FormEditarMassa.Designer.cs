@@ -152,17 +152,19 @@
             // 
             // buttonLimparFiltros
             // 
+            this.buttonLimparFiltros.BackColor = System.Drawing.Color.White;
             this.buttonLimparFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLimparFiltros.Location = new System.Drawing.Point(1006, 45);
             this.buttonLimparFiltros.Name = "buttonLimparFiltros";
             this.buttonLimparFiltros.Size = new System.Drawing.Size(113, 30);
             this.buttonLimparFiltros.TabIndex = 123;
             this.buttonLimparFiltros.Text = "Limpar filtros";
-            this.buttonLimparFiltros.UseVisualStyleBackColor = true;
+            this.buttonLimparFiltros.UseVisualStyleBackColor = false;
             this.buttonLimparFiltros.Click += new System.EventHandler(this.buttonLimparFiltros_Click);
             // 
             // comboBoxCategoria
             // 
+            this.comboBoxCategoria.BackColor = System.Drawing.Color.White;
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
@@ -174,6 +176,7 @@
             // 
             // comboBoxFornecedor
             // 
+            this.comboBoxFornecedor.BackColor = System.Drawing.Color.White;
             this.comboBoxFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFornecedor.FormattingEnabled = true;
@@ -185,6 +188,7 @@
             // 
             // comboBoxStatus
             // 
+            this.comboBoxStatus.BackColor = System.Drawing.Color.White;
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxStatus.FormattingEnabled = true;
@@ -202,6 +206,7 @@
             // 
             this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxPesquisarNome.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxPesquisarNome.BackColor = System.Drawing.Color.White;
             this.textBoxPesquisarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.textBoxPesquisarNome.Location = new System.Drawing.Point(28, 47);
             this.textBoxPesquisarNome.Name = "textBoxPesquisarNome";
@@ -248,6 +253,7 @@
             // 
             // comboBoxCampoEditar
             // 
+            this.comboBoxCampoEditar.BackColor = System.Drawing.Color.White;
             this.comboBoxCampoEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCampoEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxCampoEditar.FormattingEnabled = true;
@@ -260,6 +266,7 @@
             "ESTOQUE MINIMO",
             "VALIDADE",
             "VALOR DE CUSTO",
+            "MARGEM DE LUCRO",
             "VALOR DE VENDA"});
             this.comboBoxCampoEditar.Location = new System.Drawing.Point(28, 114);
             this.comboBoxCampoEditar.Name = "comboBoxCampoEditar";
@@ -270,13 +277,14 @@
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(808, 106);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(168, 35);
             this.buttonSalvar.TabIndex = 146;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // dataGridViewContent
@@ -288,14 +296,14 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
@@ -459,7 +467,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.dataGridViewContent);
             this.Controls.Add(this.buttonSalvar);

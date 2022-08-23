@@ -41,6 +41,7 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label13;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCadProduto));
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.checkBoxGerarCodigoAutomaticamente = new System.Windows.Forms.CheckBox();
             this.textBoxTipoUnitario = new System.Windows.Forms.TextBox();
@@ -65,6 +66,7 @@
             this.linkLabelLimparFornecedor = new System.Windows.Forms.LinkLabel();
             this.labelStatusMarca = new System.Windows.Forms.Label();
             this.linkLabelLimparMarca = new System.Windows.Forms.LinkLabel();
+            this.buttonAjuda = new System.Windows.Forms.Button();
             label12 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -212,6 +214,7 @@
             // 
             // comboBoxStatus
             // 
+            this.comboBoxStatus.BackColor = System.Drawing.Color.White;
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.comboBoxStatus.FormattingEnabled = true;
@@ -239,12 +242,16 @@
             // 
             // textBoxTipoUnitario
             // 
+            this.textBoxTipoUnitario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.textBoxTipoUnitario.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxTipoUnitario.BackColor = System.Drawing.Color.White;
             this.textBoxTipoUnitario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxTipoUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxTipoUnitario.Location = new System.Drawing.Point(564, 149);
             this.textBoxTipoUnitario.Name = "textBoxTipoUnitario";
             this.textBoxTipoUnitario.Size = new System.Drawing.Size(97, 26);
             this.textBoxTipoUnitario.TabIndex = 3;
+            this.textBoxTipoUnitario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxTipoUnitario_KeyUp);
             // 
             // linkLimparCategoria
             // 
@@ -301,6 +308,7 @@
             // 
             // comboBoxCategoria
             // 
+            this.comboBoxCategoria.BackColor = System.Drawing.Color.White;
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
@@ -311,6 +319,7 @@
             // 
             // maskedValidade
             // 
+            this.maskedValidade.BackColor = System.Drawing.Color.White;
             this.maskedValidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedValidade.Location = new System.Drawing.Point(488, 392);
             this.maskedValidade.Mask = "00/00/0000";
@@ -320,6 +329,7 @@
             // 
             // textBoxPrecoVenda
             // 
+            this.textBoxPrecoVenda.BackColor = System.Drawing.Color.White;
             this.textBoxPrecoVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxPrecoVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxPrecoVenda.Location = new System.Drawing.Point(452, 468);
@@ -331,6 +341,7 @@
             // 
             // textBoxMargemLucro
             // 
+            this.textBoxMargemLucro.BackColor = System.Drawing.Color.White;
             this.textBoxMargemLucro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxMargemLucro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxMargemLucro.Location = new System.Drawing.Point(267, 468);
@@ -342,6 +353,7 @@
             // 
             // textBoxValorCusto
             // 
+            this.textBoxValorCusto.BackColor = System.Drawing.Color.White;
             this.textBoxValorCusto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxValorCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxValorCusto.Location = new System.Drawing.Point(46, 468);
@@ -353,6 +365,7 @@
             // 
             // textBoxEstoqueMinimo
             // 
+            this.textBoxEstoqueMinimo.BackColor = System.Drawing.Color.White;
             this.textBoxEstoqueMinimo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEstoqueMinimo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEstoqueMinimo.Location = new System.Drawing.Point(46, 392);
@@ -363,6 +376,7 @@
             // 
             // textBoxEstoqueAtual
             // 
+            this.textBoxEstoqueAtual.BackColor = System.Drawing.Color.White;
             this.textBoxEstoqueAtual.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEstoqueAtual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEstoqueAtual.Location = new System.Drawing.Point(267, 392);
@@ -374,6 +388,7 @@
             // 
             // textBoxNomeProduto
             // 
+            this.textBoxNomeProduto.BackColor = System.Drawing.Color.White;
             this.textBoxNomeProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxNomeProduto.Location = new System.Drawing.Point(46, 149);
@@ -383,6 +398,7 @@
             // 
             // textBoxCodigoProduto
             // 
+            this.textBoxCodigoProduto.BackColor = System.Drawing.Color.White;
             this.textBoxCodigoProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxCodigoProduto.Location = new System.Drawing.Point(169, 83);
@@ -394,31 +410,34 @@
             // btnSair
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(607, 579);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 14;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(481, 579);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 13;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // textBoxMarca
             // 
             this.textBoxMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxMarca.BackColor = System.Drawing.Color.White;
             this.textBoxMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxMarca.Location = new System.Drawing.Point(46, 302);
@@ -431,6 +450,7 @@
             // 
             this.textBoxFornecedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxFornecedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxFornecedor.BackColor = System.Drawing.Color.White;
             this.textBoxFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxFornecedor.Location = new System.Drawing.Point(46, 218);
@@ -483,12 +503,28 @@
             this.linkLabelLimparMarca.Text = "Limpar Marca";
             this.linkLabelLimparMarca.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLimparMarca_LinkClicked);
             // 
+            // buttonAjuda
+            // 
+            this.buttonAjuda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAjuda.FlatAppearance.BorderSize = 0;
+            this.buttonAjuda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjuda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAjuda.Image = ((System.Drawing.Image)(resources.GetObject("buttonAjuda.Image")));
+            this.buttonAjuda.Location = new System.Drawing.Point(1154, 8);
+            this.buttonAjuda.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonAjuda.Name = "buttonAjuda";
+            this.buttonAjuda.Size = new System.Drawing.Size(45, 30);
+            this.buttonAjuda.TabIndex = 136;
+            this.buttonAjuda.UseVisualStyleBackColor = true;
+            this.buttonAjuda.Click += new System.EventHandler(this.buttonAjuda_Click);
+            // 
             // FormCadProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1208, 640);
+            this.Controls.Add(this.buttonAjuda);
             this.Controls.Add(this.linkLabelLimparMarca);
             this.Controls.Add(this.labelStatusMarca);
             this.Controls.Add(this.linkLabelLimparFornecedor);
@@ -532,6 +568,7 @@
             this.Text = "FormCadProduto";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCadProduto_FormClosing);
             this.Load += new System.EventHandler(this.FormCadProduto_Load);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FormCadProduto_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -563,5 +600,6 @@
         private System.Windows.Forms.LinkLabel linkLabelLimparFornecedor;
         private System.Windows.Forms.Label labelStatusMarca;
         private System.Windows.Forms.LinkLabel linkLabelLimparMarca;
+        private System.Windows.Forms.Button buttonAjuda;
     }
 }

@@ -55,6 +55,7 @@
             // 
             this.textBoxNomeProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.textBoxNomeProduto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxNomeProduto.BackColor = System.Drawing.Color.White;
             this.textBoxNomeProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeProduto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomeProduto.Location = new System.Drawing.Point(41, 6);
@@ -65,6 +66,7 @@
             // 
             // textBoxCodigo
             // 
+            this.textBoxCodigo.BackColor = System.Drawing.Color.White;
             this.textBoxCodigo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCodigo.Location = new System.Drawing.Point(445, 6);
@@ -75,6 +77,7 @@
             // 
             // textBoxQuantidade
             // 
+            this.textBoxQuantidade.BackColor = System.Drawing.Color.White;
             this.textBoxQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxQuantidade.Location = new System.Drawing.Point(562, 6);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
@@ -85,6 +88,7 @@
             // 
             // textBoxValorCusto
             // 
+            this.textBoxValorCusto.BackColor = System.Drawing.Color.White;
             this.textBoxValorCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValorCusto.Location = new System.Drawing.Point(720, 6);
             this.textBoxValorCusto.Name = "textBoxValorCusto";
@@ -96,6 +100,7 @@
             // 
             // textBoxValorTotal
             // 
+            this.textBoxValorTotal.BackColor = System.Drawing.Color.White;
             this.textBoxValorTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValorTotal.Location = new System.Drawing.Point(878, 6);
             this.textBoxValorTotal.Name = "textBoxValorTotal";
@@ -125,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.labelRemover);
             this.Controls.Add(this.textBoxValorTotal);
             this.Controls.Add(this.textBoxValorCusto);

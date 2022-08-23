@@ -388,5 +388,10 @@ namespace High_Gestor.Forms.Produtos
             }
         }
 
+        private void FormProdutos_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            updateData.receberDados(0, false);
+            ViewForms.requestViewForm(true, false);
+        }
     }
 }

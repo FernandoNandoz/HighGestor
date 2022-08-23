@@ -37,6 +37,7 @@
             // 
             // comboBoxFormaPagamento
             // 
+            this.comboBoxFormaPagamento.BackColor = System.Drawing.Color.White;
             this.comboBoxFormaPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.comboBoxFormaPagamento.FormattingEnabled = true;
@@ -45,9 +46,11 @@
             this.comboBoxFormaPagamento.Size = new System.Drawing.Size(197, 24);
             this.comboBoxFormaPagamento.TabIndex = 8;
             this.comboBoxFormaPagamento.SelectedIndexChanged += new System.EventHandler(this.comboBoxFormaPagamento_SelectedIndexChanged);
+            this.comboBoxFormaPagamento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBoxFormaPagamento_KeyPress);
             // 
             // textBoxValor
             // 
+            this.textBoxValor.BackColor = System.Drawing.Color.White;
             this.textBoxValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxValor.Location = new System.Drawing.Point(195, 6);
             this.textBoxValor.Name = "textBoxValor";
@@ -57,12 +60,14 @@
             // 
             // dateTimeVencimento
             // 
+            this.dateTimeVencimento.CalendarMonthBackground = System.Drawing.Color.White;
             this.dateTimeVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeVencimento.Location = new System.Drawing.Point(46, 6);
             this.dateTimeVencimento.Name = "dateTimeVencimento";
             this.dateTimeVencimento.Size = new System.Drawing.Size(139, 23);
             this.dateTimeVencimento.TabIndex = 6;
+            this.dateTimeVencimento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dateTimeVencimento_KeyPress);
             // 
             // labelNumero
             // 
@@ -76,6 +81,7 @@
             // 
             // textBoxObservacao
             // 
+            this.textBoxObservacao.BackColor = System.Drawing.Color.White;
             this.textBoxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxObservacao.Location = new System.Drawing.Point(566, 6);
             this.textBoxObservacao.Name = "textBoxObservacao";
@@ -86,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.textBoxObservacao);
             this.Controls.Add(this.comboBoxFormaPagamento);
             this.Controls.Add(this.textBoxValor);

@@ -33,7 +33,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         Banco banco = new Banco();
 
         int indexItemProduto = 0, indexItemParcela = 0;
-        bool CalculandoEmMassa = true;
+        bool CalculandoEmMassa = true, situacaoEstoque = false, situacaoContas = false;
 
         DataTable ItensPedidoAlterado = new DataTable();
         DataTable ItensRemovidos = new DataTable();
@@ -42,7 +42,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         ItensProduto.UserControl_ItemProduto[] ItensProduto = new ItensProduto.UserControl_ItemProduto[1000];
         Parcelas.UserControl_itemParcela[] listaItem = new Parcelas.UserControl_itemParcela[200];
-
 
         public FormEntradaMercadoria()
         {
@@ -666,12 +665,18 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             return valorParcela;
         }
 
+        private void verificarSituacaoEntrada()
+        {
+
+        }
+
         private void carregarDadosPedidosCompra()
         {
             int quantidadeParcela = 0;
-            string situacaoContas = string.Empty;
+            string stringSituacaoContas = string.Empty;
+            string stringSituacaoEstoque = string.Empty;
 
-            string query = ("SELECT Fornecedor.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao, PedidosCompra.situacaoContas FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
+            string query = ("SELECT Fornecedor.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -691,18 +696,39 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 textBoxObservacao.Text = datareader.GetString(8);
                 //
                 quantidadeParcela = datareader.GetInt32(4);
-                situacaoContas = datareader.GetString(9);
+                stringSituacaoContas = datareader.GetString(9);
+                stringSituacaoEstoque = datareader.GetString(10);
             }
 
             banco.desconectar();
 
-            if(situacaoContas == "LANCADO")
+            if(stringSituacaoContas == "LANCADO")
             {
+                situacaoContas = true;
+                situacaoEstoque = true;
+
                 carregarParcelasContas();
+
+                labelMessageDadosPagamento.Text = "Atenção! Os produtos foram desabilitados pois você ja lançou o estoque ou as contas!";
             }
-            else if (situacaoContas == "NAO LANCADO")
+            else if (stringSituacaoContas == "NAO LANCADO")
             {
+                situacaoContas = false;
+                situacaoEstoque = false;
+
                 carregarParcelasNota(quantidadeParcela);
+            }
+
+            if (stringSituacaoEstoque == "LANCADO")
+            {
+                situacaoEstoque = true;
+
+                labelMessageItenProduto.Text = "Atenção! Os produtos foram desabilitados pois você ja lançou o estoque ou as contas!";
+            }
+            else if (stringSituacaoEstoque == "NAO LANCADO")
+            {
+                situacaoEstoque = false;
+
             }
         }
 
@@ -729,6 +755,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 ItensProduto[indexItemProduto] = new ItensProduto.UserControl_ItemProduto(this);
                 ItensProduto[indexItemProduto].StatusItem = "IN_DATABASE";
                 ItensProduto[indexItemProduto].EditarProduto = true;
+                ItensProduto[indexItemProduto].SituacaoEstoque = situacaoEstoque;
                 ItensProduto[indexItemProduto].NumeroItem = indexItemProduto;
                 ItensProduto[indexItemProduto].IdProduto = datareader.GetInt32(0);
                 ItensProduto[indexItemProduto].NomeProduto = datareader.GetString(1);
@@ -802,6 +829,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
                 listaItem[i] = new Parcelas.UserControl_itemParcela();
                 listaItem[i].EditarParcelas = true;
+                listaItem[i].SituacaoContas = situacaoContas;
                 listaItem[i].NumeroParcela = contagem;
                 listaItem[i].DataVencimento = datareader.GetDateTime(0);
                 listaItem[i].ValorParcela = datareader.GetDecimal(1);
@@ -968,8 +996,15 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 exeQuery.ExecuteNonQuery();
                 banco.desconectar();
 
-                queryUpdateItensPedido();
-                queryUpdateParcelasNota();
+                if(situacaoContas == false)
+                {
+                    queryUpdateParcelasNota();
+                }
+                if(situacaoEstoque == false)
+                {
+                    queryUpdateItensPedido();
+                }
+                
 
                 MessageBox.Show("Cadastro atualizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -1514,7 +1549,17 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
         private void buttonGerarParcela_Click(object sender, EventArgs e)
         {
-            gerarParcelas();
+            if (updateData._retornarValidacao() == true)
+            {
+                if (situacaoContas == false)
+                {
+                    gerarParcelas();
+                }
+            }
+            else
+            {
+                gerarParcelas();
+            }
         }
 
         private void buttonLimparParcela_Click(object sender, EventArgs e)
@@ -1581,49 +1626,148 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
         }
 
+        private void textBoxNumeroNota_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ItensProduto[indexItemProduto].textBoxNomeProduto.Focus();
+            }
+        }
+
         private void linkLabelNovoItemProduto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            NovoItemProduto();
+            if (updateData._retornarValidacao() == true)
+            {
+                if (situacaoContas == false)
+                {
+                    if (situacaoEstoque == false)
+                    {
+                        NovoItemProduto();
+                    }
+                }
+                else if (situacaoEstoque == false)
+                {
+                    if (situacaoContas == false)
+                    {
+                        NovoItemProduto();
+                    }
+                }
+            }
+            else
+            {
+                NovoItemProduto();
+            }
+        }
+
+        private bool verificarRemoverItem()
+        {
+            if (situacaoContas == false)
+            {
+                if (situacaoEstoque == false)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+            else if (situacaoEstoque == false)
+            {
+                if (situacaoContas == false)
+                {
+                    return true;
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
         public void removerItem(int value)
         {
-            if (ItensProduto[value].ProdutoEncontrado == true)
+            if (updateData._retornarValidacao() == true)
             {
-                ItensRemovidos.Rows.Add(
-                ItensProduto[value].StatusItem,
-                ItensProduto[value].EditarProduto,
-                ItensProduto[value].IdProduto,
-                ItensProduto[value].NumeroItem,
-                ItensProduto[value].NomeProduto,
-                ItensProduto[value].Codigo,
-                ItensProduto[value].Quantidade,
-                ItensProduto[value].ValorCusto,
-                ItensProduto[value].ValorTotal
-                );
+                if(verificarRemoverItem() == true)
+                {
+                    if (ItensProduto[value].ProdutoEncontrado == true)
+                    {
+                        ItensRemovidos.Rows.Add(
+                        ItensProduto[value].StatusItem,
+                        ItensProduto[value].EditarProduto,
+                        ItensProduto[value].IdProduto,
+                        ItensProduto[value].NumeroItem,
+                        ItensProduto[value].NomeProduto,
+                        ItensProduto[value].Codigo,
+                        ItensProduto[value].Quantidade,
+                        ItensProduto[value].ValorCusto,
+                        ItensProduto[value].ValorTotal
+                        );
+                    }
+
+                    flowLayoutPanelContentProdutos.Controls.Remove(ItensProduto[value]);
+
+                    var lista = ItensProduto.ToList();
+
+                    lista.RemoveAt(value);
+
+                    ItensProduto = lista.ToArray();
+
+                    indexItemProduto -= 1;
+
+                    CalcularTotaisEntrada();
+
+                    if (textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+                    {
+                        recalcularParcelas();
+                    }
+
+                    //Reordena a numeraçao do Itens
+                    for (int i = 1; i <= indexItemProduto; i++)
+                    {
+                        ItensProduto[i].NumeroItem = i;
+                    }
+                }
             }
-            
-            flowLayoutPanelContentProdutos.Controls.Remove(ItensProduto[value]);
-
-            var lista = ItensProduto.ToList();
-
-            lista.RemoveAt(value);
-
-            ItensProduto = lista.ToArray();
-
-            indexItemProduto -= 1;     
-
-            CalcularTotaisEntrada();
-
-            if(textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+            else
             {
-                recalcularParcelas();
-            }
+                if (ItensProduto[value].ProdutoEncontrado == true)
+                {
+                    ItensRemovidos.Rows.Add(
+                    ItensProduto[value].StatusItem,
+                    ItensProduto[value].EditarProduto,
+                    ItensProduto[value].IdProduto,
+                    ItensProduto[value].NumeroItem,
+                    ItensProduto[value].NomeProduto,
+                    ItensProduto[value].Codigo,
+                    ItensProduto[value].Quantidade,
+                    ItensProduto[value].ValorCusto,
+                    ItensProduto[value].ValorTotal
+                    );
+                }
 
-            //Reordena a numeraçao do Itens
-            for (int i = 1; i <= indexItemProduto; i++)
-            {
-                ItensProduto[i].NumeroItem = i;
+                flowLayoutPanelContentProdutos.Controls.Remove(ItensProduto[value]);
+
+                var lista = ItensProduto.ToList();
+
+                lista.RemoveAt(value);
+
+                ItensProduto = lista.ToArray();
+
+                indexItemProduto -= 1;
+
+                CalcularTotaisEntrada();
+
+                if (textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
+                {
+                    recalcularParcelas();
+                }
+
+                //Reordena a numeraçao do Itens
+                for (int i = 1; i <= indexItemProduto; i++)
+                {
+                    ItensProduto[i].NumeroItem = i;
+                }
+
             }
         }
     }

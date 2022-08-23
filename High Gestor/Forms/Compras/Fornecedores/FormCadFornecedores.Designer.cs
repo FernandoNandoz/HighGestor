@@ -153,6 +153,7 @@
             // 
             // maskedTelefoneContato
             // 
+            this.maskedTelefoneContato.BackColor = System.Drawing.Color.White;
             this.maskedTelefoneContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedTelefoneContato.Location = new System.Drawing.Point(360, 474);
             this.maskedTelefoneContato.Mask = "(00) 0 0000-0000";
@@ -162,6 +163,7 @@
             // 
             // maskedWhatsApp
             // 
+            this.maskedWhatsApp.BackColor = System.Drawing.Color.White;
             this.maskedWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedWhatsApp.Location = new System.Drawing.Point(48, 474);
             this.maskedWhatsApp.Mask = "(00) 0 0000-0000";
@@ -187,6 +189,7 @@
             // 
             // textBoxCodigoFornecedor
             // 
+            this.textBoxCodigoFornecedor.BackColor = System.Drawing.Color.White;
             this.textBoxCodigoFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoFornecedor.Enabled = false;
             this.textBoxCodigoFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -197,6 +200,7 @@
             // 
             // maskedCPF
             // 
+            this.maskedCPF.BackColor = System.Drawing.Color.White;
             this.maskedCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedCPF.Location = new System.Drawing.Point(360, 273);
             this.maskedCPF.Mask = "000.000.000-00";
@@ -206,6 +210,7 @@
             // 
             // textBoxEndereco
             // 
+            this.textBoxEndereco.BackColor = System.Drawing.Color.White;
             this.textBoxEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEndereco.Location = new System.Drawing.Point(48, 405);
@@ -215,6 +220,7 @@
             // 
             // textBoxRepresentante
             // 
+            this.textBoxRepresentante.BackColor = System.Drawing.Color.White;
             this.textBoxRepresentante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRepresentante.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxRepresentante.Location = new System.Drawing.Point(48, 340);
@@ -224,6 +230,7 @@
             // 
             // textBoxNomeFantasia
             // 
+            this.textBoxNomeFantasia.BackColor = System.Drawing.Color.White;
             this.textBoxNomeFantasia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeFantasia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxNomeFantasia.Location = new System.Drawing.Point(48, 210);
@@ -233,6 +240,7 @@
             // 
             // maskedCNPJ
             // 
+            this.maskedCNPJ.BackColor = System.Drawing.Color.White;
             this.maskedCNPJ.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedCNPJ.Location = new System.Drawing.Point(48, 273);
             this.maskedCNPJ.Mask = "00.000.000/0000-00";
@@ -242,6 +250,7 @@
             // 
             // textBoxRazaoSocial
             // 
+            this.textBoxRazaoSocial.BackColor = System.Drawing.Color.White;
             this.textBoxRazaoSocial.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxRazaoSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxRazaoSocial.Location = new System.Drawing.Point(48, 147);
@@ -266,25 +275,27 @@
             // btnSair
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(607, 579);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 85;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(481, 579);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 84;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSalvar_KeyUp);
             // 
@@ -292,7 +303,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.maskedTelefoneContato);
             this.Controls.Add(this.maskedWhatsApp);

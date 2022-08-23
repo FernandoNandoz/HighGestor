@@ -78,6 +78,7 @@
             // 
             // textBoxCodigoCategoria
             // 
+            this.textBoxCodigoCategoria.BackColor = System.Drawing.Color.White;
             this.textBoxCodigoCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoCategoria.Enabled = false;
             this.textBoxCodigoCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -88,6 +89,7 @@
             // 
             // textBoxNomeCategoria
             // 
+            this.textBoxNomeCategoria.BackColor = System.Drawing.Color.White;
             this.textBoxNomeCategoria.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.textBoxNomeCategoria.Location = new System.Drawing.Point(33, 160);
@@ -112,25 +114,27 @@
             // btnSair
             // 
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(507, 580);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(109, 37);
             this.btnSair.TabIndex = 46;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(392, 580);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(109, 37);
             this.buttonSalvar.TabIndex = 45;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSalvar_KeyUp);
             // 
@@ -138,7 +142,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1008, 640);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);
             this.Controls.Add(label1);

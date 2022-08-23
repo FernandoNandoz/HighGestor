@@ -69,6 +69,13 @@
             this.labelMarca = new System.Windows.Forms.Label();
             this.labelCategoria = new System.Windows.Forms.Label();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTotais = new System.Windows.Forms.Panel();
             this.labelTotalSaidas = new System.Windows.Forms.Label();
             this.labelTotalEntradas = new System.Windows.Forms.Label();
@@ -77,13 +84,8 @@
             this.dateTimePeriodoIncial = new System.Windows.Forms.DateTimePicker();
             this.dateTimePeriodoFinal = new System.Windows.Forms.DateTimePicker();
             this.buttonPesquisar = new System.Windows.Forms.Button();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelDadosProdutoShadow = new System.Windows.Forms.Panel();
+            this.panelTotaisShadow = new System.Windows.Forms.Panel();
             label3 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
@@ -265,6 +267,7 @@
             // groupBoxSaldoAnterior
             // 
             this.groupBoxSaldoAnterior.AutoSize = true;
+            this.groupBoxSaldoAnterior.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxSaldoAnterior.Controls.Add(this.labelSandoAnterior);
             this.groupBoxSaldoAnterior.Controls.Add(label13);
             this.groupBoxSaldoAnterior.Location = new System.Drawing.Point(31, 117);
@@ -289,6 +292,7 @@
             // 
             // groupBoxEntradas
             // 
+            this.groupBoxEntradas.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxEntradas.Controls.Add(this.labelEntradas);
             this.groupBoxEntradas.Controls.Add(label15);
             this.groupBoxEntradas.Location = new System.Drawing.Point(320, 117);
@@ -311,6 +315,7 @@
             // 
             // groupBoxSaidas
             // 
+            this.groupBoxSaidas.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxSaidas.Controls.Add(this.labelSaidas);
             this.groupBoxSaidas.Controls.Add(label14);
             this.groupBoxSaidas.Location = new System.Drawing.Point(609, 117);
@@ -333,6 +338,7 @@
             // 
             // groupBoxSaldo
             // 
+            this.groupBoxSaldo.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxSaldo.Controls.Add(this.labelSaldo);
             this.groupBoxSaldo.Controls.Add(label16);
             this.groupBoxSaldo.Location = new System.Drawing.Point(897, 118);
@@ -355,6 +361,7 @@
             // 
             // buttonMovimentarEstoque
             // 
+            this.buttonMovimentarEstoque.BackColor = System.Drawing.Color.White;
             this.buttonMovimentarEstoque.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMovimentarEstoque.Image = ((System.Drawing.Image)(resources.GetObject("buttonMovimentarEstoque.Image")));
             this.buttonMovimentarEstoque.Location = new System.Drawing.Point(31, 206);
@@ -365,7 +372,7 @@
             this.buttonMovimentarEstoque.Text = " Movimentar estoque";
             this.buttonMovimentarEstoque.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonMovimentarEstoque.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonMovimentarEstoque.UseVisualStyleBackColor = true;
+            this.buttonMovimentarEstoque.UseVisualStyleBackColor = false;
             this.buttonMovimentarEstoque.Click += new System.EventHandler(this.buttonMovimentarEstoque_Click);
             // 
             // buttonVoltar
@@ -421,7 +428,7 @@
             // 
             this.panelDadosProduto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelDadosProduto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelDadosProduto.BackColor = System.Drawing.Color.White;
             this.panelDadosProduto.Controls.Add(this.labelTipoUnitario);
             this.panelDadosProduto.Controls.Add(label5);
             this.panelDadosProduto.Controls.Add(this.labelEstoqueMinimo);
@@ -495,15 +502,15 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -551,114 +558,6 @@
             this.dataGridViewContent.Size = new System.Drawing.Size(1147, 329);
             this.dataGridViewContent.TabIndex = 143;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
-            // 
-            // panelTotais
-            // 
-            this.panelTotais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelTotais.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.panelTotais.Controls.Add(this.labelTotalSaidas);
-            this.panelTotais.Controls.Add(this.labelTotalEntradas);
-            this.panelTotais.Controls.Add(this.labelMedioSaidas);
-            this.panelTotais.Controls.Add(label25);
-            this.panelTotais.Controls.Add(label26);
-            this.panelTotais.Controls.Add(label27);
-            this.panelTotais.Controls.Add(this.labelMedioEntradas);
-            this.panelTotais.Controls.Add(label30);
-            this.panelTotais.Location = new System.Drawing.Point(31, 590);
-            this.panelTotais.Name = "panelTotais";
-            this.panelTotais.Size = new System.Drawing.Size(1147, 40);
-            this.panelTotais.TabIndex = 144;
-            this.panelTotais.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
-            // 
-            // labelTotalSaidas
-            // 
-            this.labelTotalSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTotalSaidas.AutoSize = true;
-            this.labelTotalSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelTotalSaidas.Location = new System.Drawing.Point(985, 11);
-            this.labelTotalSaidas.Name = "labelTotalSaidas";
-            this.labelTotalSaidas.Size = new System.Drawing.Size(40, 18);
-            this.labelTotalSaidas.TabIndex = 32;
-            this.labelTotalSaidas.Text = "0,00";
-            // 
-            // labelTotalEntradas
-            // 
-            this.labelTotalEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTotalEntradas.AutoSize = true;
-            this.labelTotalEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelTotalEntradas.Location = new System.Drawing.Point(704, 11);
-            this.labelTotalEntradas.Name = "labelTotalEntradas";
-            this.labelTotalEntradas.Size = new System.Drawing.Size(40, 18);
-            this.labelTotalEntradas.TabIndex = 31;
-            this.labelTotalEntradas.Text = "0,00";
-            // 
-            // labelMedioSaidas
-            // 
-            this.labelMedioSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelMedioSaidas.AutoSize = true;
-            this.labelMedioSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMedioSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelMedioSaidas.Location = new System.Drawing.Point(432, 11);
-            this.labelMedioSaidas.Name = "labelMedioSaidas";
-            this.labelMedioSaidas.Size = new System.Drawing.Size(40, 18);
-            this.labelMedioSaidas.TabIndex = 30;
-            this.labelMedioSaidas.Text = "0,00";
-            // 
-            // labelMedioEntradas
-            // 
-            this.labelMedioEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelMedioEntradas.AutoSize = true;
-            this.labelMedioEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMedioEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelMedioEntradas.Location = new System.Drawing.Point(163, 11);
-            this.labelMedioEntradas.Name = "labelMedioEntradas";
-            this.labelMedioEntradas.Size = new System.Drawing.Size(40, 18);
-            this.labelMedioEntradas.TabIndex = 20;
-            this.labelMedioEntradas.Text = "0,00";
-            // 
-            // dateTimePeriodoIncial
-            // 
-            this.dateTimePeriodoIncial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePeriodoIncial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePeriodoIncial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePeriodoIncial.Location = new System.Drawing.Point(827, 212);
-            this.dateTimePeriodoIncial.Margin = new System.Windows.Forms.Padding(0);
-            this.dateTimePeriodoIncial.Name = "dateTimePeriodoIncial";
-            this.dateTimePeriodoIncial.Size = new System.Drawing.Size(109, 26);
-            this.dateTimePeriodoIncial.TabIndex = 145;
-            // 
-            // dateTimePeriodoFinal
-            // 
-            this.dateTimePeriodoFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePeriodoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePeriodoFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePeriodoFinal.Location = new System.Drawing.Point(948, 212);
-            this.dateTimePeriodoFinal.Name = "dateTimePeriodoFinal";
-            this.dateTimePeriodoFinal.Size = new System.Drawing.Size(104, 26);
-            this.dateTimePeriodoFinal.TabIndex = 147;
-            // 
-            // buttonPesquisar
-            // 
-            this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.buttonPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonPesquisar.FlatAppearance.BorderSize = 0;
-            this.buttonPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.buttonPesquisar.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonPesquisar.Location = new System.Drawing.Point(1063, 211);
-            this.buttonPesquisar.Name = "buttonPesquisar";
-            this.buttonPesquisar.Size = new System.Drawing.Size(115, 28);
-            this.buttonPesquisar.TabIndex = 148;
-            this.buttonPesquisar.TabStop = false;
-            this.buttonPesquisar.Text = "Pesquisar";
-            this.buttonPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonPesquisar.UseVisualStyleBackColor = false;
-            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
-            this.buttonPesquisar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
             // Column7
             // 
@@ -722,12 +621,145 @@
             this.Column5.ReadOnly = true;
             this.Column5.Width = 150;
             // 
+            // panelTotais
+            // 
+            this.panelTotais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTotais.BackColor = System.Drawing.Color.White;
+            this.panelTotais.Controls.Add(this.labelTotalSaidas);
+            this.panelTotais.Controls.Add(this.labelTotalEntradas);
+            this.panelTotais.Controls.Add(this.labelMedioSaidas);
+            this.panelTotais.Controls.Add(label25);
+            this.panelTotais.Controls.Add(label26);
+            this.panelTotais.Controls.Add(label27);
+            this.panelTotais.Controls.Add(this.labelMedioEntradas);
+            this.panelTotais.Controls.Add(label30);
+            this.panelTotais.Location = new System.Drawing.Point(31, 588);
+            this.panelTotais.Name = "panelTotais";
+            this.panelTotais.Size = new System.Drawing.Size(1147, 40);
+            this.panelTotais.TabIndex = 144;
+            this.panelTotais.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // labelTotalSaidas
+            // 
+            this.labelTotalSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTotalSaidas.AutoSize = true;
+            this.labelTotalSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelTotalSaidas.Location = new System.Drawing.Point(985, 11);
+            this.labelTotalSaidas.Name = "labelTotalSaidas";
+            this.labelTotalSaidas.Size = new System.Drawing.Size(40, 18);
+            this.labelTotalSaidas.TabIndex = 32;
+            this.labelTotalSaidas.Text = "0,00";
+            // 
+            // labelTotalEntradas
+            // 
+            this.labelTotalEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelTotalEntradas.AutoSize = true;
+            this.labelTotalEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelTotalEntradas.Location = new System.Drawing.Point(704, 11);
+            this.labelTotalEntradas.Name = "labelTotalEntradas";
+            this.labelTotalEntradas.Size = new System.Drawing.Size(40, 18);
+            this.labelTotalEntradas.TabIndex = 31;
+            this.labelTotalEntradas.Text = "0,00";
+            // 
+            // labelMedioSaidas
+            // 
+            this.labelMedioSaidas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMedioSaidas.AutoSize = true;
+            this.labelMedioSaidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedioSaidas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMedioSaidas.Location = new System.Drawing.Point(432, 11);
+            this.labelMedioSaidas.Name = "labelMedioSaidas";
+            this.labelMedioSaidas.Size = new System.Drawing.Size(40, 18);
+            this.labelMedioSaidas.TabIndex = 30;
+            this.labelMedioSaidas.Text = "0,00";
+            // 
+            // labelMedioEntradas
+            // 
+            this.labelMedioEntradas.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelMedioEntradas.AutoSize = true;
+            this.labelMedioEntradas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMedioEntradas.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMedioEntradas.Location = new System.Drawing.Point(163, 11);
+            this.labelMedioEntradas.Name = "labelMedioEntradas";
+            this.labelMedioEntradas.Size = new System.Drawing.Size(40, 18);
+            this.labelMedioEntradas.TabIndex = 20;
+            this.labelMedioEntradas.Text = "0,00";
+            // 
+            // dateTimePeriodoIncial
+            // 
+            this.dateTimePeriodoIncial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePeriodoIncial.CalendarMonthBackground = System.Drawing.Color.White;
+            this.dateTimePeriodoIncial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePeriodoIncial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePeriodoIncial.Location = new System.Drawing.Point(827, 212);
+            this.dateTimePeriodoIncial.Margin = new System.Windows.Forms.Padding(0);
+            this.dateTimePeriodoIncial.Name = "dateTimePeriodoIncial";
+            this.dateTimePeriodoIncial.Size = new System.Drawing.Size(109, 26);
+            this.dateTimePeriodoIncial.TabIndex = 145;
+            // 
+            // dateTimePeriodoFinal
+            // 
+            this.dateTimePeriodoFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePeriodoFinal.CalendarMonthBackground = System.Drawing.Color.White;
+            this.dateTimePeriodoFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePeriodoFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePeriodoFinal.Location = new System.Drawing.Point(948, 212);
+            this.dateTimePeriodoFinal.Name = "dateTimePeriodoFinal";
+            this.dateTimePeriodoFinal.Size = new System.Drawing.Size(104, 26);
+            this.dateTimePeriodoFinal.TabIndex = 147;
+            // 
+            // buttonPesquisar
+            // 
+            this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPesquisar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.buttonPesquisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonPesquisar.FlatAppearance.BorderSize = 0;
+            this.buttonPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonPesquisar.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonPesquisar.Location = new System.Drawing.Point(1063, 211);
+            this.buttonPesquisar.Name = "buttonPesquisar";
+            this.buttonPesquisar.Size = new System.Drawing.Size(115, 28);
+            this.buttonPesquisar.TabIndex = 148;
+            this.buttonPesquisar.TabStop = false;
+            this.buttonPesquisar.Text = "Pesquisar";
+            this.buttonPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonPesquisar.UseVisualStyleBackColor = false;
+            this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
+            this.buttonPesquisar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // panelDadosProdutoShadow
+            // 
+            this.panelDadosProdutoShadow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDadosProdutoShadow.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panelDadosProdutoShadow.Location = new System.Drawing.Point(30, 53);
+            this.panelDadosProdutoShadow.Name = "panelDadosProdutoShadow";
+            this.panelDadosProdutoShadow.Size = new System.Drawing.Size(1149, 37);
+            this.panelDadosProdutoShadow.TabIndex = 94;
+            this.panelDadosProdutoShadow.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // panelTotaisShadow
+            // 
+            this.panelTotaisShadow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelTotaisShadow.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panelTotaisShadow.Location = new System.Drawing.Point(30, 587);
+            this.panelTotaisShadow.Name = "panelTotaisShadow";
+            this.panelTotaisShadow.Size = new System.Drawing.Size(1149, 42);
+            this.panelTotaisShadow.TabIndex = 95;
+            this.panelTotaisShadow.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
             // FormEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1208, 640);
+            this.Controls.Add(this.panelDadosProduto);
             this.Controls.Add(this.buttonPesquisar);
             this.Controls.Add(this.dateTimePeriodoFinal);
             this.Controls.Add(this.dateTimePeriodoIncial);
@@ -737,11 +769,12 @@
             this.Controls.Add(this.groupBoxSaidas);
             this.Controls.Add(this.groupBoxEntradas);
             this.Controls.Add(this.groupBoxSaldoAnterior);
+            this.Controls.Add(this.panelDadosProdutoShadow);
             this.Controls.Add(label3);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(this.buttonMovimentarEstoque);
-            this.Controls.Add(this.panelDadosProduto);
             this.Controls.Add(this.labelNomeProduto);
+            this.Controls.Add(this.panelTotaisShadow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEstoque";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -799,5 +832,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Panel panelDadosProdutoShadow;
+        private System.Windows.Forms.Panel panelTotaisShadow;
     }
 }

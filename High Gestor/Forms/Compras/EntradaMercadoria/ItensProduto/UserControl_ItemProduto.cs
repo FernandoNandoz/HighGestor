@@ -48,6 +48,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
 
         private bool _produtoEncontrado = false;
         private bool _editarProduto = false;
+        private bool _situacaoEstoque = false;
         private int _numeroItem;
         private int _idProduto = 0;
         private string _statusItem = string.Empty;
@@ -57,6 +58,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
         {
             get { return _produtoEncontrado; }
             set { _produtoEncontrado = value; }
+        }
+
+        [Category("Custom Props")]
+        public bool SituacaoEstoque
+        {
+            get { return _situacaoEstoque; }
+            set { _situacaoEstoque = value; }
         }
 
         [Category("Custom Props")]
@@ -249,6 +257,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
                 MessageBox.Show(ex.Message);
             }
         }
+
         private decimal calcularValorTotal_Produto()
         {
             decimal quantidade = 0, valorUnitario = 0, ValorTotal = 0;
@@ -270,6 +279,15 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
             if (EditarProduto == false)
             {
                 limparValores();
+            }
+
+            if(SituacaoEstoque == true)
+            {
+                textBoxNomeProduto.ReadOnly = true;
+                textBoxCodigo.ReadOnly = true;
+                textBoxQuantidade.ReadOnly = true;
+                textBoxValorCusto.ReadOnly = true;
+                textBoxValorTotal.ReadOnly = true;
             }
         }
 

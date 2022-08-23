@@ -51,17 +51,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
-            this.buttonExcluirCadastro = new System.Windows.Forms.Button();
-            this.buttonEditarMassa = new System.Windows.Forms.Button();
-            this.buttonRelatorio = new System.Windows.Forms.Button();
-            this.buttonNovoCadastro = new System.Windows.Forms.Button();
-            this.buttonSair = new System.Windows.Forms.Button();
-            this.buttonLimparFiltros = new System.Windows.Forms.Button();
-            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
-            this.comboBoxFiltroGeral = new System.Windows.Forms.ComboBox();
-            this.textBoxPesquisarNome = new System.Windows.Forms.TextBox();
-            this.labelContagem = new System.Windows.Forms.Label();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,6 +64,17 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonExcluirCadastro = new System.Windows.Forms.Button();
+            this.buttonEditarMassa = new System.Windows.Forms.Button();
+            this.buttonRelatorio = new System.Windows.Forms.Button();
+            this.buttonNovoCadastro = new System.Windows.Forms.Button();
+            this.buttonSair = new System.Windows.Forms.Button();
+            this.buttonLimparFiltros = new System.Windows.Forms.Button();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.comboBoxFornecedor = new System.Windows.Forms.ComboBox();
+            this.comboBoxFiltroGeral = new System.Windows.Forms.ComboBox();
+            this.textBoxPesquisarNome = new System.Windows.Forms.TextBox();
+            this.labelContagem = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label7 = new System.Windows.Forms.Label();
@@ -158,6 +158,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.panelContent.Controls.Add(this.label9);
             this.panelContent.Controls.Add(this.pictureBox4);
             this.panelContent.Controls.Add(this.label3);
@@ -282,14 +283,14 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -347,160 +348,6 @@
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
             this.dataGridViewContent.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewContent_CellFormatting);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
-            // 
-            // buttonExcluirCadastro
-            // 
-            this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
-            this.buttonExcluirCadastro.Location = new System.Drawing.Point(363, 87);
-            this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
-            this.buttonExcluirCadastro.Size = new System.Drawing.Size(162, 35);
-            this.buttonExcluirCadastro.TabIndex = 141;
-            this.buttonExcluirCadastro.Text = " Excluir cadastro";
-            this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExcluirCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirCadastro.UseVisualStyleBackColor = true;
-            this.buttonExcluirCadastro.Click += new System.EventHandler(this.buttonExcluirCadastro_Click);
-            // 
-            // buttonEditarMassa
-            // 
-            this.buttonEditarMassa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditarMassa.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarMassa.Image")));
-            this.buttonEditarMassa.Location = new System.Drawing.Point(191, 87);
-            this.buttonEditarMassa.Name = "buttonEditarMassa";
-            this.buttonEditarMassa.Size = new System.Drawing.Size(166, 35);
-            this.buttonEditarMassa.TabIndex = 140;
-            this.buttonEditarMassa.Text = " Editar em massa";
-            this.buttonEditarMassa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEditarMassa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonEditarMassa.UseVisualStyleBackColor = true;
-            this.buttonEditarMassa.Click += new System.EventHandler(this.buttonEditarMassa_Click);
-            // 
-            // buttonRelatorio
-            // 
-            this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
-            this.buttonRelatorio.Location = new System.Drawing.Point(531, 87);
-            this.buttonRelatorio.Name = "buttonRelatorio";
-            this.buttonRelatorio.Size = new System.Drawing.Size(188, 35);
-            this.buttonRelatorio.TabIndex = 139;
-            this.buttonRelatorio.Text = " Relação de produtos";
-            this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRelatorio.UseVisualStyleBackColor = true;
-            this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
-            // 
-            // buttonNovoCadastro
-            // 
-            this.buttonNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCadastro.Image")));
-            this.buttonNovoCadastro.Location = new System.Drawing.Point(28, 87);
-            this.buttonNovoCadastro.Name = "buttonNovoCadastro";
-            this.buttonNovoCadastro.Size = new System.Drawing.Size(157, 35);
-            this.buttonNovoCadastro.TabIndex = 138;
-            this.buttonNovoCadastro.Text = " Novo cadastro";
-            this.buttonNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNovoCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonNovoCadastro.UseVisualStyleBackColor = true;
-            this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
-            // 
-            // buttonSair
-            // 
-            this.buttonSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.buttonSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonSair.FlatAppearance.BorderSize = 0;
-            this.buttonSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonSair.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonSair.Image = ((System.Drawing.Image)(resources.GetObject("buttonSair.Image")));
-            this.buttonSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSair.Location = new System.Drawing.Point(1016, 87);
-            this.buttonSair.Name = "buttonSair";
-            this.buttonSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonSair.Size = new System.Drawing.Size(168, 35);
-            this.buttonSair.TabIndex = 137;
-            this.buttonSair.TabStop = false;
-            this.buttonSair.Text = " Voltar";
-            this.buttonSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSair.UseVisualStyleBackColor = false;
-            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
-            this.buttonSair.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonSair_Paint);
-            // 
-            // buttonLimparFiltros
-            // 
-            this.buttonLimparFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLimparFiltros.Location = new System.Drawing.Point(1006, 42);
-            this.buttonLimparFiltros.Name = "buttonLimparFiltros";
-            this.buttonLimparFiltros.Size = new System.Drawing.Size(113, 30);
-            this.buttonLimparFiltros.TabIndex = 114;
-            this.buttonLimparFiltros.Text = "Limpar filtros";
-            this.buttonLimparFiltros.UseVisualStyleBackColor = true;
-            this.buttonLimparFiltros.Click += new System.EventHandler(this.buttonLimparFiltros_Click);
-            // 
-            // comboBoxCategoria
-            // 
-            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(546, 44);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(216, 26);
-            this.comboBoxCategoria.TabIndex = 112;
-            this.comboBoxCategoria.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategoria_SelectedIndexChanged);
-            // 
-            // comboBoxFornecedor
-            // 
-            this.comboBoxFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFornecedor.FormattingEnabled = true;
-            this.comboBoxFornecedor.Location = new System.Drawing.Point(768, 44);
-            this.comboBoxFornecedor.Name = "comboBoxFornecedor";
-            this.comboBoxFornecedor.Size = new System.Drawing.Size(232, 26);
-            this.comboBoxFornecedor.TabIndex = 110;
-            this.comboBoxFornecedor.SelectedIndexChanged += new System.EventHandler(this.comboBoxFornecedor_SelectedIndexChanged);
-            // 
-            // comboBoxFiltroGeral
-            // 
-            this.comboBoxFiltroGeral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxFiltroGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBoxFiltroGeral.FormattingEnabled = true;
-            this.comboBoxFiltroGeral.Items.AddRange(new object[] {
-            "TODOS",
-            "EM ESTOQUE",
-            "ESTOQUE BAIXO",
-            "ESTOQUE ZERADO",
-            "INATIVOS"});
-            this.comboBoxFiltroGeral.Location = new System.Drawing.Point(382, 44);
-            this.comboBoxFiltroGeral.Name = "comboBoxFiltroGeral";
-            this.comboBoxFiltroGeral.Size = new System.Drawing.Size(158, 26);
-            this.comboBoxFiltroGeral.TabIndex = 108;
-            this.comboBoxFiltroGeral.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltroGeral_SelectedIndexChanged);
-            // 
-            // textBoxPesquisarNome
-            // 
-            this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBoxPesquisarNome.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBoxPesquisarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.textBoxPesquisarNome.Location = new System.Drawing.Point(28, 44);
-            this.textBoxPesquisarNome.Name = "textBoxPesquisarNome";
-            this.textBoxPesquisarNome.Size = new System.Drawing.Size(345, 27);
-            this.textBoxPesquisarNome.TabIndex = 106;
-            this.textBoxPesquisarNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisarNome_KeyUp);
-            // 
-            // labelContagem
-            // 
-            this.labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelContagem.AutoSize = true;
-            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelContagem.Location = new System.Drawing.Point(1067, 5);
-            this.labelContagem.Name = "labelContagem";
-            this.labelContagem.Size = new System.Drawing.Size(135, 20);
-            this.labelContagem.TabIndex = 105;
-            this.labelContagem.Text = "Total: N Registros";
-            this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Column7
             // 
@@ -619,6 +466,168 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
+            // buttonExcluirCadastro
+            // 
+            this.buttonExcluirCadastro.BackColor = System.Drawing.Color.White;
+            this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
+            this.buttonExcluirCadastro.Location = new System.Drawing.Point(363, 87);
+            this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
+            this.buttonExcluirCadastro.Size = new System.Drawing.Size(162, 35);
+            this.buttonExcluirCadastro.TabIndex = 141;
+            this.buttonExcluirCadastro.Text = " Excluir cadastro";
+            this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExcluirCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonExcluirCadastro.UseVisualStyleBackColor = false;
+            this.buttonExcluirCadastro.Click += new System.EventHandler(this.buttonExcluirCadastro_Click);
+            // 
+            // buttonEditarMassa
+            // 
+            this.buttonEditarMassa.BackColor = System.Drawing.Color.White;
+            this.buttonEditarMassa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditarMassa.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarMassa.Image")));
+            this.buttonEditarMassa.Location = new System.Drawing.Point(191, 87);
+            this.buttonEditarMassa.Name = "buttonEditarMassa";
+            this.buttonEditarMassa.Size = new System.Drawing.Size(166, 35);
+            this.buttonEditarMassa.TabIndex = 140;
+            this.buttonEditarMassa.Text = " Editar em massa";
+            this.buttonEditarMassa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEditarMassa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonEditarMassa.UseVisualStyleBackColor = false;
+            this.buttonEditarMassa.Click += new System.EventHandler(this.buttonEditarMassa_Click);
+            // 
+            // buttonRelatorio
+            // 
+            this.buttonRelatorio.BackColor = System.Drawing.Color.White;
+            this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
+            this.buttonRelatorio.Location = new System.Drawing.Point(531, 87);
+            this.buttonRelatorio.Name = "buttonRelatorio";
+            this.buttonRelatorio.Size = new System.Drawing.Size(188, 35);
+            this.buttonRelatorio.TabIndex = 139;
+            this.buttonRelatorio.Text = " Relação de produtos";
+            this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonRelatorio.UseVisualStyleBackColor = false;
+            this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
+            // 
+            // buttonNovoCadastro
+            // 
+            this.buttonNovoCadastro.BackColor = System.Drawing.Color.White;
+            this.buttonNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCadastro.Image")));
+            this.buttonNovoCadastro.Location = new System.Drawing.Point(28, 87);
+            this.buttonNovoCadastro.Name = "buttonNovoCadastro";
+            this.buttonNovoCadastro.Size = new System.Drawing.Size(157, 35);
+            this.buttonNovoCadastro.TabIndex = 138;
+            this.buttonNovoCadastro.Text = " Novo cadastro";
+            this.buttonNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNovoCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonNovoCadastro.UseVisualStyleBackColor = false;
+            this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
+            // 
+            // buttonSair
+            // 
+            this.buttonSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSair.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.buttonSair.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonSair.FlatAppearance.BorderSize = 0;
+            this.buttonSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonSair.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonSair.Image = ((System.Drawing.Image)(resources.GetObject("buttonSair.Image")));
+            this.buttonSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSair.Location = new System.Drawing.Point(1016, 87);
+            this.buttonSair.Name = "buttonSair";
+            this.buttonSair.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonSair.Size = new System.Drawing.Size(168, 35);
+            this.buttonSair.TabIndex = 137;
+            this.buttonSair.TabStop = false;
+            this.buttonSair.Text = " Voltar";
+            this.buttonSair.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSair.UseVisualStyleBackColor = false;
+            this.buttonSair.Click += new System.EventHandler(this.buttonSair_Click);
+            this.buttonSair.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonSair_Paint);
+            // 
+            // buttonLimparFiltros
+            // 
+            this.buttonLimparFiltros.BackColor = System.Drawing.Color.White;
+            this.buttonLimparFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLimparFiltros.Location = new System.Drawing.Point(1006, 42);
+            this.buttonLimparFiltros.Name = "buttonLimparFiltros";
+            this.buttonLimparFiltros.Size = new System.Drawing.Size(113, 30);
+            this.buttonLimparFiltros.TabIndex = 114;
+            this.buttonLimparFiltros.Text = "Limpar filtros";
+            this.buttonLimparFiltros.UseVisualStyleBackColor = false;
+            this.buttonLimparFiltros.Click += new System.EventHandler(this.buttonLimparFiltros_Click);
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.BackColor = System.Drawing.Color.White;
+            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Location = new System.Drawing.Point(546, 44);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(216, 26);
+            this.comboBoxCategoria.TabIndex = 112;
+            this.comboBoxCategoria.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategoria_SelectedIndexChanged);
+            // 
+            // comboBoxFornecedor
+            // 
+            this.comboBoxFornecedor.BackColor = System.Drawing.Color.White;
+            this.comboBoxFornecedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFornecedor.FormattingEnabled = true;
+            this.comboBoxFornecedor.Location = new System.Drawing.Point(768, 44);
+            this.comboBoxFornecedor.Name = "comboBoxFornecedor";
+            this.comboBoxFornecedor.Size = new System.Drawing.Size(232, 26);
+            this.comboBoxFornecedor.TabIndex = 110;
+            this.comboBoxFornecedor.SelectedIndexChanged += new System.EventHandler(this.comboBoxFornecedor_SelectedIndexChanged);
+            // 
+            // comboBoxFiltroGeral
+            // 
+            this.comboBoxFiltroGeral.BackColor = System.Drawing.Color.White;
+            this.comboBoxFiltroGeral.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxFiltroGeral.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxFiltroGeral.FormattingEnabled = true;
+            this.comboBoxFiltroGeral.Items.AddRange(new object[] {
+            "TODOS",
+            "EM ESTOQUE",
+            "ESTOQUE BAIXO",
+            "ESTOQUE ZERADO",
+            "INATIVOS"});
+            this.comboBoxFiltroGeral.Location = new System.Drawing.Point(382, 44);
+            this.comboBoxFiltroGeral.Name = "comboBoxFiltroGeral";
+            this.comboBoxFiltroGeral.Size = new System.Drawing.Size(158, 26);
+            this.comboBoxFiltroGeral.TabIndex = 108;
+            this.comboBoxFiltroGeral.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltroGeral_SelectedIndexChanged);
+            // 
+            // textBoxPesquisarNome
+            // 
+            this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.textBoxPesquisarNome.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxPesquisarNome.BackColor = System.Drawing.Color.White;
+            this.textBoxPesquisarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.textBoxPesquisarNome.Location = new System.Drawing.Point(28, 44);
+            this.textBoxPesquisarNome.Name = "textBoxPesquisarNome";
+            this.textBoxPesquisarNome.Size = new System.Drawing.Size(345, 27);
+            this.textBoxPesquisarNome.TabIndex = 106;
+            this.textBoxPesquisarNome.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisarNome_KeyUp);
+            // 
+            // labelContagem
+            // 
+            this.labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelContagem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelContagem.Location = new System.Drawing.Point(950, 6);
+            this.labelContagem.Name = "labelContagem";
+            this.labelContagem.Size = new System.Drawing.Size(234, 20);
+            this.labelContagem.TabIndex = 105;
+            this.labelContagem.Text = "Total: N Registros";
+            this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -630,6 +639,7 @@
             this.Name = "FormProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormProdutos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormProdutos_FormClosing);
             this.Load += new System.EventHandler(this.FormProdutos_Load);
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();

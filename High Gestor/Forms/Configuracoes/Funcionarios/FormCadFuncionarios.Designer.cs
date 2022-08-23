@@ -179,6 +179,7 @@
             // 
             // comboBoxPerfil
             // 
+            this.comboBoxPerfil.BackColor = System.Drawing.Color.White;
             this.comboBoxPerfil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.comboBoxPerfil.FormattingEnabled = true;
@@ -189,6 +190,7 @@
             // 
             // comboBoxSituação
             // 
+            this.comboBoxSituação.BackColor = System.Drawing.Color.White;
             this.comboBoxSituação.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSituação.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.comboBoxSituação.FormattingEnabled = true;
@@ -204,6 +206,7 @@
             // 
             // textBoxComissao
             // 
+            this.textBoxComissao.BackColor = System.Drawing.Color.White;
             this.textBoxComissao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxComissao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxComissao.Location = new System.Drawing.Point(351, 328);
@@ -213,6 +216,7 @@
             // 
             // textBoxNomeCompleto
             // 
+            this.textBoxNomeCompleto.BackColor = System.Drawing.Color.White;
             this.textBoxNomeCompleto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeCompleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxNomeCompleto.Location = new System.Drawing.Point(39, 264);
@@ -222,6 +226,7 @@
             // 
             // textBoxSenha
             // 
+            this.textBoxSenha.BackColor = System.Drawing.Color.White;
             this.textBoxSenha.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxSenha.Location = new System.Drawing.Point(351, 200);
@@ -231,6 +236,7 @@
             // 
             // maskedTelefoneContato
             // 
+            this.maskedTelefoneContato.BackColor = System.Drawing.Color.White;
             this.maskedTelefoneContato.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedTelefoneContato.Location = new System.Drawing.Point(351, 459);
             this.maskedTelefoneContato.Mask = "(00) 0 0000-0000";
@@ -240,6 +246,7 @@
             // 
             // maskedWhatsApp
             // 
+            this.maskedWhatsApp.BackColor = System.Drawing.Color.White;
             this.maskedWhatsApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedWhatsApp.Location = new System.Drawing.Point(39, 459);
             this.maskedWhatsApp.Mask = "(00) 0 0000-0000";
@@ -265,6 +272,7 @@
             // 
             // textBoxCodigoFuncionario
             // 
+            this.textBoxCodigoFuncionario.BackColor = System.Drawing.Color.White;
             this.textBoxCodigoFuncionario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoFuncionario.Enabled = false;
             this.textBoxCodigoFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -275,6 +283,7 @@
             // 
             // maskedCPF
             // 
+            this.maskedCPF.BackColor = System.Drawing.Color.White;
             this.maskedCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedCPF.Location = new System.Drawing.Point(39, 328);
             this.maskedCPF.Mask = "000.000.000-00";
@@ -284,6 +293,7 @@
             // 
             // textBoxEndereco
             // 
+            this.textBoxEndereco.BackColor = System.Drawing.Color.White;
             this.textBoxEndereco.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxEndereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxEndereco.Location = new System.Drawing.Point(39, 393);
@@ -293,6 +303,7 @@
             // 
             // textBoxUsuario
             // 
+            this.textBoxUsuario.BackColor = System.Drawing.Color.White;
             this.textBoxUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.textBoxUsuario.Location = new System.Drawing.Point(39, 200);
@@ -317,25 +328,27 @@
             // btnSair
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(507, 577);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 120;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(381, 577);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 119;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSalvar_KeyUp);
             // 
@@ -343,7 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1008, 640);
             this.Controls.Add(this.comboBoxPerfil);
             this.Controls.Add(label11);

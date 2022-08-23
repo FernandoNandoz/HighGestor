@@ -121,6 +121,8 @@
             this.panelMenuBar.Name = "panelMenuBar";
             this.panelMenuBar.Size = new System.Drawing.Size(158, 722);
             this.panelMenuBar.TabIndex = 0;
+            this.panelMenuBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.event_MouseDown);
+            this.panelMenuBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.event_MouseMove);
             // 
             // buttonFinanceiro
             // 
@@ -265,6 +267,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(158, 82);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
@@ -338,6 +341,8 @@
             this.paneTitlerBar.Size = new System.Drawing.Size(1208, 82);
             this.paneTitlerBar.TabIndex = 1;
             this.paneTitlerBar.Paint += new System.Windows.Forms.PaintEventHandler(this.paneTitlerBar_Paint);
+            this.paneTitlerBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.event_MouseDown);
+            this.paneTitlerBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.event_MouseMove);
             // 
             // labelNameEstebelecimento
             // 
@@ -347,7 +352,7 @@
             this.labelNameEstebelecimento.Name = "labelNameEstebelecimento";
             this.labelNameEstebelecimento.Size = new System.Drawing.Size(211, 29);
             this.labelNameEstebelecimento.TabIndex = 3;
-            this.labelNameEstebelecimento.Text = "Agropecuaria TX";
+            this.labelNameEstebelecimento.Text = "TX Agropecuaria";
             // 
             // buttonAjuda
             // 
@@ -383,6 +388,8 @@
             this.pictureBoxPapelParede.Size = new System.Drawing.Size(499, 64);
             this.pictureBoxPapelParede.TabIndex = 8;
             this.pictureBoxPapelParede.TabStop = false;
+            this.pictureBoxPapelParede.MouseDown += new System.Windows.Forms.MouseEventHandler(this.event_MouseDown);
+            this.pictureBoxPapelParede.MouseMove += new System.Windows.Forms.MouseEventHandler(this.event_MouseMove);
             // 
             // FormHighGestor
             // 
@@ -394,11 +401,11 @@
             this.Controls.Add(this.paneTitlerBar);
             this.Controls.Add(this.panelMenuBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1366, 722);
             this.Name = "FormHighGestor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MaximizedBoundsChanged += new System.EventHandler(this.FormHighGestor_MaximizedBoundsChanged);
             this.Load += new System.EventHandler(this.FormHighGestor_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormHighGestor_Paint);

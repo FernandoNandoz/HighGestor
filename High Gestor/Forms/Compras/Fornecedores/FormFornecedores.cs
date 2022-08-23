@@ -138,6 +138,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
 
         private void FormFornecedores_FormClosing(object sender, FormClosingEventArgs e)
         {
+            updateData.receberDados(0, false);
             ViewForms.requestViewForm(true, false);
         }
 

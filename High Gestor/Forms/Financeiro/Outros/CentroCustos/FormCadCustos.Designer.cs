@@ -43,6 +43,36 @@
             label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            label1.Location = new System.Drawing.Point(27, 60);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(112, 17);
+            label1.TabIndex = 57;
+            label1.Text = "Codigo da Custo";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            label2.Location = new System.Drawing.Point(27, 131);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(105, 17);
+            label2.TabIndex = 56;
+            label2.Text = "Nome da Custo";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(27, 203);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(44, 16);
+            label5.TabIndex = 116;
+            label5.Text = "Status";
+            // 
             // checkBoxGerarCodigoAutomaticamente
             // 
             this.checkBoxGerarCodigoAutomaticamente.AutoSize = true;
@@ -59,18 +89,9 @@
             this.checkBoxGerarCodigoAutomaticamente.UseVisualStyleBackColor = true;
             this.checkBoxGerarCodigoAutomaticamente.CheckedChanged += new System.EventHandler(this.checkBoxGerarCodigoAutomaticamente_CheckedChanged);
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            label1.Location = new System.Drawing.Point(27, 60);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(112, 17);
-            label1.TabIndex = 57;
-            label1.Text = "Codigo da Custo";
-            // 
             // textBoxCodigoCusto
             // 
+            this.textBoxCodigoCusto.BackColor = System.Drawing.Color.White;
             this.textBoxCodigoCusto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCodigoCusto.Enabled = false;
             this.textBoxCodigoCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
@@ -79,18 +100,9 @@
             this.textBoxCodigoCusto.Size = new System.Drawing.Size(266, 23);
             this.textBoxCodigoCusto.TabIndex = 51;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            label2.Location = new System.Drawing.Point(27, 131);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(105, 17);
-            label2.TabIndex = 56;
-            label2.Text = "Nome da Custo";
-            // 
             // textBoxNomeCusto
             // 
+            this.textBoxNomeCusto.BackColor = System.Drawing.Color.White;
             this.textBoxNomeCusto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxNomeCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxNomeCusto.Location = new System.Drawing.Point(31, 151);
@@ -115,30 +127,33 @@
             // btnSair
             // 
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSair.Location = new System.Drawing.Point(506, 578);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(109, 37);
             this.btnSair.TabIndex = 54;
             this.btnSair.Text = "Sair";
-            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.UseVisualStyleBackColor = false;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // buttonSalvar
             // 
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.Location = new System.Drawing.Point(391, 578);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(109, 37);
             this.buttonSalvar.TabIndex = 53;
             this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.UseVisualStyleBackColor = false;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSalvar_KeyUp);
             // 
             // comboBoxStatus
             // 
+            this.comboBoxStatus.BackColor = System.Drawing.Color.White;
             this.comboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.comboBoxStatus.FormattingEnabled = true;
@@ -150,21 +165,11 @@
             this.comboBoxStatus.Size = new System.Drawing.Size(592, 26);
             this.comboBoxStatus.TabIndex = 115;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(27, 203);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(44, 16);
-            label5.TabIndex = 116;
-            label5.Text = "Status";
-            // 
             // FormCadCustos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(956, 640);
             this.Controls.Add(this.comboBoxStatus);
             this.Controls.Add(label5);

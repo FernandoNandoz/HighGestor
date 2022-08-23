@@ -34,18 +34,22 @@
             System.Windows.Forms.PictureBox pictureBoxMovimentoCaixa;
             System.Windows.Forms.PictureBox pictureBox1;
             System.Windows.Forms.PictureBox pictureBox3;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.PictureBox pictureBox8;
             System.Windows.Forms.PictureBox pictureBox4;
             System.Windows.Forms.PictureBox pictureBox5;
             System.Windows.Forms.PictureBox pictureBox9;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
             this.textBoxPesquisarFornecedor = new System.Windows.Forms.TextBox();
             this.buttonPesquisar = new System.Windows.Forms.Button();
@@ -59,19 +63,15 @@
             this.panelFornecedor = new System.Windows.Forms.Panel();
             this.buttonFornecedor = new System.Windows.Forms.Button();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSituacao = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAcao = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSituacao = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             pictureBox2 = new System.Windows.Forms.PictureBox();
             labelMovimentoCaixa = new System.Windows.Forms.Label();
             pictureBoxMovimentoCaixa = new System.Windows.Forms.PictureBox();
@@ -85,16 +85,16 @@
             ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
             this.panelContent.SuspendLayout();
             this.panelOrdemCompra.SuspendLayout();
             this.panelRelatorio.SuspendLayout();
             this.panelEntradaMercadoria.SuspendLayout();
             this.panelFornecedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -151,8 +151,53 @@
             pictureBox3.TabIndex = 14;
             pictureBox3.TabStop = false;
             // 
+            // pictureBox8
+            // 
+            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
+            pictureBox8.Location = new System.Drawing.Point(1104, 620);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(15, 15);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 14;
+            pictureBox8.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
+            pictureBox4.Location = new System.Drawing.Point(1013, 620);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(15, 15);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 162;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox5.Image = global::High_Gestor.Properties.Resources.amarelo;
+            pictureBox5.Location = new System.Drawing.Point(892, 620);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(15, 15);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 163;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
+            pictureBox9.Location = new System.Drawing.Point(786, 620);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(15, 15);
+            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 164;
+            pictureBox9.TabStop = false;
+            // 
             // panelContent
             // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.panelContent.Controls.Add(pictureBox9);
             this.panelContent.Controls.Add(pictureBox5);
             this.panelContent.Controls.Add(pictureBox4);
@@ -179,6 +224,46 @@
             this.panelContent.TabIndex = 3;
             this.panelContent.Click += new System.EventHandler(this.panelContent_Click);
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1123, 621);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 13);
+            this.label9.TabIndex = 161;
+            this.label9.Text = "Cancelado";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1034, 621);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 159;
+            this.label3.Text = "Atendido";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(913, 621);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 157;
+            this.label2.Text = "Em andamento";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(807, 621);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.TabIndex = 155;
+            this.label1.Text = "Em aberto";
             // 
             // linkLabelBuscaAvancada
             // 
@@ -236,7 +321,8 @@
             // 
             // panelOrdemCompra
             // 
-            this.panelOrdemCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelOrdemCompra.BackColor = System.Drawing.Color.White;
+            this.panelOrdemCompra.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelOrdemCompra.Controls.Add(pictureBox3);
             this.panelOrdemCompra.Controls.Add(this.buttonOrdemCompra);
             this.panelOrdemCompra.Location = new System.Drawing.Point(292, 17);
@@ -253,10 +339,10 @@
             this.buttonOrdemCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonOrdemCompra.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonOrdemCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonOrdemCompra.Location = new System.Drawing.Point(0, 60);
+            this.buttonOrdemCompra.Location = new System.Drawing.Point(0, 58);
             this.buttonOrdemCompra.Name = "buttonOrdemCompra";
             this.buttonOrdemCompra.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonOrdemCompra.Size = new System.Drawing.Size(250, 30);
+            this.buttonOrdemCompra.Size = new System.Drawing.Size(248, 30);
             this.buttonOrdemCompra.TabIndex = 7;
             this.buttonOrdemCompra.Text = "  Ordem de compra";
             this.buttonOrdemCompra.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -265,7 +351,8 @@
             // 
             // panelRelatorio
             // 
-            this.panelRelatorio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelRelatorio.BackColor = System.Drawing.Color.White;
+            this.panelRelatorio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRelatorio.Controls.Add(pictureBox2);
             this.panelRelatorio.Controls.Add(this.buttonRelatorio);
             this.panelRelatorio.Location = new System.Drawing.Point(819, 17);
@@ -282,10 +369,10 @@
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonRelatorio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonRelatorio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonRelatorio.Location = new System.Drawing.Point(0, 60);
+            this.buttonRelatorio.Location = new System.Drawing.Point(0, 58);
             this.buttonRelatorio.Name = "buttonRelatorio";
             this.buttonRelatorio.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonRelatorio.Size = new System.Drawing.Size(250, 30);
+            this.buttonRelatorio.Size = new System.Drawing.Size(248, 30);
             this.buttonRelatorio.TabIndex = 7;
             this.buttonRelatorio.Text = "  Relatórios";
             this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -317,7 +404,8 @@
             // 
             // panelEntradaMercadoria
             // 
-            this.panelEntradaMercadoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelEntradaMercadoria.BackColor = System.Drawing.Color.White;
+            this.panelEntradaMercadoria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelEntradaMercadoria.Controls.Add(pictureBoxMovimentoCaixa);
             this.panelEntradaMercadoria.Controls.Add(this.buttonEntradaMercadoria);
             this.panelEntradaMercadoria.Location = new System.Drawing.Point(29, 17);
@@ -334,10 +422,10 @@
             this.buttonEntradaMercadoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonEntradaMercadoria.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonEntradaMercadoria.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonEntradaMercadoria.Location = new System.Drawing.Point(0, 60);
+            this.buttonEntradaMercadoria.Location = new System.Drawing.Point(0, 58);
             this.buttonEntradaMercadoria.Name = "buttonEntradaMercadoria";
             this.buttonEntradaMercadoria.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonEntradaMercadoria.Size = new System.Drawing.Size(250, 30);
+            this.buttonEntradaMercadoria.Size = new System.Drawing.Size(248, 30);
             this.buttonEntradaMercadoria.TabIndex = 6;
             this.buttonEntradaMercadoria.Text = "   Entrada de mercadoria";
             this.buttonEntradaMercadoria.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -347,7 +435,8 @@
             // 
             // panelFornecedor
             // 
-            this.panelFornecedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelFornecedor.BackColor = System.Drawing.Color.White;
+            this.panelFornecedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFornecedor.Controls.Add(pictureBox1);
             this.panelFornecedor.Controls.Add(this.buttonFornecedor);
             this.panelFornecedor.Location = new System.Drawing.Point(554, 17);
@@ -364,10 +453,10 @@
             this.buttonFornecedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonFornecedor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonFornecedor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonFornecedor.Location = new System.Drawing.Point(0, 60);
+            this.buttonFornecedor.Location = new System.Drawing.Point(0, 58);
             this.buttonFornecedor.Name = "buttonFornecedor";
             this.buttonFornecedor.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonFornecedor.Size = new System.Drawing.Size(250, 30);
+            this.buttonFornecedor.Size = new System.Drawing.Size(248, 30);
             this.buttonFornecedor.TabIndex = 7;
             this.buttonFornecedor.Text = "  Fornecedores";
             this.buttonFornecedor.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -383,14 +472,14 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -444,43 +533,37 @@
             this.dataGridViewContent.Click += new System.EventHandler(this.dataGridViewContent_Click);
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
-            // Column3
+            // ColumnAcao
             // 
-            this.Column3.DataPropertyName = "IdCompras";
-            this.Column3.HeaderText = "idCompras";
-            this.Column3.Name = "Column3";
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column3.Visible = false;
+            this.ColumnAcao.HeaderText = "Ação";
+            this.ColumnAcao.Image = ((System.Drawing.Image)(resources.GetObject("ColumnAcao.Image")));
+            this.ColumnAcao.MinimumWidth = 100;
+            this.ColumnAcao.Name = "ColumnAcao";
+            this.ColumnAcao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
-            // Column4
+            // Column6
             // 
-            this.Column4.DataPropertyName = "Numero";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Column4.HeaderText = "Nº";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 50;
+            this.Column6.DataPropertyName = "IdFornecedorFK";
+            this.Column6.HeaderText = "idFornecedorFK";
+            this.Column6.Name = "Column6";
+            this.Column6.Visible = false;
             // 
-            // Column5
+            // ColumnSituacao
             // 
-            this.Column5.DataPropertyName = "Data";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column5.HeaderText = "Data";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 120;
+            this.ColumnSituacao.DataPropertyName = "SituacaoImage";
+            this.ColumnSituacao.HeaderText = "Situação";
+            this.ColumnSituacao.Name = "ColumnSituacao";
+            this.ColumnSituacao.ReadOnly = true;
+            this.ColumnSituacao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSituacao.ToolTipText = "Situação da entrada";
+            this.ColumnSituacao.Width = 160;
             // 
-            // cliente
+            // Column7
             // 
-            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cliente.DataPropertyName = "NomeFornecedor";
-            this.cliente.HeaderText = "Fornecedor";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
+            this.Column7.DataPropertyName = "Situacao";
+            this.Column7.HeaderText = "situacao";
+            this.Column7.Name = "Column7";
+            this.Column7.Visible = false;
             // 
             // Column1
             // 
@@ -493,121 +576,43 @@
             this.Column1.ReadOnly = true;
             this.Column1.Width = 135;
             // 
-            // Column7
+            // cliente
             // 
-            this.Column7.DataPropertyName = "Situacao";
-            this.Column7.HeaderText = "situacao";
-            this.Column7.Name = "Column7";
-            this.Column7.Visible = false;
+            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cliente.DataPropertyName = "NomeFornecedor";
+            this.cliente.HeaderText = "Fornecedor";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
             // 
-            // ColumnSituacao
+            // Column5
             // 
-            this.ColumnSituacao.DataPropertyName = "SituacaoImage";
-            this.ColumnSituacao.HeaderText = "Situação";
-            this.ColumnSituacao.Name = "ColumnSituacao";
-            this.ColumnSituacao.ReadOnly = true;
-            this.ColumnSituacao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnSituacao.ToolTipText = "Situação da entrada";
-            this.ColumnSituacao.Width = 160;
+            this.Column5.DataPropertyName = "Data";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column5.HeaderText = "Data";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 120;
             // 
-            // Column6
+            // Column4
             // 
-            this.Column6.DataPropertyName = "IdFornecedorFK";
-            this.Column6.HeaderText = "idFornecedorFK";
-            this.Column6.Name = "Column6";
-            this.Column6.Visible = false;
+            this.Column4.DataPropertyName = "Numero";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column4.HeaderText = "Nº";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 50;
             // 
-            // ColumnAcao
+            // Column3
             // 
-            this.ColumnAcao.HeaderText = "Ação";
-            this.ColumnAcao.Image = ((System.Drawing.Image)(resources.GetObject("ColumnAcao.Image")));
-            this.ColumnAcao.MinimumWidth = 100;
-            this.ColumnAcao.Name = "ColumnAcao";
-            this.ColumnAcao.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(1123, 621);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 13);
-            this.label9.TabIndex = 161;
-            this.label9.Text = "Cancelado";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1034, 621);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 159;
-            this.label3.Text = "Atendido";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(913, 621);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 157;
-            this.label2.Text = "Em andamento";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(807, 621);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 155;
-            this.label1.Text = "Em aberto";
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
-            pictureBox8.Location = new System.Drawing.Point(1104, 620);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new System.Drawing.Size(15, 15);
-            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 14;
-            pictureBox8.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
-            pictureBox4.Location = new System.Drawing.Point(1013, 620);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(15, 15);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 162;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox5.Image = global::High_Gestor.Properties.Resources.amarelo;
-            pictureBox5.Location = new System.Drawing.Point(892, 620);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(15, 15);
-            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 163;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
-            pictureBox9.Location = new System.Drawing.Point(786, 620);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new System.Drawing.Size(15, 15);
-            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 164;
-            pictureBox9.TabStop = false;
+            this.Column3.DataPropertyName = "IdCompras";
+            this.Column3.HeaderText = "idCompras";
+            this.Column3.Name = "Column3";
+            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column3.Visible = false;
             // 
             // FormCompras
             // 
@@ -625,6 +630,10 @@
             ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
             this.panelContent.ResumeLayout(false);
             this.panelContent.PerformLayout();
             this.panelOrdemCompra.ResumeLayout(false);
@@ -632,10 +641,6 @@
             this.panelEntradaMercadoria.ResumeLayout(false);
             this.panelFornecedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -656,6 +661,10 @@
         private System.Windows.Forms.LinkLabel linkLabelBuscaAvancada;
         private System.Windows.Forms.TextBox textBoxPesquisarFornecedor;
         public System.Windows.Forms.DataGridView dataGridViewContent;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
@@ -665,9 +674,5 @@
         private System.Windows.Forms.DataGridViewImageColumn ColumnSituacao;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn ColumnAcao;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
     }
 }

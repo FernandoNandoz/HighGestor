@@ -149,6 +149,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
 
         private void FormCategorias_FormClosing(object sender, FormClosingEventArgs e)
         {
+            updateData.receberDados(0, false);
             ViewForms.requestViewForm(true, false);
         }
 

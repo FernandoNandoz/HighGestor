@@ -252,6 +252,7 @@
             // 
             // dateTimeDataFinal
             // 
+            this.dateTimeDataFinal.CalendarMonthBackground = System.Drawing.Color.White;
             this.dateTimeDataFinal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeDataFinal.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeDataFinal.Location = new System.Drawing.Point(884, 42);
@@ -261,6 +262,7 @@
             // 
             // comboBoxTipoConta
             // 
+            this.comboBoxTipoConta.BackColor = System.Drawing.Color.White;
             this.comboBoxTipoConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxTipoConta.FormattingEnabled = true;
             this.comboBoxTipoConta.Items.AddRange(new object[] {
@@ -274,6 +276,7 @@
             // 
             // textBoxPesquisar
             // 
+            this.textBoxPesquisar.BackColor = System.Drawing.Color.White;
             this.textBoxPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPesquisar.Location = new System.Drawing.Point(29, 42);
             this.textBoxPesquisar.Name = "textBoxPesquisar";
@@ -282,6 +285,7 @@
             // 
             // dateTimeDateInicial
             // 
+            this.dateTimeDateInicial.CalendarMonthBackground = System.Drawing.Color.White;
             this.dateTimeDateInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeDateInicial.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimeDateInicial.Location = new System.Drawing.Point(743, 42);
@@ -292,7 +296,7 @@
             // panelTotalContas
             // 
             this.panelTotalContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelTotalContas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelTotalContas.BackColor = System.Drawing.Color.White;
             this.panelTotalContas.Controls.Add(label3);
             this.panelTotalContas.Controls.Add(pictureBoxContasReceber);
             this.panelTotalContas.Controls.Add(this.labelTotalContasValue);
@@ -316,7 +320,7 @@
             // panelTotalContasRecebidas
             // 
             this.panelTotalContasRecebidas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelTotalContasRecebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelTotalContasRecebidas.BackColor = System.Drawing.Color.White;
             this.panelTotalContasRecebidas.Controls.Add(label5);
             this.panelTotalContasRecebidas.Controls.Add(pictureBoxContasPagar);
             this.panelTotalContasRecebidas.Controls.Add(this.labelTotalContasRecebidasValue);
@@ -340,7 +344,7 @@
             // panelSaldoAtual
             // 
             this.panelSaldoAtual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelSaldoAtual.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.panelSaldoAtual.BackColor = System.Drawing.Color.White;
             this.panelSaldoAtual.Controls.Add(pictureBox1);
             this.panelSaldoAtual.Controls.Add(this.labelSaldoAtualValue);
             this.panelSaldoAtual.Controls.Add(label4);
@@ -370,15 +374,15 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -476,6 +480,7 @@
             // 
             // buttonExcluirLancamento
             // 
+            this.buttonExcluirLancamento.BackColor = System.Drawing.Color.White;
             this.buttonExcluirLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirLancamento.Image")));
             this.buttonExcluirLancamento.Location = new System.Drawing.Point(410, 82);
@@ -486,11 +491,12 @@
             this.buttonExcluirLancamento.Text = " Excluir lançamento";
             this.buttonExcluirLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExcluirLancamento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirLancamento.UseVisualStyleBackColor = true;
+            this.buttonExcluirLancamento.UseVisualStyleBackColor = false;
             this.buttonExcluirLancamento.Click += new System.EventHandler(this.buttonExcluirLancamento_Click);
             // 
             // buttonEditarLancamento
             // 
+            this.buttonEditarLancamento.BackColor = System.Drawing.Color.White;
             this.buttonEditarLancamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarLancamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarLancamento.Image")));
             this.buttonEditarLancamento.Location = new System.Drawing.Point(226, 82);
@@ -501,11 +507,12 @@
             this.buttonEditarLancamento.Text = " Editar lançamento";
             this.buttonEditarLancamento.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEditarLancamento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonEditarLancamento.UseVisualStyleBackColor = true;
+            this.buttonEditarLancamento.UseVisualStyleBackColor = false;
             this.buttonEditarLancamento.Click += new System.EventHandler(this.buttonEditarLancamento_Click);
             // 
             // buttonGerarRelatorio
             // 
+            this.buttonGerarRelatorio.BackColor = System.Drawing.Color.White;
             this.buttonGerarRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGerarRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonGerarRelatorio.Image")));
             this.buttonGerarRelatorio.Location = new System.Drawing.Point(613, 82);
@@ -516,11 +523,12 @@
             this.buttonGerarRelatorio.Text = " Gerar relatorio de Contas a Receber";
             this.buttonGerarRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGerarRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonGerarRelatorio.UseVisualStyleBackColor = true;
+            this.buttonGerarRelatorio.UseVisualStyleBackColor = false;
             this.buttonGerarRelatorio.Click += new System.EventHandler(this.buttonGerarRelatorio_Click);
             // 
             // buttonLancaManualmente
             // 
+            this.buttonLancaManualmente.BackColor = System.Drawing.Color.White;
             this.buttonLancaManualmente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLancaManualmente.Image = ((System.Drawing.Image)(resources.GetObject("buttonLancaManualmente.Image")));
             this.buttonLancaManualmente.Location = new System.Drawing.Point(28, 82);
@@ -531,7 +539,7 @@
             this.buttonLancaManualmente.Text = " Lançar manualmente";
             this.buttonLancaManualmente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLancaManualmente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonLancaManualmente.UseVisualStyleBackColor = true;
+            this.buttonLancaManualmente.UseVisualStyleBackColor = false;
             this.buttonLancaManualmente.Click += new System.EventHandler(this.buttonLancaManualmente_Click);
             // 
             // buttonSairContasReceber
@@ -562,7 +570,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.buttonExcluirLancamento);
             this.Controls.Add(this.buttonEditarLancamento);

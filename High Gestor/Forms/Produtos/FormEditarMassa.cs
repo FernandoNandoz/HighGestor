@@ -314,6 +314,56 @@ namespace High_Gestor.Forms.Produtos
             return liberado;
         }
 
+        private string[] CalcularPrecos(string ValorCustoClient, string ValorCustoDB, string PrecoVendaClient, string PrecoVendaDB, string MargemClient, string MargemDB)
+        {
+            decimal valorCusto = 0, margem = 0, precoVenda = 0;
+
+            if (ValorCustoClient != "")
+            {
+                valorCusto = Decimal.Parse(ValorCustoClient);
+            }
+            else
+            {
+                valorCusto = 0;
+            }
+
+            if (MargemClient != "")
+            {
+                margem = Decimal.Parse(MargemClient);
+            }
+            else
+            {
+                margem = 0;
+            }
+
+            if (PrecoVendaClient != "")
+            {
+                precoVenda = Decimal.Parse(PrecoVendaClient);
+            }
+            else
+            {
+                precoVenda = 0;
+            }
+
+            if (valorCusto != 0 && ValorCustoClient != ValorCustoDB && PrecoVendaClient != PrecoVendaDB ||
+                (valorCusto != 0 && ValorCustoClient == ValorCustoDB && MargemClient == MargemDB && PrecoVendaClient != PrecoVendaDB) ||
+                (valorCusto != 0 && ValorCustoClient != ValorCustoDB && MargemClient != MargemDB && PrecoVendaClient != PrecoVendaDB))
+            {
+                margem = (precoVenda - valorCusto) / (valorCusto / 100);
+            }
+
+            if (ValorCustoClient != ValorCustoDB && MargemClient == MargemDB && PrecoVendaClient == PrecoVendaDB ||
+                (ValorCustoClient != ValorCustoDB && MargemClient != MargemDB && PrecoVendaClient == PrecoVendaDB) ||
+                (ValorCustoClient == ValorCustoDB && MargemClient != MargemDB && PrecoVendaClient == PrecoVendaDB))
+            {
+                precoVenda = valorCusto + ((margem / 100) * valorCusto);
+            }
+
+            string[] result = { valorCusto.ToString("N2"), margem.ToString("N2"), precoVenda.ToString("N2") };
+
+            return result;
+        }
+
         private bool verificarAlteracoes()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
@@ -342,6 +392,18 @@ namespace High_Gestor.Forms.Produtos
                         produtos.Rows[i][12].ToString() != datareader[12].ToString()
                         )
                     {
+                        string valorCusto = CalcularPrecos(produtos.Rows[i][10].ToString(), datareader[10].ToString(),
+                                                                produtos.Rows[i][12].ToString(), datareader[12].ToString(),
+                                                                produtos.Rows[i][11].ToString(), datareader[11].ToString())[0].ToString();
+
+                        string Margem = CalcularPrecos(produtos.Rows[i][10].ToString(), datareader[10].ToString(),
+                                                                produtos.Rows[i][12].ToString(), datareader[12].ToString(),
+                                                                produtos.Rows[i][11].ToString(), datareader[11].ToString())[1].ToString();
+
+                        string valorVenda = CalcularPrecos(produtos.Rows[i][10].ToString(), datareader[10].ToString(),
+                                                                produtos.Rows[i][12].ToString(), datareader[12].ToString(),
+                                                                produtos.Rows[i][11].ToString(), datareader[11].ToString())[2].ToString();
+
                         produtosAlterados.Rows.Add(produtos.Rows[i][0].ToString(),
                             produtos.Rows[i][1].ToString(),
                             produtos.Rows[i][2].ToString(),
@@ -352,9 +414,9 @@ namespace High_Gestor.Forms.Produtos
                             produtos.Rows[i][7].ToString(),
                             produtos.Rows[i][8].ToString(),
                             produtos.Rows[i][9].ToString(),
-                            produtos.Rows[i][10].ToString(),
-                            produtos.Rows[i][11].ToString(),
-                            produtos.Rows[i][12].ToString()
+                            valorCusto,
+                            Margem,
+                            valorVenda
                         );
                     }
                 }
@@ -708,5 +770,6 @@ namespace High_Gestor.Forms.Produtos
         {
             ViewForms.requestViewForm(true, false);
         }
+
     }
 }

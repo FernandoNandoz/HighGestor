@@ -5,17 +5,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
+
 namespace High_Gestor.Forms.Compras
 {
     public partial class FormCompras : Form
     {
         #region Dll
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -28,11 +34,12 @@ namespace High_Gestor.Forms.Compras
            int nHeightEllipse
        );
 
-        #endregion
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
         private const int EM_SETCUEBANNER = 0x1501;
+
+        #endregion
 
         Banco banco = new Banco();
 
@@ -48,6 +55,7 @@ namespace High_Gestor.Forms.Compras
         {
             InitializeComponent();
 
+
             dataTableCompras();
 
             dataGridViewContent.Columns[6].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -55,6 +63,7 @@ namespace High_Gestor.Forms.Compras
             //
             SendMessage(textBoxPesquisarFornecedor.Handle, EM_SETCUEBANNER, 0, "Fornecedor");
         }
+
 
         #region Paint
 
@@ -68,26 +77,28 @@ namespace High_Gestor.Forms.Compras
 
         private void panelEntradaMercadoria_Paint(object sender, PaintEventArgs e)
         {
-            panelEntradaMercadoria.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelEntradaMercadoria.Width,
-            panelEntradaMercadoria.Height, 7, 7));
+            //panelEntradaMercadoria.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelEntradaMercadoria.Width,
+            //panelEntradaMercadoria.Height, 7, 7));
+
+           
         }
 
         private void panelOrdemCompra_Paint(object sender, PaintEventArgs e)
         {
-            panelOrdemCompra.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelOrdemCompra.Width,
-            panelOrdemCompra.Height, 7, 7));
+            //panelOrdemCompra.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelOrdemCompra.Width,
+            //panelOrdemCompra.Height, 7, 7));
         }
 
         private void panelFornecedor_Paint(object sender, PaintEventArgs e)
         {
-            panelFornecedor.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelFornecedor.Width,
-            panelFornecedor.Height, 7, 7));
+            //panelFornecedor.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelFornecedor.Width,
+            //panelFornecedor.Height, 7, 7));
         }
 
         private void panelRelatorio_Paint(object sender, PaintEventArgs e)
         {
-            panelRelatorio.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelRelatorio.Width,
-            panelRelatorio.Height, 7, 7));
+            //panelRelatorio.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelRelatorio.Width,
+            //panelRelatorio.Height, 7, 7));
         }
 
         private void buttonVoltar_Paint(object sender, PaintEventArgs e)
@@ -545,6 +556,8 @@ namespace High_Gestor.Forms.Compras
 
         private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            FecharAcoes();
+
             if (dataGridViewContent.Rows.Count != 0 && e.ColumnIndex != 6 && e.ColumnIndex != 8)
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
@@ -621,5 +634,6 @@ namespace High_Gestor.Forms.Compras
             FecharAcoes();
         }
 
+        
     }
 }

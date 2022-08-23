@@ -24,6 +24,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         #region Header
 
         private bool _editarParcelas = false;
+        private bool _situacaoContas = false;
         private int _idParcelaNota = 0;
         private int _numeroParcela;
         private DateTime _dataVencimento;
@@ -44,6 +45,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         {
             get { return _editarParcelas; }
             set { _editarParcelas = value; }
+        }
+
+        [Category("Custom Props")]
+        public bool SituacaoContas
+        {
+            get { return _situacaoContas; }
+            set { _situacaoContas = value; }
         }
 
         [Category("Custom Props")]
@@ -174,6 +182,12 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
             {
                 comboBoxFormaPagamento.SelectedIndex = 0;
             }
+
+            if(SituacaoContas == true)
+            {
+                textBoxValor.ReadOnly = true;
+                textBoxObservacao.ReadOnly = true;
+            }
         }
 
         private void comboBoxFormaPagamento_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,6 +198,22 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
         private void textBoxValor_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void dateTimeVencimento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (SituacaoContas == true)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void comboBoxFormaPagamento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (SituacaoContas == true)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

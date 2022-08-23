@@ -33,6 +33,7 @@ namespace High_Gestor.Forms.Produtos
             textBoxEstoqueMinimo.Clear();
             textBoxEstoqueAtual.Clear();
             maskedValidade.Clear();
+            textBoxEstoqueAtual.Text = "0";
             textBoxValorCusto.Text = Decimal.Parse("0").ToString("N2");
             textBoxMargemLucro.Text = Decimal.Parse("0").ToString("N2");
             textBoxPrecoVenda.Text = Decimal.Parse("0").ToString("N2");
@@ -43,7 +44,16 @@ namespace High_Gestor.Forms.Produtos
             labelStatusMarca.Text = "NENHUM";
             labelStatusMarca.ForeColor = Color.Black;
             //
-            textBoxCodigoProduto.Focus();
+            textBoxCodigoProduto.Enabled = false;
+            checkBoxGerarCodigoAutomaticamente.Checked = true;
+            //
+            codigoProduto();
+            //
+            pesquisaAutoCompleteFornecedor();
+            pesquisaAutoCompleteTipoUnitario();
+            pesquisaAutoCompleteMarca();
+            //
+            textBoxNomeProduto.Focus();
         }
 
         private int verificarIdProduto()
@@ -67,20 +77,30 @@ namespace High_Gestor.Forms.Produtos
             return id;
         }
 
-        private string codigoProduto()
+        private int verificarUltimoCodigo()
         {
-            string codigoProduto;
+            int UltimoCodigo = 0;
 
-            if (checkBoxGerarCodigoAutomaticamente.Checked)
+            //Pega o ultimo ID resgitrado na tabela log
+            string query = ("SELECT codigoProduto FROM Produtos WHERE codigoProduto=(SELECT MAX(codigoProduto) FROM Produtos)");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
             {
-                codigoProduto = (verificarIdProduto() + 1).ToString();
-            }
-            else
-            {
-                codigoProduto = textBoxCodigoProduto.Text;
+                UltimoCodigo = int.Parse(datareader[0].ToString());
             }
 
-            return codigoProduto;
+            banco.desconectar();
+
+            return UltimoCodigo;
+        }
+
+        private void codigoProduto()
+        {
+            textBoxCodigoProduto.Text = (verificarUltimoCodigo() + 1).ToString();
         }
 
         private void carregarDados()
@@ -315,14 +335,6 @@ namespace High_Gestor.Forms.Produtos
             if (datareader.Read())
             {
                 existente = true;
-
-                if (textBoxCodigoProduto.Text == datareader[0].ToString())
-                {
-                    message = "Já existe um produto com este codigo informado." + "\n";
-                }
-
-                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "Produto:" + "\n" + "\n" + message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             banco.desconectar();
 
@@ -351,7 +363,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
                 sqlCommand.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
                 sqlCommand.Parameters.AddWithValue("@status", comboBoxStatus.Text);
-                sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
+                sqlCommand.Parameters.AddWithValue("@codigoProduto", textBoxCodigoProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@nomeProduto", textBoxNomeProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
                 sqlCommand.Parameters.AddWithValue("@marca", textBoxMarca.Text);
@@ -399,7 +411,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
                 sqlCommand.Parameters.AddWithValue("@idCategoriaFK", consultarIdCategoria());
                 sqlCommand.Parameters.AddWithValue("@status", comboBoxStatus.Text);
-                sqlCommand.Parameters.AddWithValue("@codigoProduto", codigoProduto());
+                sqlCommand.Parameters.AddWithValue("@codigoProduto", textBoxCodigoProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@nomeProduto", textBoxNomeProduto.Text);
                 sqlCommand.Parameters.AddWithValue("@tipoUnitario", textBoxTipoUnitario.Text);
                 sqlCommand.Parameters.AddWithValue("@marca", textBoxMarca.Text);
@@ -491,17 +503,46 @@ namespace High_Gestor.Forms.Produtos
             }
         }
 
+        private void pesquisaAutoCompleteTipoUnitario()
+        {
+            try
+            {
+                SqlCommand exePesquisa = new SqlCommand("SELECT tipoUnitario FROM Produtos", banco.connection);
+
+                banco.conectar();
+                SqlDataReader dr = exePesquisa.ExecuteReader();
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                }
+                banco.desconectar();
+
+                textBoxTipoUnitario.AutoCompleteCustomSource = lista;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void FormCadProduto_Load(object sender, EventArgs e)
         {
             pesquisaAutoCompleteFornecedor();
+            pesquisaAutoCompleteTipoUnitario();
             pesquisaAutoCompleteMarca();
             //
             dataComboBoxCategoria();
             //
+            checkBoxGerarCodigoAutomaticamente.Checked = true;
             comboBoxStatus.SelectedIndex = 0;
+            codigoProduto();
             //
             textBoxCodigoProduto.Focus();
             //
+            textBoxEstoqueAtual.Text = "0";
             textBoxValorCusto.Text = Decimal.Parse("0").ToString("N2");
             textBoxMargemLucro.Text = float.Parse("0").ToString("N2");
             textBoxPrecoVenda.Text = Decimal.Parse("0").ToString("N2");
@@ -516,6 +557,36 @@ namespace High_Gestor.Forms.Produtos
                 //
                 carregarDados();
             }
+        }
+
+        private void FormCadProduto_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                MessageBox.Show("Ajuda de teclas auxiliares  - Cadastro de produtos" + "\n" + "\n" + "\n" + "(ESC)  Fechar Cadastro de Produtos" + "\n" + "\n" + "(INSERT)  Dar foco no Campo Nome Nome Produtos" + "\n" + "\n" + "(DELETE)  Limpa todos os campos do cadastro" + "\n", "Cadastro de Produtos - Ajuda.", MessageBoxButtons.OK);
+            }
+
+            if (e.KeyCode == Keys.Insert)
+            {
+                textBoxNomeProduto.Focus();
+            }
+
+            if (e.KeyCode == Keys.Escape)
+            {
+                this.Close();
+            }
+
+            if (e.KeyCode == Keys.Delete)
+            {
+                limparValores();
+            }
+        }
+
+        private void buttonAjuda_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Ajuda de teclas auxiliares  - Cadastro de produtos" + "\n" + "\n" + "\n" + "(ESC)  Fechar Cadastro de Produtos" + "\n" + "\n" + "(INSERT)  Dar foco no Campo Nome Nome Produtos" + "\n" + "\n" + "(DELETE)  Limpa todos os campos do cadastro" + "\n", "Cadastro de Produtos - Ajuda.", MessageBoxButtons.OK);
+
+            textBoxNomeProduto.Focus();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -760,6 +831,10 @@ namespace High_Gestor.Forms.Produtos
                         //
                         limparValores();
                     }
+                    else
+                    {
+                        MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "Produto:" + "\n" + "\n" + "Ja existe um produto cadastrado com este codigo...", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
@@ -781,6 +856,14 @@ namespace High_Gestor.Forms.Produtos
                 textBoxCodigoProduto.Enabled = true;
 
                 textBoxCodigoProduto.Focus();
+            }
+        }
+
+        private void textBoxTipoUnitario_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                textBoxFornecedor.Focus();
             }
         }
 

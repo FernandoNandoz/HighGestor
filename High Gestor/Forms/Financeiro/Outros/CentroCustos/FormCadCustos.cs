@@ -147,7 +147,7 @@ namespace High_Gestor.Forms.Financeiro.Outros.CentroCustos
         {
             try
             {
-                string Categoria = ("INSERT INTO CentroCusto (idLog, codigoCusto, descricao, status, createdAt) VALUES (@idLog, @codigoCusto, @descricao, @status @createdAt)");
+                string Categoria = ("INSERT INTO CentroCusto (idLog, codigoCusto, descricao, status, createdAt) VALUES (@idLog, @codigoCusto, @descricao, @status, @createdAt)");
                 SqlCommand command = new SqlCommand(Categoria, banco.connection);
 
                 command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));

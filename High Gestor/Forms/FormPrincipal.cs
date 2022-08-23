@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -25,9 +26,19 @@ namespace High_Gestor
 
         Banco banco = new Banco();
 
+        int X = 0;
+        int Y = 0;
+
         public FormHighGestor()
         {
             InitializeComponent();
+
+            Screen tela = Screen.FromPoint(this.Location);
+            this.Size = tela.WorkingArea.Size;
+            this.Location = Point.Empty;
+
+            this.MouseDown += new MouseEventHandler(event_MouseDown);
+            this.MouseMove += new MouseEventHandler(event_MouseMove);
         }
 
         #region Events Componentes
@@ -98,6 +109,20 @@ namespace High_Gestor
         }
 
         #endregion
+
+        private void event_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            X = this.Left - MousePosition.X;
+            Y = this.Top - MousePosition.Y;
+        }
+
+        private void event_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            this.Left = X + MousePosition.X;
+            this.Top = Y + MousePosition.Y;
+        }
 
         private void resposividade()
         {
@@ -177,12 +202,7 @@ namespace High_Gestor
             }
 
             banco.desconectar();
-        }
 
-
-        private void FormHighGestor_Load(object sender, EventArgs e)
-        {
-            dataFuncionario();
 
             TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
 
@@ -194,6 +214,16 @@ namespace High_Gestor
 
             labelUsuario.Text = nome;
 
+            
+        }
+
+
+        private void FormHighGestor_Load(object sender, EventArgs e)
+        {
+            dataFuncionario();
+
+            
+
             buttonVendas_Click(sender, e);
         }
 
@@ -204,13 +234,25 @@ namespace High_Gestor
 
         private void buttonTitlerMaximizar_Click(object sender, EventArgs e)
         {
-            if (WindowState != FormWindowState.Maximized)
+            //1366; 722
+
+            if (Width == 1366 && Height == 722)
             {
-                WindowState = FormWindowState.Maximized;
+                Screen tela = Screen.FromPoint(this.Location);
+                this.Size = tela.WorkingArea.Size;
+                this.Location = Point.Empty;
             }
             else
             {
-                this.WindowState = FormWindowState.Normal;
+                this.Size = new Size(1366, 722);
+
+                //center to screen:
+                Rectangle rect = Screen.PrimaryScreen.WorkingArea;
+                //Divide the screen in half, and find the center of the form to center it
+                this.Top = (rect.Height / 2) - (this.Height / 2);
+                this.Left = (rect.Width / 2) - (this.Width / 2);
+
+                //this.Location = new Point(Width, Height);
             }
 
             resposividade();

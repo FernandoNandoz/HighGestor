@@ -111,6 +111,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.panelContent.Controls.Add(label1);
             this.panelContent.Controls.Add(this.buttonSair);
             this.panelContent.Controls.Add(label8);
@@ -156,6 +157,7 @@
             // 
             // buttonExcluirCadastro
             // 
+            this.buttonExcluirCadastro.BackColor = System.Drawing.Color.White;
             this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
             this.buttonExcluirCadastro.Location = new System.Drawing.Point(557, 118);
@@ -165,11 +167,12 @@
             this.buttonExcluirCadastro.Text = " Excluir cadastro";
             this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonExcluirCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirCadastro.UseVisualStyleBackColor = true;
+            this.buttonExcluirCadastro.UseVisualStyleBackColor = false;
             this.buttonExcluirCadastro.Click += new System.EventHandler(this.buttonExcluirCadastro_Click);
             // 
             // buttonEditarCadastro
             // 
+            this.buttonEditarCadastro.BackColor = System.Drawing.Color.White;
             this.buttonEditarCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEditarCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonEditarCadastro.Image")));
             this.buttonEditarCadastro.Location = new System.Drawing.Point(385, 118);
@@ -179,11 +182,12 @@
             this.buttonEditarCadastro.Text = " Editar cadastro";
             this.buttonEditarCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEditarCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonEditarCadastro.UseVisualStyleBackColor = true;
+            this.buttonEditarCadastro.UseVisualStyleBackColor = false;
             this.buttonEditarCadastro.Click += new System.EventHandler(this.buttonEditarCadastro_Click);
             // 
             // buttonRelatorio
             // 
+            this.buttonRelatorio.BackColor = System.Drawing.Color.White;
             this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
             this.buttonRelatorio.Location = new System.Drawing.Point(177, 118);
@@ -193,11 +197,12 @@
             this.buttonRelatorio.Text = " Relação de custos";
             this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRelatorio.UseVisualStyleBackColor = true;
+            this.buttonRelatorio.UseVisualStyleBackColor = false;
             this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
             // 
             // buttonNovoCadastro
             // 
+            this.buttonNovoCadastro.BackColor = System.Drawing.Color.White;
             this.buttonNovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNovoCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonNovoCadastro.Image")));
             this.buttonNovoCadastro.Location = new System.Drawing.Point(14, 118);
@@ -207,13 +212,14 @@
             this.buttonNovoCadastro.Text = " Novo cadastro";
             this.buttonNovoCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNovoCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonNovoCadastro.UseVisualStyleBackColor = true;
+            this.buttonNovoCadastro.UseVisualStyleBackColor = false;
             this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
             // 
             // textBoxPesquisarNome
             // 
             this.textBoxPesquisarNome.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.textBoxPesquisarNome.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.textBoxPesquisarNome.BackColor = System.Drawing.Color.White;
             this.textBoxPesquisarNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxPesquisarNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.textBoxPesquisarNome.Location = new System.Drawing.Point(14, 73);
@@ -243,15 +249,15 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;

@@ -41,8 +41,8 @@ namespace High_Gestor.Forms.Financeiro.Outros.Caixa
         }
         private void panelStatusCaixa_Paint(object sender, PaintEventArgs e)
         {
-            panelStatusCaixa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelStatusCaixa.Width,
-            panelStatusCaixa.Height, 5, 5));
+            //panelStatusCaixa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelStatusCaixa.Width,
+            //panelStatusCaixa.Height, 5, 5));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
