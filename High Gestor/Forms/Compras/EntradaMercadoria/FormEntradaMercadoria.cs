@@ -51,9 +51,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             pesquisaAutoCompleteVendedor();
             pesquisaAutoCompleteCentroCusto();
 
+            dataTableItensPedido();
+
             if (updateData._retornarValidacao() == true)
             {
-                dataTableItensPedido();
 
                 carregarDadosPedidosCompra();
                 carregarItensPedido();
@@ -815,7 +816,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             int i = 0;
 
-            string query = ("SELECT ContasPagar.dataVencimento, ContasPagar.valorTotal, ContasPagar.idFormaPagamentoFK, ContasPagar.descricao FROM ContasPagar WHERE ContasPagar.idPedidosCompraFK = @ID");
+            string query = ("SELECT ContasPagar.dataVencimento, ContasPagar.valorTotal, ContasPagar.idFormaPagamentoFK, ContasPagar.observacao FROM ContasPagar WHERE ContasPagar.idPedidosCompraFK = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -890,12 +891,13 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             try
             {
-                string query = ("INSERT INTO ItensPedido (numeroNota, dataPedido, quantidadePedido, valorUnitario, valorTotal, idProdutoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@numeroNota, @dataPedido, @quantidadePedido, @valorUnitario, @valorTotal, @idProdutoFK, @idPedidosCompraFK, @idLog, @createdAt)");
+                string query = ("INSERT INTO ItensPedido (tipoPedido, numeroNota, dataPedido, quantidadePedido, valorUnitario, valorTotal, idProdutoFK, idPedidosCompraFK, idLog, createdAt) VALUES (@tipoPedido, @numeroNota, @dataPedido, @quantidadePedido, @valorUnitario, @valorTotal, @idProdutoFK, @idPedidosCompraFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                 for (int i = 1; i <= indexItemProduto; i++)
                 {
                     exeQuery.Parameters.Clear();
+                    exeQuery.Parameters.AddWithValue("@tipoPedido", "COMPRAS");
                     exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroNota.Text);
                     exeQuery.Parameters.AddWithValue("@dataPedido", dateTimeDataEntrada.Value);
                     exeQuery.Parameters.AddWithValue("@quantidadePedido", ItensProduto[i].Quantidade);
@@ -1591,7 +1593,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             ViewForms.requestViewForm(false, true);
 
-            Financeiro.Outros.CentroCustos.FormCentroCustos window = new Financeiro.Outros.CentroCustos.FormCentroCustos();
+            Financeiro.Parametros.CentroCustos.FormCentroCustos window = new Financeiro.Parametros.CentroCustos.FormCentroCustos();
             window.ShowDialog();
             window.Dispose();
 

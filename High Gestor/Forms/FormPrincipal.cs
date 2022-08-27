@@ -150,7 +150,7 @@ namespace High_Gestor
             {
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
-                openChildForm(new Forms.Clientes.FormClientes());
+                openChildForm(new Forms.Vendas.Clientes.FormClientes());
             }
 
             if (alterouSize._retornarFormName() == "FINANCEIRO")
@@ -318,7 +318,7 @@ namespace High_Gestor
             alterouSize.receberName("CLIENTE");
             alterouSize.receberValidacao(1);
 
-            openChildForm(new Forms.Clientes.FormClientes());
+            openChildForm(new Forms.Vendas.Clientes.FormClientes());
         }
 
         private void buttonFinanceiro_Click(object sender, EventArgs e)

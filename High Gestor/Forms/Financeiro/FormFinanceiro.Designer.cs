@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label labelMovimentoCaixa;
-            System.Windows.Forms.PictureBox pictureBoxMovimentoCaixa;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormFinanceiro));
-            System.Windows.Forms.PictureBox pictureBoxContasReceber;
-            System.Windows.Forms.PictureBox pictureBoxContasPagar;
-            System.Windows.Forms.PictureBox pictureBoxConfiguracao;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelContent = new System.Windows.Forms.Panel();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.labelStatusCaixa = new System.Windows.Forms.Label();
@@ -48,32 +45,22 @@
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panelMovimentoCaixa = new System.Windows.Forms.Panel();
-            this.labelMovimentoCaixaValue = new System.Windows.Forms.Label();
-            this.buttonMovimentoCaixa = new System.Windows.Forms.Button();
-            this.panelContasReceber = new System.Windows.Forms.Panel();
-            this.buttonContasReceber = new System.Windows.Forms.Button();
-            this.labelContasReceberValue = new System.Windows.Forms.Label();
-            this.panelContasPagar = new System.Windows.Forms.Panel();
+            this.panelDemonstrativo = new System.Windows.Forms.Panel();
+            this.panelDemonstrativoBorder = new System.Windows.Forms.Panel();
+            this.panelMenuVendas = new System.Windows.Forms.Panel();
             this.buttonContasPagar = new System.Windows.Forms.Button();
-            this.labelContasPagarValue = new System.Windows.Forms.Label();
-            this.panelConfiguracao = new System.Windows.Forms.Panel();
-            this.buttonConfiguracao = new System.Windows.Forms.Button();
+            this.buttonContasReceber = new System.Windows.Forms.Button();
+            this.buttonExtrato = new System.Windows.Forms.Button();
+            this.buttonRelatorio = new System.Windows.Forms.Button();
+            this.panelMenuVendasBorder = new System.Windows.Forms.Panel();
+            this.buttonFluxoCaixa = new System.Windows.Forms.Button();
+            this.buttonParametros = new System.Windows.Forms.Button();
             labelMovimentoCaixa = new System.Windows.Forms.Label();
-            pictureBoxMovimentoCaixa = new System.Windows.Forms.PictureBox();
-            pictureBoxContasReceber = new System.Windows.Forms.PictureBox();
-            pictureBoxContasPagar = new System.Windows.Forms.PictureBox();
-            pictureBoxConfiguracao = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).BeginInit();
+            label1 = new System.Windows.Forms.Label();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
-            this.panelMovimentoCaixa.SuspendLayout();
-            this.panelContasReceber.SuspendLayout();
-            this.panelContasPagar.SuspendLayout();
-            this.panelConfiguracao.SuspendLayout();
+            this.panelDemonstrativo.SuspendLayout();
+            this.panelMenuVendas.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelMovimentoCaixa
@@ -83,61 +70,20 @@
             labelMovimentoCaixa.AutoSize = true;
             labelMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelMovimentoCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            labelMovimentoCaixa.Location = new System.Drawing.Point(30, 141);
+            labelMovimentoCaixa.Location = new System.Drawing.Point(16, 10);
             labelMovimentoCaixa.Name = "labelMovimentoCaixa";
             labelMovimentoCaixa.Size = new System.Drawing.Size(161, 20);
             labelMovimentoCaixa.TabIndex = 97;
             labelMovimentoCaixa.Text = "Movimento de caixa  -";
             labelMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pictureBoxMovimentoCaixa
-            // 
-            pictureBoxMovimentoCaixa.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxMovimentoCaixa.Image")));
-            pictureBoxMovimentoCaixa.Location = new System.Drawing.Point(229, 7);
-            pictureBoxMovimentoCaixa.Name = "pictureBoxMovimentoCaixa";
-            pictureBoxMovimentoCaixa.Size = new System.Drawing.Size(38, 33);
-            pictureBoxMovimentoCaixa.TabIndex = 13;
-            pictureBoxMovimentoCaixa.TabStop = false;
-            // 
-            // pictureBoxContasReceber
-            // 
-            pictureBoxContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasReceber.Image")));
-            pictureBoxContasReceber.Location = new System.Drawing.Point(229, 6);
-            pictureBoxContasReceber.Name = "pictureBoxContasReceber";
-            pictureBoxContasReceber.Size = new System.Drawing.Size(38, 33);
-            pictureBoxContasReceber.TabIndex = 12;
-            pictureBoxContasReceber.TabStop = false;
-            // 
-            // pictureBoxContasPagar
-            // 
-            pictureBoxContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxContasPagar.Image")));
-            pictureBoxContasPagar.Location = new System.Drawing.Point(229, 6);
-            pictureBoxContasPagar.Name = "pictureBoxContasPagar";
-            pictureBoxContasPagar.Size = new System.Drawing.Size(38, 33);
-            pictureBoxContasPagar.TabIndex = 13;
-            pictureBoxContasPagar.TabStop = false;
-            // 
-            // pictureBoxConfiguracao
-            // 
-            pictureBoxConfiguracao.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxConfiguracao.Image")));
-            pictureBoxConfiguracao.Location = new System.Drawing.Point(10, 3);
-            pictureBoxConfiguracao.Name = "pictureBoxConfiguracao";
-            pictureBoxConfiguracao.Size = new System.Drawing.Size(55, 45);
-            pictureBoxConfiguracao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBoxConfiguracao.TabIndex = 10;
-            pictureBoxConfiguracao.TabStop = false;
-            // 
             // panelContent
             // 
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.panelContent.Controls.Add(this.buttonVoltar);
-            this.panelContent.Controls.Add(this.labelStatusCaixa);
-            this.panelContent.Controls.Add(labelMovimentoCaixa);
-            this.panelContent.Controls.Add(this.dataGridViewContent);
-            this.panelContent.Controls.Add(this.panelMovimentoCaixa);
-            this.panelContent.Controls.Add(this.panelContasReceber);
-            this.panelContent.Controls.Add(this.panelContasPagar);
-            this.panelContent.Controls.Add(this.panelConfiguracao);
+            this.panelContent.Controls.Add(this.panelMenuVendas);
+            this.panelContent.Controls.Add(this.panelMenuVendasBorder);
+            this.panelContent.Controls.Add(this.panelDemonstrativo);
+            this.panelContent.Controls.Add(this.panelDemonstrativoBorder);
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Margin = new System.Windows.Forms.Padding(0);
@@ -156,7 +102,7 @@
             this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
             this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(1099, 0);
+            this.buttonVoltar.Location = new System.Drawing.Point(1073, 3);
             this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(105, 30);
@@ -176,7 +122,7 @@
             this.labelStatusCaixa.AutoSize = true;
             this.labelStatusCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelStatusCaixa.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelStatusCaixa.Location = new System.Drawing.Point(189, 141);
+            this.labelStatusCaixa.Location = new System.Drawing.Point(175, 10);
             this.labelStatusCaixa.Name = "labelStatusCaixa";
             this.labelStatusCaixa.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labelStatusCaixa.Size = new System.Drawing.Size(118, 20);
@@ -193,66 +139,66 @@
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.dataGridViewContent.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewContent.ColumnHeadersHeight = 35;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewContent.ColumnHeadersHeight = 30;
             this.dataGridViewContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column4,
             this.Column5,
             this.cliente,
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(34, 171);
+            this.dataGridViewContent.Location = new System.Drawing.Point(16, 35);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
             this.dataGridViewContent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewContent.RowHeadersVisible = false;
             this.dataGridViewContent.RowHeadersWidth = 46;
             this.dataGridViewContent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewContent.Size = new System.Drawing.Size(1150, 467);
+            this.dataGridViewContent.Size = new System.Drawing.Size(1149, 427);
             this.dataGridViewContent.TabIndex = 96;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
             // 
             // Column4
             // 
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle12;
             this.Column4.HeaderText = "Nº";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -286,162 +232,182 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 160;
             // 
-            // panelMovimentoCaixa
+            // panelDemonstrativo
             // 
-            this.panelMovimentoCaixa.BackColor = System.Drawing.Color.White;
-            this.panelMovimentoCaixa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMovimentoCaixa.Controls.Add(pictureBoxMovimentoCaixa);
-            this.panelMovimentoCaixa.Controls.Add(this.labelMovimentoCaixaValue);
-            this.panelMovimentoCaixa.Controls.Add(this.buttonMovimentoCaixa);
-            this.panelMovimentoCaixa.Location = new System.Drawing.Point(34, 31);
-            this.panelMovimentoCaixa.Name = "panelMovimentoCaixa";
-            this.panelMovimentoCaixa.Size = new System.Drawing.Size(270, 90);
-            this.panelMovimentoCaixa.TabIndex = 93;
-            this.panelMovimentoCaixa.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMovimentoCaixa_Paint);
+            this.panelDemonstrativo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDemonstrativo.BackColor = System.Drawing.Color.White;
+            this.panelDemonstrativo.Controls.Add(this.dataGridViewContent);
+            this.panelDemonstrativo.Controls.Add(labelMovimentoCaixa);
+            this.panelDemonstrativo.Controls.Add(this.labelStatusCaixa);
+            this.panelDemonstrativo.Location = new System.Drawing.Point(14, 157);
+            this.panelDemonstrativo.Margin = new System.Windows.Forms.Padding(5);
+            this.panelDemonstrativo.Name = "panelDemonstrativo";
+            this.panelDemonstrativo.Size = new System.Drawing.Size(1180, 469);
+            this.panelDemonstrativo.TabIndex = 243;
+            this.panelDemonstrativo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
-            // labelMovimentoCaixaValue
+            // panelDemonstrativoBorder
             // 
-            this.labelMovimentoCaixaValue.AutoSize = true;
-            this.labelMovimentoCaixaValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
-            this.labelMovimentoCaixaValue.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.labelMovimentoCaixaValue.Location = new System.Drawing.Point(12, 7);
-            this.labelMovimentoCaixaValue.Name = "labelMovimentoCaixaValue";
-            this.labelMovimentoCaixaValue.Size = new System.Drawing.Size(91, 40);
-            this.labelMovimentoCaixaValue.TabIndex = 5;
-            this.labelMovimentoCaixaValue.Text = "0,00";
+            this.panelDemonstrativoBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDemonstrativoBorder.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panelDemonstrativoBorder.Location = new System.Drawing.Point(13, 156);
+            this.panelDemonstrativoBorder.Margin = new System.Windows.Forms.Padding(5);
+            this.panelDemonstrativoBorder.Name = "panelDemonstrativoBorder";
+            this.panelDemonstrativoBorder.Size = new System.Drawing.Size(1182, 471);
+            this.panelDemonstrativoBorder.TabIndex = 244;
+            this.panelDemonstrativoBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
-            // buttonMovimentoCaixa
+            // panelMenuVendas
             // 
-            this.buttonMovimentoCaixa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonMovimentoCaixa.FlatAppearance.BorderSize = 0;
-            this.buttonMovimentoCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonMovimentoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonMovimentoCaixa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonMovimentoCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonMovimentoCaixa.Location = new System.Drawing.Point(0, 58);
-            this.buttonMovimentoCaixa.Name = "buttonMovimentoCaixa";
-            this.buttonMovimentoCaixa.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonMovimentoCaixa.Size = new System.Drawing.Size(268, 30);
-            this.buttonMovimentoCaixa.TabIndex = 6;
-            this.buttonMovimentoCaixa.Text = "   Movimento de Caixa";
-            this.buttonMovimentoCaixa.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonMovimentoCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.buttonMovimentoCaixa.UseVisualStyleBackColor = true;
-            this.buttonMovimentoCaixa.Click += new System.EventHandler(this.buttonMovimentoCaixa_Click);
-            // 
-            // panelContasReceber
-            // 
-            this.panelContasReceber.BackColor = System.Drawing.Color.White;
-            this.panelContasReceber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContasReceber.Controls.Add(pictureBoxContasReceber);
-            this.panelContasReceber.Controls.Add(this.buttonContasReceber);
-            this.panelContasReceber.Controls.Add(this.labelContasReceberValue);
-            this.panelContasReceber.Location = new System.Drawing.Point(318, 32);
-            this.panelContasReceber.Name = "panelContasReceber";
-            this.panelContasReceber.Size = new System.Drawing.Size(270, 90);
-            this.panelContasReceber.TabIndex = 94;
-            this.panelContasReceber.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasReceber_Paint);
-            // 
-            // buttonContasReceber
-            // 
-            this.buttonContasReceber.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonContasReceber.FlatAppearance.BorderSize = 0;
-            this.buttonContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContasReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonContasReceber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonContasReceber.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonContasReceber.Location = new System.Drawing.Point(0, 58);
-            this.buttonContasReceber.Name = "buttonContasReceber";
-            this.buttonContasReceber.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonContasReceber.Size = new System.Drawing.Size(268, 30);
-            this.buttonContasReceber.TabIndex = 7;
-            this.buttonContasReceber.Text = "  Contas a Receber";
-            this.buttonContasReceber.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonContasReceber.UseVisualStyleBackColor = true;
-            this.buttonContasReceber.Click += new System.EventHandler(this.buttonContasReceber_Click);
-            // 
-            // labelContasReceberValue
-            // 
-            this.labelContasReceberValue.AutoSize = true;
-            this.labelContasReceberValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
-            this.labelContasReceberValue.ForeColor = System.Drawing.Color.Green;
-            this.labelContasReceberValue.Location = new System.Drawing.Point(8, 7);
-            this.labelContasReceberValue.Name = "labelContasReceberValue";
-            this.labelContasReceberValue.Size = new System.Drawing.Size(91, 40);
-            this.labelContasReceberValue.TabIndex = 4;
-            this.labelContasReceberValue.Text = "0,00";
-            // 
-            // panelContasPagar
-            // 
-            this.panelContasPagar.BackColor = System.Drawing.Color.White;
-            this.panelContasPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelContasPagar.Controls.Add(pictureBoxContasPagar);
-            this.panelContasPagar.Controls.Add(this.buttonContasPagar);
-            this.panelContasPagar.Controls.Add(this.labelContasPagarValue);
-            this.panelContasPagar.Location = new System.Drawing.Point(603, 32);
-            this.panelContasPagar.Name = "panelContasPagar";
-            this.panelContasPagar.Size = new System.Drawing.Size(270, 90);
-            this.panelContasPagar.TabIndex = 95;
-            this.panelContasPagar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContasPagar_Paint);
+            this.panelMenuVendas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenuVendas.BackColor = System.Drawing.Color.White;
+            this.panelMenuVendas.Controls.Add(this.buttonParametros);
+            this.panelMenuVendas.Controls.Add(this.buttonFluxoCaixa);
+            this.panelMenuVendas.Controls.Add(this.buttonContasPagar);
+            this.panelMenuVendas.Controls.Add(this.buttonContasReceber);
+            this.panelMenuVendas.Controls.Add(this.buttonExtrato);
+            this.panelMenuVendas.Controls.Add(this.buttonRelatorio);
+            this.panelMenuVendas.Controls.Add(this.buttonVoltar);
+            this.panelMenuVendas.Controls.Add(label1);
+            this.panelMenuVendas.Location = new System.Drawing.Point(14, 14);
+            this.panelMenuVendas.Margin = new System.Windows.Forms.Padding(5);
+            this.panelMenuVendas.Name = "panelMenuVendas";
+            this.panelMenuVendas.Size = new System.Drawing.Size(1180, 133);
+            this.panelMenuVendas.TabIndex = 245;
+            this.panelMenuVendas.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
             // 
             // buttonContasPagar
             // 
-            this.buttonContasPagar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonContasPagar.FlatAppearance.BorderSize = 0;
             this.buttonContasPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContasPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonContasPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonContasPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonContasPagar.Location = new System.Drawing.Point(0, 58);
+            this.buttonContasPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContasPagar.Image = ((System.Drawing.Image)(resources.GetObject("buttonContasPagar.Image")));
+            this.buttonContasPagar.Location = new System.Drawing.Point(18, 39);
+            this.buttonContasPagar.Margin = new System.Windows.Forms.Padding(5);
             this.buttonContasPagar.Name = "buttonContasPagar";
-            this.buttonContasPagar.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonContasPagar.Size = new System.Drawing.Size(268, 30);
-            this.buttonContasPagar.TabIndex = 8;
-            this.buttonContasPagar.Text = "  Contas a Pagar";
-            this.buttonContasPagar.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonContasPagar.Size = new System.Drawing.Size(140, 82);
+            this.buttonContasPagar.TabIndex = 239;
+            this.buttonContasPagar.Text = "Contas a pagar";
+            this.buttonContasPagar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.buttonContasPagar.UseVisualStyleBackColor = true;
             this.buttonContasPagar.Click += new System.EventHandler(this.buttonContasPagar_Click);
+            this.buttonContasPagar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // labelContasPagarValue
+            // buttonContasReceber
             // 
-            this.labelContasPagarValue.AutoSize = true;
-            this.labelContasPagarValue.Font = new System.Drawing.Font("Arial Rounded MT Bold", 26F);
-            this.labelContasPagarValue.ForeColor = System.Drawing.Color.Red;
-            this.labelContasPagarValue.Location = new System.Drawing.Point(8, 7);
-            this.labelContasPagarValue.Name = "labelContasPagarValue";
-            this.labelContasPagarValue.Size = new System.Drawing.Size(91, 40);
-            this.labelContasPagarValue.TabIndex = 3;
-            this.labelContasPagarValue.Text = "0,00";
+            this.buttonContasReceber.FlatAppearance.BorderSize = 0;
+            this.buttonContasReceber.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonContasReceber.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonContasReceber.Image = ((System.Drawing.Image)(resources.GetObject("buttonContasReceber.Image")));
+            this.buttonContasReceber.Location = new System.Drawing.Point(168, 39);
+            this.buttonContasReceber.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonContasReceber.Name = "buttonContasReceber";
+            this.buttonContasReceber.Size = new System.Drawing.Size(150, 82);
+            this.buttonContasReceber.TabIndex = 238;
+            this.buttonContasReceber.Text = "Contas a receber";
+            this.buttonContasReceber.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonContasReceber.UseVisualStyleBackColor = true;
+            this.buttonContasReceber.Click += new System.EventHandler(this.buttonContasReceber_Click);
+            this.buttonContasReceber.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // panelConfiguracao
+            // buttonExtrato
             // 
-            this.panelConfiguracao.BackColor = System.Drawing.Color.White;
-            this.panelConfiguracao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelConfiguracao.Controls.Add(pictureBoxConfiguracao);
-            this.panelConfiguracao.Controls.Add(this.buttonConfiguracao);
-            this.panelConfiguracao.Location = new System.Drawing.Point(889, 32);
-            this.panelConfiguracao.Name = "panelConfiguracao";
-            this.panelConfiguracao.Size = new System.Drawing.Size(270, 90);
-            this.panelConfiguracao.TabIndex = 92;
-            this.panelConfiguracao.Paint += new System.Windows.Forms.PaintEventHandler(this.panelConfiguracao_Paint);
+            this.buttonExtrato.FlatAppearance.BorderSize = 0;
+            this.buttonExtrato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExtrato.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExtrato.Image = ((System.Drawing.Image)(resources.GetObject("buttonExtrato.Image")));
+            this.buttonExtrato.Location = new System.Drawing.Point(328, 39);
+            this.buttonExtrato.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonExtrato.Name = "buttonExtrato";
+            this.buttonExtrato.Size = new System.Drawing.Size(101, 82);
+            this.buttonExtrato.TabIndex = 237;
+            this.buttonExtrato.Text = "Extrato";
+            this.buttonExtrato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonExtrato.UseVisualStyleBackColor = true;
+            this.buttonExtrato.Click += new System.EventHandler(this.buttonExtrato_Click);
+            this.buttonExtrato.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // buttonConfiguracao
+            // buttonRelatorio
             // 
-            this.buttonConfiguracao.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonConfiguracao.FlatAppearance.BorderSize = 0;
-            this.buttonConfiguracao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConfiguracao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonConfiguracao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonConfiguracao.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonConfiguracao.Location = new System.Drawing.Point(0, 58);
-            this.buttonConfiguracao.Name = "buttonConfiguracao";
-            this.buttonConfiguracao.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
-            this.buttonConfiguracao.Size = new System.Drawing.Size(268, 30);
-            this.buttonConfiguracao.TabIndex = 9;
-            this.buttonConfiguracao.Text = "  Outras opções";
-            this.buttonConfiguracao.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonConfiguracao.UseVisualStyleBackColor = true;
-            this.buttonConfiguracao.Click += new System.EventHandler(this.buttonConfiguracao_Click);
+            this.buttonRelatorio.FlatAppearance.BorderSize = 0;
+            this.buttonRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
+            this.buttonRelatorio.Location = new System.Drawing.Point(705, 39);
+            this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonRelatorio.Name = "buttonRelatorio";
+            this.buttonRelatorio.Size = new System.Drawing.Size(102, 82);
+            this.buttonRelatorio.TabIndex = 236;
+            this.buttonRelatorio.Text = "Relatório";
+            this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonRelatorio.UseVisualStyleBackColor = true;
+            this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
+            this.buttonRelatorio.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // label1
+            // 
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            label1.Location = new System.Drawing.Point(14, 10);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(93, 20);
+            label1.TabIndex = 235;
+            label1.Text = "Financeiro";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panelMenuVendasBorder
+            // 
+            this.panelMenuVendasBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelMenuVendasBorder.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panelMenuVendasBorder.Location = new System.Drawing.Point(13, 13);
+            this.panelMenuVendasBorder.Margin = new System.Windows.Forms.Padding(5);
+            this.panelMenuVendasBorder.Name = "panelMenuVendasBorder";
+            this.panelMenuVendasBorder.Size = new System.Drawing.Size(1182, 135);
+            this.panelMenuVendasBorder.TabIndex = 246;
+            this.panelMenuVendasBorder.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Paint);
+            // 
+            // buttonFluxoCaixa
+            // 
+            this.buttonFluxoCaixa.FlatAppearance.BorderSize = 0;
+            this.buttonFluxoCaixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFluxoCaixa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFluxoCaixa.Image = ((System.Drawing.Image)(resources.GetObject("buttonFluxoCaixa.Image")));
+            this.buttonFluxoCaixa.Location = new System.Drawing.Point(439, 39);
+            this.buttonFluxoCaixa.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonFluxoCaixa.Name = "buttonFluxoCaixa";
+            this.buttonFluxoCaixa.Size = new System.Drawing.Size(130, 82);
+            this.buttonFluxoCaixa.TabIndex = 240;
+            this.buttonFluxoCaixa.Text = "Fluxo de caixa";
+            this.buttonFluxoCaixa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonFluxoCaixa.UseVisualStyleBackColor = true;
+            this.buttonFluxoCaixa.Click += new System.EventHandler(this.buttonFluxoCaixa_Click);
+            this.buttonFluxoCaixa.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // buttonParametros
+            // 
+            this.buttonParametros.FlatAppearance.BorderSize = 0;
+            this.buttonParametros.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonParametros.Image = ((System.Drawing.Image)(resources.GetObject("buttonParametros.Image")));
+            this.buttonParametros.Location = new System.Drawing.Point(579, 39);
+            this.buttonParametros.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonParametros.Name = "buttonParametros";
+            this.buttonParametros.Size = new System.Drawing.Size(116, 82);
+            this.buttonParametros.TabIndex = 241;
+            this.buttonParametros.Text = "Parâmetros";
+            this.buttonParametros.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonParametros.UseVisualStyleBackColor = true;
+            this.buttonParametros.Click += new System.EventHandler(this.buttonParametros_Click);
+            this.buttonParametros.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
             // FormFinanceiro
             // 
@@ -455,20 +421,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormFinanceiro";
             this.Load += new System.EventHandler(this.FormFinanceiro_Load);
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxMovimentoCaixa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasReceber)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxContasPagar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBoxConfiguracao)).EndInit();
             this.panelContent.ResumeLayout(false);
-            this.panelContent.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
-            this.panelMovimentoCaixa.ResumeLayout(false);
-            this.panelMovimentoCaixa.PerformLayout();
-            this.panelContasReceber.ResumeLayout(false);
-            this.panelContasReceber.PerformLayout();
-            this.panelContasPagar.ResumeLayout(false);
-            this.panelContasPagar.PerformLayout();
-            this.panelConfiguracao.ResumeLayout(false);
+            this.panelDemonstrativo.ResumeLayout(false);
+            this.panelDemonstrativo.PerformLayout();
+            this.panelMenuVendas.ResumeLayout(false);
+            this.panelMenuVendas.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -484,16 +442,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Panel panelMovimentoCaixa;
-        private System.Windows.Forms.Label labelMovimentoCaixaValue;
-        private System.Windows.Forms.Button buttonMovimentoCaixa;
-        private System.Windows.Forms.Panel panelContasReceber;
-        private System.Windows.Forms.Button buttonContasReceber;
-        private System.Windows.Forms.Label labelContasReceberValue;
-        private System.Windows.Forms.Panel panelContasPagar;
+        private System.Windows.Forms.Panel panelDemonstrativo;
+        private System.Windows.Forms.Panel panelDemonstrativoBorder;
+        private System.Windows.Forms.Panel panelMenuVendas;
         private System.Windows.Forms.Button buttonContasPagar;
-        private System.Windows.Forms.Label labelContasPagarValue;
-        private System.Windows.Forms.Panel panelConfiguracao;
-        private System.Windows.Forms.Button buttonConfiguracao;
+        private System.Windows.Forms.Button buttonContasReceber;
+        private System.Windows.Forms.Button buttonExtrato;
+        private System.Windows.Forms.Button buttonRelatorio;
+        private System.Windows.Forms.Panel panelMenuVendasBorder;
+        private System.Windows.Forms.Button buttonParametros;
+        private System.Windows.Forms.Button buttonFluxoCaixa;
     }
 }

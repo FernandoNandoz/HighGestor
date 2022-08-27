@@ -36,11 +36,13 @@
             this.buttonCategorias = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.buttonModalidadeTransporte = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
+            this.panelMenu.Controls.Add(this.buttonModalidadeTransporte);
             this.panelMenu.Controls.Add(this.buttonConfigSistema);
             this.panelMenu.Controls.Add(this.buttonBackup);
             this.panelMenu.Controls.Add(this.buttonFuncionarios);
@@ -152,6 +154,22 @@
             this.panelContent.TabIndex = 1;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
+            // buttonModalidadeTransporte
+            // 
+            this.buttonModalidadeTransporte.FlatAppearance.BorderSize = 0;
+            this.buttonModalidadeTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModalidadeTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonModalidadeTransporte.Image = ((System.Drawing.Image)(resources.GetObject("buttonModalidadeTransporte.Image")));
+            this.buttonModalidadeTransporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonModalidadeTransporte.Location = new System.Drawing.Point(12, 144);
+            this.buttonModalidadeTransporte.Name = "buttonModalidadeTransporte";
+            this.buttonModalidadeTransporte.Size = new System.Drawing.Size(186, 40);
+            this.buttonModalidadeTransporte.TabIndex = 100;
+            this.buttonModalidadeTransporte.Text = "   Modal. Transporte";
+            this.buttonModalidadeTransporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonModalidadeTransporte.UseVisualStyleBackColor = true;
+            this.buttonModalidadeTransporte.Click += new System.EventHandler(this.buttonModalidadeTransporte_Click);
+            // 
             // FormConfiguracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,5 +197,6 @@
         private System.Windows.Forms.Button buttonBackup;
         private System.Windows.Forms.Button buttonFuncionarios;
         private System.Windows.Forms.Button buttonCategorias;
+        private System.Windows.Forms.Button buttonModalidadeTransporte;
     }
 }

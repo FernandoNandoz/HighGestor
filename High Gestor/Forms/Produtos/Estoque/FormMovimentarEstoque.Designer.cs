@@ -199,7 +199,7 @@
             this.textBoxDescricao.Size = new System.Drawing.Size(666, 29);
             this.textBoxDescricao.TabIndex = 4;
             // 
-            // FormMovimentarCaixa
+            // FormMovimentarEstoque
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,7 +222,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormMovimentarCaixa";
+            this.Name = "FormMovimentarEstoque";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor - Movimentar Caixa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMovimentarCaixa_FormClosing);

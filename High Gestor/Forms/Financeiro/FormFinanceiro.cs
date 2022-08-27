@@ -28,41 +28,32 @@ namespace High_Gestor.Forms.Financeiro
         }
 
         #region Paint
-
-        private void panelMovimentoCaixa_Paint(object sender, PaintEventArgs e)
+        private void panel_Paint(object sender, PaintEventArgs e)
         {
-            //panelMovimentoCaixa.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelMovimentoCaixa.Width,
-            //panelMovimentoCaixa.Height, 7, 7));
+            Panel panel = sender as Panel;
+
+            panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width,
+            panel.Height, 3, 3));
         }
 
-        private void panelContasReceber_Paint(object sender, PaintEventArgs e)
+        private void button_Paint(object sender, PaintEventArgs e)
         {
-            //panelContasReceber.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelContasReceber.Width,
-            //panelContasReceber.Height, 7, 7));
-        }
+            Button button = sender as Button;
 
-        private void panelContasPagar_Paint(object sender, PaintEventArgs e)
-        {
-            //panelContasPagar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelContasPagar.Width,
-            //panelContasPagar.Height, 7, 7));
-        }
-
-        private void panelConfiguracao_Paint(object sender, PaintEventArgs e)
-        {
-            //panelConfiguracao.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelConfiguracao.Width,
-            //panelConfiguracao.Height, 7, 7));
+            button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width,
+            button.Height, 5, 5));
         }
 
         private void buttonVoltar_Paint(object sender, PaintEventArgs e)
         {
-            //buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
-            //buttonVoltar.Height, 5, 5));
+            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
+            buttonVoltar.Height, 5, 5));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
         {
-            //dataGridViewContent.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dataGridViewContent.Width,
-            //dataGridViewContent.Height, 9, 9));
+            dataGridViewContent.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dataGridViewContent.Width,
+            dataGridViewContent.Height, 9, 9));
         }
 
         #endregion
@@ -109,30 +100,34 @@ namespace High_Gestor.Forms.Financeiro
             this.Close();
         }
 
-        private void buttonMovimentoCaixa_Click(object sender, EventArgs e)
+        private void buttonContasPagar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //openChildForm(new FormMovimentoCaixa());
         }
 
         private void buttonContasReceber_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //openChildForm(new FormContasReceber());
         }
 
-        private void buttonContasPagar_Click(object sender, EventArgs e)
+        private void buttonFluxoCaixa_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            //openChildForm(new FormContasPagar());
         }
 
-        private void buttonConfiguracao_Click(object sender, EventArgs e)
+        private void buttonExtrato_Click(object sender, EventArgs e)
         {
-            openChildForm(new FormConfiguracao());
+
+        }
+
+        private void buttonParametros_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Parametros.FormParametros());
+        }
+
+        private void buttonRelatorio_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace High_Gestor.Forms.Compras.EntradaMercadoria.Model
 {
+    /// <summary>
+    /// Função desativada
+    /// </summary>
+
     public class Calculos : INotifyPropertyChanged
     {
         static int TotalItensLancados = 0;

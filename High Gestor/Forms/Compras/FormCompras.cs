@@ -75,30 +75,12 @@ namespace High_Gestor.Forms.Compras
             button.Height, 3, 3));
         }
 
-        private void panelEntradaMercadoria_Paint(object sender, PaintEventArgs e)
+        private void panel_Paint(object sender, PaintEventArgs e)
         {
-            //panelEntradaMercadoria.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelEntradaMercadoria.Width,
-            //panelEntradaMercadoria.Height, 7, 7));
+            Panel panel = sender as Panel;
 
-           
-        }
-
-        private void panelOrdemCompra_Paint(object sender, PaintEventArgs e)
-        {
-            //panelOrdemCompra.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelOrdemCompra.Width,
-            //panelOrdemCompra.Height, 7, 7));
-        }
-
-        private void panelFornecedor_Paint(object sender, PaintEventArgs e)
-        {
-            //panelFornecedor.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelFornecedor.Width,
-            //panelFornecedor.Height, 7, 7));
-        }
-
-        private void panelRelatorio_Paint(object sender, PaintEventArgs e)
-        {
-            //panelRelatorio.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panelRelatorio.Width,
-            //panelRelatorio.Height, 7, 7));
+            panel.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, panel.Width,
+            panel.Height, 3, 3));
         }
 
         private void buttonVoltar_Paint(object sender, PaintEventArgs e)

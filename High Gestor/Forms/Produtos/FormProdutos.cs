@@ -213,6 +213,8 @@ namespace High_Gestor.Forms.Produtos
 
                 produtos.Rows.Clear();
 
+                buttonLimparFiltros_Click(sender, e);
+
                 dataProdutos();
             }
         }
@@ -224,6 +226,8 @@ namespace High_Gestor.Forms.Produtos
             comboBoxFiltroGeral.SelectedIndex = 0;
             comboBoxCategoria.SelectedIndex = 0;
             comboBoxFornecedor.SelectedIndex = 0;
+
+            produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "NomeProduto", textBoxPesquisarNome.Text);
 
             verificarQuantidadeProdutos();
         }
@@ -246,6 +250,10 @@ namespace High_Gestor.Forms.Produtos
                 produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "SituacaoEstoque", comboBoxFiltroGeral.Text);
             }
 
+            dataGridViewContent.AutoGenerateColumns = false;
+
+            dataGridViewContent.DataSource = produtos;
+
             verificarQuantidadeProdutos();
         }
 
@@ -254,6 +262,7 @@ namespace High_Gestor.Forms.Produtos
             if (comboBoxCategoria.Text == "TODOS")
             {
                 produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Categoria", "");
+
             }
             else
             {
@@ -263,6 +272,10 @@ namespace High_Gestor.Forms.Produtos
 
                 produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Categoria", result[1].TrimStart());
             }
+
+            dataGridViewContent.AutoGenerateColumns = false;
+
+            dataGridViewContent.DataSource = produtos;
 
             verificarQuantidadeProdutos();
         }
@@ -281,6 +294,10 @@ namespace High_Gestor.Forms.Produtos
 
                 produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Fornecedor", result[1].TrimStart());
             }
+
+            dataGridViewContent.AutoGenerateColumns = false;
+
+            dataGridViewContent.DataSource = produtos;
 
             verificarQuantidadeProdutos();
         }
