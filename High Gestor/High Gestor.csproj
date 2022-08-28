@@ -211,10 +211,10 @@
     <Compile Include="Forms\Configuracoes\Categorias\FormCategorias.Designer.cs">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\FormBackup.cs">
+    <Compile Include="Forms\Configuracoes\Backup\FormBackup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\FormBackup.Designer.cs">
+    <Compile Include="Forms\Configuracoes\Backup\FormBackup.Designer.cs">
       <DependentUpon>FormBackup.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.cs">
@@ -414,7 +414,7 @@
     <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\FormBackup.resx">
+    <EmbeddedResource Include="Forms\Configuracoes\Backup\FormBackup.resx">
       <DependentUpon>FormBackup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
@@ -521,7 +521,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Compras\OrdemCompras\" />
-    <Folder Include="Forms\Configuracoes\Backup\" />
     <Folder Include="Forms\Financeiro\ContasPagar\" />
     <Folder Include="Forms\Financeiro\ContasReceber\" />
     <Folder Include="Forms\Financeiro\Extrato\" />

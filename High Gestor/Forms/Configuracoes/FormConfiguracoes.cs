@@ -106,7 +106,7 @@ namespace High_Gestor.Forms.Configuracoes
                 {
                     ViewForms.requestBackMenu(false);
                     //
-                    openChildForm(new FormBackup());
+                    openChildForm(new Backup.FormBackup());
                 }
 
                 if (alterouSize._retornarFormNameSecundario() == "PARAMETROS")
@@ -193,7 +193,7 @@ namespace High_Gestor.Forms.Configuracoes
             alterouSize.receberNameSecundario("BACKUP");
             alterouSize.receberValidacaoSecundario(1);
 
-            openChildForm(new FormBackup());
+            openChildForm(new Backup.FormBackup());
         }
 
         private void buttonParametrosSistema_Click(object sender, EventArgs e)
