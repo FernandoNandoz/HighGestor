@@ -82,8 +82,6 @@ namespace High_Gestor.Forms.Configuracoes
 
                 if (alterouSize._retornarFormNameSecundario() == "CATEGORIA")
                 {
-
-
                     ViewForms.requestBackMenu(false);
                     //
                     openChildForm(new Categorias.FormCategorias());
@@ -92,8 +90,6 @@ namespace High_Gestor.Forms.Configuracoes
 
                 if (alterouSize._retornarFormNameSecundario() == "FUNCIONARIO")
                 {
-
-
                     ViewForms.requestBackMenu(false);
                     //
                     openChildForm(new Funcionarios.FormFuncionarios());
@@ -101,8 +97,6 @@ namespace High_Gestor.Forms.Configuracoes
 
                 if (alterouSize._retornarFormNameSecundario() == "TRANSPORTE")
                 {
-
-
                     ViewForms.requestBackMenu(false);
                     //
                     openChildForm(new Transporte.FormTransporte());
@@ -110,21 +104,17 @@ namespace High_Gestor.Forms.Configuracoes
 
                 if (alterouSize._retornarFormNameSecundario() == "BACKUP")
                 {
-
-
                     ViewForms.requestBackMenu(false);
                     //
                     openChildForm(new FormBackup());
                 }
 
-                if (alterouSize._retornarFormNameSecundario() == "CONFIG_SYSTEM")
+                if (alterouSize._retornarFormNameSecundario() == "PARAMETROS")
                 {
-                    
-                   
 
                     ViewForms.requestBackMenu(false);
                     //
-                    openChildForm(new FormConfigSistema());
+                    openChildForm(new ParametrosSistema.FormParametrosSistemas());
                 }
             }
 
@@ -147,7 +137,7 @@ namespace High_Gestor.Forms.Configuracoes
             buttonFuncionarios.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.White;
+            buttonParametrosSistema.BackColor = Color.White;
             buttonCategorias.BackColor = Color.FromArgb(210, 210, 210);
 
             ViewForms.requestBackMenu(false);
@@ -163,7 +153,7 @@ namespace High_Gestor.Forms.Configuracoes
             buttonCategorias.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.White;
+            buttonParametrosSistema.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.FromArgb(210, 210, 210);
 
             ViewForms.requestBackMenu(false);
@@ -178,7 +168,7 @@ namespace High_Gestor.Forms.Configuracoes
         {
             buttonCategorias.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.White;
+            buttonParametrosSistema.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.FromArgb(210, 210, 210);
 
@@ -195,7 +185,7 @@ namespace High_Gestor.Forms.Configuracoes
             buttonCategorias.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.White;
+            buttonParametrosSistema.BackColor = Color.White;
             buttonBackup.BackColor = Color.FromArgb(210, 210, 210);
 
             ViewForms.requestBackMenu(false);
@@ -206,22 +196,19 @@ namespace High_Gestor.Forms.Configuracoes
             openChildForm(new FormBackup());
         }
 
-        private void buttonConfigSistema_Click(object sender, EventArgs e)
+        private void buttonParametrosSistema_Click(object sender, EventArgs e)
         {
             buttonCategorias.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
-            buttonConfigSistema.BackColor = Color.FromArgb(210, 210, 210);
+            buttonParametrosSistema.BackColor = Color.FromArgb(210, 210, 210);
 
             ViewForms.requestBackMenu(false);
             //
-            alterouSize.receberNameSecundario("CONFIG_SYSTEM");
-            alterouSize.receberValidacaoSecundario(1);
+            alterouSize.receberNameSecundario("PARAMETROS");
 
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //openChildForm(new FormConfigSistema());
+            openChildForm(new ParametrosSistema.FormParametrosSistemas());
         }
 
         private void panelContent_ControlRemoved(object sender, ControlEventArgs e)
@@ -232,7 +219,7 @@ namespace High_Gestor.Forms.Configuracoes
                 buttonFuncionarios.BackColor = Color.White;
                 buttonModalidadeTransporte.BackColor = Color.White;
                 buttonBackup.BackColor = Color.White;
-                buttonConfigSistema.BackColor = Color.White;
+                buttonParametrosSistema.BackColor = Color.White;
             }
         }
 

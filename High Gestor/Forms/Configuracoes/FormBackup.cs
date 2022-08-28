@@ -34,10 +34,18 @@ namespace High_Gestor.Forms.Configuracoes
 
         #region Paint
 
-        private void buttonSair_Paint(object sender, PaintEventArgs e)
+        private void button_Paint(object sender, PaintEventArgs e)
         {
-            buttonSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSair.Width,
-            buttonSair.Height, 5, 5));
+            Button button = sender as Button;
+
+            button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width,
+            button.Height, 3, 3));
+        }
+
+        private void buttonVoltar_Paint(object sender, PaintEventArgs e)
+        {
+            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
+            buttonVoltar.Height, 5, 5));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransporte));
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransporte));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,6 +51,20 @@
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label1.Location = new System.Drawing.Point(11, 11);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(224, 24);
+            label1.TabIndex = 154;
+            label1.Text = "Modalidade de transporte";
+            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelContent
             // 
@@ -118,6 +132,7 @@
             this.textBoxPesquisar.Size = new System.Drawing.Size(250, 26);
             this.textBoxPesquisar.TabIndex = 160;
             this.textBoxPesquisar.Tag = "Fornecedor";
+            this.textBoxPesquisar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisar_KeyUp);
             // 
             // buttonPesquisar
             // 
@@ -190,20 +205,6 @@
             this.buttonAdicionarNovo.UseVisualStyleBackColor = false;
             this.buttonAdicionarNovo.Click += new System.EventHandler(this.buttonAdicionarNovo_Click);
             this.buttonAdicionarNovo.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
-            // 
-            // label1
-            // 
-            label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label1.Location = new System.Drawing.Point(11, 11);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(224, 24);
-            label1.TabIndex = 154;
-            label1.Text = "Modalidade de transporte";
-            label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dataGridViewContent
             // 

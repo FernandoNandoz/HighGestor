@@ -192,7 +192,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT nomeProduto, tipoUnitario, codigoProduto FROM Produtos", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeProduto, tipoUnitario, codigoProduto, estoqueAtual FROM Produtos", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -200,7 +200,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto
 
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0) + "   ( " + dr.GetString(1) + " )      " + dr.GetString(2));
+                    lista.Add(dr.GetString(0) + "   ( " + dr.GetString(1) + " )      |   " + dr[3].ToString());
                 }
                 banco.desconectar();
 

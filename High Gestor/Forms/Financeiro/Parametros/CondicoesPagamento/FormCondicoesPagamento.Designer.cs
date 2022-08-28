@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCondicoesPagamento));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCondicoesPagamento));
             this.panelContent = new System.Windows.Forms.Panel();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             this.labelContagem = new System.Windows.Forms.Label();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.buttonPesquisar = new System.Windows.Forms.Button();
+            this.buttonExcluirCadastro = new System.Windows.Forms.Button();
+            this.buttonRelatorio = new System.Windows.Forms.Button();
             this.buttonAdicionarNovo = new System.Windows.Forms.Button();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
             this.idCondicaoPAGAMENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonVoltar = new System.Windows.Forms.Button();
-            this.buttonExcluirCadastro = new System.Windows.Forms.Button();
-            this.buttonRelatorio = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             this.panelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
@@ -85,6 +85,29 @@
             this.panelContent.TabIndex = 2;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
             // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonVoltar.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonVoltar.FlatAppearance.BorderSize = 0;
+            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
+            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonVoltar.Location = new System.Drawing.Point(865, 5);
+            this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(99, 30);
+            this.buttonVoltar.TabIndex = 220;
+            this.buttonVoltar.TabStop = false;
+            this.buttonVoltar.Text = " Voltar";
+            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonVoltar.UseVisualStyleBackColor = false;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
+            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
+            // 
             // labelContagem
             // 
             this.labelContagem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -109,6 +132,7 @@
             this.textBoxPesquisar.Size = new System.Drawing.Size(250, 26);
             this.textBoxPesquisar.TabIndex = 160;
             this.textBoxPesquisar.Tag = "Fornecedor";
+            this.textBoxPesquisar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisar_KeyUp);
             // 
             // buttonPesquisar
             // 
@@ -131,6 +155,38 @@
             this.buttonPesquisar.UseVisualStyleBackColor = false;
             this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             this.buttonPesquisar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // buttonExcluirCadastro
+            // 
+            this.buttonExcluirCadastro.BackColor = System.Drawing.Color.White;
+            this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
+            this.buttonExcluirCadastro.Location = new System.Drawing.Point(368, 66);
+            this.buttonExcluirCadastro.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
+            this.buttonExcluirCadastro.Size = new System.Drawing.Size(153, 30);
+            this.buttonExcluirCadastro.TabIndex = 158;
+            this.buttonExcluirCadastro.Text = " Excluir cadastro";
+            this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExcluirCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonExcluirCadastro.UseVisualStyleBackColor = false;
+            this.buttonExcluirCadastro.Click += new System.EventHandler(this.buttonExcluirCadastro_Click);
+            // 
+            // buttonRelatorio
+            // 
+            this.buttonRelatorio.BackColor = System.Drawing.Color.White;
+            this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
+            this.buttonRelatorio.Location = new System.Drawing.Point(168, 66);
+            this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonRelatorio.Name = "buttonRelatorio";
+            this.buttonRelatorio.Size = new System.Drawing.Size(190, 30);
+            this.buttonRelatorio.TabIndex = 157;
+            this.buttonRelatorio.Text = " Relação de categoria";
+            this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonRelatorio.UseVisualStyleBackColor = false;
+            this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
             // 
             // buttonAdicionarNovo
             // 
@@ -248,61 +304,6 @@
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 200;
-            // 
-            // buttonVoltar
-            // 
-            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonVoltar.BackColor = System.Drawing.Color.Transparent;
-            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonVoltar.FlatAppearance.BorderSize = 0;
-            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
-            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(865, 5);
-            this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonVoltar.Name = "buttonVoltar";
-            this.buttonVoltar.Size = new System.Drawing.Size(99, 30);
-            this.buttonVoltar.TabIndex = 220;
-            this.buttonVoltar.TabStop = false;
-            this.buttonVoltar.Text = " Voltar";
-            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonVoltar.UseVisualStyleBackColor = false;
-            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
-            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
-            // 
-            // buttonExcluirCadastro
-            // 
-            this.buttonExcluirCadastro.BackColor = System.Drawing.Color.White;
-            this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
-            this.buttonExcluirCadastro.Location = new System.Drawing.Point(368, 66);
-            this.buttonExcluirCadastro.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
-            this.buttonExcluirCadastro.Size = new System.Drawing.Size(153, 30);
-            this.buttonExcluirCadastro.TabIndex = 158;
-            this.buttonExcluirCadastro.Text = " Excluir cadastro";
-            this.buttonExcluirCadastro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExcluirCadastro.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirCadastro.UseVisualStyleBackColor = false;
-            this.buttonExcluirCadastro.Click += new System.EventHandler(this.buttonExcluirCadastro_Click);
-            // 
-            // buttonRelatorio
-            // 
-            this.buttonRelatorio.BackColor = System.Drawing.Color.White;
-            this.buttonRelatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelatorio.Image")));
-            this.buttonRelatorio.Location = new System.Drawing.Point(168, 66);
-            this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonRelatorio.Name = "buttonRelatorio";
-            this.buttonRelatorio.Size = new System.Drawing.Size(190, 30);
-            this.buttonRelatorio.TabIndex = 157;
-            this.buttonRelatorio.Text = " Relação de categoria";
-            this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRelatorio.UseVisualStyleBackColor = false;
-            this.buttonRelatorio.Click += new System.EventHandler(this.buttonRelatorio_Click);
             // 
             // FormCondicoesPagamento
             // 

@@ -89,6 +89,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.Designer.cs">
+      <DependentUpon>FormParametrosSistemas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Configuracoes\Transporte\FormCadTransporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,12 +216,6 @@
     </Compile>
     <Compile Include="Forms\Configuracoes\FormBackup.Designer.cs">
       <DependentUpon>FormBackup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Configuracoes\FormConfigSistema.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Configuracoes\FormConfigSistema.Designer.cs">
-      <DependentUpon>FormConfigSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.cs">
       <SubType>Form</SubType>
@@ -354,6 +354,9 @@
       <DependentUpon>FormReportProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.resx">
+      <DependentUpon>FormParametrosSistemas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Transporte\FormCadTransporte.resx">
       <DependentUpon>FormCadTransporte.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,9 +416,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\FormBackup.resx">
       <DependentUpon>FormBackup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\FormConfigSistema.resx">
-      <DependentUpon>FormConfigSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
@@ -520,6 +520,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Forms\Compras\OrdemCompras\" />
+    <Folder Include="Forms\Configuracoes\Backup\" />
     <Folder Include="Forms\Financeiro\ContasPagar\" />
     <Folder Include="Forms\Financeiro\ContasReceber\" />
     <Folder Include="Forms\Financeiro\Extrato\" />

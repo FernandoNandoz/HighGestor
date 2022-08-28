@@ -268,6 +268,14 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CentroCustos
             dataGridViewContent.Refresh();
         }
 
+        private void textBoxPesquisar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonPesquisar_Click(sender, e);
+            }
+        }
+
         private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //Query que deleta dados especificos atraves de parametros no banco de dados

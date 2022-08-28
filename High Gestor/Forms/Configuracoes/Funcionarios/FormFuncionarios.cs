@@ -42,15 +42,24 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
 
         #region Paint
 
-        private void buttonSair_Paint(object sender, PaintEventArgs e)
+        private void button_Paint(object sender, PaintEventArgs e)
         {
-            buttonSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSair.Width,
-            buttonSair.Height, 5, 5));
+            Button button = sender as Button;
+
+            button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width,
+            button.Height, 3, 3));
+        }
+
+        private void buttonVoltar_Paint(object sender, PaintEventArgs e)
+        {
+            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
+            buttonVoltar.Height, 5, 5));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
         {
-
+            dataGridViewContent.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, dataGridViewContent.Width,
+            dataGridViewContent.Height, 7, 7));
         }
 
         #endregion
@@ -77,6 +86,31 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         }
 
         #endregion
+
+        private void pesquisaAutoComplete()
+        {
+            try
+            {
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeCompleto FROM Funcionario", banco.connection);
+
+                banco.conectar();
+                SqlDataReader dr = exePesquisa.ExecuteReader();
+
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                }
+                banco.desconectar();
+
+                textBoxPesquisar.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void verificarQuantidadeFuncionarios()
         {
@@ -126,6 +160,7 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
 
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
+            pesquisaAutoComplete();
             verificarQuantidadeFuncionarios();
             //
             dataFuncionario();
@@ -142,75 +177,44 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         {
             if (ViewForms._responseViewForm() == true)
             {
+                pesquisaAutoComplete();
                 verificarQuantidadeFuncionarios();
                 dataFuncionario();
                 dataGridViewContent.Refresh();
             }
         }
 
-        private void textBoxPesquisarNome_KeyUp(object sender, KeyEventArgs e)
+        private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            if (textBoxPesquisarNome.Text != string.Empty)
+            //Retorna os dados da tabela Produtos para o DataGridView
+            string query = ("SELECT Funcionario.idFuncionario, Funcionario.codigoFuncionario, Funcionario.nomeCompleto, Perfil.perfil, Funcionario.situacao FROM Funcionario INNER JOIN Perfil ON Funcionario.idPerfilFK = Perfil.idPerfil WHERE nomeCompleto LIKE (@nomeCompleto + '%') ORDER BY nomeCompleto");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            exeVerificacao.Parameters.AddWithValue("@nomeCompleto", textBoxPesquisar.Text);
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            dataGridViewContent.Rows.Clear();
+            while (datareader.Read())
             {
-                string dado = string.Empty;
-
-                dado = textBoxPesquisarNome.Text;
-
-                if (dado.All(Char.IsNumber))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string query = ("SELECT Funcionario.idFuncionario, Funcionario.codigoFuncionario, Funcionario.nomeCompleto, Perfil.perfil, Funcionario.situacao FROM Funcionario INNER JOIN Perfil ON Funcionario.idPerfilFK = Perfil.idPerfil WHERE codigoFuncionario LIKE (@codigo + '%') ORDER BY nomeCompleto");
-                    SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2],
-                                                    datareader[3],
-                                                    datareader[4]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
-
-                if (dado.All(Char.IsLetter))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string query = ("SELECT Funcionario.idFuncionario, Funcionario.codigoFuncionario, Funcionario.nomeCompleto, Perfil.perfil, Funcionario.situacao FROM Funcionario INNER JOIN Perfil ON Funcionario.idPerfilFK = Perfil.idPerfil WHERE nomeCompleto LIKE (@nomeCompleto + '%') ORDER BY nomeCompleto");
-                    SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@nomeCompleto", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2],
-                                                    datareader[3],
-                                                    datareader[4]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
+                dataGridViewContent.Rows.Add(datareader[0],
+                                            datareader[1],
+                                            datareader[2],
+                                            datareader[3],
+                                            datareader[4]);
             }
-            else
+
+            banco.desconectar();
+
+            dataGridViewContent.Refresh();
+        }
+
+        private void textBoxPesquisar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                dataFuncionario();
+                buttonPesquisar_Click(sender, e);
             }
         }
 
@@ -225,17 +229,6 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         {
             MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        }
-
-        private void buttonEditarCadastro_Click(object sender, EventArgs e)
-        {
-            //Query que deleta dados especificos atraves de parametros no banco de dados
-            if (dataGridViewContent.Rows.Count != 0)
-            {
-                updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
-
-                openChildForm(new Funcionarios.FormCadFuncionarios());
-            }
         }
 
         private void buttonExcluirCadastro_Click(object sender, EventArgs e)
@@ -288,5 +281,7 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         {
             ViewForms.requestViewForm(true, false);
         }
+
+        
     }
 }

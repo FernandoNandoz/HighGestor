@@ -26,6 +26,11 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
             int nWidthEllipse,
             int nHeightEllipse
         );
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern Int32 SendMessage(IntPtr hWnd, int msg, int wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
+        private const int EM_SETCUEBANNER = 0x1501;
+
         #endregion
 
         Banco banco = new Banco();
@@ -38,14 +43,24 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
             {
                 FormBorderStyle = FormBorderStyle.FixedSingle;
             }
+
+            SendMessage(textBoxPesquisar.Handle, EM_SETCUEBANNER, 0, "Pesquisar categoria");
         }
 
         #region Paint
 
-        private void buttonSair_Paint(object sender, PaintEventArgs e)
+        private void button_Paint(object sender, PaintEventArgs e)
         {
-            buttonSair.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonSair.Width,
-            buttonSair.Height, 5, 5));
+            Button button = sender as Button;
+
+            button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width,
+            button.Height, 3, 3));
+        }
+
+        private void buttonVoltar_Paint(object sender, PaintEventArgs e)
+        {
+            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
+            buttonVoltar.Height, 5, 5));
         }
 
         private void dataGridViewContent_Paint(object sender, PaintEventArgs e)
@@ -78,6 +93,31 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
         }
 
         #endregion
+
+        private void pesquisaAutoComplete()
+        {
+            try
+            {
+                SqlCommand exePesquisa = new SqlCommand("SELECT categoria FROM Categoria", banco.connection);
+
+                banco.conectar();
+                SqlDataReader dr = exePesquisa.ExecuteReader();
+
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+
+                while (dr.Read())
+                {
+                    lista.Add(dr.GetString(0));
+                }
+                banco.desconectar();
+
+                textBoxPesquisar.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void verificarQuantidadeCategorias()
         {
@@ -125,6 +165,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
 
         private void FormCategorias_Load(object sender, EventArgs e)
         {
+            pesquisaAutoComplete();
             dataCategoria();
             //
             verificarQuantidadeCategorias();
@@ -141,6 +182,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
         {
             if (ViewForms._responseViewForm() == true)
             {
+                pesquisaAutoComplete();
                 verificarQuantidadeCategorias();
                 dataCategoria();
                 dataGridViewContent.Refresh();
@@ -153,65 +195,35 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
             ViewForms.requestViewForm(true, false);
         }
 
-        private void textBoxPesquisarNome_KeyUp(object sender, KeyEventArgs e)
+        private void buttonPesquisar_Click(object sender, EventArgs e)
         {
-            if (textBoxPesquisarNome.Text != string.Empty)
+            //Retorna os dados da tabela Produtos para o DataGridView
+            string Categoria = ("SELECT idCategoria, codigoCategoria, categoria, idLog FROM Categoria WHERE categoria LIKE (@categoria + '%') ORDER BY categoria");
+            SqlCommand exeVerificacao = new SqlCommand(Categoria, banco.connection);
+            banco.conectar();
+
+            exeVerificacao.Parameters.AddWithValue("@categoria", textBoxPesquisar.Text);
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            dataGridViewContent.Rows.Clear();
+            while (datareader.Read())
             {
-                string dado = string.Empty;
-
-                dado = textBoxPesquisarNome.Text;
-
-                if (dado.All(Char.IsNumber))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Categoria = ("SELECT idCategoria, codigoCategoria, categoria, idLog FROM Categoria WHERE codigoCategoria LIKE (@codigo + '%') ORDER BY categoria");
-                    SqlCommand exeVerificacao = new SqlCommand(Categoria, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
-
-                if (dado.All(Char.IsLetter))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Categoria = ("SELECT idCategoria, codigoCategoria, categoria, idLog FROM Categoria WHERE categoria LIKE (@categoria + '%') ORDER BY categoria");
-                    SqlCommand exeVerificacao = new SqlCommand(Categoria, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@categoria", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
+                dataGridViewContent.Rows.Add(datareader[0],
+                                            datareader[1],
+                                            datareader[2]);
             }
-            else
+
+            banco.desconectar();
+
+            dataGridViewContent.Refresh();
+        }
+
+        private void textBoxPesquisar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
-                dataCategoria();
+                buttonPesquisar_Click(sender, e);
             }
         }
 
@@ -225,17 +237,6 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
         private void buttonRelatorio_Click(object sender, EventArgs e)
         {
             MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void buttonEditarCadastro_Click(object sender, EventArgs e)
-        {
-            //Query que deleta dados especificos atraves de parametros no banco de dados
-            if (dataGridViewContent.Rows.Count != 0)
-            {
-                updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
-
-                openChildForm(new Configuracoes.Categorias.FormCadCategorias());
-            }
         }
 
         private void buttonExcluirCadastro_Click(object sender, EventArgs e)
@@ -283,5 +284,6 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
                 openChildForm(new Configuracoes.Categorias.FormCadCategorias());
             }
         }
+
     }
 }

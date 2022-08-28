@@ -30,24 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConfiguracoes));
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.buttonConfigSistema = new System.Windows.Forms.Button();
+            this.buttonModalidadeTransporte = new System.Windows.Forms.Button();
             this.buttonBackup = new System.Windows.Forms.Button();
             this.buttonFuncionarios = new System.Windows.Forms.Button();
             this.buttonCategorias = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
+            this.buttonParametrosSistema = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.buttonModalidadeTransporte = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.Controls.Add(this.buttonModalidadeTransporte);
-            this.panelMenu.Controls.Add(this.buttonConfigSistema);
             this.panelMenu.Controls.Add(this.buttonBackup);
             this.panelMenu.Controls.Add(this.buttonFuncionarios);
             this.panelMenu.Controls.Add(this.buttonCategorias);
             this.panelMenu.Controls.Add(this.buttonVoltar);
+            this.panelMenu.Controls.Add(this.buttonParametrosSistema);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
@@ -55,22 +55,22 @@
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
-            // buttonConfigSistema
+            // buttonModalidadeTransporte
             // 
-            this.buttonConfigSistema.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonConfigSistema.FlatAppearance.BorderSize = 0;
-            this.buttonConfigSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonConfigSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonConfigSistema.Image = ((System.Drawing.Image)(resources.GetObject("buttonConfigSistema.Image")));
-            this.buttonConfigSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonConfigSistema.Location = new System.Drawing.Point(12, 588);
-            this.buttonConfigSistema.Name = "buttonConfigSistema";
-            this.buttonConfigSistema.Size = new System.Drawing.Size(186, 40);
-            this.buttonConfigSistema.TabIndex = 99;
-            this.buttonConfigSistema.Text = "   Config Sistema";
-            this.buttonConfigSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonConfigSistema.UseVisualStyleBackColor = true;
-            this.buttonConfigSistema.Click += new System.EventHandler(this.buttonConfigSistema_Click);
+            this.buttonModalidadeTransporte.FlatAppearance.BorderSize = 0;
+            this.buttonModalidadeTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonModalidadeTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonModalidadeTransporte.Image = ((System.Drawing.Image)(resources.GetObject("buttonModalidadeTransporte.Image")));
+            this.buttonModalidadeTransporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonModalidadeTransporte.Location = new System.Drawing.Point(0, 144);
+            this.buttonModalidadeTransporte.Name = "buttonModalidadeTransporte";
+            this.buttonModalidadeTransporte.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonModalidadeTransporte.Size = new System.Drawing.Size(198, 40);
+            this.buttonModalidadeTransporte.TabIndex = 100;
+            this.buttonModalidadeTransporte.Text = "   Modal. Transporte";
+            this.buttonModalidadeTransporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonModalidadeTransporte.UseVisualStyleBackColor = true;
+            this.buttonModalidadeTransporte.Click += new System.EventHandler(this.buttonModalidadeTransporte_Click);
             // 
             // buttonBackup
             // 
@@ -80,12 +80,12 @@
             this.buttonBackup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonBackup.Image = ((System.Drawing.Image)(resources.GetObject("buttonBackup.Image")));
             this.buttonBackup.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonBackup.Location = new System.Drawing.Point(12, 544);
+            this.buttonBackup.Location = new System.Drawing.Point(0, 544);
             this.buttonBackup.Name = "buttonBackup";
             this.buttonBackup.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonBackup.Size = new System.Drawing.Size(186, 40);
+            this.buttonBackup.Size = new System.Drawing.Size(198, 40);
             this.buttonBackup.TabIndex = 98;
-            this.buttonBackup.Text = "   Backup";
+            this.buttonBackup.Text = "  Backup dos dados";
             this.buttonBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonBackup.UseVisualStyleBackColor = true;
             this.buttonBackup.Click += new System.EventHandler(this.buttonBackup_Click);
@@ -97,11 +97,12 @@
             this.buttonFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("buttonFuncionarios.Image")));
             this.buttonFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFuncionarios.Location = new System.Drawing.Point(12, 98);
+            this.buttonFuncionarios.Location = new System.Drawing.Point(0, 98);
             this.buttonFuncionarios.Name = "buttonFuncionarios";
-            this.buttonFuncionarios.Size = new System.Drawing.Size(186, 40);
+            this.buttonFuncionarios.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonFuncionarios.Size = new System.Drawing.Size(198, 40);
             this.buttonFuncionarios.TabIndex = 96;
-            this.buttonFuncionarios.Text = "   Funcionarios";
+            this.buttonFuncionarios.Text = "   Vendedores";
             this.buttonFuncionarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonFuncionarios.UseVisualStyleBackColor = true;
             this.buttonFuncionarios.Click += new System.EventHandler(this.buttonFuncionarios_Click);
@@ -113,9 +114,10 @@
             this.buttonCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonCategorias.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategorias.Image")));
             this.buttonCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCategorias.Location = new System.Drawing.Point(12, 54);
+            this.buttonCategorias.Location = new System.Drawing.Point(0, 54);
             this.buttonCategorias.Name = "buttonCategorias";
-            this.buttonCategorias.Size = new System.Drawing.Size(186, 40);
+            this.buttonCategorias.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonCategorias.Size = new System.Drawing.Size(198, 40);
             this.buttonCategorias.TabIndex = 95;
             this.buttonCategorias.Text = "   Categorias";
             this.buttonCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -144,6 +146,24 @@
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
             // 
+            // buttonParametrosSistema
+            // 
+            this.buttonParametrosSistema.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonParametrosSistema.FlatAppearance.BorderSize = 0;
+            this.buttonParametrosSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonParametrosSistema.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonParametrosSistema.Image = ((System.Drawing.Image)(resources.GetObject("buttonParametrosSistema.Image")));
+            this.buttonParametrosSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonParametrosSistema.Location = new System.Drawing.Point(0, 588);
+            this.buttonParametrosSistema.Name = "buttonParametrosSistema";
+            this.buttonParametrosSistema.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonParametrosSistema.Size = new System.Drawing.Size(198, 40);
+            this.buttonParametrosSistema.TabIndex = 99;
+            this.buttonParametrosSistema.Text = "  Parametros Sistema";
+            this.buttonParametrosSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonParametrosSistema.UseVisualStyleBackColor = true;
+            this.buttonParametrosSistema.Click += new System.EventHandler(this.buttonParametrosSistema_Click);
+            // 
             // panelContent
             // 
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
@@ -153,22 +173,6 @@
             this.panelContent.Size = new System.Drawing.Size(1008, 640);
             this.panelContent.TabIndex = 1;
             this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
-            // 
-            // buttonModalidadeTransporte
-            // 
-            this.buttonModalidadeTransporte.FlatAppearance.BorderSize = 0;
-            this.buttonModalidadeTransporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonModalidadeTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonModalidadeTransporte.Image = ((System.Drawing.Image)(resources.GetObject("buttonModalidadeTransporte.Image")));
-            this.buttonModalidadeTransporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModalidadeTransporte.Location = new System.Drawing.Point(12, 144);
-            this.buttonModalidadeTransporte.Name = "buttonModalidadeTransporte";
-            this.buttonModalidadeTransporte.Size = new System.Drawing.Size(186, 40);
-            this.buttonModalidadeTransporte.TabIndex = 100;
-            this.buttonModalidadeTransporte.Text = "   Modal. Transporte";
-            this.buttonModalidadeTransporte.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonModalidadeTransporte.UseVisualStyleBackColor = true;
-            this.buttonModalidadeTransporte.Click += new System.EventHandler(this.buttonModalidadeTransporte_Click);
             // 
             // FormConfiguracoes
             // 
@@ -193,7 +197,7 @@
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelContent;
         private System.Windows.Forms.Button buttonVoltar;
-        private System.Windows.Forms.Button buttonConfigSistema;
+        private System.Windows.Forms.Button buttonParametrosSistema;
         private System.Windows.Forms.Button buttonBackup;
         private System.Windows.Forms.Button buttonFuncionarios;
         private System.Windows.Forms.Button buttonCategorias;

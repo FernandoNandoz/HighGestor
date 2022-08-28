@@ -42,9 +42,13 @@
             this.tabControlContent = new System.Windows.Forms.TabControl();
             this.tabPageReceitas = new System.Windows.Forms.TabPage();
             this.dataGridViewContentReceitas = new System.Windows.Forms.DataGridView();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelContagem = new System.Windows.Forms.Label();
             this.tabPageDespesas = new System.Windows.Forms.TabPage();
             this.dataGridViewContentDespesas = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
@@ -52,10 +56,6 @@
             this.buttonExcluirCadastro = new System.Windows.Forms.Button();
             this.buttonRelatorio = new System.Windows.Forms.Button();
             this.buttonAdicionarNovo = new System.Windows.Forms.Button();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             label1 = new System.Windows.Forms.Label();
             this.panelContent.SuspendLayout();
             this.tabControlContent.SuspendLayout();
@@ -192,6 +192,20 @@
             this.dataGridViewContentReceitas.TabStop = false;
             this.dataGridViewContentReceitas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContentReceitas_CellDoubleClick);
             // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "idCategoriaFinanceiro";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Descrição";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
             // labelContagem
             // 
             this.labelContagem.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -281,6 +295,20 @@
             this.dataGridViewContentDespesas.TabStop = false;
             this.dataGridViewContentDespesas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContentDespesas_CellDoubleClick);
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "idCategoriaFinanceiro";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Descrição";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -328,6 +356,7 @@
             this.textBoxPesquisar.Size = new System.Drawing.Size(250, 26);
             this.textBoxPesquisar.TabIndex = 160;
             this.textBoxPesquisar.Tag = "Fornecedor";
+            this.textBoxPesquisar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisar_KeyUp);
             // 
             // buttonPesquisar
             // 
@@ -400,34 +429,6 @@
             this.buttonAdicionarNovo.UseVisualStyleBackColor = false;
             this.buttonAdicionarNovo.Click += new System.EventHandler(this.buttonAdicionarNovo_Click);
             this.buttonAdicionarNovo.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "idCategoriaFinanceiro";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "Descrição";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "idCategoriaFinanceiro";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Descrição";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // FormCategoriaContas
             // 

@@ -132,6 +132,7 @@
             this.textBoxPesquisar.Size = new System.Drawing.Size(250, 26);
             this.textBoxPesquisar.TabIndex = 160;
             this.textBoxPesquisar.Tag = "Fornecedor";
+            this.textBoxPesquisar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxPesquisar_KeyUp);
             // 
             // buttonPesquisar
             // 

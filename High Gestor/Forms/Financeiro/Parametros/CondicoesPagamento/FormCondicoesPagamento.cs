@@ -216,6 +216,14 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
             dataGridViewContent.Refresh();
         }
 
+        private void textBoxPesquisar_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                buttonPesquisar_Click(sender, e);
+            }
+        }
+
         private void buttonAdicionarNovo_Click(object sender, EventArgs e)
         {
             updateData.receberDados(0, false);

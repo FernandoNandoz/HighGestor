@@ -117,4 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="panelSubMenu.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="panelHeaderSubMenu.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="panelSubMenuBorder.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonVoltar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAARtJREFUSEtj
+        GAWjACv4b+em+F/PjRvKpS74z8DA+NfKs/yvlcefv9bu/VBh6oH/xr5c/6w91gEt+A/B7nOhUtQB/639
+        eP9YeRxFWEBlS/47OHAAfbAb1QKP//+sPPb9sfH0/W/pZgXEGv9tPUX/h4YyQ7URDyBx4LEc3QL82P09
+        kL4N9PnJf5bu24DsJUA8EYjrf1t5OkGNRgBgJLdCNFINP4MaDQH/jY1ZgYK/0BRRjP9bhnJCrYCAv5Ye
+        FdgUUoDvQo1GBaBUhEUxHow7Tv7beNhAjUUF/7VD2YApaSPEAASmWuqCAZBmoMGLUC2icmYEAWhCmEpT
+        S2Dgj7VHMtCSH8BE0QcVog347+Ar8t/Tkx3KHQWjgFjAwAAARDJyhixCJjQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <metadata name="label2.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
 </root>
