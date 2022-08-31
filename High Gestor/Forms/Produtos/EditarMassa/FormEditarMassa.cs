@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Produtos
+namespace High_Gestor.Forms.Produtos.EditarMassa
 {
     public partial class FormEditarMassa : Form
     {

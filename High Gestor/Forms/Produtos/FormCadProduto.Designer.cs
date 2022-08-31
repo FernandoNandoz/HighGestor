@@ -406,6 +406,7 @@
             this.textBoxCodigoProduto.Size = new System.Drawing.Size(215, 26);
             this.textBoxCodigoProduto.TabIndex = 1;
             this.textBoxCodigoProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
+            this.textBoxCodigoProduto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigoProduto_KeyUp);
             // 
             // btnSair
             // 

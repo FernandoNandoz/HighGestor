@@ -82,7 +82,7 @@ namespace High_Gestor.Forms.Produtos
             int UltimoCodigo = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT codigoProduto FROM Produtos WHERE codigoProduto=(SELECT MAX(codigoProduto) FROM Produtos)");
+            string query = ("SELECT codigoProduto FROM Produtos WHERE idProduto=(SELECT MAX(idProduto) FROM Produtos)");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -549,8 +549,8 @@ namespace High_Gestor.Forms.Produtos
 
             if (updateData._retornarValidacao() == true)
             {
-                textBoxCodigoProduto.Enabled = true;
-                checkBoxGerarCodigoAutomaticamente.Checked = false;
+                textBoxCodigoProduto.Enabled = false;
+                checkBoxGerarCodigoAutomaticamente.Checked = true;
                 checkBoxGerarCodigoAutomaticamente.Enabled = false;
 
                 textBoxEstoqueAtual.ReadOnly = true;
@@ -599,6 +599,14 @@ namespace High_Gestor.Forms.Produtos
         private void FormCadProduto_FormClosing(object sender, FormClosingEventArgs e)
         {
             ViewForms.requestViewForm(true, false);
+        }
+
+        private void textBoxCodigoProduto_KeyUp(object sender, KeyEventArgs e)
+        {
+            //if(verificarUltimoCodigo() < int.Parse(textBoxCodigoProduto.Text))
+            //{
+            //    MessageBox.Show("O Codigo informado não pode ser usado pois é menor que o ultimo codigo cadastrado!" + "\n" + "\n" + "Informe um Codigo MAIOR que: " + verificarUltimoCodigo().ToString() + "\n" + "\n" + "EX: " + (verificarUltimoCodigo() + 1).ToString());
+            //}
         }
 
         private void textBoxFornecedor_KeyUp(object sender, KeyEventArgs e)
@@ -679,7 +687,7 @@ namespace High_Gestor.Forms.Produtos
         {
             ViewForms.requestViewForm(false, true);
 
-            Configuracoes.Categorias.FormCategorias windows = new Configuracoes.Categorias.FormCategorias();
+            Categorias.FormCategorias windows = new Categorias.FormCategorias();
             windows.ShowDialog();
             windows.Dispose();
 
@@ -867,5 +875,6 @@ namespace High_Gestor.Forms.Produtos
             }
         }
 
+        
     }
 }

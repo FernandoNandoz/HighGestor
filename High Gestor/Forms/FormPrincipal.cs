@@ -130,6 +130,7 @@ namespace High_Gestor
             // 1 - Aumentar tamanho da Tela
             // 2 - Diminuir tamanho da Tela
             //  
+
             panelContent.Refresh();
 
 
@@ -140,7 +141,7 @@ namespace High_Gestor
             }
 
             if (alterouSize._retornarFormName() == "PRODUTO")
-            { 
+            {
                 alterouSize.receberOpenSecundario("REDIMENCIONAR");
                 //
                 openChildForm(new Forms.Produtos.FormProdutos());
@@ -179,6 +180,7 @@ namespace High_Gestor
                 //
                 openChildForm(new Forms.Configuracoes.FormConfiguracoes());
             }
+
         }
 
         private void dataFuncionario()
@@ -212,19 +214,102 @@ namespace High_Gestor
 
             nome = myTI.ToTitleCase(nome);
 
-            labelUsuario.Text = nome;
-
-            
+            labelUsuario.Text = nome; 
         }
 
+        private void verificarParametros()
+        {
+            int value = 0;
+
+            string query = ("SELECT COUNT(*) FROM ParametrosSistema");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader reader = exeQuery.ExecuteReader();
+
+            if (reader.Read())
+            {
+                value = reader.GetInt32(0);
+            }
+            banco.desconectar();
+
+            if (value == 0)
+            {
+                insertParametrosPadrao();
+            }
+        }
+
+        private int verificarDadosEmpresa()
+        {
+            int value = 0;
+
+            string query = ("SELECT COUNT(*), nomeFantasia FROM DadosEmpresa GROUP BY nomeFantasia");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader reader = exeQuery.ExecuteReader();
+
+            if (reader.Read())
+            {
+                value = reader.GetInt32(0);
+                labelNameEstebelecimento.Text = reader.GetString(1);
+            }
+            banco.desconectar();
+
+            return value;
+        }
+
+        private void insertParametrosPadrao()
+        {
+            string query = ("INSERT INTO ParametrosSistema (comissao, comissionamento, categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras, bloquearVendaEstoque, atualizarCustoProduto, idListaPrecoFK, idLog, createdAt) VALUES (@comissao, @comissionamento, @categoriaPadraoReceitas, @categoriaPadraoDespesas, @categoriaPadraoVendas, @categoriaPadraoCompras, @bloquearVendaEstoque, @atualizarCustoProduto, @idListaPrecoFK, @idLog, @createdAt)");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@comissao", "DESATIVADO");
+            exeQuery.Parameters.AddWithValue("@comissionamento", "TOTAL DE VENDAS");
+            exeQuery.Parameters.AddWithValue("@valorComissao", "0");
+            exeQuery.Parameters.AddWithValue("@categoriaPadraoReceitas", "OUTRAS RECEITAS");
+            exeQuery.Parameters.AddWithValue("@categoriaPadraoDespesas", "OUTRAS DESPESAS");
+            exeQuery.Parameters.AddWithValue("@categoriaPadraoVendas", "VENDAS");
+            exeQuery.Parameters.AddWithValue("@categoriaPadraoCompras", "FORNECEDOR");
+            exeQuery.Parameters.AddWithValue("@bloquearVendaEstoque", "SIM");
+            exeQuery.Parameters.AddWithValue("@atualizarCustoProduto", "SIM");
+            exeQuery.Parameters.AddWithValue("@idListaPrecoFK", "1");
+            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            exeQuery.ExecuteNonQuery();
+            banco.desconectar();
+        }
 
         private void FormHighGestor_Load(object sender, EventArgs e)
         {
             dataFuncionario();
+            verificarParametros();
 
-            
+            if(verificarDadosEmpresa() == 0)
+            {
+                PrimeiroAcesso.receberDados(true);
 
-            buttonVendas_Click(sender, e);
+                Forms.Configuracoes.ParametrosSistema.DadosEmpresa.FormApresentacao window = new Forms.Configuracoes.ParametrosSistema.DadosEmpresa.FormApresentacao();
+                window.ShowDialog();
+                window.Dispose();
+
+                if(PrimeiroAcesso._retornarDadosEmpresa() == false)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    verificarDadosEmpresa();
+
+                    buttonVendas_Click(sender, e);
+                }
+            }
+            else
+            {
+                buttonVendas_Click(sender, e);
+            }
         }
 
         private void buttonTitlerSair_Click(object sender, EventArgs e)
@@ -334,7 +419,6 @@ namespace High_Gestor
             ViewForms.requestBackMenu(false);
             alterouSize.receberName("FINANCEIRO");
             alterouSize.receberValidacao(1);
-
 
             openChildForm(new Forms.Financeiro.FormFinanceiro());
         }

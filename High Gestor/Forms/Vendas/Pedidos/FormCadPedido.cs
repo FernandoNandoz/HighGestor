@@ -1538,7 +1538,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
         private void FormCadPedido_Load(object sender, EventArgs e)
         {
-            
+            textBoxCliente.Focus();
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)

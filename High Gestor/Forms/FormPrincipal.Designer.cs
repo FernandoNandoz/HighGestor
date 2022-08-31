@@ -350,9 +350,9 @@
             this.labelNameEstebelecimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNameEstebelecimento.Location = new System.Drawing.Point(18, 43);
             this.labelNameEstebelecimento.Name = "labelNameEstebelecimento";
-            this.labelNameEstebelecimento.Size = new System.Drawing.Size(211, 29);
+            this.labelNameEstebelecimento.Size = new System.Drawing.Size(228, 29);
             this.labelNameEstebelecimento.TabIndex = 3;
-            this.labelNameEstebelecimento.Text = "TX Agropecuaria";
+            this.labelNameEstebelecimento.Text = "Nome da empresa";
             // 
             // buttonAjuda
             // 

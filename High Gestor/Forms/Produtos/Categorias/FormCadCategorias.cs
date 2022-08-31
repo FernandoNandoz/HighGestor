@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.Categorias
+namespace High_Gestor.Forms.Produtos.Categorias
 {
     public partial class FormCadCategorias : Form
     {

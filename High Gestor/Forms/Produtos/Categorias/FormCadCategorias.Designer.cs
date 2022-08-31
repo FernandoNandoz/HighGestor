@@ -1,4 +1,4 @@
-﻿namespace High_Gestor.Forms.Configuracoes.Categorias
+﻿namespace High_Gestor.Forms.Produtos.Categorias
 {
     partial class FormCadCategorias
     {
@@ -116,7 +116,7 @@
             this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(507, 580);
+            this.btnSair.Location = new System.Drawing.Point(607, 580);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(109, 37);
             this.btnSair.TabIndex = 46;
@@ -129,7 +129,7 @@
             this.buttonSalvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(392, 580);
+            this.buttonSalvar.Location = new System.Drawing.Point(492, 580);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(109, 37);
             this.buttonSalvar.TabIndex = 45;
@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.ClientSize = new System.Drawing.Size(1208, 640);
             this.Controls.Add(this.checkBoxGerarCodigoAutomaticamente);
             this.Controls.Add(label1);
             this.Controls.Add(this.textBoxCodigoCategoria);

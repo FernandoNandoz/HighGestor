@@ -75,19 +75,12 @@ namespace High_Gestor.Forms.Configuracoes
         }
 
         private void FormConfiguracoes_Load(object sender, System.EventArgs e)
-        {
+        {        
             if (alterouSize._retornarFormOpenSecundario() == "REDIMENCIONAR")
             {
                 panelContent.Refresh();
 
-                if (alterouSize._retornarFormNameSecundario() == "CATEGORIA")
-                {
-                    ViewForms.requestBackMenu(false);
-                    //
-                    openChildForm(new Categorias.FormCategorias());
-                    //    
-                }
-
+               
                 if (alterouSize._retornarFormNameSecundario() == "FUNCIONARIO")
                 {
                     ViewForms.requestBackMenu(false);
@@ -117,7 +110,6 @@ namespace High_Gestor.Forms.Configuracoes
                     openChildForm(new ParametrosSistema.FormParametrosSistemas());
                 }
             }
-
         }
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)
@@ -145,7 +137,6 @@ namespace High_Gestor.Forms.Configuracoes
             alterouSize.receberNameSecundario("CATEGORIA");
             alterouSize.receberValidacaoSecundario(1);
 
-            openChildForm(new Categorias.FormCategorias());
         }
 
         private void buttonFuncionarios_Click(object sender, EventArgs e)

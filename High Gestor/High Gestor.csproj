@@ -89,11 +89,53 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.Designer.cs">
+      <DependentUpon>UserControl_Compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.Designer.cs">
+      <DependentUpon>FormApresentacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.Designer.cs">
+      <DependentUpon>FormDadosEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Estoque\UserControl_Estoque.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Estoque\UserControl_Estoque.Designer.cs">
+      <DependentUpon>UserControl_Estoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Financeiro\UserControl_Financeiro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Financeiro\UserControl_Financeiro.Designer.cs">
+      <DependentUpon>UserControl_Financeiro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.Designer.cs">
       <DependentUpon>FormParametrosSistemas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Gerais\UserControl_Gerais.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Gerais\UserControl_Gerais.Designer.cs">
+      <DependentUpon>UserControl_Gerais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Vendas\UserControl_Vendas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\Vendas\UserControl_Vendas.Designer.cs">
+      <DependentUpon>UserControl_Vendas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\Transporte\FormCadTransporte.cs">
       <SubType>Form</SubType>
@@ -136,6 +178,48 @@
     </Compile>
     <Compile Include="Forms\Financeiro\Parametros\FormParametros.Designer.cs">
       <DependentUpon>FormParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\AtualizarPrecos\ItemLista\UserControl_ItemPreco.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\AtualizarPrecos\ItemLista\UserControl_ItemPreco.Designer.cs">
+      <DependentUpon>UserControl_ItemPreco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormCadListaPreco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormCadListaPreco.Designer.cs">
+      <DependentUpon>FormCadListaPreco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormListaParametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormListaParametros.Designer.cs">
+      <DependentUpon>FormListaParametros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormListaPreco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\ListaPreco\FormListaPreco.Designer.cs">
+      <DependentUpon>FormListaPreco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\AtualizarPrecos\UserControl_AtualizarPrecos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\AtualizarPrecos\UserControl_AtualizarPrecos.Designer.cs">
+      <DependentUpon>UserControl_AtualizarPrecos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Produtos\UserControl_MaisAcoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Produtos\UserControl_MaisAcoes.Designer.cs">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Vendas\Clientes\FormCadCliente.cs">
       <SubType>Form</SubType>
@@ -199,16 +283,16 @@
     <Compile Include="Forms\Compras\UserControl_Acoes.Designer.cs">
       <DependentUpon>UserControl_Acoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.cs">
+    <Compile Include="Forms\Produtos\Categorias\FormCadCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Categorias\FormCadCategorias.Designer.cs">
+    <Compile Include="Forms\Produtos\Categorias\FormCadCategorias.Designer.cs">
       <DependentUpon>FormCadCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Categorias\FormCategorias.cs">
+    <Compile Include="Forms\Produtos\Categorias\FormCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\Categorias\FormCategorias.Designer.cs">
+    <Compile Include="Forms\Produtos\Categorias\FormCategorias.Designer.cs">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\Backup\FormBackup.cs">
@@ -289,10 +373,10 @@
     <Compile Include="Forms\Produtos\Estoque\FormMovimentarEstoque.Designer.cs">
       <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Produtos\FormEditarMassa.cs">
+    <Compile Include="Forms\Produtos\EditarMassa\FormEditarMassa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Produtos\FormEditarMassa.Designer.cs">
+    <Compile Include="Forms\Produtos\EditarMassa\FormEditarMassa.Designer.cs">
       <DependentUpon>FormEditarMassa.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Produtos\FormProdutos.cs">
@@ -354,8 +438,29 @@
       <DependentUpon>FormReportProdutos.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.resx">
+      <DependentUpon>UserControl_Compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.resx">
+      <DependentUpon>FormApresentacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.resx">
+      <DependentUpon>FormDadosEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Estoque\UserControl_Estoque.resx">
+      <DependentUpon>UserControl_Estoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Financeiro\UserControl_Financeiro.resx">
+      <DependentUpon>UserControl_Financeiro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\FormParametrosSistemas.resx">
       <DependentUpon>FormParametrosSistemas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Gerais\UserControl_Gerais.resx">
+      <DependentUpon>UserControl_Gerais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Vendas\UserControl_Vendas.resx">
+      <DependentUpon>UserControl_Vendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Transporte\FormCadTransporte.resx">
       <DependentUpon>FormCadTransporte.cs</DependentUpon>
@@ -377,6 +482,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\Parametros\FormParametros.resx">
       <DependentUpon>FormParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\AtualizarPrecos\ItemLista\UserControl_ItemPreco.resx">
+      <DependentUpon>UserControl_ItemPreco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\ListaPreco\FormCadListaPreco.resx">
+      <DependentUpon>FormCadListaPreco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\ListaPreco\FormListaParametros.resx">
+      <DependentUpon>FormListaParametros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\ListaPreco\FormListaPreco.resx">
+      <DependentUpon>FormListaPreco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\AtualizarPrecos\UserControl_AtualizarPrecos.resx">
+      <DependentUpon>UserControl_AtualizarPrecos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Produtos\UserControl_MaisAcoes.resx">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\Clientes\FormCadCliente.resx">
       <DependentUpon>FormCadCliente.cs</DependentUpon>
@@ -408,10 +534,10 @@
     <EmbeddedResource Include="Forms\Compras\UserControl_Acoes.resx">
       <DependentUpon>UserControl_Acoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCadCategorias.resx">
+    <EmbeddedResource Include="Forms\Produtos\Categorias\FormCadCategorias.resx">
       <DependentUpon>FormCadCategorias.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\Categorias\FormCategorias.resx">
+    <EmbeddedResource Include="Forms\Produtos\Categorias\FormCategorias.resx">
       <DependentUpon>FormCategorias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Backup\FormBackup.resx">
@@ -453,7 +579,7 @@
     <EmbeddedResource Include="Forms\Produtos\Estoque\FormMovimentarEstoque.resx">
       <DependentUpon>FormMovimentarEstoque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Produtos\FormEditarMassa.resx">
+    <EmbeddedResource Include="Forms\Produtos\EditarMassa\FormEditarMassa.resx">
       <DependentUpon>FormEditarMassa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\FormProdutos.resx">
@@ -533,6 +659,8 @@
     <None Include="Resources\verde.png" />
     <None Include="Resources\cinza.png" />
     <Content Include="ICON-High.ico" />
+    <None Include="Resources\espandir_blue.png" />
+    <None Include="Resources\recolher_blue.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

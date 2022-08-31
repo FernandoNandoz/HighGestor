@@ -314,7 +314,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CategoriaContas
                     {
                         try
                         {
-                            string categoria = ("DELETE FROM CategoriaFinanceiro WHERE idCategoriaFinanceiroo = @ID");
+                            string categoria = ("DELETE FROM CategoriaFinanceiro WHERE idCategoriaFinanceiro = @ID");
                             SqlCommand command = new SqlCommand(categoria, banco.connection);
 
                             command.Parameters.AddWithValue("@ID", dataGridViewContentReceitas.CurrentRow.Cells[0].Value);

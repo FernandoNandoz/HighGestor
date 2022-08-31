@@ -233,4 +233,30 @@ namespace High_Gestor
         }
     }
 
+    public class PrimeiroAcesso
+    {
+        static bool PrimeiroVez = false;
+        static bool EmpresaCadastrada = false;
+
+        public static void receberDados(bool validacao)
+        {
+            PrimeiroVez = validacao;
+        }
+
+        public static bool _retornarDados()
+        {
+            return PrimeiroVez;
+        }
+
+        public static void receberDadosEmpresa(bool validacao)
+        {
+            EmpresaCadastrada = validacao;
+        }
+
+        public static bool _retornarDadosEmpresa()
+        {
+            return EmpresaCadastrada;
+        }
+    }
+
 }

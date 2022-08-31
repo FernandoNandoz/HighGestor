@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.Categorias
+namespace High_Gestor.Forms.Produtos.Categorias
 {
     public partial class FormCategorias : Form
     {
@@ -231,7 +231,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
         {
             updateData.receberDados(0, false);
 
-            openChildForm(new Categorias.FormCadCategorias());
+            openChildForm(new FormCadCategorias());
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
@@ -281,7 +281,7 @@ namespace High_Gestor.Forms.Configuracoes.Categorias
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 
-                openChildForm(new Configuracoes.Categorias.FormCadCategorias());
+                openChildForm(new FormCadCategorias());
             }
         }
 
