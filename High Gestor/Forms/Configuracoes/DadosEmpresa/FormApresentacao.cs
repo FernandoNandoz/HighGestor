@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
+namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 {
     public partial class FormApresentacao : Form
     {

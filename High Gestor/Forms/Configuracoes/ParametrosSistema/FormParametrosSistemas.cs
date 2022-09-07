@@ -211,7 +211,6 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
             buttonCompras.ForeColor = Color.Black;
             buttonDadosEmpresa.ForeColor = Color.FromArgb(43, 87, 154);
 
-            openChildForm(new DadosEmpresa.FormDadosEmpresa());
         }
 
         private void FormParametrosSistemas_FormClosing(object sender, FormClosingEventArgs e)

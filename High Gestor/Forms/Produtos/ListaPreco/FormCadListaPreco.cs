@@ -20,6 +20,21 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
             InitializeComponent();
         }
 
+        public void DrawLinePointF(PaintEventArgs e)
+        {
+            // Create pen.
+            Pen blackPen = new Pen(Color.Silver, 1);
+
+            // Create coordinates of points that define line.
+            int x1 = 33;
+            int y1 = 250;
+            int x2 = Width - 40;
+            int y2 = 250;
+
+            // Draw line to screen.
+            e.Graphics.DrawLine(blackPen, x1, y1, x2, y2);
+        }
+
         private void limparValores()
         {
             comboBoxSituacao.SelectedIndex = 0;
@@ -45,6 +60,43 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 textBoxDescricao.Text = datareader.GetString(1);
             }
 
+            banco.desconectar();
+        }
+
+        private void carregarHistorico()
+        {
+            int cont = 0;
+
+            string modalidadeAjuste = string.Empty;
+            string tipoAjuste = string.Empty;
+            string baseCalculoValorProduto = string.Empty;
+            string baseCalculoValorLista = string.Empty;
+            string createdAt = string.Empty;
+            string updatedAt = string.Empty;
+
+            //Retorna os dados da tabela Produtos para o DataGridView
+            string query = ("SELECT modalidadeAjuste, tipoAjuste, baseCalculoValorProduto, baseCalculoValorLista, createdAt, updatedAt FROM ListaPreco WHERE idListaPreco = @ID");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            exeVerificacao.Parameters.AddWithValue("@ID", updateData._retornarID());
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {         
+                modalidadeAjuste = datareader[0].ToString();
+                tipoAjuste = datareader[1].ToString();
+                baseCalculoValorProduto = datareader[2].ToString();
+                baseCalculoValorLista = datareader[3].ToString();
+                createdAt = datareader[4].ToString();
+                updatedAt = datareader[5].ToString();
+
+                if(cont == 0)
+                {
+                    dataGridViewContent.Rows.Add();
+                }
+            }
             banco.desconectar();
         }
 
@@ -125,7 +177,7 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 command.Parameters.AddWithValue("@tipoAjuste", "-----");
                 command.Parameters.AddWithValue("@baseCalculoValorProduto", 0);
                 command.Parameters.AddWithValue("@baseCalculoValorLista", 0);
-                command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(Autenticacao._idUsuario(), "Produtos/Mais acoes/Lista de precos/ Cadastrar Lista de preco", "ListaPreco", query, "Cadastrando uma lista"));
                 command.Parameters.AddWithValue("@createdAt", DateTime.Now);
 
                 banco.conectar();
@@ -167,6 +219,7 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
 
         private void FormCadListaPreco_Load(object sender, EventArgs e)
         {
+
             if (updateData._retornarValidacao() == true)
             {
                 carregarDados();
@@ -176,6 +229,11 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 comboBoxSituacao.SelectedIndex = 0;
             }
             textBoxDescricao.Focus();
+        }
+
+        private void FormCadListaPreco_Paint(object sender, PaintEventArgs e)
+        {
+            //DrawLinePointF(e);
         }
 
         private void btnSair_Click(object sender, EventArgs e)
@@ -221,5 +279,7 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 buttonSalvar_Click(sender, e);
             }
         }
+
+      
     }
 }

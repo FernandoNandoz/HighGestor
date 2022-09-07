@@ -646,6 +646,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -1600,15 +1608,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:High Gestor"
-        "ProductCode" = "8:{979935A2-139B-4E59-BF65-4F002B885026}"
-        "PackageCode" = "8:{585AF00C-098A-4FAE-9BC6-74B0262ACB3B}"
+        "ProductCode" = "8:{16F17C60-3162-40D9-95F0-FE508336951C}"
+        "PackageCode" = "8:{69B91620-C6A1-498C-956D-17E9177FD56E}"
         "UpgradeCode" = "8:{F9B13F89-D904-445D-B546-9024F46B46ED}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Nord's Tech"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:nandonet1998@gmail.com"

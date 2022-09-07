@@ -24,6 +24,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Parcelas
 
         private bool _editarParcelas = false;
         private bool _situacaoContas = false;
+        private bool _condicaoPagamento = false;
         private int _idParcelaNota = 0;
         private int _numeroParcela;
         private DateTime _dataVencimento;
@@ -37,6 +38,13 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Parcelas
         {
             get { return _statusItem; }
             set { _statusItem = value; }
+        }
+
+        [Category("Custom Props")]
+        public bool CondicaoPagamento
+        {
+            get { return _condicaoPagamento; }
+            set { _condicaoPagamento = value; }
         }
 
         [Category("Custom Props")]
@@ -178,15 +186,18 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Parcelas
 
             comboBoxFormaPagamento.Text = EditarDataComboBoxFormaPagamento(FormaPagamento);
 
-            if (EditarParcelas == false)
+            if (EditarParcelas == false && CondicaoPagamento == false)
             {
                 comboBoxFormaPagamento.SelectedIndex = 0;
             }
 
             if (SituacaoContas == true)
             {
-                textBoxValor.ReadOnly = true;
-                textBoxObservacao.ReadOnly = true;
+                labelNumero.Enabled = false;
+                dateTimeVencimento.Enabled = false;
+                textBoxValor.Enabled = false;
+                comboBoxFormaPagamento.Enabled = false;
+                textBoxObservacao.Enabled = false;
             }
         }
 

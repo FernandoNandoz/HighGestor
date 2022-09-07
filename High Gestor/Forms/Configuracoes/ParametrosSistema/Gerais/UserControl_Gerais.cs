@@ -110,14 +110,15 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.Gerais
                 panelValorComissao.Visible = true;
                 comboBoxComissionamento.Enabled = true;
             }
+            else if (comboBoxComissao.Text == "VARIAVEL")
+            {
+                panelValorComissao.Visible = false;
+                comboBoxComissionamento.Enabled = true;
+            }
             else if (comboBoxComissao.Text == "DESATIVADO")
             {
                 panelValorComissao.Visible = false;
                 comboBoxComissionamento.Enabled = false;
-            }
-            else
-            {
-                panelValorComissao.Visible = false;
             }
         }
 

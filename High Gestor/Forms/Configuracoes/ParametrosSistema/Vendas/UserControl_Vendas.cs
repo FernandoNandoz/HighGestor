@@ -50,7 +50,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.Vendas
 
         private void carregarDados()
         {
-            string query = ("SELECT listaPreco FROM ParametrosSistema");
+            string query = ("SELECT ListaPreco FROM ParametrosSistema");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             banco.conectar();
@@ -65,7 +65,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.Vendas
 
         private void queryUpdate()
         {
-            string query = ("UPDATE ParametrosSistema SET listaPreco = @value, idLog = @idLog, updatedAt = @updatedAt");
+            string query = ("UPDATE ParametrosSistema SET ListaPreco= @value, idLog = @idLog, updatedAt = @updatedAt");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@value", comboBoxListaPreco.Text);

@@ -244,12 +244,13 @@ namespace High_Gestor.Forms.Produtos.AtualizarPrecos
 
                         if (margem != decimal.Parse(ListaPreco.Rows[i][4].ToString()))
                         {
-                            string query = ("UPDATE ListaPreco SET tipoAjuste = @tipoAjuste, baseCalculoValorProduto = @baseCalculoValorProduto WHERE idListaPreco = @ID");
+                            string query = ("UPDATE ListaPreco SET tipoAjuste = @tipoAjuste, baseCalculoValorProduto = @baseCalculoValorProduto, idLog = @idLog WHERE idListaPreco = @ID");
                             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                             exeQuery.Parameters.Clear();
                             exeQuery.Parameters.AddWithValue("@tipoAjuste", TipoAjuste);
                             exeQuery.Parameters.AddWithValue("@baseCalculoValorProduto", CalcularNovaBaseCalculo(ListaPreco.Rows[i][2].ToString(), baseCalculoValorProduto, valorAtualizado));
+                            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(Autenticacao._idUsuario(), "Produtos/Atualizar Valores", "ListaPreco", query, "Altualizando a lista de acordo com o valor total do produto"));
                             exeQuery.Parameters.AddWithValue("@ID", idListaPreco);
 
                             banco.conectar();
@@ -263,12 +264,13 @@ namespace High_Gestor.Forms.Produtos.AtualizarPrecos
 
                         if (margem != decimal.Parse(ListaPreco.Rows[i][5].ToString()))
                         {
-                            string query = ("UPDATE ListaPreco SET tipoAjuste = @tipoAjuste, baseCalculoValorLista = @baseCalculoValorLista WHERE idListaPreco = @ID");
+                            string query = ("UPDATE ListaPreco SET tipoAjuste = @tipoAjuste, baseCalculoValorLista = @baseCalculoValorLista, idLog = @idLog WHERE idListaPreco = @ID");
                             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                             exeQuery.Parameters.Clear();
                             exeQuery.Parameters.AddWithValue("@tipoAjuste", TipoAjuste);
                             exeQuery.Parameters.AddWithValue("@baseCalculoValorLista", CalcularNovaBaseCalculo(ListaPreco.Rows[i][2].ToString(), baseCalculoValorProduto, valorAtualizado));
+                            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(Autenticacao._idUsuario(), "Produtos/Atualizar Valores", "ListaPreco", query, "Altualizando a lista com referencia ao valor do produto nalisata selecionada"));
                             exeQuery.Parameters.AddWithValue("@ID", idListaPreco);
 
                             banco.conectar();
@@ -285,12 +287,13 @@ namespace High_Gestor.Forms.Produtos.AtualizarPrecos
                         
                         if (margem != decimal.Parse(Produto.Rows[0][3].ToString()))
                         {
-                            string query = ("UPDATE Produtos SET margemLucro = @margemLucro, valorVenda = @valorVenda WHERE idProduto = @ID");
+                            string query = ("UPDATE Produtos SET margemLucro = @margemLucro, valorVenda = @valorVenda, idLog = @idLog WHERE idProduto = @ID");
                             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                             exeQuery.Parameters.Clear();
                             exeQuery.Parameters.AddWithValue("@valorVenda", valorVenda);
                             exeQuery.Parameters.AddWithValue("@margemLucro", margem);
+                            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(Autenticacao._idUsuario(), "Produtos/Atualizar Valores", "ListaPreco", query, "Altualizando valor venda do produto (PADRAO)"));
                             exeQuery.Parameters.AddWithValue("@ID", idProduto);
 
                             banco.conectar();

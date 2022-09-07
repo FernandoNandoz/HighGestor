@@ -33,7 +33,7 @@
             this.buttonModalidadeTransporte = new System.Windows.Forms.Button();
             this.buttonBackup = new System.Windows.Forms.Button();
             this.buttonFuncionarios = new System.Windows.Forms.Button();
-            this.buttonCategorias = new System.Windows.Forms.Button();
+            this.buttonDadosEmpresa = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
             this.buttonParametrosSistema = new System.Windows.Forms.Button();
             this.panelContent = new System.Windows.Forms.Panel();
@@ -45,7 +45,7 @@
             this.panelMenu.Controls.Add(this.buttonModalidadeTransporte);
             this.panelMenu.Controls.Add(this.buttonBackup);
             this.panelMenu.Controls.Add(this.buttonFuncionarios);
-            this.panelMenu.Controls.Add(this.buttonCategorias);
+            this.panelMenu.Controls.Add(this.buttonDadosEmpresa);
             this.panelMenu.Controls.Add(this.buttonVoltar);
             this.panelMenu.Controls.Add(this.buttonParametrosSistema);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -62,7 +62,7 @@
             this.buttonModalidadeTransporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonModalidadeTransporte.Image = ((System.Drawing.Image)(resources.GetObject("buttonModalidadeTransporte.Image")));
             this.buttonModalidadeTransporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonModalidadeTransporte.Location = new System.Drawing.Point(0, 144);
+            this.buttonModalidadeTransporte.Location = new System.Drawing.Point(0, 98);
             this.buttonModalidadeTransporte.Name = "buttonModalidadeTransporte";
             this.buttonModalidadeTransporte.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonModalidadeTransporte.Size = new System.Drawing.Size(198, 40);
@@ -97,7 +97,7 @@
             this.buttonFuncionarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonFuncionarios.Image = ((System.Drawing.Image)(resources.GetObject("buttonFuncionarios.Image")));
             this.buttonFuncionarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonFuncionarios.Location = new System.Drawing.Point(0, 98);
+            this.buttonFuncionarios.Location = new System.Drawing.Point(0, 54);
             this.buttonFuncionarios.Name = "buttonFuncionarios";
             this.buttonFuncionarios.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonFuncionarios.Size = new System.Drawing.Size(198, 40);
@@ -107,22 +107,22 @@
             this.buttonFuncionarios.UseVisualStyleBackColor = true;
             this.buttonFuncionarios.Click += new System.EventHandler(this.buttonFuncionarios_Click);
             // 
-            // buttonCategorias
+            // buttonDadosEmpresa
             // 
-            this.buttonCategorias.FlatAppearance.BorderSize = 0;
-            this.buttonCategorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonCategorias.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategorias.Image")));
-            this.buttonCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCategorias.Location = new System.Drawing.Point(0, 54);
-            this.buttonCategorias.Name = "buttonCategorias";
-            this.buttonCategorias.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonCategorias.Size = new System.Drawing.Size(198, 40);
-            this.buttonCategorias.TabIndex = 95;
-            this.buttonCategorias.Text = "   Categorias";
-            this.buttonCategorias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonCategorias.UseVisualStyleBackColor = true;
-            this.buttonCategorias.Click += new System.EventHandler(this.buttonCategorias_Click);
+            this.buttonDadosEmpresa.FlatAppearance.BorderSize = 0;
+            this.buttonDadosEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDadosEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonDadosEmpresa.Image = ((System.Drawing.Image)(resources.GetObject("buttonDadosEmpresa.Image")));
+            this.buttonDadosEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDadosEmpresa.Location = new System.Drawing.Point(0, 144);
+            this.buttonDadosEmpresa.Name = "buttonDadosEmpresa";
+            this.buttonDadosEmpresa.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonDadosEmpresa.Size = new System.Drawing.Size(198, 40);
+            this.buttonDadosEmpresa.TabIndex = 95;
+            this.buttonDadosEmpresa.Text = "   Dados da empresa";
+            this.buttonDadosEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonDadosEmpresa.UseVisualStyleBackColor = true;
+            this.buttonDadosEmpresa.Click += new System.EventHandler(this.buttonDadosEmpresa_Click);
             // 
             // buttonVoltar
             // 
@@ -200,7 +200,7 @@
         private System.Windows.Forms.Button buttonParametrosSistema;
         private System.Windows.Forms.Button buttonBackup;
         private System.Windows.Forms.Button buttonFuncionarios;
-        private System.Windows.Forms.Button buttonCategorias;
+        private System.Windows.Forms.Button buttonDadosEmpresa;
         private System.Windows.Forms.Button buttonModalidadeTransporte;
     }
 }

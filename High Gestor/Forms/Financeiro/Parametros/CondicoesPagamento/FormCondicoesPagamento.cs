@@ -139,7 +139,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
         private void dataCondicaoPagamento()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string Produtos = ("SELECT idCondicaoPagamento, descricao, quantidadeParcela, situacao FROM CondicaoPagamento WHERE situacao = 'ATIVO' ORDER BY descricao");
+            string Produtos = ("SELECT idCondicaoPagamento, descricao, quantidadeParcela, situacao FROM CondicaoPagamento WHERE situacao = 'ATIVO' ORDER BY idCondicaoPagamento");
             SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
             banco.conectar();
 
@@ -194,7 +194,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
         private void buttonPesquisar_Click(object sender, EventArgs e)
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string Categoria = ("SELECT idCondicaoPagamento, descricao, quantidadeParcela, situacao FROM CondicaoPagamento WHERE situacao = 'ATIVO' AND descricao LIKE (@descricao + '%') ORDER BY descricao");
+            string Categoria = ("SELECT idCondicaoPagamento, descricao, quantidadeParcela, situacao FROM CondicaoPagamento WHERE situacao = 'ATIVO' AND descricao LIKE (@descricao + '%') ORDER BY idCondicaoPagamento");
             SqlCommand exeVerificacao = new SqlCommand(Categoria, banco.connection);
             banco.conectar();
 
@@ -206,9 +206,9 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
             while (datareader.Read())
             {
                 dataGridViewContent.Rows.Add(datareader[0],
-                                            datareader[1],
-                                            datareader[2],
-                                            datareader[3]);
+                                            datareader[1].ToString(),
+                                            datareader[2].ToString(),
+                                            datareader[3].ToString());
             }
 
             banco.desconectar();

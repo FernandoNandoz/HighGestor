@@ -35,19 +35,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAlterarSituacao));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAlterarSituacao));
             this.textBoxObservacao = new System.Windows.Forms.TextBox();
             this.dateTimeData = new System.Windows.Forms.DateTimePicker();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.comboBoxStatus = new System.Windows.Forms.ComboBox();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
-            this.buttonSalvar = new System.Windows.Forms.Button();
-            this.buttonVoltar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             label6 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(163, 45);
+            label6.Location = new System.Drawing.Point(162, 45);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(82, 16);
             label6.TabIndex = 163;
@@ -68,7 +68,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(19, 45);
+            label1.Location = new System.Drawing.Point(18, 45);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(36, 16);
             label1.TabIndex = 162;
@@ -78,7 +78,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(624, 45);
+            label4.Location = new System.Drawing.Point(623, 45);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(44, 16);
             label4.TabIndex = 158;
@@ -88,7 +88,7 @@
             // 
             this.textBoxObservacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxObservacao.Location = new System.Drawing.Point(166, 64);
+            this.textBoxObservacao.Location = new System.Drawing.Point(165, 64);
             this.textBoxObservacao.Name = "textBoxObservacao";
             this.textBoxObservacao.Size = new System.Drawing.Size(451, 26);
             this.textBoxObservacao.TabIndex = 157;
@@ -97,7 +97,7 @@
             // 
             this.dateTimeData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeData.Location = new System.Drawing.Point(22, 64);
+            this.dateTimeData.Location = new System.Drawing.Point(21, 64);
             this.dateTimeData.Name = "dateTimeData";
             this.dateTimeData.Size = new System.Drawing.Size(134, 26);
             this.dateTimeData.TabIndex = 156;
@@ -109,11 +109,11 @@
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.labelTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.labelTitulo.Location = new System.Drawing.Point(18, 9);
+            this.labelTitulo.Location = new System.Drawing.Point(17, 9);
             this.labelTitulo.Name = "labelTitulo";
-            this.labelTitulo.Size = new System.Drawing.Size(181, 24);
+            this.labelTitulo.Size = new System.Drawing.Size(116, 24);
             this.labelTitulo.TabIndex = 161;
-            this.labelTitulo.Text = "Movimentar estoque";
+            this.labelTitulo.Text = "Alterar status";
             this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // comboBoxStatus
@@ -126,7 +126,7 @@
             "EM ANDAMENTO",
             "ATENDIDO",
             "CANCELADO"});
-            this.comboBoxStatus.Location = new System.Drawing.Point(627, 65);
+            this.comboBoxStatus.Location = new System.Drawing.Point(626, 65);
             this.comboBoxStatus.Name = "comboBoxStatus";
             this.comboBoxStatus.Size = new System.Drawing.Size(217, 26);
             this.comboBoxStatus.TabIndex = 155;
@@ -168,7 +168,7 @@
             this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
-            this.dataGridViewContent.Location = new System.Drawing.Point(22, 141);
+            this.dataGridViewContent.Location = new System.Drawing.Point(21, 141);
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.ReadOnly = true;
@@ -194,42 +194,6 @@
             this.dataGridViewContent.Size = new System.Drawing.Size(822, 303);
             this.dataGridViewContent.TabIndex = 164;
             this.dataGridViewContent.Paint += new System.Windows.Forms.PaintEventHandler(this.dataGridViewContent_Paint);
-            // 
-            // buttonSalvar
-            // 
-            this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(22, 105);
-            this.buttonSalvar.Name = "buttonSalvar";
-            this.buttonSalvar.Size = new System.Drawing.Size(134, 30);
-            this.buttonSalvar.TabIndex = 165;
-            this.buttonSalvar.Text = " Salvar";
-            this.buttonSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonSalvar.UseVisualStyleBackColor = true;
-            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
-            // 
-            // buttonVoltar
-            // 
-            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonVoltar.FlatAppearance.BorderSize = 0;
-            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.buttonVoltar.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
-            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(725, 105);
-            this.buttonVoltar.Name = "buttonVoltar";
-            this.buttonVoltar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.buttonVoltar.Size = new System.Drawing.Size(119, 30);
-            this.buttonVoltar.TabIndex = 166;
-            this.buttonVoltar.TabStop = false;
-            this.buttonVoltar.Text = "  Voltar";
-            this.buttonVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonVoltar.UseVisualStyleBackColor = false;
-            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
-            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
             // 
             // Column1
             // 
@@ -262,6 +226,42 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 200;
             // 
+            // buttonSalvar
+            // 
+            this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSalvar.Location = new System.Drawing.Point(21, 105);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(134, 30);
+            this.buttonSalvar.TabIndex = 165;
+            this.buttonSalvar.Text = " Salvar";
+            this.buttonSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
+            // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonVoltar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonVoltar.FlatAppearance.BorderSize = 0;
+            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonVoltar.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
+            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonVoltar.Location = new System.Drawing.Point(724, 105);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonVoltar.Size = new System.Drawing.Size(119, 30);
+            this.buttonVoltar.TabIndex = 166;
+            this.buttonVoltar.TabStop = false;
+            this.buttonVoltar.Text = "  Voltar";
+            this.buttonVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonVoltar.UseVisualStyleBackColor = false;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
+            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
+            // 
             // FormAlterarSituacao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,7 +283,7 @@
             this.MinimizeBox = false;
             this.Name = "FormAlterarSituacao";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Alterar Situacao";
+            this.Text = "High Gestor - Alterar Situacao";
             this.Load += new System.EventHandler(this.FormAlterarSituacao_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
             this.ResumeLayout(false);

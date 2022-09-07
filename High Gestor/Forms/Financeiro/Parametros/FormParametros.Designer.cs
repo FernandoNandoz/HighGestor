@@ -30,17 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParametros));
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelContent = new System.Windows.Forms.Panel();
+            this.buttonContasBancarias = new System.Windows.Forms.Button();
             this.buttonCondicaoPagamento = new System.Windows.Forms.Button();
             this.buttonCentroCusto = new System.Windows.Forms.Button();
             this.buttonCategoriaContas = new System.Windows.Forms.Button();
             this.buttonVoltar = new System.Windows.Forms.Button();
-            this.panelContent = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.Controls.Add(this.buttonContasBancarias);
             this.panelMenu.Controls.Add(this.buttonCondicaoPagamento);
             this.panelMenu.Controls.Add(this.buttonCentroCusto);
             this.panelMenu.Controls.Add(this.buttonCategoriaContas);
@@ -52,6 +54,34 @@
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
+            // panelContent
+            // 
+            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContent.Location = new System.Drawing.Point(231, 0);
+            this.panelContent.Name = "panelContent";
+            this.panelContent.Size = new System.Drawing.Size(977, 640);
+            this.panelContent.TabIndex = 3;
+            this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
+            // 
+            // buttonContasBancarias
+            // 
+            this.buttonContasBancarias.FlatAppearance.BorderSize = 0;
+            this.buttonContasBancarias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonContasBancarias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonContasBancarias.Image = ((System.Drawing.Image)(resources.GetObject("buttonContasBancarias.Image")));
+            this.buttonContasBancarias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonContasBancarias.Location = new System.Drawing.Point(0, 54);
+            this.buttonContasBancarias.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.buttonContasBancarias.Name = "buttonContasBancarias";
+            this.buttonContasBancarias.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.buttonContasBancarias.Size = new System.Drawing.Size(229, 40);
+            this.buttonContasBancarias.TabIndex = 98;
+            this.buttonContasBancarias.Text = "  Contas bancárias";
+            this.buttonContasBancarias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonContasBancarias.UseVisualStyleBackColor = true;
+            this.buttonContasBancarias.Click += new System.EventHandler(this.buttonContasBancarias_Click);
+            // 
             // buttonCondicaoPagamento
             // 
             this.buttonCondicaoPagamento.FlatAppearance.BorderSize = 0;
@@ -59,7 +89,7 @@
             this.buttonCondicaoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonCondicaoPagamento.Image = ((System.Drawing.Image)(resources.GetObject("buttonCondicaoPagamento.Image")));
             this.buttonCondicaoPagamento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCondicaoPagamento.Location = new System.Drawing.Point(0, 144);
+            this.buttonCondicaoPagamento.Location = new System.Drawing.Point(0, 190);
             this.buttonCondicaoPagamento.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.buttonCondicaoPagamento.Name = "buttonCondicaoPagamento";
             this.buttonCondicaoPagamento.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
@@ -77,7 +107,7 @@
             this.buttonCentroCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonCentroCusto.Image = ((System.Drawing.Image)(resources.GetObject("buttonCentroCusto.Image")));
             this.buttonCentroCusto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCentroCusto.Location = new System.Drawing.Point(0, 98);
+            this.buttonCentroCusto.Location = new System.Drawing.Point(0, 144);
             this.buttonCentroCusto.Name = "buttonCentroCusto";
             this.buttonCentroCusto.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonCentroCusto.Size = new System.Drawing.Size(229, 40);
@@ -94,7 +124,7 @@
             this.buttonCategoriaContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonCategoriaContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonCategoriaContas.Image")));
             this.buttonCategoriaContas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCategoriaContas.Location = new System.Drawing.Point(0, 54);
+            this.buttonCategoriaContas.Location = new System.Drawing.Point(0, 100);
             this.buttonCategoriaContas.Name = "buttonCategoriaContas";
             this.buttonCategoriaContas.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
             this.buttonCategoriaContas.Size = new System.Drawing.Size(229, 40);
@@ -126,16 +156,6 @@
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
             // 
-            // panelContent
-            // 
-            this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContent.Location = new System.Drawing.Point(231, 0);
-            this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(977, 640);
-            this.panelContent.TabIndex = 3;
-            this.panelContent.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panelContent_ControlRemoved);
-            // 
             // FormParametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,5 +182,6 @@
         private System.Windows.Forms.Button buttonVoltar;
         private System.Windows.Forms.Button buttonCondicaoPagamento;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Button buttonContasBancarias;
     }
 }

@@ -146,11 +146,14 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
             dataGridViewContent.Rows.Clear();
             while (datareader.Read())
             {
-                dataGridViewContent.Rows.Add(datareader[0],
-                                            datareader[1],
-                                            datareader[2],
-                                            datareader[3],
-                                            datareader[4]);
+                if(datareader[1].ToString() != "0")
+                {
+                    dataGridViewContent.Rows.Add(datareader[0],
+                            datareader[1],
+                            datareader[2],
+                            datareader[3],
+                            datareader[4]);
+                }
             }
 
             banco.desconectar();

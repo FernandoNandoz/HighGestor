@@ -197,6 +197,8 @@ namespace High_Gestor.Forms.Produtos.EditarMassa
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
+            produtos.Rows.Clear();
+
             while (datareader.Read())
             {
                 produtos.Rows.Add(
@@ -373,7 +375,7 @@ namespace High_Gestor.Forms.Produtos.EditarMassa
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
-            for (int i = 0; i < dataGridViewContent.Rows.Count; i++)
+            for (int i = 0; i < produtos.Rows.Count; i++)
             {
                 if (datareader.Read())
                 {
@@ -573,6 +575,9 @@ namespace High_Gestor.Forms.Produtos.EditarMassa
             comboBoxFornecedor.SelectedIndex = 0;
 
             verificarQuantidadeProdutos();
+
+            produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "NomeProduto", "");
+
         }
 
         private void comboBoxCampoEditar_SelectedIndexChanged(object sender, EventArgs e)

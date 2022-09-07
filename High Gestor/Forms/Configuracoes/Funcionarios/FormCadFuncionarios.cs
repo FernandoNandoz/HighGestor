@@ -15,6 +15,9 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
     {
         Banco banco = new Banco();
 
+        string comissao = string.Empty;
+        string valorComissao = string.Empty;
+
         public FormCadFuncionarios()
         {
             InitializeComponent();
@@ -73,6 +76,42 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
             banco.desconectar();
 
             comboBoxPerfil.Text = dataComboBoxPerfil_update(idPerfilFK);
+        }
+
+        private void carregarParametros()
+        {
+
+            //Retorna os dados da tabela Produtos para o DataGridView
+            string query = ("SELECT comissao, valorComissao FROM ParametrosSistema");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                comissao = datareader[0].ToString();
+                valorComissao = datareader[1].ToString();
+            }
+            banco.desconectar();
+
+            if(comissao == "FIXA")
+            {
+                textBoxComissao.Enabled = false;
+                textBoxComissao.Text = valorComissao;
+                labelStatus.Text = "A comissão foi definida como FIXA pelo administrador.";
+            }
+            else if(comissao == "VARIAVEL")
+            {
+                textBoxComissao.Enabled = true;
+            }
+            else if(comissao == "DESATIVADO")
+            {
+                textBoxComissao.Text = "0";
+                textBoxComissao.Enabled = false;
+                labelStatus.Text = "Esta fução encontra-se DESATIVADO, para ativar: Va em Configurações > Parametros sistema  > Gerais.";
+                labelStatus.ForeColor = Color.Red;
+            }
         }
 
         private string dataComboBoxPerfil_update(int idPerfilFK)
@@ -234,11 +273,21 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
 
         private string codigoFuncionario()
         {
+            int IdFuncionario = 0;
             string codigoFuncionario;
 
             if (checkBoxGerarCodigoAutomaticamente.Checked)
             {
-                codigoFuncionario = (verificarIdFuncionario() + 1).ToString();
+                if(verificarIdFuncionario() == 1)
+                {
+                    IdFuncionario = verificarIdFuncionario();
+                }
+                else
+                {
+                    IdFuncionario = verificarIdFuncionario() + 1;
+                }
+
+                codigoFuncionario = IdFuncionario.ToString();
             }
             else
             {
@@ -260,7 +309,10 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
 
             while (datareader.Read())
             {
-                comboBoxPerfil.Items.Add(datareader[2].ToString() + " - " + datareader[3].ToString());
+                if(datareader[2].ToString() != "0")
+                {
+                    comboBoxPerfil.Items.Add(datareader[2].ToString() + " - " + datareader[3].ToString());
+                }
             }
             banco.desconectar();
         }
@@ -292,6 +344,35 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
             return id;
         }
 
+        private string calcularComissao()
+        {
+            string ComissaoPorcentagem = string.Empty;
+
+            if (comissao == "FIXA")
+            {
+                ComissaoPorcentagem = valorComissao;
+            }
+            else if (comissao == "VARIAVEL")
+            {
+                ComissaoPorcentagem = textBoxComissao.Text;
+            }
+            else if (comissao == "DESATIVADO")
+            {
+                ComissaoPorcentagem = "0";
+            }
+
+            return ComissaoPorcentagem;
+        }
+
+        private void apenasNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //aceita apenas números, tecla backspace.
+            if (!char.IsNumber(e.KeyChar) && !(e.KeyChar == (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void insertQuery()
         {
             try
@@ -306,7 +387,7 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
                 command.Parameters.AddWithValue("@usuario", textBoxUsuario.Text);
                 command.Parameters.AddWithValue("@senha", textBoxSenha.Text);
                 command.Parameters.AddWithValue("@nomeCompleto", textBoxNomeCompleto.Text);
-                command.Parameters.AddWithValue("@comissaoPercent", textBoxComissao.Text);
+                command.Parameters.AddWithValue("@comissaoPercent", calcularComissao());
                 //
                 maskedCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 command.Parameters.AddWithValue("@CPF", maskedCPF.Text);
@@ -351,7 +432,7 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
                 command.Parameters.AddWithValue("@usuario", textBoxUsuario.Text);
                 command.Parameters.AddWithValue("@senha", textBoxSenha.Text);
                 command.Parameters.AddWithValue("@nomeCompleto", textBoxNomeCompleto.Text);
-                command.Parameters.AddWithValue("@comissaoPercent", textBoxComissao.Text);
+                command.Parameters.AddWithValue("@comissaoPercent", calcularComissao());
                 //
                 maskedCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 command.Parameters.AddWithValue("@CPF", maskedCPF.Text);
@@ -384,8 +465,11 @@ namespace High_Gestor.Forms.Configuracoes.Funcionarios
         private void FormCadFuncionarios_Load(object sender, EventArgs e)
         {
             dataComboBoxPerfil();
+            carregarParametros();
+
             //
             comboBoxSituação.SelectedIndex = 0;
+            comboBoxPerfil.SelectedIndex = 1;
 
             if (updateData._retornarValidacao() == true)
             {

@@ -43,6 +43,8 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
 
             verificarCodigoCondicao();
             //
+
+            comboBoxStatus.Focus();
         }
 
         private void carregarDados()
@@ -64,9 +66,9 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
                 comboBoxStatus.Text = datareader.GetString(1);
                 textBoxNomeCondicao.Text = datareader.GetString(2);
                 idFormaPagamento = datareader.GetInt32(3);
-                textBoxIntervalo.Text = datareader.GetString(4);
-                textBoxPrimeiraParcela.Text = datareader.GetString(5);
-                textBoxQuantidadeParcelas.Text = datareader[6].ToString();
+                textBoxIntervalo.Text = datareader.GetInt32(4).ToString();
+                textBoxPrimeiraParcela.Text = datareader.GetInt32(5).ToString();
+                textBoxQuantidadeParcelas.Text = datareader.GetInt32(6).ToString();
             }
             banco.desconectar();
 
@@ -213,6 +215,23 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
 
         private void insertQuery()
         {
+            int Intervalo = 0, PrimeiroDia = 0, quantidade = 0;
+
+            if(textBoxIntervalo.Text != string.Empty)
+            {
+                Intervalo = int.Parse(textBoxIntervalo.Text);
+            }
+
+            if (textBoxPrimeiraParcela.Text != string.Empty)
+            {
+                PrimeiroDia = int.Parse(textBoxPrimeiraParcela.Text);
+            }
+
+            if (textBoxQuantidadeParcelas.Text != string.Empty)
+            {
+                quantidade = int.Parse(textBoxQuantidadeParcelas.Text);
+            }
+
             try
             {
                 string Categoria = ("INSERT INTO CondicaoPagamento (situacao, descricao, intervaloParcela, primeiraParcela, quantidadeParcela, idFormaPagamentoFK, idLog, createdAt) VALUES (@situacao, @descricao, @intervaloParcela, @primeiraParcela, @quantidadeParcela, @idFormaPagamentoFK, @idLog, @createdAt)");
@@ -220,9 +239,9 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
 
                 command.Parameters.AddWithValue("@situacao", comboBoxStatus.Text);
                 command.Parameters.AddWithValue("@descricao", textBoxNomeCondicao.Text);
-                command.Parameters.AddWithValue("@intervaloParcela", textBoxIntervalo.Text);
-                command.Parameters.AddWithValue("@primeiraParcela", textBoxPrimeiraParcela.Text);
-                command.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcelas.Text));
+                command.Parameters.AddWithValue("@intervaloParcela", Intervalo);
+                command.Parameters.AddWithValue("@primeiraParcela", PrimeiroDia);
+                command.Parameters.AddWithValue("@quantidadeParcela", quantidade);
                 command.Parameters.AddWithValue("@idFormaPagamentoFK", verificarIdFormaPagamento(comboBoxFormaPagamento.Text));
                 command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
                 command.Parameters.AddWithValue("@createdAt", DateTime.Now);
@@ -241,6 +260,23 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
 
         private void updateQuery()
         {
+            int Intervalo = 0, PrimeiroDia = 0, quantidade = 0;
+
+            if (textBoxIntervalo.Text != string.Empty)
+            {
+                Intervalo = int.Parse(textBoxIntervalo.Text);
+            }
+
+            if (textBoxPrimeiraParcela.Text != string.Empty)
+            {
+                PrimeiroDia = int.Parse(textBoxPrimeiraParcela.Text);
+            }
+
+            if (textBoxQuantidadeParcelas.Text != string.Empty)
+            {
+                quantidade = int.Parse(textBoxQuantidadeParcelas.Text);
+            }
+
             try
             {
                 string Categoria = ("UPDATE CondicaoPagamento SET situacao = @situacao, descricao = @descricao, intervaloParcela = @intervaloParcela, primeiraParcela = @primeiraParcela, quantidadeParcela = @quantidadeParcela, idFormaPagamentoFK = @idFormaPagamentoFK, idLog = @idLog, updatedAt = @updatedAt WHERE idCondicaoPagamento = @ID");
@@ -248,9 +284,9 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
 
                 command.Parameters.AddWithValue("@situacao", comboBoxStatus.Text);
                 command.Parameters.AddWithValue("@descricao", textBoxNomeCondicao.Text);
-                command.Parameters.AddWithValue("@intervaloParcela", textBoxIntervalo.Text);
-                command.Parameters.AddWithValue("@primeiraParcela", textBoxPrimeiraParcela.Text);
-                command.Parameters.AddWithValue("@quantidadeParcela", int.Parse(textBoxQuantidadeParcelas.Text));
+                command.Parameters.AddWithValue("@intervaloParcela", Intervalo);
+                command.Parameters.AddWithValue("@primeiraParcela", PrimeiroDia);
+                command.Parameters.AddWithValue("@quantidadeParcela", quantidade);
                 command.Parameters.AddWithValue("@idFormaPagamentoFK", verificarIdFormaPagamento(comboBoxFormaPagamento.Text));
                 command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
                 command.Parameters.AddWithValue("@updatedAt", DateTime.Now);
@@ -283,7 +319,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento
                 comboBoxFormaPagamento.SelectedIndex = 0;
             }
 
-            textBoxNomeCondicao.Focus();
+            comboBoxStatus.Focus();
         }
 
         private void btnSair_Click(object sender, EventArgs e)

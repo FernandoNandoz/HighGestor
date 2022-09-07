@@ -211,7 +211,7 @@ namespace High_Gestor.Forms.Produtos
         private void carregarDadosEstoque()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT idProdutoFK, dataMovimento, entrada, saida, descricao, valorUnitario, saldoAtual FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim ORDER BY dataMovimento DESC");
+            string query = ("SELECT idProdutoFK, dataMovimento, entrada, saida, descricao, valorUnitario, saldoAtual FROM Estoque WHERE idProdutoFK = @ID AND CAST(dataMovimento AS DATE) BETWEEN @dataInicio AND @dataFim ORDER BY idEstoque DESC");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 

@@ -79,7 +79,6 @@ namespace High_Gestor.Forms.Configuracoes
             if (alterouSize._retornarFormOpenSecundario() == "REDIMENCIONAR")
             {
                 panelContent.Refresh();
-
                
                 if (alterouSize._retornarFormNameSecundario() == "FUNCIONARIO")
                 {
@@ -93,6 +92,13 @@ namespace High_Gestor.Forms.Configuracoes
                     ViewForms.requestBackMenu(false);
                     //
                     openChildForm(new Transporte.FormTransporte());
+                }
+
+                if (alterouSize._retornarFormNameSecundario() == "DADOS EMPRESA")
+                {
+                    ViewForms.requestBackMenu(false);
+                    //
+                    openChildForm(new DadosEmpresa.FormDadosEmpresa());
                 }
 
                 if (alterouSize._retornarFormNameSecundario() == "BACKUP")
@@ -124,24 +130,9 @@ namespace High_Gestor.Forms.Configuracoes
             this.Close();
         }
 
-        private void buttonCategorias_Click(object sender, EventArgs e)
-        {
-            buttonFuncionarios.BackColor = Color.White;
-            buttonModalidadeTransporte.BackColor = Color.White;
-            buttonBackup.BackColor = Color.White;
-            buttonParametrosSistema.BackColor = Color.White;
-            buttonCategorias.BackColor = Color.FromArgb(210, 210, 210);
-
-            ViewForms.requestBackMenu(false);
-            //
-            alterouSize.receberNameSecundario("CATEGORIA");
-            alterouSize.receberValidacaoSecundario(1);
-
-        }
-
         private void buttonFuncionarios_Click(object sender, EventArgs e)
         {
-            buttonCategorias.BackColor = Color.White;
+            buttonDadosEmpresa.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonParametrosSistema.BackColor = Color.White;
@@ -157,7 +148,7 @@ namespace High_Gestor.Forms.Configuracoes
 
         private void buttonModalidadeTransporte_Click(object sender, EventArgs e)
         {
-            buttonCategorias.BackColor = Color.White;
+            buttonDadosEmpresa.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonParametrosSistema.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
@@ -166,14 +157,28 @@ namespace High_Gestor.Forms.Configuracoes
             ViewForms.requestBackMenu(false);
             //
             alterouSize.receberNameSecundario("TRANSPORTE");
-            alterouSize.receberValidacaoSecundario(1);
 
             openChildForm(new Transporte.FormTransporte());
         }
 
+        private void buttonDadosEmpresa_Click(object sender, EventArgs e)
+        {
+            buttonFuncionarios.BackColor = Color.White;
+            buttonModalidadeTransporte.BackColor = Color.White;
+            buttonBackup.BackColor = Color.White;
+            buttonParametrosSistema.BackColor = Color.White;
+            buttonDadosEmpresa.BackColor = Color.FromArgb(210, 210, 210);
+
+            ViewForms.requestBackMenu(false);
+            //
+            alterouSize.receberNameSecundario("DADOS EMPRESA");
+
+            openChildForm(new DadosEmpresa.FormDadosEmpresa());
+        }
+
         private void buttonBackup_Click(object sender, EventArgs e)
         {
-            buttonCategorias.BackColor = Color.White;
+            buttonDadosEmpresa.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
             buttonParametrosSistema.BackColor = Color.White;
@@ -189,7 +194,7 @@ namespace High_Gestor.Forms.Configuracoes
 
         private void buttonParametrosSistema_Click(object sender, EventArgs e)
         {
-            buttonCategorias.BackColor = Color.White;
+            buttonDadosEmpresa.BackColor = Color.White;
             buttonFuncionarios.BackColor = Color.White;
             buttonBackup.BackColor = Color.White;
             buttonModalidadeTransporte.BackColor = Color.White;
@@ -206,7 +211,7 @@ namespace High_Gestor.Forms.Configuracoes
         {
             if (ViewForms._responseBackMenu() == true)
             {
-                buttonCategorias.BackColor = Color.White;
+                buttonDadosEmpresa.BackColor = Color.White;
                 buttonFuncionarios.BackColor = Color.White;
                 buttonModalidadeTransporte.BackColor = Color.White;
                 buttonBackup.BackColor = Color.White;

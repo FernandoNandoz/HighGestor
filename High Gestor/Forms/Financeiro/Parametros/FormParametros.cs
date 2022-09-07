@@ -88,11 +88,19 @@ namespace High_Gestor.Forms.Financeiro.Parametros
             {
                 panelContent.Refresh();
 
+                if (alterouSize._retornarFormNameSecundario() == "CONTAS BANCARIAS")
+                {
+                    ViewForms.requestBackMenu(false);
+                    //
+                    buttonContasBancarias_Click(sender, e);
+                    //    
+                }
+
                 if (alterouSize._retornarFormNameSecundario() == "CATEGORIA CONTAS")
                 {
                     ViewForms.requestBackMenu(false);
                     //
-                    openChildForm(new CategoriaContas.FormCategoriaContas());
+                    buttonCategoriaContas_Click(sender, e);
                     //    
                 }
 
@@ -100,17 +108,16 @@ namespace High_Gestor.Forms.Financeiro.Parametros
                 {
                     ViewForms.requestBackMenu(false);
                     //
-                    openChildForm(new CentroCustos.FormCentroCustos());
+                    buttonCentroCusto_Click(sender, e);
                 }
 
                 if (alterouSize._retornarFormNameSecundario() == "CONDICAO DE PAGAMENTO")
                 {
                     ViewForms.requestBackMenu(false);
                     //
-                    openChildForm(new CondicoesPagamento.FormCondicoesPagamento());
+                    buttonCondicaoPagamento_Click(sender, e);
                 }
             }
-
         }
 
         private void panelMenu_Paint(object sender, PaintEventArgs e)
@@ -123,8 +130,23 @@ namespace High_Gestor.Forms.Financeiro.Parametros
             this.Close();
         }
 
+        private void buttonContasBancarias_Click(object sender, EventArgs e)
+        {
+            buttonCondicaoPagamento.BackColor = Color.White;
+            buttonCentroCusto.BackColor = Color.White;
+            buttonCategoriaContas.BackColor = Color.White;
+            buttonContasBancarias.BackColor = Color.FromArgb(210, 210, 210);
+
+            ViewForms.requestBackMenu(false);
+            //
+            alterouSize.receberNameSecundario("CONTAS BANCARIAS");
+
+            openChildForm(new ContasBancarias.FormContasBancarias());
+        }
+
         private void buttonCategoriaContas_Click(object sender, EventArgs e)
         {
+            buttonContasBancarias.BackColor = Color.White;
             buttonCondicaoPagamento.BackColor = Color.White;
             buttonCentroCusto.BackColor = Color.White;
             buttonCategoriaContas.BackColor = Color.FromArgb(210, 210, 210);
@@ -138,6 +160,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros
 
         private void buttonCentroCusto_Click(object sender, EventArgs e)
         {
+            buttonContasBancarias.BackColor = Color.White;
             buttonCategoriaContas.BackColor = Color.White;
             buttonCondicaoPagamento.BackColor = Color.White;
             buttonCentroCusto.BackColor = Color.FromArgb(210, 210, 210);
@@ -151,6 +174,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros
 
         private void buttonCondicaoPagamento_Click(object sender, EventArgs e)
         {
+            buttonContasBancarias.BackColor = Color.White;
             buttonCategoriaContas.BackColor = Color.White;
             buttonCentroCusto.BackColor = Color.White;
             buttonCondicaoPagamento.BackColor = Color.FromArgb(210, 210, 210);
@@ -166,10 +190,13 @@ namespace High_Gestor.Forms.Financeiro.Parametros
         {
             if (ViewForms._responseBackMenu() == true)
             {
+                buttonContasBancarias.BackColor = Color.White;
                 buttonCategoriaContas.BackColor = Color.White;
                 buttonCondicaoPagamento.BackColor = Color.White;
                 buttonCentroCusto.BackColor = Color.White;
             }
         }
+
+     
     }
 }

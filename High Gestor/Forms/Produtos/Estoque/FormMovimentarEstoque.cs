@@ -105,7 +105,7 @@ namespace High_Gestor.Forms.Produtos
                 sqlCommand.ExecuteNonQuery();
                 banco.desconectar();
 
-                updateQueryProduto(int.Parse(textBoxQuantidade.Text));
+                //updateQueryProduto(int.Parse(textBoxQuantidade.Text)); // ESTA SENDO USADO UMA TRIGGER EM VEZ DISSO. DISPARADA ATRAVES DO MOVIMENTO DO ESTOQUE
 
                 MessageBox.Show("Movimentação realizado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

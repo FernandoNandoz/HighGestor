@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
+namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 {
     public partial class FormDadosEmpresa : Form
     {
@@ -51,6 +51,12 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
 
             button.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, button.Width,
             button.Height, 3, 3));
+        }
+
+        private void buttonVoltar_Paint(object sender, PaintEventArgs e)
+        {
+            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
+            buttonVoltar.Height, 5, 5));
         }
 
         #endregion
@@ -115,7 +121,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
 
         private void queryUpdate()
         {
-            string query = ("UPDATE DadosEmpresa SET tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = @nome_Razao, nomeFantasia = @nomeFantasia, responsavel = @responsavel, CPF_CNPJ = @CPF_CNPJ, CEP = @CEP, endereco = @endereco, numero = @numero, bairro = @bairro, complemento = @complemento, cidade = @cidade, estado = @estado, telefone = @telefone, celular = @celular, webSite = @webSite, email = @email, idLog = @idLog, updatedAt = @updatedAt");
+            string query = ("UPDATE DadosEmpresa SET tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = @nome_Razao, nomeFantasia = @nomeFantasia, responsavel = @responsavel, CPF_CNPJ = @CPF_CNPJ, CEP = @CEP, endereco = @endereco, numero = @numero, bairro = @bairro, complemento = @complemento, cidade = @cidade, estado = @estado, telefone = @telefone, celular = @celular, webSite = @webSite, email = @email");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
@@ -134,8 +140,6 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
             exeQuery.Parameters.AddWithValue("@celular", maskedCelular.Text);
             exeQuery.Parameters.AddWithValue("@webSite", textBoxWebSite.Text);
             exeQuery.Parameters.AddWithValue("@email", textBoxEmail.Text);
-            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-            exeQuery.Parameters.AddWithValue("@updatedAt", DateTime.Now);
 
             banco.conectar();
             exeQuery.ExecuteNonQuery();
@@ -146,7 +150,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
 
         private void queryInsert()
         {
-            string query = ("INSERT INTO DadosEmpresa (tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email, idLog, createdAt) VALUES (@tipoPessoa, @nome_Razao, @nomeFantasia, @responsavel, @CPF_CNPJ, @CEP, @endereco, @numero, @bairro, @complemento, @cidade, @estado, @telefone, @celular, @webSite, @email, @idLog, @createdAt)");
+            string query = ("INSERT INTO DadosEmpresa (tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email) VALUES (@tipoPessoa, @nome_Razao, @nomeFantasia, @responsavel, @CPF_CNPJ, @CEP, @endereco, @numero, @bairro, @complemento, @cidade, @estado, @telefone, @celular, @webSite, @email)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
@@ -165,8 +169,6 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
             exeQuery.Parameters.AddWithValue("@celular", maskedCelular.Text);
             exeQuery.Parameters.AddWithValue("@webSite", textBoxWebSite.Text);
             exeQuery.Parameters.AddWithValue("@email", textBoxEmail.Text);
-            exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-            exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
 
             banco.conectar();
             exeQuery.ExecuteNonQuery();
@@ -205,11 +207,19 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
 
         private void FormDadosEmpresa_FormClosing(object sender, FormClosingEventArgs e)
         {
+
         }
 
         private void comboBoxTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             verificarTipoPessoa();
+        }
+
+        private void buttonVoltar_Click(object sender, EventArgs e)
+        {
+            ViewForms.requestBackMenu(true);
+
+            this.Close();
         }
     }
 }

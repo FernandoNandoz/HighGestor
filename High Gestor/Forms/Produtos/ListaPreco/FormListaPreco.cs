@@ -121,7 +121,7 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 }
                 else if (datareader[6].ToString() == "VALOR LISTA")
                 {
-                    baseCalculo = datareader.GetDecimal(5);
+                    baseCalculo = datareader.GetDecimal(4) + datareader.GetDecimal(5);
                 }
 
                 dataGridViewContent.Rows.Add(datareader.GetInt32(0),
@@ -224,7 +224,7 @@ namespace High_Gestor.Forms.Produtos.ListaPreco
                 }
                 else if (datareader.GetString(6) == "VALOR LISTA")
                 {
-                    baseCalculo = datareader.GetDecimal(5);
+                    baseCalculo = datareader.GetDecimal(4) + datareader.GetDecimal(5);
                 }
 
                 dataGridViewContent.Rows.Add(datareader.GetInt32(0),

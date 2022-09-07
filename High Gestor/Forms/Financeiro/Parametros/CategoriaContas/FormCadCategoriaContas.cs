@@ -109,7 +109,7 @@ namespace High_Gestor.Forms.Financeiro.Parametros.CategoriaContas
             {
                 existente = true;
 
-                if (textBoxNomeCategoria.Text == datareader[1].ToString())
+                if (textBoxNomeCategoria.Text == datareader[0].ToString())
                 {
                     message = "Ja existe uma Categoria financeira com este nome.";
                 }

@@ -30,7 +30,7 @@
         {
             this.labelRemover = new System.Windows.Forms.Label();
             this.textBoxValorTotal = new System.Windows.Forms.TextBox();
-            this.textBoxValorCusto = new System.Windows.Forms.TextBox();
+            this.textBoxValorVenda = new System.Windows.Forms.TextBox();
             this.textBoxQuantidade = new System.Windows.Forms.TextBox();
             this.textBoxCodigo = new System.Windows.Forms.TextBox();
             this.textBoxNomeProduto = new System.Windows.Forms.TextBox();
@@ -60,22 +60,24 @@
             this.textBoxValorTotal.Location = new System.Drawing.Point(878, 6);
             this.textBoxValorTotal.Name = "textBoxValorTotal";
             this.textBoxValorTotal.Size = new System.Drawing.Size(152, 23);
-            this.textBoxValorTotal.TabIndex = 19;
+            this.textBoxValorTotal.TabIndex = 8;
             this.textBoxValorTotal.TextChanged += new System.EventHandler(this.textBoxValorTotal_TextChanged);
             this.textBoxValorTotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValorTotal_KeyPress);
             this.textBoxValorTotal.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxValorTotal_KeyUp);
             // 
-            // textBoxValorCusto
+            // textBoxValorVenda
             // 
-            this.textBoxValorCusto.BackColor = System.Drawing.Color.White;
-            this.textBoxValorCusto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxValorCusto.Location = new System.Drawing.Point(720, 6);
-            this.textBoxValorCusto.Name = "textBoxValorCusto";
-            this.textBoxValorCusto.Size = new System.Drawing.Size(152, 23);
-            this.textBoxValorCusto.TabIndex = 17;
-            this.textBoxValorCusto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyDown);
-            this.textBoxValorCusto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValorCusto_KeyPress);
-            this.textBoxValorCusto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyUp);
+            this.textBoxValorVenda.BackColor = System.Drawing.Color.White;
+            this.textBoxValorVenda.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorVenda.Location = new System.Drawing.Point(720, 6);
+            this.textBoxValorVenda.Name = "textBoxValorVenda";
+            this.textBoxValorVenda.ReadOnly = true;
+            this.textBoxValorVenda.Size = new System.Drawing.Size(152, 23);
+            this.textBoxValorVenda.TabIndex = 7;
+            this.textBoxValorVenda.TextChanged += new System.EventHandler(this.textBoxValorVenda_TextChanged);
+            this.textBoxValorVenda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyDown);
+            this.textBoxValorVenda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxValorCusto_KeyPress);
+            this.textBoxValorVenda.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxValorCusto_KeyUp);
             // 
             // textBoxQuantidade
             // 
@@ -84,7 +86,7 @@
             this.textBoxQuantidade.Location = new System.Drawing.Point(562, 6);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(152, 23);
-            this.textBoxQuantidade.TabIndex = 16;
+            this.textBoxQuantidade.TabIndex = 6;
             this.textBoxQuantidade.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxQuantidade_KeyPress);
             this.textBoxQuantidade.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxQuantidade_KeyUp);
             // 
@@ -95,8 +97,9 @@
             this.textBoxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCodigo.Location = new System.Drawing.Point(445, 6);
             this.textBoxCodigo.Name = "textBoxCodigo";
+            this.textBoxCodigo.ReadOnly = true;
             this.textBoxCodigo.Size = new System.Drawing.Size(111, 23);
-            this.textBoxCodigo.TabIndex = 15;
+            this.textBoxCodigo.TabIndex = 5;
             this.textBoxCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxCodigo_KeyUp);
             // 
             // textBoxNomeProduto
@@ -109,7 +112,7 @@
             this.textBoxNomeProduto.Location = new System.Drawing.Point(41, 6);
             this.textBoxNomeProduto.Name = "textBoxNomeProduto";
             this.textBoxNomeProduto.Size = new System.Drawing.Size(398, 23);
-            this.textBoxNomeProduto.TabIndex = 14;
+            this.textBoxNomeProduto.TabIndex = 4;
             this.textBoxNomeProduto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxNomeProduto_KeyUp);
             // 
             // labelNumero
@@ -133,7 +136,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.labelRemover);
             this.Controls.Add(this.textBoxValorTotal);
-            this.Controls.Add(this.textBoxValorCusto);
+            this.Controls.Add(this.textBoxValorVenda);
             this.Controls.Add(this.textBoxQuantidade);
             this.Controls.Add(this.textBoxCodigo);
             this.Controls.Add(this.textBoxNomeProduto);
@@ -151,7 +154,7 @@
 
         public System.Windows.Forms.Label labelRemover;
         public System.Windows.Forms.TextBox textBoxValorTotal;
-        public System.Windows.Forms.TextBox textBoxValorCusto;
+        public System.Windows.Forms.TextBox textBoxValorVenda;
         public System.Windows.Forms.TextBox textBoxQuantidade;
         public System.Windows.Forms.TextBox textBoxCodigo;
         public System.Windows.Forms.TextBox textBoxNomeProduto;

@@ -1,4 +1,4 @@
-﻿namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.DadosEmpresa
+﻿namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 {
     partial class FormApresentacao
     {

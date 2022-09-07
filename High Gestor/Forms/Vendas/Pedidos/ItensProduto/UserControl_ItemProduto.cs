@@ -129,21 +129,21 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
         }
 
         [Category("Custom Props")]
-        public decimal ValorCusto
+        public decimal ValorVenda
         {
             get
             {
-                decimal valorCusto = 0;
+                decimal valorVenda = 0;
 
-                if (textBoxValorCusto.Text != "" && textBoxValorCusto.Text != string.Empty)
+                if (textBoxValorVenda.Text != "" && textBoxValorVenda.Text != string.Empty)
                 {
-                    valorCusto = decimal.Parse(textBoxValorCusto.Text);
+                    valorVenda = decimal.Parse(textBoxValorVenda.Text);
                 }
 
-                return valorCusto;
+                return valorVenda;
             }
 
-            set { textBoxValorCusto.Text = value.ToString("N2"); }
+            set { textBoxValorVenda.Text = value.ToString("N2"); }
         }
 
         [Category("Custom Props")]
@@ -182,11 +182,11 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
             textBoxCodigo.Clear();
             textBoxQuantidade.Text = "0";
             //
-            textBoxValorCusto.Text = string.Format("{0:#,##0.00}", 0d);
-            textBoxValorCusto.Select(textBoxValorCusto.Text.Length, 0);
+            textBoxValorVenda.Text = string.Format("{0:#,##0.00}", 0d);
+            textBoxValorVenda.Select(textBoxValorVenda.Text.Length, 0);
             //
             textBoxValorTotal.Text = string.Format("{0:#,##0.00}", 0d);
-            textBoxValorTotal.Select(textBoxValorCusto.Text.Length, 0);
+            textBoxValorTotal.Select(textBoxValorVenda.Text.Length, 0);
 
             textBoxNomeProduto.Focus();
         }
@@ -220,7 +220,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
             try
             {
                 //Retorna os dados da tabela Produtos
-                string query = ("SELECT idProduto, nomeProduto, codigoProduto, valorCusto FROM Produtos WHERE nomeProduto = @nome");
+                string query = ("SELECT idProduto, nomeProduto, codigoProduto, valorVenda FROM Produtos WHERE nomeProduto = @nome");
                 SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
                 banco.conectar();
 
@@ -242,7 +242,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
                         datareader.GetString(1),
                         datareader.GetString(2),
                         1,
-                        datareader.GetDecimal(3)
+                        instancia.CalcularValorListaPreco(datareader.GetDecimal(3))
                     );
                 }
                 else
@@ -265,10 +265,10 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
             decimal quantidade = 0, valorUnitario = 0, ValorTotal = 0;
 
             if (textBoxQuantidade.Text != string.Empty && textBoxQuantidade.Text.All(Char.IsNumber)
-                || textBoxValorCusto.Text != string.Empty && textBoxValorCusto.Text.All(Char.IsNumber))
+                || textBoxValorVenda.Text != string.Empty && textBoxValorVenda.Text.All(Char.IsNumber))
             {
                 quantidade = decimal.Parse(textBoxQuantidade.Text);
-                valorUnitario = decimal.Parse(textBoxValorCusto.Text);
+                valorUnitario = decimal.Parse(textBoxValorVenda.Text);
             }
 
             ValorTotal = quantidade * valorUnitario;
@@ -285,11 +285,11 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
 
             if (SituacaoEstoque == true)
             {
-                textBoxNomeProduto.ReadOnly = true;
-                textBoxCodigo.ReadOnly = true;
-                textBoxQuantidade.ReadOnly = true;
-                textBoxValorCusto.ReadOnly = true;
-                textBoxValorTotal.ReadOnly = true;
+                textBoxNomeProduto.Enabled = false;
+                textBoxCodigo.Enabled = false;
+                textBoxQuantidade.Enabled = false;
+                textBoxValorVenda.Enabled = false;
+                textBoxValorTotal.Enabled = false;
             }
         }
 
@@ -312,7 +312,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
                     textBoxNomeProduto.Text = Model.ProtudoItens._NomeProduto();
                     textBoxCodigo.Text = Model.ProtudoItens._CodigoProduto().ToString();
                     textBoxQuantidade.Text = Model.ProtudoItens._Quantidade().ToString();
-                    textBoxValorCusto.Text = Model.ProtudoItens._ValorUnitario().ToString("N2");
+                    textBoxValorVenda.Text = Model.ProtudoItens._ValorUnitario().ToString("N2");
                     textBoxValorTotal.Text = calcularValorTotal_Produto().ToString("N2");
 
                     instancia.CalcularTotaisPedido();
@@ -361,6 +361,11 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
             }
         }
 
+        private void textBoxValorVenda_TextChanged(object sender, EventArgs e)
+        {
+            textBoxValorTotal.Text = calcularValorTotal_Produto().ToString("N2");
+        }
+
         private void textBoxValorCusto_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
@@ -379,7 +384,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
 
             if (e.KeyCode == Keys.Insert)
             {
-                if (textBoxValorCusto.Text != string.Empty && textBoxValorCusto.Text != " ")
+                if (textBoxValorVenda.Text != string.Empty && textBoxValorVenda.Text != " ")
                 {
                     instancia.NovoItemProduto();
                 }
@@ -433,7 +438,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
 
             if (e.KeyCode == Keys.Tab)
             {
-                instancia.textBoxQuantidadeParcela.Focus();
+                instancia.textBoxValorTotalProdutos.Focus();
             }
         }
 

@@ -54,9 +54,49 @@
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             label6.Location = new System.Drawing.Point(38, 275);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(85, 17);
+            label6.Size = new System.Drawing.Size(158, 17);
             label6.TabIndex = 150;
-            label6.Text = "Observação";
+            label6.Text = "Observação da entrega";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            label4.Location = new System.Drawing.Point(37, 205);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(151, 17);
+            label4.TabIndex = 149;
+            label4.Text = "Endereço de entrega *";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(315, 66);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(44, 16);
+            label5.TabIndex = 147;
+            label5.Text = "Status";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            label1.Location = new System.Drawing.Point(38, 64);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(52, 17);
+            label1.TabIndex = 146;
+            label1.Text = "Codigo";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            label2.Location = new System.Drawing.Point(38, 135);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(151, 17);
+            label2.TabIndex = 145;
+            label2.Text = "Nome da modalidade *";
             // 
             // textBoxObservacao
             // 
@@ -68,16 +108,6 @@
             this.textBoxObservacao.Name = "textBoxObservacao";
             this.textBoxObservacao.Size = new System.Drawing.Size(543, 23);
             this.textBoxObservacao.TabIndex = 3;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            label4.Location = new System.Drawing.Point(37, 205);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(151, 17);
-            label4.TabIndex = 149;
-            label4.Text = "Endereço de entrega *";
             // 
             // textBoxEnderecoEntrega
             // 
@@ -104,26 +134,6 @@
             this.comboBoxStatus.Size = new System.Drawing.Size(266, 26);
             this.comboBoxStatus.TabIndex = 0;
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(315, 66);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(44, 16);
-            label5.TabIndex = 147;
-            label5.Text = "Status";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            label1.Location = new System.Drawing.Point(38, 64);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(52, 17);
-            label1.TabIndex = 146;
-            label1.Text = "Codigo";
-            // 
             // textBoxCodigo
             // 
             this.textBoxCodigo.BackColor = System.Drawing.Color.White;
@@ -135,16 +145,6 @@
             this.textBoxCodigo.Size = new System.Drawing.Size(266, 23);
             this.textBoxCodigo.TabIndex = 143;
             this.textBoxCodigo.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            label2.Location = new System.Drawing.Point(38, 135);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(151, 17);
-            label2.TabIndex = 145;
-            label2.Text = "Nome da modalidade *";
             // 
             // textBoxNomeModalidade
             // 

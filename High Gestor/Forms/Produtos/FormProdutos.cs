@@ -224,39 +224,51 @@ namespace High_Gestor.Forms.Produtos
 
         private decimal CalcularValorListaPreco(decimal valorVendaPadrao)
         {
-            decimal novoValor = 0;
+            decimal valorProduto = 0;
 
             for(int i=0; i < ListaPreco.Rows.Count; i++)
             {
                 if (ListaPreco.Rows[i][1].ToString() == comboBoxListaPrecos.Text)
                 {
-                    decimal baseCalculo = 0;
+                    decimal baseCalculoValorProduto = decimal.Parse(ListaPreco.Rows[i][4].ToString());
+                    decimal baseCalculoValorLista = decimal.Parse(ListaPreco.Rows[i][5].ToString());
 
                     if (ListaPreco.Rows[i][2].ToString() == "VALOR PRODUTO")
                     {
-                        baseCalculo = decimal.Parse(ListaPreco.Rows[i][4].ToString());
+                        if (ListaPreco.Rows[i][3].ToString() == "ACRESCIMO")
+                        {
+                            valorProduto = valorVendaPadrao + (valorVendaPadrao * (baseCalculoValorProduto / 100));
+                        }
+                        else if (ListaPreco.Rows[i][3].ToString() == "DESCONTO")
+                        {
+                            valorProduto = valorVendaPadrao - (valorVendaPadrao * (baseCalculoValorProduto / 100));
+                        }
                     }
                     else if (ListaPreco.Rows[i][2].ToString() == "VALOR LISTA")
                     {
-                        baseCalculo = decimal.Parse(ListaPreco.Rows[i][5].ToString());
-                    }
+                        decimal valorLista = 0;
 
-                    if(ListaPreco.Rows[i][3].ToString() == "ACRESCIMO")
-                    {
-                        novoValor = valorVendaPadrao + (valorVendaPadrao * (baseCalculo / 100));
+                        if (ListaPreco.Rows[i][3].ToString() == "ACRESCIMO")
+                        {
+                            valorLista = valorVendaPadrao + (valorVendaPadrao * (baseCalculoValorProduto / 100));
+
+                            valorProduto = valorLista + (valorLista * (baseCalculoValorLista / 100));
+                        }
+                        else if (ListaPreco.Rows[i][3].ToString() == "DESCONTO")
+                        {
+                            valorLista = valorVendaPadrao - (valorVendaPadrao * (baseCalculoValorProduto / 100));
+
+                            valorProduto = valorLista - (valorLista * (baseCalculoValorLista / 100));
+                        }
                     }
-                    else if (ListaPreco.Rows[i][3].ToString() == "DESCONTO")
+                    else if (ListaPreco.Rows[i][2].ToString() == "PADRAO")
                     {
-                        novoValor = valorVendaPadrao - (valorVendaPadrao * (baseCalculo / 100));
-                    }
-                    else if (ListaPreco.Rows[i][3].ToString() == "PADRAO")
-                    {
-                        novoValor = valorVendaPadrao;
+                        valorProduto = valorVendaPadrao;
                     }
                 }
             }
 
-            return novoValor;
+            return valorProduto;
         }
 
         public void dataProdutos()
@@ -345,7 +357,8 @@ namespace High_Gestor.Forms.Produtos
             comboBoxFornecedor.SelectedIndex = 0;
             comboBoxListaPrecos.SelectedIndex = 0;
 
-            dataProdutos();
+            produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "NomeProduto", "");
+
             verificarQuantidadeProdutos();
         }
 
@@ -642,11 +655,13 @@ namespace High_Gestor.Forms.Produtos
             {
                 linkLabelBuscaAvancada.Image = Resources.recolher_blue;
                 panelPesquisaContent.Visible = true;
+
             }
             else
             {
                 linkLabelBuscaAvancada.Image = Resources.espandir_blue;
                 panelPesquisaContent.Visible = false;
+
             }
         }
 

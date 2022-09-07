@@ -54,6 +54,7 @@
             this.labelContagem = new System.Windows.Forms.Label();
             this.btnSair = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.labelStatus = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -93,9 +94,9 @@
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label3.Location = new System.Drawing.Point(348, 309);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(122, 16);
+            label3.Size = new System.Drawing.Size(91, 16);
             label3.TabIndex = 131;
-            label3.Text = "Comissão FIXA (%)";
+            label3.Text = "Comissão (%)";
             // 
             // label2
             // 
@@ -213,6 +214,7 @@
             this.textBoxComissao.Name = "textBoxComissao";
             this.textBoxComissao.Size = new System.Drawing.Size(306, 26);
             this.textBoxComissao.TabIndex = 115;
+            this.textBoxComissao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxNomeCompleto
             // 
@@ -243,6 +245,7 @@
             this.maskedTelefoneContato.Name = "maskedTelefoneContato";
             this.maskedTelefoneContato.Size = new System.Drawing.Size(306, 26);
             this.maskedTelefoneContato.TabIndex = 118;
+            this.maskedTelefoneContato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // maskedWhatsApp
             // 
@@ -253,6 +256,7 @@
             this.maskedWhatsApp.Name = "maskedWhatsApp";
             this.maskedWhatsApp.Size = new System.Drawing.Size(306, 26);
             this.maskedWhatsApp.TabIndex = 117;
+            this.maskedWhatsApp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // checkBoxGerarCodigoAutomaticamente
             // 
@@ -280,6 +284,7 @@
             this.textBoxCodigoFuncionario.Name = "textBoxCodigoFuncionario";
             this.textBoxCodigoFuncionario.Size = new System.Drawing.Size(266, 26);
             this.textBoxCodigoFuncionario.TabIndex = 108;
+            this.textBoxCodigoFuncionario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // maskedCPF
             // 
@@ -290,6 +295,7 @@
             this.maskedCPF.Name = "maskedCPF";
             this.maskedCPF.Size = new System.Drawing.Size(306, 26);
             this.maskedCPF.TabIndex = 114;
+            this.maskedCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // textBoxEndereco
             // 
@@ -320,9 +326,9 @@
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelContagem.Location = new System.Drawing.Point(13, 11);
             this.labelContagem.Name = "labelContagem";
-            this.labelContagem.Size = new System.Drawing.Size(195, 24);
+            this.labelContagem.Size = new System.Drawing.Size(179, 24);
             this.labelContagem.TabIndex = 121;
-            this.labelContagem.Text = "Cadastrar Funcionário";
+            this.labelContagem.Text = "Cadastrar Vendedor";
             this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSair
@@ -352,12 +358,23 @@
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.buttonSalvar_KeyUp);
             // 
+            // labelStatus
+            // 
+            this.labelStatus.AutoSize = true;
+            this.labelStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStatus.Location = new System.Drawing.Point(351, 355);
+            this.labelStatus.Name = "labelStatus";
+            this.labelStatus.Size = new System.Drawing.Size(60, 15);
+            this.labelStatus.TabIndex = 134;
+            this.labelStatus.Text = "descricao";
+            // 
             // FormCadFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.comboBoxPerfil);
             this.Controls.Add(label11);
             this.Controls.Add(this.comboBoxSituação);
@@ -412,5 +429,6 @@
         private System.Windows.Forms.Label labelContagem;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.Label labelStatus;
     }
 }

@@ -95,16 +95,16 @@
     <Compile Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.Designer.cs">
       <DependentUpon>UserControl_Compras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.cs">
+    <Compile Include="Forms\Configuracoes\DadosEmpresa\FormApresentacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.Designer.cs">
+    <Compile Include="Forms\Configuracoes\DadosEmpresa\FormApresentacao.Designer.cs">
       <DependentUpon>FormApresentacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.cs">
+    <Compile Include="Forms\Configuracoes\DadosEmpresa\FormDadosEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.Designer.cs">
+    <Compile Include="Forms\Configuracoes\DadosEmpresa\FormDadosEmpresa.Designer.cs">
       <DependentUpon>FormDadosEmpresa.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\ParametrosSistema\Estoque\UserControl_Estoque.cs">
@@ -172,6 +172,24 @@
     </Compile>
     <Compile Include="Forms\Financeiro\Parametros\CondicoesPagamento\FormCondicoesPagamento.Designer.cs">
       <DependentUpon>FormCondicoesPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormCadContasBancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormCadContasBancarias.Designer.cs">
+      <DependentUpon>FormCadContasBancarias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormContaPossuiLancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormContaPossuiLancamento.Designer.cs">
+      <DependentUpon>FormContaPossuiLancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormContasBancarias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\Parametros\ContasBancarias\FormContasBancarias.Designer.cs">
+      <DependentUpon>FormContasBancarias.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financeiro\Parametros\FormParametros.cs">
       <SubType>Form</SubType>
@@ -403,6 +421,18 @@
     <Compile Include="Forms\Vendas\PDV\FormPDV.Designer.cs">
       <DependentUpon>FormPDV.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\ContasLancadas\ItemContaLancada\UserControl_ItemConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\ContasLancadas\ItemContaLancada\UserControl_ItemConta.Designer.cs">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\FormAlterarSituacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\FormAlterarSituacao.Designer.cs">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Vendas\Pedidos\FormCadPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +451,18 @@
     <Compile Include="Forms\Vendas\Pedidos\ItensProduto\UserControl_ItemProduto.Designer.cs">
       <DependentUpon>UserControl_ItemProduto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\Lancar Contas\FormLancarContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\Lancar Contas\FormLancarContas.Designer.cs">
+      <DependentUpon>FormLancarContas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\Lancar Contas\ItensConta\UserControl_ItemConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\Lancar Contas\ItensConta\UserControl_ItemConta.Designer.cs">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Vendas\Pedidos\Model\Calculos.cs" />
     <Compile Include="Forms\Vendas\Pedidos\Model\ProdutoItens.cs" />
     <Compile Include="Forms\Vendas\Pedidos\Parcelas\UserControl_ItemParcela.cs">
@@ -429,8 +471,25 @@
     <Compile Include="Forms\Vendas\Pedidos\Parcelas\UserControl_ItemParcela.Designer.cs">
       <DependentUpon>UserControl_ItemParcela.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\UserControl_Acoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\UserControl_Acoes.Designer.cs">
+      <DependentUpon>UserControl_Acoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\ContasLancadas\UserControl_ContasLancadas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\Pedidos\ContasLancadas\UserControl_ContasLancadas.Designer.cs">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Produtos\FormReportProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -441,10 +500,10 @@
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.resx">
       <DependentUpon>UserControl_Compras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormApresentacao.resx">
+    <EmbeddedResource Include="Forms\Configuracoes\DadosEmpresa\FormApresentacao.resx">
       <DependentUpon>FormApresentacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\DadosEmpresa\FormDadosEmpresa.resx">
+    <EmbeddedResource Include="Forms\Configuracoes\DadosEmpresa\FormDadosEmpresa.resx">
       <DependentUpon>FormDadosEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Estoque\UserControl_Estoque.resx">
@@ -479,6 +538,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\Parametros\CondicoesPagamento\FormCondicoesPagamento.resx">
       <DependentUpon>FormCondicoesPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\Parametros\ContasBancarias\FormCadContasBancarias.resx">
+      <DependentUpon>FormCadContasBancarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\Parametros\ContasBancarias\FormContaPossuiLancamento.resx">
+      <DependentUpon>FormContaPossuiLancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\Parametros\ContasBancarias\FormContasBancarias.resx">
+      <DependentUpon>FormContasBancarias.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\Parametros\FormParametros.resx">
       <DependentUpon>FormParametros.cs</DependentUpon>
@@ -594,6 +662,12 @@
     <EmbeddedResource Include="Forms\Vendas\PDV\FormPDV.resx">
       <DependentUpon>FormPDV.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\ContasLancadas\ItemContaLancada\UserControl_ItemConta.resx">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\FormAlterarSituacao.resx">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\Pedidos\FormCadPedido.resx">
       <DependentUpon>FormCadPedido.cs</DependentUpon>
     </EmbeddedResource>
@@ -603,19 +677,26 @@
     <EmbeddedResource Include="Forms\Vendas\Pedidos\ItensProduto\UserControl_ItemProduto.resx">
       <DependentUpon>UserControl_ItemProduto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\Lancar Contas\FormLancarContas.resx">
+      <DependentUpon>FormLancarContas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\Lancar Contas\ItensConta\UserControl_ItemConta.resx">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\Pedidos\Parcelas\UserControl_ItemParcela.resx">
       <DependentUpon>UserControl_ItemParcela.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\UserControl_Acoes.resx">
+      <DependentUpon>UserControl_Acoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\Pedidos\ContasLancadas\UserControl_ContasLancadas.resx">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Reports\Produtos\FormReportProdutos.resx">
       <DependentUpon>FormReportProdutos.cs</DependentUpon>
     </EmbeddedResource>
@@ -661,6 +742,11 @@
     <Content Include="ICON-High.ico" />
     <None Include="Resources\espandir_blue.png" />
     <None Include="Resources\recolher_blue.png" />
+    <None Include="Resources\padrao receitas.png" />
+    <None Include="Resources\padrao despesas 1.png" />
+    <None Include="Resources\padrao contaBancaria NULO 1.png" />
+    <None Include="Resources\icon contas 3.png" />
+    <None Include="Resources\icon estoque 3.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
