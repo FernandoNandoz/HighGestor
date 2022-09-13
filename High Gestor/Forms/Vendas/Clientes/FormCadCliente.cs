@@ -235,7 +235,14 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 command.Parameters.AddWithValue("@situacao", comboBoxSituacao.Text);
                 command.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
                 command.Parameters.AddWithValue("@nomeCompleto_RazaoSocial", textBoxNome_Razao.Text);
-                command.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
+                if (textBoxNomeFantasia.Text == string.Empty)
+                {
+                    command.Parameters.AddWithValue("@nomeFantasia", textBoxNome_Razao.Text);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
+                }
                 command.Parameters.AddWithValue("@responsavel", textBoxNomeResponsavel.Text);
                 //
                 if (maskedDataNascimento.Text == "  /  /")
@@ -305,7 +312,14 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 command.Parameters.AddWithValue("@situacao", comboBoxSituacao.Text);
                 command.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
                 command.Parameters.AddWithValue("@nomeCompleto_RazaoSocial", textBoxNome_Razao.Text);
-                command.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
+                if (textBoxNomeFantasia.Text == string.Empty)
+                {
+                    command.Parameters.AddWithValue("@nomeFantasia", textBoxNome_Razao.Text);
+                }
+                else
+                {
+                    command.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
+                }
                 command.Parameters.AddWithValue("@responsavel", textBoxNomeResponsavel.Text);
                 //
                 maskedDataNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;

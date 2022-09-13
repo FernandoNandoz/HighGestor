@@ -217,6 +217,34 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
 
         private void encontrarProdutos()
         {
+            //bool emEstoque = false;
+            
+
+            //if (SistemaVerificacao.verificarPadraoEstoque() == "SIM")
+            //{
+            //    int quantidadeSolicitada = 0, saldoAtual = 0;
+
+            //    if (textBoxQuantidade.Text != string.Empty)
+            //    {
+            //        quantidadeSolicitada = int.Parse(textBoxQuantidade.Text);
+            //    }
+
+
+            //    string select = ("SELECT saldoAtual FROM Estoque WHERE idProdutoFK = @ID");
+            //    SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            //    exeSelect.Parameters.AddWithValue("@ID", quantidadeSolicitada);
+
+            //    banco.conectar();
+            //    SqlDataReader reader = exeSelect.ExecuteReader();
+
+            //    if (reader.Read())
+            //    {
+            //        saldoAtual = reader.GetInt32(0);
+            //    }
+            //    banco.desconectar();
+            //}
+
             try
             {
                 //Retorna os dados da tabela Produtos
@@ -250,7 +278,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ItensProduto
                     _produtoEncontrado = false;
                     Model.ProtudoItens.receberValidacao(false);
                 }
-
                 banco.desconectar();
 
             }

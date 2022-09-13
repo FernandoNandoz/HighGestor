@@ -196,8 +196,17 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
 
             panelContent.Controls.Clear();
 
-            Financeiro.Width = panelContent.Width;
-            Financeiro.Height = panelContent.Height;
+            
+
+            if(Financeiro.Height < panelContent.Height)
+            {
+                Financeiro.Width = panelContent.Width;
+                Financeiro.Height = panelContent.Height;
+            }
+            else
+            {
+                Financeiro.Width = panelContent.Width - 20;
+            }
 
             panelContent.Controls.Add(Financeiro);
         }

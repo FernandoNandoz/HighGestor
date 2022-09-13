@@ -268,6 +268,50 @@ namespace High_Gestor
         static DataTable CategoriaFinanceiro = new DataTable();
         static DataTable CentroCusto = new DataTable();
 
+        public static bool verificarDadosEmpresa()
+        {
+            bool encontrado = false;
+
+            string queryDadosEmpresa = ("SELECT COUNT(*) FROM DadosEmpresa");
+            SqlCommand exeQueryDadosEmpresa = new SqlCommand(queryDadosEmpresa, banco.connection);
+            banco.conectar();
+
+            SqlDataReader readerDadosEmpresa = exeQueryDadosEmpresa.ExecuteReader();
+
+            if (readerDadosEmpresa.Read())
+            {
+                if (readerDadosEmpresa.GetInt32(0) > 0)
+                {
+                    encontrado = true;
+                }
+                else
+                {
+                    encontrado = false;
+                }
+            }
+            banco.desconectar();
+
+            if (encontrado == false)
+            {
+                PrimeiroAcesso.receberDados(true);
+
+                Forms.Configuracoes.DadosEmpresa.FormApresentacao window = new Forms.Configuracoes.DadosEmpresa.FormApresentacao();
+                window.ShowDialog();
+                window.Dispose();
+
+                if (PrimeiroAcesso._retornarDadosEmpresa() == false)
+                {
+                    encontrado = false;
+                }
+                else
+                {
+                    encontrado = true;
+                }
+            }
+
+            return encontrado;
+        }
+
         public static void DefauthConfig(bool Parametros, bool ListaPreco, bool Perfil, bool Desenvolvedor, bool FormaPagamento, bool Transporte, bool ContaBancaria, bool CategoriaFinanceira, bool CentroCusto)
         {
             if (Parametros == false)
@@ -318,7 +362,7 @@ namespace High_Gestor
 
         private static void insertParametrosPadrao()
         {
-            string query = ("INSERT INTO ParametrosSistema (comissao, comissionamento, categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras, bloquearVendaEstoque, atualizarCustoProduto, ListaPreco, idLog, createdAt) VALUES (@comissao, @comissionamento, @categoriaPadraoReceitas, @categoriaPadraoDespesas, @categoriaPadraoVendas, @categoriaPadraoCompras, @bloquearVendaEstoque, @atualizarCustoProduto, @ListaPreco, @idLog, @createdAt)");
+            string query = ("INSERT INTO ParametrosSistema (comissao, comissionamento, categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras, custoPadraoReceitas, custoPadraoDespesas, bloquearVendaEstoque, atualizarCustoProduto, ListaPreco, idLog, createdAt) VALUES (@comissao, @comissionamento, @categoriaPadraoReceitas, @categoriaPadraoDespesas, @categoriaPadraoVendas, @categoriaPadraoCompras, @custoPadraoReceitas, @custoPadraoDespesas, @bloquearVendaEstoque, @atualizarCustoProduto, @ListaPreco, @idLog, @createdAt)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@comissao", "DESATIVADO");
@@ -328,6 +372,8 @@ namespace High_Gestor
             exeQuery.Parameters.AddWithValue("@categoriaPadraoDespesas", "OUTRAS DESPESAS");
             exeQuery.Parameters.AddWithValue("@categoriaPadraoVendas", "VENDAS");
             exeQuery.Parameters.AddWithValue("@categoriaPadraoCompras", "FORNECEDOR");
+            exeQuery.Parameters.AddWithValue("@custoPadraoReceitas", "RECEITAS GERAIS");
+            exeQuery.Parameters.AddWithValue("@custoPadraoDespesas", "DESPESAS GERAIS");
             exeQuery.Parameters.AddWithValue("@bloquearVendaEstoque", "SIM");
             exeQuery.Parameters.AddWithValue("@atualizarCustoProduto", "SIM");
             exeQuery.Parameters.AddWithValue("@ListaPreco", "NAO");
@@ -363,7 +409,7 @@ namespace High_Gestor
             string perfil = ("INSERT INTO Perfil (codigoPerfil, perfil, createdAt) VALUES (@codigoPerfil, @perfil, @createdAt)");
             SqlCommand exePerfil = new SqlCommand(perfil, banco.connection);
 
-            for (int i=0; i < 2; i++)
+            for (int i=0; i < 3; i++)
             {
                 string nomePerfil = string.Empty;
 
@@ -672,6 +718,118 @@ namespace High_Gestor
                 command.ExecuteNonQuery();
                 banco.desconectar();
             }
+        }
+
+
+        //Verificações - Consultas
+        public static bool verificarComissao()
+        {
+            bool comissao = false;
+
+            string select = ("SELECT comissao FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                if(reader.GetString(0) != "DESATIVADO")
+                {
+                    comissao = true;
+
+                }
+                else
+                {
+                    comissao= false;
+                }
+            }
+            banco.desconectar();
+
+            return comissao;
+        }
+
+        public static bool verificarListaPreco()
+        {
+            bool ListaPrecoPadrao = false;
+
+            string select = ("SELECT ListaPreco FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                if (reader[0].ToString() == "SIM")
+                {
+                    ListaPrecoPadrao = true;
+                }
+                else
+                {
+                    ListaPrecoPadrao = false;
+                }
+            }
+            banco.desconectar();
+
+            return ListaPrecoPadrao;
+        }
+
+        public static string verificarCategoriaPadraoVendas()
+        {
+            string result = string.Empty;
+
+            string select = ("SELECT categoriaPadraoVendas FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            banco.desconectar();
+
+            return result;
+        }
+
+        public static string verificarCustoPadraoReceitas()
+        {
+            string result = string.Empty;
+
+            string select = ("SELECT custoPadraoReceitas FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            banco.desconectar();
+
+            return result;
+        }
+
+        public static string verificarPadraoEstoque()
+        {
+            string result = string.Empty;
+
+            string select = ("SELECT bloquearVendaEstoque FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            banco.desconectar();
+
+            return result;
         }
     }
 }

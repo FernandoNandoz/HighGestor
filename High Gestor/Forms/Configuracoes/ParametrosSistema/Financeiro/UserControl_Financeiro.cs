@@ -94,7 +94,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.Financeiro
 
         private void carregarDados()
         {
-            string query = ("SELECT categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras FROM ParametrosSistema");
+            string query = ("SELECT categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras, custoPadraoReceitas, custoPadraoDespesas FROM ParametrosSistema");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             banco.conectar();
@@ -106,19 +106,23 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema.Financeiro
                 comboBoxPadraoDespesas.Text = datareader.GetString(1);
                 comboBoxPadraoVendas.Text = datareader.GetString(2);
                 comboBoxPadraoCompras.Text = datareader.GetString(3);
+                comboBoxCustoReceitas.Text = datareader.GetString(4);
+                comboBoxCustoDespesas.Text = datareader.GetString(5);
             }
             banco.desconectar();
         }
 
         private void queryUpdate()
         {
-            string query = ("UPDATE ParametrosSistema SET categoriaPadraoReceitas = @receitas, categoriaPadraoDespesas = @despesas, categoriaPadraoVendas = @vendas, categoriaPadraoCompras = @compras, idLog = @idLog, updatedAt = @updatedAt");
+            string query = ("UPDATE ParametrosSistema SET categoriaPadraoReceitas = @receitas, categoriaPadraoDespesas = @despesas, categoriaPadraoVendas = @vendas, categoriaPadraoCompras = @compras, custoPadraoReceitas = @custoPadraoReceitas, custoPadraoDespesas = @custoPadraoDespesas, idLog = @idLog, updatedAt = @updatedAt");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@receitas", comboBoxPadraoReceitas.Text);
             exeQuery.Parameters.AddWithValue("@despesas", comboBoxPadraoReceitas.Text);
             exeQuery.Parameters.AddWithValue("@vendas", comboBoxPadraoReceitas.Text);
             exeQuery.Parameters.AddWithValue("@compras", comboBoxPadraoReceitas.Text);
+            exeQuery.Parameters.AddWithValue("@custoPadraoReceitas", comboBoxCustoReceitas.Text);
+            exeQuery.Parameters.AddWithValue("@custoPadraoDespesas", comboBoxCustoDespesas.Text);
             exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
             exeQuery.Parameters.AddWithValue("@updatedAt", DateTime.Now);
 

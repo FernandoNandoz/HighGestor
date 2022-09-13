@@ -215,7 +215,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT nomeCompleto_RazaoSocial FROM Clientes", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM Clientes", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -266,7 +266,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string ClienteSELECT = ("SELECT idCliente, nomeCompleto_RazaoSocial FROM Clientes WHERE nomeCompleto_RazaoSocial = @nome");
+            string ClienteSELECT = ("SELECT idCliente, nomeFantasia FROM Clientes WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(ClienteSELECT, banco.connection);
             banco.conectar();
 
@@ -291,12 +291,10 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         private void pesquisarNomeCliente()
         {
             //Pega o ultimo ID resgitrado na tabela log
-            string ClienteSELECT = ("SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE nomeCompleto_RazaoSocial = @nome");
+            string ClienteSELECT = ("SELECT nomeFantasia FROM Clientes WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(ClienteSELECT, banco.connection);
 
-
             banco.conectar();
-
             exeVerificacao.Parameters.AddWithValue("@nome", textBoxCliente.Text);
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
@@ -384,27 +382,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
             //Pega o ultimo ID resgitrado na tabela log
             string query = ("SELECT idPedidoVenda FROM PedidosVenda WHERE idPedidoVenda=(SELECT MAX(idPedidoVenda) FROM PedidosVenda)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private int verificarIdContasReceber()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idContasReceber FROM ContasReceber WHERE idContasReceber=(SELECT MAX(idContasReceber) FROM ContasReceber)");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -939,59 +916,35 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
         private void dataComboBoxListaPreco()
         {
-            bool ListaPrecoPadrao = false;
-
-            string select = ("SELECT ListaPreco FROM ParametrosSistema");
-            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+            string Membros = ("SELECT idListaPreco, descricao, modalidadeAjuste, tipoAjuste, baseCalculoValorProduto, baseCalculoValorLista, (SELECT COUNT(*) FROM ListaPreco) FROM ListaPreco");
+            SqlCommand exeVerificacao = new SqlCommand(Membros, banco.connection);
 
             banco.conectar();
-            SqlDataReader reader = exeSelect.ExecuteReader();
 
-            if(reader.Read())
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            comboBoxListaPrecos.Items.Clear();
+
+            while (datareader.Read())
             {
-                if (reader[0].ToString() == "SIM")
-                {
-                    ListaPrecoPadrao = true;
-                }
-                else
-                {
-                    ListaPrecoPadrao = false;
-                }
+                comboBoxListaPrecos.Items.Add(datareader[1].ToString());
+
+                ListaPreco.Rows.Add(
+                    datareader.GetInt32(0),
+                    datareader[1].ToString(),
+                    datareader[2].ToString(),
+                    datareader[3].ToString(),
+                    datareader.GetDecimal(4),
+                    datareader.GetDecimal(5));
             }
             banco.desconectar();
 
-            if(ListaPrecoPadrao == true)
-            {
-                string Membros = ("SELECT idListaPreco, descricao, modalidadeAjuste, tipoAjuste, baseCalculoValorProduto, baseCalculoValorLista, (SELECT COUNT(*) FROM ListaPreco) FROM ListaPreco");
-                SqlCommand exeVerificacao = new SqlCommand(Membros, banco.connection);
+            comboBoxListaPrecos.SelectedIndex = 0;
 
-                banco.conectar();
-
-                SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                comboBoxListaPrecos.Items.Clear();
-
-                while (datareader.Read())
-                {
-                    comboBoxListaPrecos.Items.Add(datareader[1].ToString());
-
-                    ListaPreco.Rows.Add(
-                        datareader.GetInt32(0),
-                        datareader[1].ToString(),
-                        datareader[2].ToString(),
-                        datareader[3].ToString(),
-                        datareader.GetDecimal(4),
-                        datareader.GetDecimal(5));
-                }
-                banco.desconectar();
-
-                comboBoxListaPrecos.SelectedIndex = 0;
-            }
-            else
+            if (SistemaVerificacao.verificarListaPreco() == false)
             {
                 comboBoxListaPrecos.Enabled = false;
             }
-            
         }
 
         private string dataComboBoxListaPreco_update(int idListaPrecoFK)

@@ -32,7 +32,6 @@ namespace High_Gestor
         bool Desenvolvedor = false;
         bool FormaPagamento = false;
         bool Transporte = false;
-        bool DadosEmpresa = false;
         bool ContaBancaria = false;
         bool CategoriaFinanceiro = false;
         bool CentroCusto = false;
@@ -232,9 +231,7 @@ namespace High_Gestor
 
         private void carregarDadosEmpresa()
         {
-            #region Verificar Dados Empresa
-
-            string queryDadosEmpresa = ("SELECT COUNT(*), nomeFantasia FROM DadosEmpresa GROUP BY nomeFantasia");
+            string queryDadosEmpresa = ("SELECT nomeFantasia FROM DadosEmpresa");
             SqlCommand exeQueryDadosEmpresa = new SqlCommand(queryDadosEmpresa, banco.connection);
             banco.conectar();
 
@@ -242,37 +239,9 @@ namespace High_Gestor
 
             if (readerDadosEmpresa.Read())
             {
-                if (readerDadosEmpresa.GetInt32(0) > 0)
-                {
-                    DadosEmpresa = true;
-                    labelNameEstebelecimento.Text = readerDadosEmpresa.GetString(1);
-                }
-                else
-                {
-                    DadosEmpresa = false;
-                }
+                labelNameEstebelecimento.Text = readerDadosEmpresa.GetString(0);
             }
             banco.desconectar();
-
-            #endregion
-
-            if (DadosEmpresa == false)
-            {
-                PrimeiroAcesso.receberDados(true);
-
-                Forms.Configuracoes.DadosEmpresa.FormApresentacao window = new Forms.Configuracoes.DadosEmpresa.FormApresentacao();
-                window.ShowDialog();
-                window.Dispose();
-
-                if (PrimeiroAcesso._retornarDadosEmpresa() == false)
-                {
-                    this.Close();
-                }
-                else
-                {
-                    verificarSistema();
-                }
-            }
         }
 
         private void verificarSistema()
@@ -484,16 +453,23 @@ namespace High_Gestor
             #endregion
 
             SistemaVerificacao.DefauthConfig(Parametros, ListaPreco, Perfil, Desenvolvedor, FormaPagamento, Transporte, ContaBancaria, CategoriaFinanceiro, CentroCusto);
-
-            carregarDadosEmpresa();
         }
 
         private void FormHighGestor_Load(object sender, EventArgs e)
         {
-            carregarDadosEmpresa();
-            dataFuncionario();
+            if(SistemaVerificacao.verificarDadosEmpresa() == true)
+            {
+                verificarSistema();
+                carregarDadosEmpresa();
 
-            buttonVendas_Click(sender, e);
+                dataFuncionario();
+
+                buttonVendas_Click(sender, e);
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void buttonTitlerSair_Click(object sender, EventArgs e)

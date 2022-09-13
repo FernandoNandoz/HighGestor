@@ -37,11 +37,17 @@
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label13;
             this.comboBoxPadraoCompras = new System.Windows.Forms.ComboBox();
             this.comboBoxPadraoVendas = new System.Windows.Forms.ComboBox();
             this.comboBoxPadraoDespesas = new System.Windows.Forms.ComboBox();
             this.comboBoxPadraoReceitas = new System.Windows.Forms.ComboBox();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.comboBoxCustoReceitas = new System.Windows.Forms.ComboBox();
+            this.comboBoxCustoDespesas = new System.Windows.Forms.ComboBox();
             label2 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -51,6 +57,10 @@
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label2
@@ -157,9 +167,6 @@
             this.comboBoxPadraoCompras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxPadraoCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPadraoCompras.FormattingEnabled = true;
-            this.comboBoxPadraoCompras.Items.AddRange(new object[] {
-            "NAO",
-            "SIM"});
             this.comboBoxPadraoCompras.Location = new System.Drawing.Point(26, 428);
             this.comboBoxPadraoCompras.Name = "comboBoxPadraoCompras";
             this.comboBoxPadraoCompras.Size = new System.Drawing.Size(299, 26);
@@ -206,7 +213,7 @@
             this.buttonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalvar.ForeColor = System.Drawing.Color.White;
-            this.buttonSalvar.Location = new System.Drawing.Point(30, 524);
+            this.buttonSalvar.Location = new System.Drawing.Point(30, 736);
             this.buttonSalvar.Margin = new System.Windows.Forms.Padding(5);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(213, 32);
@@ -217,11 +224,85 @@
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             this.buttonSalvar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
+            // comboBoxCustoReceitas
+            // 
+            this.comboBoxCustoReceitas.BackColor = System.Drawing.Color.White;
+            this.comboBoxCustoReceitas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCustoReceitas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCustoReceitas.FormattingEnabled = true;
+            this.comboBoxCustoReceitas.Items.AddRange(new object[] {
+            "RECEITAS GERAIS"});
+            this.comboBoxCustoReceitas.Location = new System.Drawing.Point(32, 537);
+            this.comboBoxCustoReceitas.Name = "comboBoxCustoReceitas";
+            this.comboBoxCustoReceitas.Size = new System.Drawing.Size(299, 26);
+            this.comboBoxCustoReceitas.TabIndex = 243;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label10.Location = new System.Drawing.Point(26, 488);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(187, 18);
+            label10.TabIndex = 244;
+            label10.Text = "Custo padrão para receitas";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(28, 510);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(274, 15);
+            label11.TabIndex = 242;
+            label11.Text = "Selecione o custo padrão para adicionar receitas";
+            // 
+            // comboBoxCustoDespesas
+            // 
+            this.comboBoxCustoDespesas.BackColor = System.Drawing.Color.White;
+            this.comboBoxCustoDespesas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCustoDespesas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCustoDespesas.FormattingEnabled = true;
+            this.comboBoxCustoDespesas.Items.AddRange(new object[] {
+            "DESPESAS GERAIS"});
+            this.comboBoxCustoDespesas.Location = new System.Drawing.Point(32, 641);
+            this.comboBoxCustoDespesas.Name = "comboBoxCustoDespesas";
+            this.comboBoxCustoDespesas.Size = new System.Drawing.Size(299, 26);
+            this.comboBoxCustoDespesas.TabIndex = 240;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label12.Location = new System.Drawing.Point(26, 592);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(199, 18);
+            label12.TabIndex = 241;
+            label12.Text = "Custo padrão para despesas";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label13.Location = new System.Drawing.Point(28, 614);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(284, 15);
+            label13.TabIndex = 239;
+            label13.Text = "Selecione o custo padrão para adicionar despesas";
+            // 
             // UserControl_Financeiro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.Controls.Add(this.comboBoxCustoReceitas);
+            this.Controls.Add(label10);
+            this.Controls.Add(label11);
+            this.Controls.Add(this.comboBoxCustoDespesas);
+            this.Controls.Add(label12);
+            this.Controls.Add(label13);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.comboBoxPadraoReceitas);
             this.Controls.Add(label8);
@@ -237,7 +318,7 @@
             this.Controls.Add(label6);
             this.Controls.Add(label2);
             this.Name = "UserControl_Financeiro";
-            this.Size = new System.Drawing.Size(783, 596);
+            this.Size = new System.Drawing.Size(783, 808);
             this.Load += new System.EventHandler(this.UserControl_Financeiro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -251,5 +332,7 @@
         private System.Windows.Forms.ComboBox comboBoxPadraoDespesas;
         private System.Windows.Forms.ComboBox comboBoxPadraoReceitas;
         private System.Windows.Forms.Button buttonSalvar;
+        private System.Windows.Forms.ComboBox comboBoxCustoReceitas;
+        private System.Windows.Forms.ComboBox comboBoxCustoDespesas;
     }
 }

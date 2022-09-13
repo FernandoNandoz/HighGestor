@@ -372,6 +372,7 @@
             // labelUsuario
             // 
             this.labelUsuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsuario.BackColor = System.Drawing.Color.Transparent;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUsuario.Location = new System.Drawing.Point(655, 8);
             this.labelUsuario.Name = "labelUsuario";
@@ -383,9 +384,10 @@
             // pictureBoxPapelParede
             // 
             this.pictureBoxPapelParede.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxPapelParede.Location = new System.Drawing.Point(709, 0);
+            this.pictureBoxPapelParede.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPapelParede.Image")));
+            this.pictureBoxPapelParede.Location = new System.Drawing.Point(658, 0);
             this.pictureBoxPapelParede.Name = "pictureBoxPapelParede";
-            this.pictureBoxPapelParede.Size = new System.Drawing.Size(499, 64);
+            this.pictureBoxPapelParede.Size = new System.Drawing.Size(550, 64);
             this.pictureBoxPapelParede.TabIndex = 8;
             this.pictureBoxPapelParede.TabStop = false;
             this.pictureBoxPapelParede.MouseDown += new System.Windows.Forms.MouseEventHandler(this.event_MouseDown);

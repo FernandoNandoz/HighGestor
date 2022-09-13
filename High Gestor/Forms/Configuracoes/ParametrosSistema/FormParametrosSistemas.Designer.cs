@@ -132,6 +132,7 @@
             this.buttonDadosEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDadosEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDadosEmpresa.UseVisualStyleBackColor = true;
+            this.buttonDadosEmpresa.Visible = false;
             this.buttonDadosEmpresa.Click += new System.EventHandler(this.buttonDadosEmpresa_Click);
             // 
             // buttonGerais
@@ -263,6 +264,7 @@
             // 
             // panelContent
             // 
+            this.panelContent.AutoScroll = true;
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Location = new System.Drawing.Point(225, 50);
             this.panelContent.Name = "panelContent";

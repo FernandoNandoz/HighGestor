@@ -44,6 +44,7 @@
             System.Windows.Forms.Label label15;
             System.Windows.Forms.Label label11;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDadosEmpresa));
+            System.Windows.Forms.Label label16;
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.textBoxWebSite = new System.Windows.Forms.TextBox();
             this.textBoxCidade = new System.Windows.Forms.TextBox();
@@ -64,6 +65,8 @@
             this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.textBoxEstado = new System.Windows.Forms.TextBox();
             this.buttonVoltar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.maskedTextBoxInscrocaoEstadual = new System.Windows.Forms.MaskedTextBox();
             label12 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
@@ -79,6 +82,7 @@
             label2 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label12
@@ -231,9 +235,9 @@
             label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label11.Location = new System.Drawing.Point(520, 362);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(50, 16);
+            label11.Size = new System.Drawing.Size(90, 16);
             label11.TabIndex = 233;
-            label11.Text = "Estado";
+            label11.Text = "UF do Estado";
             // 
             // buttonSalvar
             // 
@@ -247,7 +251,7 @@
             this.buttonSalvar.Margin = new System.Windows.Forms.Padding(5);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(213, 32);
-            this.buttonSalvar.TabIndex = 16;
+            this.buttonSalvar.TabIndex = 17;
             this.buttonSalvar.Text = "Salvar configurações";
             this.buttonSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonSalvar.UseVisualStyleBackColor = false;
@@ -262,7 +266,7 @@
             this.textBoxWebSite.Location = new System.Drawing.Point(36, 505);
             this.textBoxWebSite.Name = "textBoxWebSite";
             this.textBoxWebSite.Size = new System.Drawing.Size(706, 26);
-            this.textBoxWebSite.TabIndex = 15;
+            this.textBoxWebSite.TabIndex = 16;
             // 
             // textBoxCidade
             // 
@@ -272,7 +276,7 @@
             this.textBoxCidade.Location = new System.Drawing.Point(297, 381);
             this.textBoxCidade.Name = "textBoxCidade";
             this.textBoxCidade.Size = new System.Drawing.Size(220, 26);
-            this.textBoxCidade.TabIndex = 10;
+            this.textBoxCidade.TabIndex = 11;
             // 
             // textBoxBairro
             // 
@@ -282,7 +286,7 @@
             this.textBoxBairro.Location = new System.Drawing.Point(36, 381);
             this.textBoxBairro.Name = "textBoxBairro";
             this.textBoxBairro.Size = new System.Drawing.Size(253, 26);
-            this.textBoxBairro.TabIndex = 9;
+            this.textBoxBairro.TabIndex = 10;
             // 
             // maskedTextBoxCEP
             // 
@@ -293,7 +297,7 @@
             this.maskedTextBoxCEP.Mask = "00000-000";
             this.maskedTextBoxCEP.Name = "maskedTextBoxCEP";
             this.maskedTextBoxCEP.Size = new System.Drawing.Size(97, 26);
-            this.maskedTextBoxCEP.TabIndex = 5;
+            this.maskedTextBoxCEP.TabIndex = 6;
             // 
             // textBoxEmail
             // 
@@ -303,7 +307,7 @@
             this.textBoxEmail.Location = new System.Drawing.Point(324, 441);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(418, 26);
-            this.textBoxEmail.TabIndex = 14;
+            this.textBoxEmail.TabIndex = 15;
             // 
             // textBoxNomeFantasia
             // 
@@ -313,7 +317,7 @@
             this.textBoxNomeFantasia.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNomeFantasia.Name = "textBoxNomeFantasia";
             this.textBoxNomeFantasia.Size = new System.Drawing.Size(351, 26);
-            this.textBoxNomeFantasia.TabIndex = 3;
+            this.textBoxNomeFantasia.TabIndex = 4;
             // 
             // comboBoxTipoPessoa
             // 
@@ -348,7 +352,7 @@
             this.maskedCPF_CNPJ.Location = new System.Drawing.Point(181, 74);
             this.maskedCPF_CNPJ.Margin = new System.Windows.Forms.Padding(5);
             this.maskedCPF_CNPJ.Name = "maskedCPF_CNPJ";
-            this.maskedCPF_CNPJ.Size = new System.Drawing.Size(300, 26);
+            this.maskedCPF_CNPJ.Size = new System.Drawing.Size(274, 26);
             this.maskedCPF_CNPJ.TabIndex = 1;
             // 
             // maskedTelefone
@@ -357,10 +361,10 @@
             this.maskedTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedTelefone.Location = new System.Drawing.Point(181, 441);
             this.maskedTelefone.Margin = new System.Windows.Forms.Padding(5);
-            this.maskedTelefone.Mask = "(00) 0 0000-0000";
+            this.maskedTelefone.Mask = "(00) 00000-0000";
             this.maskedTelefone.Name = "maskedTelefone";
             this.maskedTelefone.Size = new System.Drawing.Size(135, 26);
-            this.maskedTelefone.TabIndex = 13;
+            this.maskedTelefone.TabIndex = 14;
             // 
             // maskedCelular
             // 
@@ -368,10 +372,10 @@
             this.maskedCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maskedCelular.Location = new System.Drawing.Point(36, 441);
             this.maskedCelular.Margin = new System.Windows.Forms.Padding(5);
-            this.maskedCelular.Mask = "(00) 0 0000-0000";
+            this.maskedCelular.Mask = "(00) 00000-0000";
             this.maskedCelular.Name = "maskedCelular";
             this.maskedCelular.Size = new System.Drawing.Size(135, 26);
-            this.maskedCelular.TabIndex = 12;
+            this.maskedCelular.TabIndex = 13;
             // 
             // labelNome_Razao
             // 
@@ -391,7 +395,7 @@
             this.textBoxEndereco.Location = new System.Drawing.Point(141, 260);
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(507, 26);
-            this.textBoxEndereco.TabIndex = 6;
+            this.textBoxEndereco.TabIndex = 7;
             // 
             // textBoxComplemento
             // 
@@ -401,7 +405,7 @@
             this.textBoxComplemento.Location = new System.Drawing.Point(36, 321);
             this.textBoxComplemento.Name = "textBoxComplemento";
             this.textBoxComplemento.Size = new System.Drawing.Size(706, 26);
-            this.textBoxComplemento.TabIndex = 8;
+            this.textBoxComplemento.TabIndex = 9;
             // 
             // textBoxNome_Razao
             // 
@@ -412,7 +416,7 @@
             this.textBoxNome_Razao.Margin = new System.Windows.Forms.Padding(5, 3, 5, 3);
             this.textBoxNome_Razao.Name = "textBoxNome_Razao";
             this.textBoxNome_Razao.Size = new System.Drawing.Size(706, 26);
-            this.textBoxNome_Razao.TabIndex = 2;
+            this.textBoxNome_Razao.TabIndex = 3;
             // 
             // textBoxNomeResponsavel
             // 
@@ -423,7 +427,7 @@
             this.textBoxNomeResponsavel.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxNomeResponsavel.Name = "textBoxNomeResponsavel";
             this.textBoxNomeResponsavel.Size = new System.Drawing.Size(345, 26);
-            this.textBoxNomeResponsavel.TabIndex = 4;
+            this.textBoxNomeResponsavel.TabIndex = 5;
             // 
             // textBoxNumero
             // 
@@ -433,7 +437,7 @@
             this.textBoxNumero.Location = new System.Drawing.Point(654, 260);
             this.textBoxNumero.Name = "textBoxNumero";
             this.textBoxNumero.Size = new System.Drawing.Size(88, 26);
-            this.textBoxNumero.TabIndex = 7;
+            this.textBoxNumero.TabIndex = 8;
             // 
             // textBoxEstado
             // 
@@ -443,7 +447,7 @@
             this.textBoxEstado.Location = new System.Drawing.Point(523, 381);
             this.textBoxEstado.Name = "textBoxEstado";
             this.textBoxEstado.Size = new System.Drawing.Size(219, 26);
-            this.textBoxEstado.TabIndex = 11;
+            this.textBoxEstado.TabIndex = 12;
             // 
             // buttonVoltar
             // 
@@ -460,7 +464,7 @@
             this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(99, 30);
-            this.buttonVoltar.TabIndex = 235;
+            this.buttonVoltar.TabIndex = 18;
             this.buttonVoltar.TabStop = false;
             this.buttonVoltar.Text = " Voltar";
             this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -468,12 +472,46 @@
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.buttonVoltar_Paint);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(462, 55);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(135, 16);
+            this.label8.TabIndex = 237;
+            this.label8.Text = "Nº Inscrição Estadual";
+            // 
+            // maskedTextBoxInscrocaoEstadual
+            // 
+            this.maskedTextBoxInscrocaoEstadual.BackColor = System.Drawing.Color.White;
+            this.maskedTextBoxInscrocaoEstadual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.maskedTextBoxInscrocaoEstadual.Location = new System.Drawing.Point(465, 74);
+            this.maskedTextBoxInscrocaoEstadual.Margin = new System.Windows.Forms.Padding(5);
+            this.maskedTextBoxInscrocaoEstadual.Mask = "00.000.000-0";
+            this.maskedTextBoxInscrocaoEstadual.Name = "maskedTextBoxInscrocaoEstadual";
+            this.maskedTextBoxInscrocaoEstadual.Size = new System.Drawing.Size(277, 26);
+            this.maskedTextBoxInscrocaoEstadual.TabIndex = 2;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.Location = new System.Drawing.Point(605, 409);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(137, 15);
+            label16.TabIndex = 238;
+            label16.Text = "Sigla do Estado. Ex: AM";
+            // 
             // FormDadosEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.ClientSize = new System.Drawing.Size(1008, 640);
+            this.Controls.Add(label16);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.maskedTextBoxInscrocaoEstadual);
             this.Controls.Add(this.buttonVoltar);
             this.Controls.Add(label11);
             this.Controls.Add(this.textBoxEstado);
@@ -510,11 +548,12 @@
             this.Controls.Add(this.textBoxNomeResponsavel);
             this.Controls.Add(label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormDadosEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDadosEmpresa";
+            this.Text = "High Gestor - Dados da Empresa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDadosEmpresa_FormClosing);
             this.Load += new System.EventHandler(this.FormDadosEmpresa_Load);
             this.ResumeLayout(false);
@@ -544,5 +583,7 @@
         private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.TextBox textBoxEstado;
         private System.Windows.Forms.Button buttonVoltar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxInscrocaoEstadual;
     }
 }

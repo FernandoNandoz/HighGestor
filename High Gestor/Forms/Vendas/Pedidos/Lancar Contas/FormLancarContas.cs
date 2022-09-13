@@ -198,6 +198,15 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
                 flowLayoutPanelContent.Controls.Add(item[i]);
             }
+
+            if(SistemaVerificacao.verificarComissao() == true)
+            {
+                checkBoxLancarComissao.Checked = true;
+            }
+            else
+            {
+                checkBoxLancarComissao.Checked = false;
+            }
         }
 
         private string numeroPedido(int parcela)
@@ -413,16 +422,17 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             {
                 if (item[i].Situacao == "LIQUIDADO")
                 {
-                    string insert = ("INSERT INTO Pagamentos (numeroNota, situacao, dataPagamento, valorTotal, desconto, acrescimo, valorRecebido, troco, observacaoPagamento, idContaBancariaFK, idFormaPagamentoFK, idLog, createdAt) VALUES (@numeroNota, @situacao, @dataPagamento, @valorTotal, @desconto, @acrescimo, @valorRecebido, @troco, @observacaoPagamento, @idContaBancariaFK, @idFormaPagamentoFK, @idLog, @createdAt)");
+                    string insert = ("INSERT INTO Pagamentos (numeroNota, situacao, dataPagamento, subTotal, desconto, acrescimo, valorTotal, valorRecebido, troco, observacaoPagamento, idContaBancariaFK, idFormaPagamentoFK, idLog, createdAt) VALUES (@numeroNota, @situacao, @dataPagamento, @subTotal, @desconto, @acrescimo, @valorTotal, @valorRecebido, @troco, @observacaoPagamento, @idContaBancariaFK, @idFormaPagamentoFK, @idLog, @createdAt)");
                     SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
 
                     exeInsert.Parameters.Clear();
                     exeInsert.Parameters.AddWithValue("@numeroNota", numeroPedido(item[i].NumeroParcela));
                     exeInsert.Parameters.AddWithValue("@situacao", "LIQUIDADO");
                     exeInsert.Parameters.AddWithValue("@dataPagamento", DateTime.Parse(item[i].maskedDataPagamento.Text));
-                    exeInsert.Parameters.AddWithValue("@valorTotal", item[i].ValorParcela);
+                    exeInsert.Parameters.AddWithValue("@subTotal", item[i].ValorParcela);
                     exeInsert.Parameters.AddWithValue("@desconto", 0);
                     exeInsert.Parameters.AddWithValue("@acrescimo", 0);
+                    exeInsert.Parameters.AddWithValue("@valorTotal", item[i].ValorParcela);
                     exeInsert.Parameters.AddWithValue("@valorRecebido", item[i].ValorParcela);
                     exeInsert.Parameters.AddWithValue("@troco", 0);
                     exeInsert.Parameters.AddWithValue("@observacaoPagamento", "CONTA LIQUIDADA");
@@ -441,10 +451,22 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
         private void queryUpdateContasReceber()
         {
-            string query = ("UPDATE ContasReceber SET idPagamentosFK = @idPagamentosFK WHERE idContaReceber = @ID");
+            string comissao = string.Empty;
+
+            if(checkBoxLancarComissao.Checked == true)
+            {
+                comissao = "SIM";
+            }
+            else
+            {
+                comissao = "NAO";
+            }
+
+            string query = ("UPDATE ContasReceber SET idPagamentosFK = @idPagamentosFK, comissao = @comissao WHERE idContaReceber = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
+            exeQuery.Parameters.AddWithValue("@comissao", comissao);
             exeQuery.Parameters.AddWithValue("@ID", verificarIdContasReceber());
 
             banco.conectar();
@@ -514,13 +536,11 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             pesquisaAutoCompleteCategoriaFinanceira();
             pesquisaAutoCompleteCentroCusto();
 
-            textBoxCategoriaFinanceira.Text = "VENDAS";
-            textBoxCentroCusto.Text = "RECEITAS GERAIS";
+            textBoxCategoriaFinanceira.Text = SistemaVerificacao.verificarCategoriaPadraoVendas();
+            textBoxCentroCusto.Text = SistemaVerificacao.verificarCustoPadraoReceitas();
 
             pesquisarNomeCategoria();
             pesquisarNomeCusto();
-
-            checkBoxLancarComissao.Checked = true;
         }
 
         private void FormLancarContas_FormClosing(object sender, FormClosingEventArgs e)

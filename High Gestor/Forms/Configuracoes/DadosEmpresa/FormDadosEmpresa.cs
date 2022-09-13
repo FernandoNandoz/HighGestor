@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -84,7 +85,7 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
         private void carregarDados()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email FROM DadosEmpresa");
+            string query = ("SELECT tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, inscricaoEstadual, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email FROM DadosEmpresa");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -99,17 +100,18 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
                 textBoxNomeFantasia.Text = datareader.GetString(2);
                 textBoxNomeResponsavel.Text = datareader.GetString(3);
                 maskedCPF_CNPJ.Text = datareader.GetString(4);
-                maskedTextBoxCEP.Text = datareader.GetString(5);
-                textBoxEndereco.Text = datareader.GetString(6);
-                textBoxNumero.Text = datareader.GetString(7);
-                textBoxBairro.Text = datareader.GetString(8);
-                textBoxComplemento.Text = datareader.GetString(9);
-                textBoxCidade.Text = datareader.GetString(10);
-                textBoxEstado.Text = datareader.GetString(11);
-                maskedTelefone.Text = datareader.GetString(12);
-                maskedCelular.Text = datareader.GetString(13);
-                textBoxWebSite.Text = datareader.GetString(14);
-                textBoxEmail.Text = datareader.GetString(15);
+                maskedTextBoxInscrocaoEstadual.Text = datareader.GetString(5);
+                maskedTextBoxCEP.Text = datareader.GetString(6);
+                textBoxEndereco.Text = datareader.GetString(7);
+                textBoxNumero.Text = datareader.GetString(8);
+                textBoxBairro.Text = datareader.GetString(9);
+                textBoxComplemento.Text = datareader.GetString(10);
+                textBoxCidade.Text = datareader.GetString(11);
+                textBoxEstado.Text = datareader.GetString(12);
+                maskedTelefone.Text = datareader.GetString(13);
+                maskedCelular.Text = datareader.GetString(14);
+                textBoxWebSite.Text = datareader.GetString(15);
+                textBoxEmail.Text = datareader.GetString(16);
             }
             else
             {
@@ -121,13 +123,14 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
         private void queryUpdate()
         {
-            string query = ("UPDATE DadosEmpresa SET tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = @nome_Razao, nomeFantasia = @nomeFantasia, responsavel = @responsavel, CPF_CNPJ = @CPF_CNPJ, CEP = @CEP, endereco = @endereco, numero = @numero, bairro = @bairro, complemento = @complemento, cidade = @cidade, estado = @estado, telefone = @telefone, celular = @celular, webSite = @webSite, email = @email");
+            string query = ("UPDATE DadosEmpresa SET tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = @nome_Razao, nomeFantasia = @nomeFantasia, responsavel = @responsavel, CPF_CNPJ = @CPF_CNPJ, InscricaoEstadual = @InscricaoEstadual, CEP = @CEP, endereco = @endereco, numero = @numero, bairro = @bairro, complemento = @complemento, cidade = @cidade, estado = @estado, telefone = @telefone, celular = @celular, webSite = @webSite, email = @email");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
             exeQuery.Parameters.AddWithValue("@nome_Razao", textBoxNome_Razao.Text);
             exeQuery.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
             exeQuery.Parameters.AddWithValue("@CPF_CNPJ", maskedCPF_CNPJ.Text);
+            exeQuery.Parameters.AddWithValue("@InscricaoEstadual", maskedTextBoxInscrocaoEstadual.Text);
             exeQuery.Parameters.AddWithValue("@responsavel", textBoxNomeResponsavel.Text);
             exeQuery.Parameters.AddWithValue("@CEP", maskedTextBoxCEP.Text);
             exeQuery.Parameters.AddWithValue("@endereco", textBoxEndereco.Text);
@@ -150,13 +153,14 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
         private void queryInsert()
         {
-            string query = ("INSERT INTO DadosEmpresa (tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email) VALUES (@tipoPessoa, @nome_Razao, @nomeFantasia, @responsavel, @CPF_CNPJ, @CEP, @endereco, @numero, @bairro, @complemento, @cidade, @estado, @telefone, @celular, @webSite, @email)");
+            string query = ("INSERT INTO DadosEmpresa (tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, InscricaoEstadual, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email) VALUES (@tipoPessoa, @nome_Razao, @nomeFantasia, @responsavel, @CPF_CNPJ, @InscricaoEstadual, @CEP, @endereco, @numero, @bairro, @complemento, @cidade, @estado, @telefone, @celular, @webSite, @email)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
             exeQuery.Parameters.AddWithValue("@nome_Razao", textBoxNome_Razao.Text);
             exeQuery.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
             exeQuery.Parameters.AddWithValue("@CPF_CNPJ", maskedCPF_CNPJ.Text);
+            exeQuery.Parameters.AddWithValue("@InscricaoEstadual", maskedTextBoxInscrocaoEstadual.Text);
             exeQuery.Parameters.AddWithValue("@responsavel", textBoxNomeResponsavel.Text);
             exeQuery.Parameters.AddWithValue("@CEP", maskedTextBoxCEP.Text);
             exeQuery.Parameters.AddWithValue("@endereco", textBoxEndereco.Text);
@@ -174,10 +178,53 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
             exeQuery.ExecuteNonQuery();
             banco.desconectar();
 
+            insertParametrosImpressao();
+
             MessageBox.Show("Salvo com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             PrimeiroAcesso.receberDados(false);
             PrimeiroAcesso.receberDadosEmpresa(true);
+        }
+
+        private void insertParametrosImpressao()
+        {
+            string CPF_CNPJ = string.Empty;
+            string endereco = textBoxEndereco.Text;
+            string numero = textBoxNumero.Text;
+            string bairro = textBoxBairro.Text;
+            string cidade = textBoxCidade.Text;
+            string estado = textBoxEstado.Text;
+            string cep = maskedTextBoxCEP.Text;
+            string fone = maskedCelular.Text;
+            string mensagemCliente = "Obrigado pela preferência. Volte sempre!!";
+
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
+
+            string rodapeEndereco = endereco + ", Nº " + numero + ", " + bairro;
+            rodapeEndereco = rodapeEndereco.ToLower();
+            rodapeEndereco = myTI.ToTitleCase(rodapeEndereco);
+
+            cidade = cidade.ToLower();
+            cidade = myTI.ToTitleCase(cidade);
+
+            string insert = ("INSERT INTO ParametrosImpressao (tipoImpressao, modoImpressao, tipoPessoa, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape, createdAt) VALUES (@tipoImpressao, @modoImpressao, @tipoPessoa, @nomeFantasia, @nomeEmpresa, @CPF_CNPJ, @INSC_ESTADUAL, @endereco_numero_bairro, @cidade_cep_fone, @mensagemRodape, @createdAt)");
+            SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
+
+            exeInsert.Parameters.AddWithValue("@tipoImpressao", "DIRETA");
+            exeInsert.Parameters.AddWithValue("@modoImpressao", "COMUM (A4)");
+            exeInsert.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
+            exeInsert.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
+            exeInsert.Parameters.AddWithValue("@nomeEmpresa", textBoxNome_Razao.Text);
+            exeInsert.Parameters.AddWithValue("@CPF_CNPJ", maskedCPF_CNPJ.Text);
+            exeInsert.Parameters.AddWithValue("@INSC_ESTADUAL", maskedTextBoxInscrocaoEstadual.Text);
+            exeInsert.Parameters.AddWithValue("@endereco_numero_bairro", rodapeEndereco);
+            exeInsert.Parameters.AddWithValue("@cidade_cep_fone", cidade + "/" + estado + ", " + cep + ", Fone: " + fone);
+            exeInsert.Parameters.AddWithValue("@mensagemRodape", mensagemCliente);
+            exeInsert.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            exeInsert.ExecuteNonQuery();
+            banco.desconectar();
         }
 
         private void FormDadosEmpresa_Load(object sender, EventArgs e)

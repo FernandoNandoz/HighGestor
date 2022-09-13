@@ -538,7 +538,7 @@
             label32.ForeColor = System.Drawing.SystemColors.ControlText;
             label32.Location = new System.Drawing.Point(854, 600);
             label32.Name = "label32";
-            label32.Size = new System.Drawing.Size(153, 16);
+            label32.Size = new System.Drawing.Size(157, 16);
             label32.TabIndex = 289;
             label32.Text = "Valor total do pedido";
             // 
