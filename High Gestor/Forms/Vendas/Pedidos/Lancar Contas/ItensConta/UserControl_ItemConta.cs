@@ -22,7 +22,8 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.ItensConta
 
         #region Header
 
-        private int _idParcelaNota = 0;
+        private int _IdContaReceber = 0;
+        private int _numeroNota = 0;
         private int _numeroParcela;
         private DateTime _dataVencimento;
         private decimal _valorParcela;
@@ -31,10 +32,17 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.ItensConta
         private DateTime _dataPagamento;
 
         [Category("Custom Props")]
-        public int IdParcelaNota
+        public int IdContaReceber
         {
-            get { return _idParcelaNota; }
-            set { _idParcelaNota = value; }
+            get { return _IdContaReceber; }
+            set { _IdContaReceber = value; }
+        }
+
+        [Category("Custom Props")]
+        public int NumeroNota
+        {
+            get { return _numeroNota; }
+            set { _numeroNota = value; }
         }
 
         [Category("Custom Props")]

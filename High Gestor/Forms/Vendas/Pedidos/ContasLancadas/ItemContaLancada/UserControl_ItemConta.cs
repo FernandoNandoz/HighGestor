@@ -55,10 +55,9 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ContasLancadas.ItemContaLancada
 
         #endregion
 
-
         private void UserControl_ItemConta_Load(object sender, EventArgs e)
         {
-            if(Situacao == "LIQUIDADO")
+            if (Situacao == "LIQUIDADO")
             {
                 labelValueStatus.Text = NumeroNota + " / " + "PAGO";
             }

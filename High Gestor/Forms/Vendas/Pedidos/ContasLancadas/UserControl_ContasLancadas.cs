@@ -74,8 +74,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos.ContasLancadas
         private void UserControl_ContasLancadas_Load(object sender, EventArgs e)
         {
             carregarDados();
-        }
-
-     
+        }   
     }
 }

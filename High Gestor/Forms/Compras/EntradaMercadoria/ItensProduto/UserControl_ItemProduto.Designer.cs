@@ -121,7 +121,7 @@
             this.labelRemover.Margin = new System.Windows.Forms.Padding(0);
             this.labelRemover.Name = "labelRemover";
             this.labelRemover.Size = new System.Drawing.Size(18, 17);
-            this.labelRemover.TabIndex = 13;
+            this.labelRemover.TabIndex = 130;
             this.labelRemover.Text = "X";
             this.labelRemover.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelRemover.Click += new System.EventHandler(this.labelRemover_Click);

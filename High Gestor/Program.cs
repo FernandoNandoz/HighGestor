@@ -13,7 +13,8 @@ namespace High_Gestor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormHighGestor());
+
+            Application.Run(new Forms.FormLogin());
         }
     }
 }

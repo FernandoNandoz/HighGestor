@@ -121,6 +121,18 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
             banco.desconectar();
         }
 
+        private void ResetarID(string tabela)
+        {
+            string query = ("DBCC CHECKIDENT(@tabela, RESEED, 0)");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@tabela", tabela);
+
+            banco.conectar();
+            exeQuery.ExecuteNonQuery();
+            banco.desconectar();
+        }
+
         private void queryUpdate()
         {
             string query = ("UPDATE DadosEmpresa SET tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = @nome_Razao, nomeFantasia = @nomeFantasia, responsavel = @responsavel, CPF_CNPJ = @CPF_CNPJ, InscricaoEstadual = @InscricaoEstadual, CEP = @CEP, endereco = @endereco, numero = @numero, bairro = @bairro, complemento = @complemento, cidade = @cidade, estado = @estado, telefone = @telefone, celular = @celular, webSite = @webSite, email = @email");
@@ -153,6 +165,8 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
         private void queryInsert()
         {
+            ResetarID("DadosEmpresa");
+
             string query = ("INSERT INTO DadosEmpresa (tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, CPF_CNPJ, InscricaoEstadual, CEP, endereco, numero, bairro, complemento, cidade, estado, telefone, celular, webSite, email) VALUES (@tipoPessoa, @nome_Razao, @nomeFantasia, @responsavel, @CPF_CNPJ, @InscricaoEstadual, @CEP, @endereco, @numero, @bairro, @complemento, @cidade, @estado, @telefone, @celular, @webSite, @email)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
@@ -206,6 +220,8 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
             cidade = cidade.ToLower();
             cidade = myTI.ToTitleCase(cidade);
+
+            ResetarID("ParametrosImpressao");
 
             string insert = ("INSERT INTO ParametrosImpressao (tipoImpressao, modoImpressao, tipoPessoa, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape, createdAt) VALUES (@tipoImpressao, @modoImpressao, @tipoPessoa, @nomeFantasia, @nomeEmpresa, @CPF_CNPJ, @INSC_ESTADUAL, @endereco_numero_bairro, @cidade_cep_fone, @mensagemRodape, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);

@@ -14,8 +14,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
-
 namespace High_Gestor.Forms.Compras
 {
     public partial class FormCompras : Form
@@ -48,8 +46,10 @@ namespace High_Gestor.Forms.Compras
         DataTable ItensEstoque = new DataTable();
 
         UserControl_Acoes acoes;
+        ContasLancadas.UserControl_ContasLancadas contasLancadas;
 
-        bool acoesOpen = false;
+        bool acoesOpenAcoes = false;
+        bool acoesOpenContas = false;
 
         public FormCompras()
         {
@@ -130,6 +130,8 @@ namespace High_Gestor.Forms.Compras
             compras.Columns.Add("Situacao", typeof(string));
             compras.Columns.Add("SituacaoImage", typeof(Image));
             compras.Columns.Add("IdFornecedorFK", typeof(int));
+            compras.Columns.Add("SituacaoContas", typeof(Image));
+            compras.Columns.Add("SituacaoEstoque", typeof(Image));
 
             //DataTable - ItensPedidoAlterados
             ItensEstoque.Columns.Add("IdProduto", typeof(int));
@@ -142,11 +144,13 @@ namespace High_Gestor.Forms.Compras
         public void dataCompras()
         {
             Image image = null;
+            Image EstoqueLancado = null;
+            Image ContasLancado = null;
 
             try
             {
                 //Retorna os dados da tabela Produtos para o DataGridView
-                string query = ("SELECT PedidosCompra.idPedidosCompra, PedidosCompra.dataEntrada, Fornecedor.nomeFantasia, PedidosCompra.valorTotalEntrada, PedidosCompra.situacao, PedidosCompra.idFornecedorFK, PedidosCompra.numeroPedido FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor WHERE situacao != 'CANCELADO' ORDER BY dataEntrada DESC");
+                string query = ("SELECT PedidosCompra.idPedidosCompra, PedidosCompra.dataEntrada, Fornecedor.nomeFantasia, PedidosCompra.valorTotalEntrada, PedidosCompra.situacao, PedidosCompra.idFornecedorFK, PedidosCompra.numeroPedido, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor WHERE situacao != 'CANCELADO' ORDER BY dataEntrada DESC");
                 SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
                 banco.conectar();
 
@@ -173,6 +177,32 @@ namespace High_Gestor.Forms.Compras
                         image = Resources.vermelho;
                     }
 
+                    if (datareader.GetString(7) == "LANCADO")
+                    {
+                        ContasLancado = Resources.icon_contas_3;
+                    }
+                    else if (datareader.GetString(7) == "NAO LANCADO")
+                    {
+                        ContasLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
+                    else if (datareader.GetString(7) == "CONTAS ESTORNADA")
+                    {
+                        ContasLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
+
+                    if (datareader.GetString(8) == "LANCADO")
+                    {
+                        EstoqueLancado = Resources.icon_estoque_3;
+                    }
+                    else if (datareader.GetString(8) == "NAO LANCADO")
+                    {
+                        EstoqueLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
+                    else if (datareader.GetString(8) == "ESTOQUE ESTORNADO")
+                    {
+                        EstoqueLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
+
                     compras.Rows.Add(datareader[0],
                                       datareader.GetInt32(6),
                                       datareader.GetDateTime(1),
@@ -180,7 +210,9 @@ namespace High_Gestor.Forms.Compras
                                       datareader.GetDecimal(3),
                                       datareader.GetString(4),
                                       image,
-                                      datareader.GetInt32(5));
+                                      datareader.GetInt32(5),
+                                      ContasLancado,
+                                      EstoqueLancado);
                 }
 
                 banco.desconectar();
@@ -193,67 +225,6 @@ namespace High_Gestor.Forms.Compras
             {
                 MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-
-        private int verificarIdItensPedido()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idItensPedido FROM ItensPedido WHERE idItensPedido=(SELECT MAX(idItensPedido) FROM ItensPedido)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private int verificarIdEstoque()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idEstoque FROM Estoque WHERE idEstoque=(SELECT MAX(idEstoque) FROM Estoque)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private string numeroNotaContas(int parcela)
-        {
-            string codigoProduto = string.Empty;
-            //int numeroNota = 0;
-
-            //if (textBoxNumeroNota.Text == string.Empty)
-            //{
-            //    numeroNota = int.Parse(textBoxNumeroNota.Text);
-
-            //    codigoProduto = (verificarIdContasPagar() + numeroNota).ToString() + " - " + parcela;
-            //}
-            //else
-            //{
-            //    codigoProduto = textBoxNumeroNota.Text + " - " + parcela;
-            //}
-
-            return codigoProduto;
         }
 
         private string gerarTituloConta(string operation)
@@ -309,7 +280,7 @@ namespace High_Gestor.Forms.Compras
             try
             {
                 //Retorna os dados da tabela Produtos para o DataGridView
-                string queryConsulta = ("SELECT idProdutoFK, quantidadePedido, valorUnitario, numeroNota, dataPedido FROM ItensPedido WHERE idPedidosCompraFK = @ID");
+                string queryConsulta = ("SELECT idProdutoFK, quantidadePedido, valorUnitario, numeroNota, dataPedido FROM ItensPedidoCompra WHERE idPedidosCompraFK = @ID");
                 SqlCommand exeQueryConsulta = new SqlCommand(queryConsulta, banco.connection);
 
                 exeQueryConsulta.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
@@ -398,47 +369,40 @@ namespace High_Gestor.Forms.Compras
             }
         }
 
-        private void queryInsertContasPagar()
+        public void queryInsertContasPagar(string operation)
         {
-            //try
-            //{
-            //    int quantidadeParcela = int.Parse(textBoxQuantidadeParcela.Text);
+            try
+            {
+                string query = ("UPDATE ContasPagar SET situacaoConta = @situacao, idLog = @idLog, updatedAt = @updatedAt WHERE idPedidosCompraFK = @ID");
+                SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-            //    string query = ("INSERT INTO ContasPagar (numeroNota, tituloDespesa, situacao, descricao, dataEmissao, dataVencimento, valorTotal, valorPago, idPedidosCompraFK, idFornecedorFK, idFuncionarioFK, idCategoriaFK, idCentroCustosFK, idFormaPagamentoFK, idContaBancariaFK, idLog, createdAt) VALUES (@numeroNota, @tituloDespesa, @situacao, @descricao, @dataEmissao, @dataVencimento, @valorTotal, @valorPago, @idPedidosCompraFK, @idFornecedorFK, @idFuncionarioFK, @idCategoriaFK, @idCentroCustosFK, @idFormaPagamentoFK, @idContaBancariaFK, @idLog, @createdAt)");
-            //    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+                exeQuery.Parameters.AddWithValue("@situacao", "LANCADO");
+                exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                exeQuery.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                exeQuery.Parameters.AddWithValue("@ID", int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()));
 
-            //    for (int i = 0; i < quantidadeParcela; i++)
-            //    {
-            //        int parcela = i + 1;
+                banco.conectar();
+                exeQuery.ExecuteNonQuery();
+                banco.desconectar();
 
-            //        exeQuery.Parameters.Clear();
-            //        exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaContas(parcela));
-            //        exeQuery.Parameters.AddWithValue("@tituloDespesa", gerarTituloConta());
-            //        exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
-            //        exeQuery.Parameters.AddWithValue("@descricao", gerarDescricaoConta(parcela, listaItem[i].textBoxObservacao.Text));
-            //        exeQuery.Parameters.AddWithValue("@dataEmissao", dateTimeDataEntrada.Value);
-            //        exeQuery.Parameters.AddWithValue("@dataVencimento", listaItem[i].dateTimeVencimento.Value);
-            //        exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(listaItem[i].textBoxValor.Text));
-            //        exeQuery.Parameters.AddWithValue("@valorPago", calcularTotalPago());
-            //        exeQuery.Parameters.AddWithValue("@idPedidosCompraFK", verificarIdPedidosCompra());
-            //        exeQuery.Parameters.AddWithValue("@idFornecedorFK", consultarIdFornecedor(textBoxFornecedor.Text));
-            //        exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
-            //        exeQuery.Parameters.AddWithValue("@idCategoriaFK", 0);
-            //        exeQuery.Parameters.AddWithValue("@idCentroCustosFK", consultarIdCusto(textBoxCentroCustos.Text));
-            //        exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", listaItem[i].verificarIdFormaPagamento());
-            //        exeQuery.Parameters.AddWithValue("@idContaBancariaFK", 1);
-            //        exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-            //        exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
+                if (operation == "LANCAR CONTAS")
+                {
+                    queryUpdatePedidosCompra_Contas("LANCADO");
 
-            //        banco.conectar();
-            //        exeQuery.ExecuteNonQuery();
-            //        banco.desconectar();
-            //    }
-            //}
-            //catch (Exception erro)
-            //{
-            //    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryContasPagar " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //}
+                    MessageBox.Show("Conta lançada com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (operation == "ESTORNAR CONTAS")
+                {
+                    queryUpdatePedidosCompra_Contas("CONTA ESTORNADA");
+
+                    MessageBox.Show("Conta estornada com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryContasPagar " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void queryUpdatePedidosCompra_Contas(string situacao)
@@ -540,7 +504,7 @@ namespace High_Gestor.Forms.Compras
         {
             FecharAcoes();
 
-            if (dataGridViewContent.Rows.Count != 0 && e.ColumnIndex != 6 && e.ColumnIndex != 8)
+            if (dataGridViewContent.Rows.Count != 0 && e.ColumnIndex != 6 && e.ColumnIndex != 8 && e.ColumnIndex != 10)
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 
@@ -566,17 +530,66 @@ namespace High_Gestor.Forms.Compras
 
             if (e.ColumnIndex == 8)
             {
-                if(acoesOpen == false)
+                if (acoesOpenContas == false)
                 {
+                    acoesOpenContas = true;
+
+                    updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+                    contasLancadas = new ContasLancadas.UserControl_ContasLancadas();
+
+                    var cellRectangle = dataGridViewContent.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+
+                    int X = dataGridViewContent.Width - contasLancadas.Width - 13;
+                    int y = cellRectangle.Bottom + 160;
+                    int yPanelContent = panelContent.Height;
+
+                    if ((yPanelContent - y) > contasLancadas.Height)
+                    {
+                        //if (panelPesquisaContent.Visible == true)
+                        //{
+                        //    y += panelPesquisaContent.Height;
+                        //}
+
+                        contasLancadas.Location = new Point(X, y);
+                    }
+                    else
+                    {
+                        y = cellRectangle.Bottom - 110;
+
+                        //if (panelPesquisaContent.Visible == true)
+                        //{
+                        //    y += panelPesquisaContent.Height;
+                        //}
+
+                        contasLancadas.Location = new Point(X, y);
+                    }
+
+                    panelContent.Controls.Add(contasLancadas);
+                    contasLancadas.BringToFront();
+                    contasLancadas.Show();   
+                }
+                else if (acoesOpenContas == true)
+                {
+                    FecharAcoes();
+                }
+            }
+
+            if (e.ColumnIndex == 10)
+            {
+                if (acoesOpenAcoes == false)
+                {
+                    acoesOpenAcoes = true;
+
                     acoes = new UserControl_Acoes(this);
 
                     var cellRectangle = dataGridViewContent.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
 
                     int X = dataGridViewContent.Width - acoes.Width - 10;
-                    int y = cellRectangle.Bottom + acoes.Height + 30;
+                    int y = cellRectangle.Bottom + acoes.Height + 15;
                     int yPanelContent = panelContent.Height;
 
-                    if((yPanelContent - y) > acoes.Height)
+                    if ((yPanelContent - y) > acoes.Height)
                     {
                         acoes.Location = new Point(X, y);
                     }
@@ -590,9 +603,8 @@ namespace High_Gestor.Forms.Compras
                     acoes.BringToFront();
                     acoes.Show();
 
-                    acoesOpen = true;
                 }
-                else
+                else if (acoesOpenAcoes == true)
                 {
                     FecharAcoes();
                 }
@@ -601,21 +613,19 @@ namespace High_Gestor.Forms.Compras
 
         public void FecharAcoes()
         {
+            updateData.receberDados(0, false);
+
             panelContent.Controls.Remove(acoes);
+            panelContent.Controls.Remove(contasLancadas);
 
-            acoesOpen = false;
-        }
-
-        private void dataGridViewContent_Click(object sender, EventArgs e)
-        {
-            FecharAcoes();
+            acoesOpenAcoes = false;
+            acoesOpenContas = false;
         }
 
         private void panelContent_Click(object sender, EventArgs e)
         {
             FecharAcoes();
         }
-
-        
+  
     }
 }

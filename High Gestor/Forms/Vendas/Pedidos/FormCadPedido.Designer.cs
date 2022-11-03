@@ -219,9 +219,9 @@
             label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             label15.Location = new System.Drawing.Point(27, 561);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(133, 20);
+            label15.Size = new System.Drawing.Size(126, 20);
             label15.TabIndex = 251;
-            label15.Text = "Totais da entrada";
+            label15.Text = "Totais do pedido";
             label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelTitlerDadosPagemento
@@ -538,7 +538,7 @@
             label32.ForeColor = System.Drawing.SystemColors.ControlText;
             label32.Location = new System.Drawing.Point(854, 600);
             label32.Name = "label32";
-            label32.Size = new System.Drawing.Size(157, 16);
+            label32.Size = new System.Drawing.Size(153, 16);
             label32.TabIndex = 289;
             label32.Text = "Valor total do pedido";
             // 

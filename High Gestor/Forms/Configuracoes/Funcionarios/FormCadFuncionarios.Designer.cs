@@ -124,9 +124,9 @@
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label9.Location = new System.Drawing.Point(36, 56);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(150, 17);
+            label9.Size = new System.Drawing.Size(125, 17);
             label9.TabIndex = 127;
-            label9.Text = "Codigo da Funcionario";
+            label9.Text = "Codigo do Usuário";
             // 
             // label7
             // 
@@ -326,9 +326,9 @@
             this.labelContagem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelContagem.Location = new System.Drawing.Point(13, 11);
             this.labelContagem.Name = "labelContagem";
-            this.labelContagem.Size = new System.Drawing.Size(179, 24);
+            this.labelContagem.Size = new System.Drawing.Size(158, 24);
             this.labelContagem.TabIndex = 121;
-            this.labelContagem.Text = "Cadastrar Vendedor";
+            this.labelContagem.Text = "Cadastrar Usuário";
             this.labelContagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnSair

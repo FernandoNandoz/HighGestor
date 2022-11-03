@@ -84,10 +84,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigGlobal.cs" />
+    <Compile Include="DataSource\DatabaseHighDataDataSet.cs">
+      <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSource\DatabaseHighDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\ContasLancadas\ItemContaLancada\UserControl_ItemConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\ContasLancadas\ItemContaLancada\UserControl_ItemConta.Designer.cs">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Compras\ContasLancadas\UserControl_ContasLancadas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Compras\ContasLancadas\UserControl_ContasLancadas.Designer.cs">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +163,42 @@
     </Compile>
     <Compile Include="Forms\Configuracoes\Transporte\FormTransporte.Designer.cs">
       <DependentUpon>FormTransporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\FormContasReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\FormContasReceber.Designer.cs">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\BaixarManual\UserControl_BaixarManual.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\BaixarManual\UserControl_BaixarManual.Designer.cs">
+      <DependentUpon>UserControl_BaixarManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\Comprovantes\UserControl_Comprovante.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\Comprovantes\UserControl_Comprovante.Designer.cs">
+      <DependentUpon>UserControl_Comprovante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\FormLiquidarConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\FormLiquidarConta.Designer.cs">
+      <DependentUpon>FormLiquidarConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\Historico\UserControl_Historico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\Historico\UserControl_Historico.Designer.cs">
+      <DependentUpon>UserControl_Historico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.Designer.cs">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financeiro\Parametros\CategoriaContas\FormCadCategoriaContas.cs">
       <SubType>Form</SubType>
@@ -238,6 +289,54 @@
     </Compile>
     <Compile Include="Forms\Produtos\UserControl_MaisAcoes.Designer.cs">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.Designer.cs">
+      <DependentUpon>FormRelatorioSaldoEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormDetalhamentoComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormDetalhamentoComissao.Designer.cs">
+      <DependentUpon>FormDetalhamentoComissao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormIncluirLancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormIncluirLancamento.Designer.cs">
+      <DependentUpon>FormIncluirLancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormRelatorioComissao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\FormRelatorioComissao.Designer.cs">
+      <DependentUpon>FormRelatorioComissao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.Designer.cs">
+      <DependentUpon>FormRelatorioDetalhamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.Designer.cs">
+      <DependentUpon>FormRelatorioGeral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Item_menu\UserControl_ItemMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\Item_menu\UserControl_ItemMenu.Designer.cs">
+      <DependentUpon>UserControl_ItemMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\UserControl_MenuRelatorio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Relatorios\Vendas\UserControl_MenuRelatorio.Designer.cs">
+      <DependentUpon>UserControl_MenuRelatorio.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Vendas\Clientes\FormCadCliente.cs">
       <SubType>Form</SubType>
@@ -415,11 +514,137 @@
     <Compile Include="Forms\Vendas\FormVendas.Designer.cs">
       <DependentUpon>FormVendas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarCaixa\UserControl_EstornarCaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarCaixa\UserControl_EstornarCaixa.Designer.cs">
+      <DependentUpon>UserControl_EstornarCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarConta\UserControl_EstornarConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarConta\UserControl_EstornarConta.Designer.cs">
+      <DependentUpon>UserControl_EstornarConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ContasLancadas\ItemContaLancada\UserControl_ItemConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ContasLancadas\ItemContaLancada\UserControl_ItemConta.Designer.cs">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ContasLancadas\UserControl_ContasLancadas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ContasLancadas\UserControl_ContasLancadas.Designer.cs">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\FormAlterarSituacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\FormAlterarSituacao.Designer.cs">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\FormCancelarVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\CancelarVenda\FormCancelarVenda.Designer.cs">
+      <DependentUpon>FormCancelarVenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\DadosVenda\FormDadosVenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\DadosVenda\FormDadosVenda.Designer.cs">
+      <DependentUpon>FormDadosVenda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Vendas\PDV\FormPDV.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Vendas\PDV\FormPDV.Designer.cs">
       <DependentUpon>FormPDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ItemSaldoCaixa\UserControl_ItemSaldoCaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ItemSaldoCaixa\UserControl_ItemSaldoCaixa.Designer.cs">
+      <DependentUpon>UserControl_ItemSaldoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\LancarContas\FormLancarContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\LancarContas\FormLancarContas.Designer.cs">
+      <DependentUpon>FormLancarContas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\LancarContas\ItensConta\UserControl_ItemConta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\LancarContas\ItensConta\UserControl_ItemConta.Designer.cs">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\ItemUsuariosPermitidos\UserControl_ItemUsuarioPermitido.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\ItemUsuariosPermitidos\UserControl_ItemUsuarioPermitido.Designer.cs">
+      <DependentUpon>UserControl_ItemUsuarioPermitido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_CadastrarCaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_CadastrarCaixa.Designer.cs">
+      <DependentUpon>UserControl_CadastrarCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_NovoCaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_NovoCaixa.Designer.cs">
+      <DependentUpon>UserControl_NovoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\FormParametrosPDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\FormParametrosPDV.Designer.cs">
+      <DependentUpon>FormParametrosPDV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\Gerais\UserControl_Gerais.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\Gerais\UserControl_Gerais.Designer.cs">
+      <DependentUpon>UserControl_Gerais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\LayoutCupom\UserControl_LayoutCupom.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\LayoutCupom\UserControl_LayoutCupom.Designer.cs">
+      <DependentUpon>UserControl_LayoutCupom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\Observacoes\UserControl_Observacoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\Observacoes\UserControl_Observacoes.Designer.cs">
+      <DependentUpon>UserControl_Observacoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_EditarPermissoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_EditarPermissoes.Designer.cs">
+      <DependentUpon>UserControl_EditarPermissoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_PermissaoCaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_PermissaoCaixa.Designer.cs">
+      <DependentUpon>UserControl_PermissaoCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\UserControl_Acoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\UserControl_Acoes.Designer.cs">
+      <DependentUpon>UserControl_Acoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\UserControl_MaisAcoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Vendas\PDV\UserControl_MaisAcoes.Designer.cs">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Vendas\Pedidos\ContasLancadas\ItemContaLancada\UserControl_ItemConta.cs">
       <SubType>UserControl</SubType>
@@ -490,13 +715,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Produtos\FormReportProdutos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reports\Produtos\FormReportProdutos.Designer.cs">
-      <DependentUpon>FormReportProdutos.cs</DependentUpon>
-    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Forms\Compras\ContasLancadas\ItemContaLancada\UserControl_ItemConta.resx">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Compras\ContasLancadas\UserControl_ContasLancadas.resx">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Compras\UserControl_Compras.resx">
       <DependentUpon>UserControl_Compras.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,6 +751,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\Transporte\FormTransporte.resx">
       <DependentUpon>FormTransporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\FormContasReceber.resx">
+      <DependentUpon>FormContasReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\BaixarManual\UserControl_BaixarManual.resx">
+      <DependentUpon>UserControl_BaixarManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\FormLiquidarConta.resx">
+      <DependentUpon>FormLiquidarConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.resx">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\Parametros\CategoriaContas\FormCadCategoriaContas.resx">
       <DependentUpon>FormCadCategoriaContas.cs</DependentUpon>
@@ -571,6 +808,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Produtos\UserControl_MaisAcoes.resx">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.resx">
+      <DependentUpon>FormRelatorioSaldoEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Estoque\SaldoEstoque\Reports\ReportSaldoEstoque.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\FormDetalhamentoComissao.resx">
+      <DependentUpon>FormDetalhamentoComissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\FormIncluirLancamento.resx">
+      <DependentUpon>FormIncluirLancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\FormRelatorioComissao.resx">
+      <DependentUpon>FormRelatorioComissao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.resx">
+      <DependentUpon>FormRelatorioDetalhamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\Report\RelatorioComissao.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.resx">
+      <DependentUpon>FormRelatorioGeral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\Report\ReportRelatorioGeral.rdlc" />
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\Item_menu\UserControl_ItemMenu.resx">
+      <DependentUpon>UserControl_ItemMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Relatorios\Vendas\UserControl_MenuRelatorio.resx">
+      <DependentUpon>UserControl_MenuRelatorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\Clientes\FormCadCliente.resx">
       <DependentUpon>FormCadCliente.cs</DependentUpon>
@@ -659,8 +923,71 @@
     <EmbeddedResource Include="Forms\Vendas\FormVendas.resx">
       <DependentUpon>FormVendas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarCaixa\UserControl_EstornarCaixa.resx">
+      <DependentUpon>UserControl_EstornarCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\CancelarVenda\Item_EstornarConta\UserControl_EstornarConta.resx">
+      <DependentUpon>UserControl_EstornarConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ContasLancadas\ItemContaLancada\UserControl_ItemConta.resx">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ContasLancadas\UserControl_ContasLancadas.resx">
+      <DependentUpon>UserControl_ContasLancadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\FormAlterarSituacao.resx">
+      <DependentUpon>FormAlterarSituacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\CancelarVenda\FormCancelarVenda.resx">
+      <DependentUpon>FormCancelarVenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\DadosVenda\FormDadosVenda.resx">
+      <DependentUpon>FormDadosVenda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\PDV\FormPDV.resx">
       <DependentUpon>FormPDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ItemSaldoCaixa\UserControl_ItemSaldoCaixa.resx">
+      <DependentUpon>UserControl_ItemSaldoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\LancarContas\FormLancarContas.resx">
+      <DependentUpon>FormLancarContas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\LancarContas\ItensConta\UserControl_ItemConta.resx">
+      <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\ItemUsuariosPermitidos\UserControl_ItemUsuarioPermitido.resx">
+      <DependentUpon>UserControl_ItemUsuarioPermitido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_CadastrarCaixa.resx">
+      <DependentUpon>UserControl_CadastrarCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\CadastrarCaixa\UserControl_NovoCaixa.resx">
+      <DependentUpon>UserControl_NovoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\FormParametrosPDV.resx">
+      <DependentUpon>FormParametrosPDV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\Gerais\UserControl_Gerais.resx">
+      <DependentUpon>UserControl_Gerais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\LayoutCupom\UserControl_LayoutCupom.resx">
+      <DependentUpon>UserControl_LayoutCupom.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\Observacoes\UserControl_Observacoes.resx">
+      <DependentUpon>UserControl_Observacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_EditarPermissoes.resx">
+      <DependentUpon>UserControl_EditarPermissoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\ParametrosPDV\PermissaoCaixa\UserControl_PermissaoCaixa.resx">
+      <DependentUpon>UserControl_PermissaoCaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\UserControl_Acoes.resx">
+      <DependentUpon>UserControl_Acoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Vendas\PDV\UserControl_MaisAcoes.resx">
+      <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Vendas\Pedidos\ContasLancadas\ItemContaLancada\UserControl_ItemConta.resx">
       <DependentUpon>UserControl_ItemConta.cs</DependentUpon>
@@ -697,10 +1024,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Produtos\FormReportProdutos.resx">
-      <DependentUpon>FormReportProdutos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Produtos\Reports\ReportEstoqueSaldo.rdlc" />
     <None Include="DataSource\DatabaseHighDataDataSet.xsc">
       <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
     </None>
@@ -729,10 +1052,13 @@
   <ItemGroup>
     <Folder Include="Forms\Compras\OrdemCompras\" />
     <Folder Include="Forms\Financeiro\ContasPagar\" />
-    <Folder Include="Forms\Financeiro\ContasReceber\" />
+    <Folder Include="Forms\Financeiro\ContasReceber\NovoRecebimento\" />
     <Folder Include="Forms\Financeiro\Extrato\" />
     <Folder Include="Forms\Financeiro\FluxoCaixa\" />
     <Folder Include="Forms\Financeiro\Relatorios\" />
+    <Folder Include="Forms\Relatorios\Compras\" />
+    <Folder Include="Forms\Relatorios\Financeiro\" />
+    <Folder Include="Forms\Vendas\PDV\Caixa\RelatorioMovimentacao\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\amarelo.png" />
@@ -747,6 +1073,12 @@
     <None Include="Resources\padrao contaBancaria NULO 1.png" />
     <None Include="Resources\icon contas 3.png" />
     <None Include="Resources\icon estoque 3.png" />
+    <None Include="Resources\eye.png" />
+    <None Include="Resources\eyes.png" />
+    <None Include="Resources\vire-a-direita.png" />
+    <None Include="Resources\vire-a-esquerda mais.png" />
+    <None Include="Resources\vire-a-esquerda.png" />
+    <None Include="Resources\1.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -30,16 +30,11 @@
         {
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label6;
-            System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label12;
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label1;
-            System.Windows.Forms.GroupBox groupBox2;
-            System.Windows.Forms.Label label20;
-            System.Windows.Forms.Label label21;
-            System.Windows.Forms.Label label16;
             System.Windows.Forms.Label labelContagem;
             System.Windows.Forms.Label labelTitlerDadosProdutos;
             System.Windows.Forms.Label label17;
@@ -59,11 +54,13 @@
             System.Windows.Forms.Label label27;
             System.Windows.Forms.Label label28;
             System.Windows.Forms.Label label29;
+            System.Windows.Forms.Label label32;
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label5;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEntradaMercadoria));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.labelValueTotalEntrada = new System.Windows.Forms.Label();
-            this.labelValueTotalItensLancados = new System.Windows.Forms.Label();
-            this.labelValueTotalProdutos = new System.Windows.Forms.Label();
             this.flowLayoutPanelContentProdutos = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonGerarParcela = new System.Windows.Forms.Button();
             this.textBoxQuantidadeParcela = new System.Windows.Forms.TextBox();
@@ -76,6 +73,12 @@
             this.comboBoxAplicacaoProdutos = new System.Windows.Forms.ComboBox();
             this.textBoxCentroCustos = new System.Windows.Forms.TextBox();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.labelStatusVendedor = new System.Windows.Forms.Label();
+            this.textBoxValorTotalEntrada = new System.Windows.Forms.TextBox();
+            this.textBoxValorDesconto = new System.Windows.Forms.TextBox();
+            this.textBoxValorFrete = new System.Windows.Forms.TextBox();
+            this.textBoxValorTotalProdutos = new System.Windows.Forms.TextBox();
             this.labelMessageDadosPagamento = new System.Windows.Forms.Label();
             this.labelMessageItenProduto = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -95,16 +98,11 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             label4 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label12 = new System.Windows.Forms.Label();
             label13 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            groupBox2 = new System.Windows.Forms.GroupBox();
-            label20 = new System.Windows.Forms.Label();
-            label21 = new System.Windows.Forms.Label();
-            label16 = new System.Windows.Forms.Label();
             labelContagem = new System.Windows.Forms.Label();
             labelTitlerDadosProdutos = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
@@ -124,7 +122,11 @@
             label27 = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label29 = new System.Windows.Forms.Label();
-            groupBox2.SuspendLayout();
+            label32 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             panelHeaderParcela.SuspendLayout();
             panelDataGridProdutos.SuspendLayout();
             panel1.SuspendLayout();
@@ -152,21 +154,11 @@
             label6.TabIndex = 221;
             label6.Text = "Nº da Nota";
             // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(481, 52);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(70, 16);
-            label5.TabIndex = 224;
-            label5.Text = "Vendedor:";
-            // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(39, 1040);
+            label3.Location = new System.Drawing.Point(39, 1018);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(82, 16);
             label3.TabIndex = 231;
@@ -176,7 +168,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label8.Location = new System.Drawing.Point(40, 976);
+            label8.Location = new System.Drawing.Point(40, 954);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(104, 16);
             label8.TabIndex = 232;
@@ -186,7 +178,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label12.Location = new System.Drawing.Point(228, 977);
+            label12.Location = new System.Drawing.Point(228, 955);
             label12.Name = "label12";
             label12.Size = new System.Drawing.Size(150, 16);
             label12.TabIndex = 233;
@@ -196,7 +188,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label13.Location = new System.Drawing.Point(582, 977);
+            label13.Location = new System.Drawing.Point(582, 955);
             label13.Name = "label13";
             label13.Size = new System.Drawing.Size(122, 16);
             label13.TabIndex = 234;
@@ -207,96 +199,11 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            label1.Location = new System.Drawing.Point(41, 660);
+            label1.Location = new System.Drawing.Point(41, 638);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(152, 16);
             label1.TabIndex = 230;
             label1.Text = "Quantidade de parcelas";
-            // 
-            // groupBox2
-            // 
-            groupBox2.BackColor = System.Drawing.Color.Transparent;
-            groupBox2.Controls.Add(label20);
-            groupBox2.Controls.Add(this.labelValueTotalEntrada);
-            groupBox2.Controls.Add(label21);
-            groupBox2.Controls.Add(label16);
-            groupBox2.Controls.Add(this.labelValueTotalItensLancados);
-            groupBox2.Controls.Add(this.labelValueTotalProdutos);
-            groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            groupBox2.Location = new System.Drawing.Point(44, 503);
-            groupBox2.Margin = new System.Windows.Forms.Padding(0);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding(0);
-            groupBox2.Size = new System.Drawing.Size(1106, 97);
-            groupBox2.TabIndex = 246;
-            groupBox2.TabStop = false;
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Font = new System.Drawing.Font("Microsoft PhagsPa", 12F, System.Drawing.FontStyle.Bold);
-            label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            label20.Location = new System.Drawing.Point(723, 42);
-            label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(139, 21);
-            label20.TabIndex = 243;
-            label20.Text = "Total da entrada:";
-            // 
-            // labelValueTotalEntrada
-            // 
-            this.labelValueTotalEntrada.AutoSize = true;
-            this.labelValueTotalEntrada.Font = new System.Drawing.Font("Microsoft PhagsPa", 14F, System.Drawing.FontStyle.Bold);
-            this.labelValueTotalEntrada.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            this.labelValueTotalEntrada.Location = new System.Drawing.Point(861, 40);
-            this.labelValueTotalEntrada.Name = "labelValueTotalEntrada";
-            this.labelValueTotalEntrada.Size = new System.Drawing.Size(78, 25);
-            this.labelValueTotalEntrada.TabIndex = 244;
-            this.labelValueTotalEntrada.Text = "R$ 0,00";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Font = new System.Drawing.Font("Microsoft PhagsPa", 11F, System.Drawing.FontStyle.Bold);
-            label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            label21.Location = new System.Drawing.Point(62, 42);
-            label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(138, 20);
-            label21.TabIndex = 247;
-            label21.Text = "Total de produtos:";
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new System.Drawing.Font("Microsoft PhagsPa", 11F, System.Drawing.FontStyle.Bold);
-            label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            label16.Location = new System.Drawing.Point(385, 42);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(173, 20);
-            label16.TabIndex = 245;
-            label16.Text = "Total de itens lançados:";
-            // 
-            // labelValueTotalItensLancados
-            // 
-            this.labelValueTotalItensLancados.AutoSize = true;
-            this.labelValueTotalItensLancados.Font = new System.Drawing.Font("Microsoft PhagsPa", 13F, System.Drawing.FontStyle.Bold);
-            this.labelValueTotalItensLancados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            this.labelValueTotalItensLancados.Location = new System.Drawing.Point(560, 40);
-            this.labelValueTotalItensLancados.Name = "labelValueTotalItensLancados";
-            this.labelValueTotalItensLancados.Size = new System.Drawing.Size(20, 23);
-            this.labelValueTotalItensLancados.TabIndex = 248;
-            this.labelValueTotalItensLancados.Text = "0";
-            // 
-            // labelValueTotalProdutos
-            // 
-            this.labelValueTotalProdutos.AutoSize = true;
-            this.labelValueTotalProdutos.Font = new System.Drawing.Font("Microsoft PhagsPa", 13F, System.Drawing.FontStyle.Bold);
-            this.labelValueTotalProdutos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(83)))), ((int)(((byte)(119)))));
-            this.labelValueTotalProdutos.Location = new System.Drawing.Point(202, 40);
-            this.labelValueTotalProdutos.Name = "labelValueTotalProdutos";
-            this.labelValueTotalProdutos.Size = new System.Drawing.Size(20, 23);
-            this.labelValueTotalProdutos.TabIndex = 246;
-            this.labelValueTotalProdutos.Text = "0";
             // 
             // labelContagem
             // 
@@ -333,7 +240,7 @@
             label17.AutoSize = true;
             label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label17.Location = new System.Drawing.Point(21, 942);
+            label17.Location = new System.Drawing.Point(21, 920);
             label17.Name = "label17";
             label17.Size = new System.Drawing.Size(154, 20);
             label17.TabIndex = 238;
@@ -347,7 +254,7 @@
             label15.AutoSize = true;
             label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label15.Location = new System.Drawing.Point(27, 481);
+            label15.Location = new System.Drawing.Point(27, 484);
             label15.Name = "label15";
             label15.Size = new System.Drawing.Size(133, 20);
             label15.TabIndex = 251;
@@ -361,7 +268,7 @@
             labelTitlerDadosPagemento.AutoSize = true;
             labelTitlerDadosPagemento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             labelTitlerDadosPagemento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            labelTitlerDadosPagemento.Location = new System.Drawing.Point(27, 626);
+            labelTitlerDadosPagemento.Location = new System.Drawing.Point(27, 604);
             labelTitlerDadosPagemento.Name = "labelTitlerDadosPagemento";
             labelTitlerDadosPagemento.Size = new System.Drawing.Size(163, 20);
             labelTitlerDadosPagemento.TabIndex = 250;
@@ -539,14 +446,68 @@
             label29.TabIndex = 231;
             label29.Text = "Quantidade";
             // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label32.ForeColor = System.Drawing.SystemColors.ControlText;
+            label32.Location = new System.Drawing.Point(649, 518);
+            label32.Name = "label32";
+            label32.Size = new System.Drawing.Size(157, 16);
+            label32.TabIndex = 299;
+            label32.Text = "Valor total da entrada";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            label14.Location = new System.Drawing.Point(446, 518);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(117, 16);
+            label14.TabIndex = 298;
+            label14.Text = "Valor do desconto";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            label2.Location = new System.Drawing.Point(242, 518);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(87, 16);
+            label2.TabIndex = 297;
+            label2.Text = "Valor do frete";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.ForeColor = System.Drawing.SystemColors.ControlText;
+            label11.Location = new System.Drawing.Point(40, 518);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(149, 16);
+            label11.TabIndex = 296;
+            label11.Text = "Valor total dos produtos";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(481, 51);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(82, 16);
+            label5.TabIndex = 301;
+            label5.Text = "Vendedor:   |";
+            // 
             // buttonGerarParcela
             // 
             this.buttonGerarParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonGerarParcela.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonGerarParcela.Location = new System.Drawing.Point(239, 678);
+            this.buttonGerarParcela.Location = new System.Drawing.Point(239, 656);
             this.buttonGerarParcela.Name = "buttonGerarParcela";
             this.buttonGerarParcela.Size = new System.Drawing.Size(129, 30);
-            this.buttonGerarParcela.TabIndex = 9;
+            this.buttonGerarParcela.TabIndex = 14;
             this.buttonGerarParcela.Text = "Gerar parcela";
             this.buttonGerarParcela.UseVisualStyleBackColor = true;
             this.buttonGerarParcela.Click += new System.EventHandler(this.buttonGerarParcela_Click);
@@ -556,10 +517,10 @@
             this.textBoxQuantidadeParcela.BackColor = System.Drawing.Color.White;
             this.textBoxQuantidadeParcela.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxQuantidadeParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantidadeParcela.Location = new System.Drawing.Point(44, 680);
+            this.textBoxQuantidadeParcela.Location = new System.Drawing.Point(44, 658);
             this.textBoxQuantidadeParcela.Name = "textBoxQuantidadeParcela";
             this.textBoxQuantidadeParcela.Size = new System.Drawing.Size(189, 26);
-            this.textBoxQuantidadeParcela.TabIndex = 8;
+            this.textBoxQuantidadeParcela.TabIndex = 13;
             this.textBoxQuantidadeParcela.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.apenasNumero_KeyPress);
             // 
             // buttonSalvar
@@ -567,7 +528,7 @@
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.BackColor = System.Drawing.Color.White;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(532, 1212);
+            this.buttonSalvar.Location = new System.Drawing.Point(540, 1197);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 14;
@@ -580,7 +541,7 @@
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSair.BackColor = System.Drawing.Color.White;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(658, 1212);
+            this.btnSair.Location = new System.Drawing.Point(666, 1197);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 15;
@@ -624,13 +585,14 @@
             this.textBoxVendedor.Name = "textBoxVendedor";
             this.textBoxVendedor.Size = new System.Drawing.Size(263, 26);
             this.textBoxVendedor.TabIndex = 1;
+            this.textBoxVendedor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBoxVendedor_KeyUp);
             // 
             // textBoxObservacao
             // 
             this.textBoxObservacao.BackColor = System.Drawing.Color.White;
             this.textBoxObservacao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxObservacao.Location = new System.Drawing.Point(42, 1068);
+            this.textBoxObservacao.Location = new System.Drawing.Point(42, 1046);
             this.textBoxObservacao.Multiline = true;
             this.textBoxObservacao.Name = "textBoxObservacao";
             this.textBoxObservacao.Size = new System.Drawing.Size(930, 90);
@@ -648,7 +610,7 @@
             "MATERIAL DE USO E CONSUMO",
             "ATIVO IMOBILIARIO",
             "OUTRAS"});
-            this.comboBoxAplicacaoProdutos.Location = new System.Drawing.Point(231, 996);
+            this.comboBoxAplicacaoProdutos.Location = new System.Drawing.Point(231, 974);
             this.comboBoxAplicacaoProdutos.Name = "comboBoxAplicacaoProdutos";
             this.comboBoxAplicacaoProdutos.Size = new System.Drawing.Size(332, 26);
             this.comboBoxAplicacaoProdutos.TabIndex = 11;
@@ -660,7 +622,7 @@
             this.textBoxCentroCustos.BackColor = System.Drawing.Color.White;
             this.textBoxCentroCustos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxCentroCustos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxCentroCustos.Location = new System.Drawing.Point(585, 996);
+            this.textBoxCentroCustos.Location = new System.Drawing.Point(585, 974);
             this.textBoxCentroCustos.Name = "textBoxCentroCustos";
             this.textBoxCentroCustos.Size = new System.Drawing.Size(387, 26);
             this.textBoxCentroCustos.TabIndex = 12;
@@ -669,6 +631,17 @@
             // panelContent
             // 
             this.panelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            this.panelContent.Controls.Add(this.label7);
+            this.panelContent.Controls.Add(this.labelStatusVendedor);
+            this.panelContent.Controls.Add(label5);
+            this.panelContent.Controls.Add(this.textBoxValorTotalEntrada);
+            this.panelContent.Controls.Add(label32);
+            this.panelContent.Controls.Add(this.textBoxValorDesconto);
+            this.panelContent.Controls.Add(label14);
+            this.panelContent.Controls.Add(this.textBoxValorFrete);
+            this.panelContent.Controls.Add(label2);
+            this.panelContent.Controls.Add(this.textBoxValorTotalProdutos);
+            this.panelContent.Controls.Add(label11);
             this.panelContent.Controls.Add(this.labelMessageDadosPagamento);
             this.panelContent.Controls.Add(this.labelMessageItenProduto);
             this.panelContent.Controls.Add(this.label31);
@@ -689,7 +662,6 @@
             this.panelContent.Controls.Add(this.buttonGerarParcela);
             this.panelContent.Controls.Add(this.textBoxQuantidadeParcela);
             this.panelContent.Controls.Add(label1);
-            this.panelContent.Controls.Add(groupBox2);
             this.panelContent.Controls.Add(label17);
             this.panelContent.Controls.Add(label13);
             this.panelContent.Controls.Add(this.textBoxCentroCustos);
@@ -699,7 +671,6 @@
             this.panelContent.Controls.Add(label8);
             this.panelContent.Controls.Add(label3);
             this.panelContent.Controls.Add(this.textBoxVendedor);
-            this.panelContent.Controls.Add(label5);
             this.panelContent.Controls.Add(this.textBoxNumeroNota);
             this.panelContent.Controls.Add(label6);
             this.panelContent.Controls.Add(labelTitlerDadosProdutos);
@@ -712,14 +683,78 @@
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelContent.Location = new System.Drawing.Point(0, 0);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(1310, 1275);
+            this.panelContent.Size = new System.Drawing.Size(1327, 1263);
             this.panelContent.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label7.Location = new System.Drawing.Point(774, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(173, 13);
+            this.label7.TabIndex = 303;
+            this.label7.Text = "Aperte ENTER pular para Produtos";
+            // 
+            // labelStatusVendedor
+            // 
+            this.labelStatusVendedor.AutoSize = true;
+            this.labelStatusVendedor.Location = new System.Drawing.Point(565, 54);
+            this.labelStatusVendedor.Name = "labelStatusVendedor";
+            this.labelStatusVendedor.Size = new System.Drawing.Size(144, 13);
+            this.labelStatusVendedor.TabIndex = 302;
+            this.labelStatusVendedor.Text = "Nenhum vendedor informado";
+            // 
+            // textBoxValorTotalEntrada
+            // 
+            this.textBoxValorTotalEntrada.BackColor = System.Drawing.Color.White;
+            this.textBoxValorTotalEntrada.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxValorTotalEntrada.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxValorTotalEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorTotalEntrada.Location = new System.Drawing.Point(652, 538);
+            this.textBoxValorTotalEntrada.Name = "textBoxValorTotalEntrada";
+            this.textBoxValorTotalEntrada.Size = new System.Drawing.Size(189, 26);
+            this.textBoxValorTotalEntrada.TabIndex = 12;
+            // 
+            // textBoxValorDesconto
+            // 
+            this.textBoxValorDesconto.BackColor = System.Drawing.Color.White;
+            this.textBoxValorDesconto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxValorDesconto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorDesconto.Location = new System.Drawing.Point(449, 538);
+            this.textBoxValorDesconto.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.textBoxValorDesconto.Name = "textBoxValorDesconto";
+            this.textBoxValorDesconto.Size = new System.Drawing.Size(190, 26);
+            this.textBoxValorDesconto.TabIndex = 10;
+            // 
+            // textBoxValorFrete
+            // 
+            this.textBoxValorFrete.BackColor = System.Drawing.Color.White;
+            this.textBoxValorFrete.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxValorFrete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorFrete.Location = new System.Drawing.Point(246, 538);
+            this.textBoxValorFrete.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.textBoxValorFrete.Name = "textBoxValorFrete";
+            this.textBoxValorFrete.Size = new System.Drawing.Size(190, 26);
+            this.textBoxValorFrete.TabIndex = 9;
+            // 
+            // textBoxValorTotalProdutos
+            // 
+            this.textBoxValorTotalProdutos.BackColor = System.Drawing.Color.White;
+            this.textBoxValorTotalProdutos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBoxValorTotalProdutos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.textBoxValorTotalProdutos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValorTotalProdutos.Location = new System.Drawing.Point(43, 538);
+            this.textBoxValorTotalProdutos.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
+            this.textBoxValorTotalProdutos.Name = "textBoxValorTotalProdutos";
+            this.textBoxValorTotalProdutos.Size = new System.Drawing.Size(190, 26);
+            this.textBoxValorTotalProdutos.TabIndex = 8;
             // 
             // labelMessageDadosPagamento
             // 
             this.labelMessageDadosPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMessageDadosPagamento.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelMessageDadosPagamento.Location = new System.Drawing.Point(236, 630);
+            this.labelMessageDadosPagamento.Location = new System.Drawing.Point(236, 608);
             this.labelMessageDadosPagamento.Name = "labelMessageDadosPagamento";
             this.labelMessageDadosPagamento.Size = new System.Drawing.Size(911, 16);
             this.labelMessageDadosPagamento.TabIndex = 271;
@@ -775,7 +810,7 @@
             this.dateTimeDataEntrada.CalendarMonthBackground = System.Drawing.Color.White;
             this.dateTimeDataEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeDataEntrada.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeDataEntrada.Location = new System.Drawing.Point(43, 995);
+            this.dateTimeDataEntrada.Location = new System.Drawing.Point(43, 973);
             this.dateTimeDataEntrada.Name = "dateTimeDataEntrada";
             this.dateTimeDataEntrada.Size = new System.Drawing.Size(163, 26);
             this.dateTimeDataEntrada.TabIndex = 265;
@@ -784,10 +819,10 @@
             // 
             this.buttonLimparParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonLimparParcela.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonLimparParcela.Location = new System.Drawing.Point(372, 678);
+            this.buttonLimparParcela.Location = new System.Drawing.Point(372, 656);
             this.buttonLimparParcela.Name = "buttonLimparParcela";
             this.buttonLimparParcela.Size = new System.Drawing.Size(129, 30);
-            this.buttonLimparParcela.TabIndex = 264;
+            this.buttonLimparParcela.TabIndex = 15;
             this.buttonLimparParcela.Text = "Limpar parcela";
             this.buttonLimparParcela.UseVisualStyleBackColor = true;
             this.buttonLimparParcela.Click += new System.EventHandler(this.buttonLimparParcela_Click);
@@ -796,7 +831,7 @@
             // 
             this.panelContentParcela.Controls.Add(this.flowLayoutPanel_ItemParcela);
             this.panelContentParcela.Controls.Add(panelHeaderParcela);
-            this.panelContentParcela.Location = new System.Drawing.Point(45, 716);
+            this.panelContentParcela.Location = new System.Drawing.Point(45, 694);
             this.panelContentParcela.Name = "panelContentParcela";
             this.panelContentParcela.Size = new System.Drawing.Size(1105, 210);
             this.panelContentParcela.TabIndex = 263;
@@ -814,7 +849,7 @@
             // labelStatusCentroCustos
             // 
             this.labelStatusCentroCustos.AutoSize = true;
-            this.labelStatusCentroCustos.Location = new System.Drawing.Point(705, 980);
+            this.labelStatusCentroCustos.Location = new System.Drawing.Point(705, 958);
             this.labelStatusCentroCustos.Name = "labelStatusCentroCustos";
             this.labelStatusCentroCustos.Size = new System.Drawing.Size(125, 13);
             this.labelStatusCentroCustos.TabIndex = 261;
@@ -825,7 +860,7 @@
             this.linkLabelCadastrarCentroCustos.ActiveLinkColor = System.Drawing.Color.Gray;
             this.linkLabelCadastrarCentroCustos.AutoSize = true;
             this.linkLabelCadastrarCentroCustos.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelCadastrarCentroCustos.Location = new System.Drawing.Point(883, 1025);
+            this.linkLabelCadastrarCentroCustos.Location = new System.Drawing.Point(883, 1003);
             this.linkLabelCadastrarCentroCustos.Name = "linkLabelCadastrarCentroCustos";
             this.linkLabelCadastrarCentroCustos.Size = new System.Drawing.Size(87, 13);
             this.linkLabelCadastrarCentroCustos.TabIndex = 259;
@@ -838,7 +873,7 @@
             this.linkLabelLimparCentroCustos.ActiveLinkColor = System.Drawing.Color.Gray;
             this.linkLabelLimparCentroCustos.AutoSize = true;
             this.linkLabelLimparCentroCustos.LinkColor = System.Drawing.Color.Black;
-            this.linkLabelLimparCentroCustos.Location = new System.Drawing.Point(584, 1025);
+            this.linkLabelLimparCentroCustos.Location = new System.Drawing.Point(584, 1003);
             this.linkLabelLimparCentroCustos.Name = "linkLabelLimparCentroCustos";
             this.linkLabelLimparCentroCustos.Size = new System.Drawing.Size(73, 13);
             this.linkLabelLimparCentroCustos.TabIndex = 258;
@@ -892,7 +927,7 @@
             this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
             this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(1205, 5);
+            this.buttonVoltar.Location = new System.Drawing.Point(1222, 5);
             this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
             this.buttonVoltar.Name = "buttonVoltar";
             this.buttonVoltar.Size = new System.Drawing.Size(99, 36);
@@ -921,7 +956,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1327, 640);
+            this.ClientSize = new System.Drawing.Size(1344, 640);
             this.Controls.Add(this.panelContent);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEntradaMercadoria";
@@ -929,8 +964,6 @@
             this.Text = "FormEntradaMercadoria";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEntradaMercadoria_FormClosing);
             this.Load += new System.EventHandler(this.FormEntradaMercadoria_Load);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             panelHeaderParcela.ResumeLayout(false);
             panelHeaderParcela.PerformLayout();
             panelDataGridProdutos.ResumeLayout(false);
@@ -970,12 +1003,15 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.LinkLabel linkLabelNovoItemProduto;
         private System.Windows.Forms.Label label31;
-        public System.Windows.Forms.Label labelValueTotalEntrada;
-        public System.Windows.Forms.Label labelValueTotalItensLancados;
-        public System.Windows.Forms.Label labelValueTotalProdutos;
         public System.Windows.Forms.FlowLayoutPanel flowLayoutPanelContentProdutos;
         public System.Windows.Forms.TextBox textBoxQuantidadeParcela;
         private System.Windows.Forms.Label labelMessageDadosPagamento;
         private System.Windows.Forms.Label labelMessageItenProduto;
+        public System.Windows.Forms.TextBox textBoxValorTotalEntrada;
+        public System.Windows.Forms.TextBox textBoxValorDesconto;
+        public System.Windows.Forms.TextBox textBoxValorFrete;
+        public System.Windows.Forms.TextBox textBoxValorTotalProdutos;
+        private System.Windows.Forms.Label labelStatusVendedor;
+        private System.Windows.Forms.Label label7;
     }
 }

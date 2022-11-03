@@ -525,7 +525,7 @@ namespace High_Gestor.Forms.Produtos
         {
             FecharAcoes(sender, e);
 
-            Reports.Produtos.FormReportProdutos window = new Reports.Produtos.FormReportProdutos();
+            Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque window = new Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque();
             window.ShowDialog();
             window.Dispose();
         }

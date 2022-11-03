@@ -57,7 +57,7 @@
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label2.Location = new System.Drawing.Point(18, 29);
+            label2.Location = new System.Drawing.Point(18, 30);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(155, 20);
             label2.TabIndex = 156;
@@ -69,7 +69,7 @@
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label4.Location = new System.Drawing.Point(20, 172);
+            label4.Location = new System.Drawing.Point(20, 173);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(130, 18);
             label4.TabIndex = 241;
@@ -79,11 +79,53 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label7.Location = new System.Drawing.Point(22, 194);
+            label7.Location = new System.Drawing.Point(22, 195);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(215, 15);
             label7.TabIndex = 239;
             label7.Text = "Base de cálculo do comissionamento.";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label1.Location = new System.Drawing.Point(24, 70);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(163, 18);
+            label1.TabIndex = 248;
+            label1.Text = "Comissão do vendedor";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(26, 92);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(429, 15);
+            label3.TabIndex = 246;
+            label3.Text = "Defini se a comissão será calculada de forma fixa ou variavel ou nao calcular.";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(24, 27);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(308, 15);
+            label5.TabIndex = 251;
+            label5.Text = "Informe o valor em porcentagem (%) da comissão FIXA";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label6.Location = new System.Drawing.Point(24, 5);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(132, 18);
+            label6.TabIndex = 252;
+            label6.Text = "Valor da comissão";
             // 
             // buttonSalvar
             // 
@@ -114,31 +156,10 @@
             "TOTAL DE VENDAS",
             "TOTAL DE PRODUTOS",
             "TOTAL DE RECEITAS"});
-            this.comboBoxComissionamento.Location = new System.Drawing.Point(26, 221);
+            this.comboBoxComissionamento.Location = new System.Drawing.Point(26, 222);
             this.comboBoxComissionamento.Name = "comboBoxComissionamento";
             this.comboBoxComissionamento.Size = new System.Drawing.Size(299, 26);
             this.comboBoxComissionamento.TabIndex = 240;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label1.Location = new System.Drawing.Point(24, 69);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(163, 18);
-            label1.TabIndex = 248;
-            label1.Text = "Comissão do vendedor";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(26, 91);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(429, 15);
-            label3.TabIndex = 246;
-            label3.Text = "Defini se a comissão será calculada de forma fixa ou variavel ou nao calcular.";
             // 
             // textBoxValorPorcentagem
             // 
@@ -160,33 +181,12 @@
             "FIXA",
             "VARIAVEL",
             "DESATIVADO"});
-            this.comboBoxComissao.Location = new System.Drawing.Point(26, 122);
+            this.comboBoxComissao.Location = new System.Drawing.Point(26, 123);
             this.comboBoxComissao.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxComissao.Name = "comboBoxComissao";
             this.comboBoxComissao.Size = new System.Drawing.Size(299, 26);
             this.comboBoxComissao.TabIndex = 250;
             this.comboBoxComissao.SelectedIndexChanged += new System.EventHandler(this.comboBoxComissaoFixa_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(24, 27);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(308, 15);
-            label5.TabIndex = 251;
-            label5.Text = "Informe o valor em porcentagem (%) da comissão FIXA";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label6.Location = new System.Drawing.Point(24, 5);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(132, 18);
-            label6.TabIndex = 252;
-            label6.Text = "Valor da comissão";
             // 
             // panelValorComissao
             // 

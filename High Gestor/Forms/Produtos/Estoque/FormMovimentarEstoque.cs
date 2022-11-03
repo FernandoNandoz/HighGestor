@@ -20,6 +20,26 @@ namespace High_Gestor.Forms.Produtos
             InitializeComponent();
         }
 
+        public void DrawLinePointF(PaintEventArgs e)
+        {
+            // Create pen.
+            Pen blackPen = new Pen(Color.Silver, 1);
+
+            // Create coordinates of points that define line.
+            int x1 = 25;
+            int y1 = 45;
+            int x2 = Width - 50;
+            int y2 = 45;
+
+            // Draw line to screen.
+            e.Graphics.DrawLine(blackPen, x1, y1, x2, y2);
+        }
+
+        private void FormMovimentarEstoque_Paint(object sender, PaintEventArgs e)
+        {
+            DrawLinePointF(e);
+        }
+
         private void limparValore()
         {
             comboBoxTipoMovimentacao.Text = "";
@@ -210,5 +230,6 @@ namespace High_Gestor.Forms.Produtos
         {
             ViewForms.requestViewForm(true, false);
         }
+
     }
 }

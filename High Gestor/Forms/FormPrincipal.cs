@@ -26,16 +26,6 @@ namespace High_Gestor
 
         Banco banco = new Banco();
 
-        bool Parametros = false;
-        bool ListaPreco = false;
-        bool Perfil = false;
-        bool Desenvolvedor = false;
-        bool FormaPagamento = false;
-        bool Transporte = false;
-        bool ContaBancaria = false;
-        bool CategoriaFinanceiro = false;
-        bool CentroCusto = false;
-
         int X = 0;
         int Y = 0;
 
@@ -197,30 +187,9 @@ namespace High_Gestor
 
         private void dataFuncionario()
         {
-            //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT Funcionario.idFuncionario, Funcionario.codigoFuncionario, Funcionario.nomeCompleto, Perfil.perfil, Funcionario.situacao, Funcionario.usuario, Funcionario.senha FROM Funcionario INNER JOIN Perfil ON Funcionario.idPerfilFK = Perfil.idPerfil WHERE Funcionario.idFuncionario = @ID ORDER BY nomeCompleto");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            exeVerificacao.Parameters.AddWithValue("@ID", 8);
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            if (datareader.Read())
-            {
-                Autenticacao.login(datareader.GetInt32(0), datareader.GetString(2), datareader.GetString(5), datareader.GetString(6), datareader.GetString(3));
-            }
-            else 
-            {
-                Autenticacao.login(1, "USUARIO TESTE", "USUARIO", "SENHA", "TESTE");
-            }
-
-            banco.desconectar();
-
-
             TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
 
-            string nome = Autenticacao._nome() + " | " + Autenticacao._perfil();
+            string nome = Autenticacao._usuario() + " | " + Autenticacao._perfil();
 
             nome = nome.ToLower();
 
@@ -244,232 +213,12 @@ namespace High_Gestor
             banco.desconectar();
         }
 
-        private void verificarSistema()
-        {
-            #region Verifica Parametros Sistema
-            string query = ("SELECT COUNT(*) FROM ParametrosSistema");
-            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader reader = exeQuery.ExecuteReader();
-
-            if (reader.Read())
-            {
-                if(reader.GetInt32(0) > 0)
-                {
-                    Parametros = true;
-                }
-                else
-                {
-                    Parametros = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Lista Preco
-
-            string queryListaPreco = ("SELECT COUNT(*) FROM ListaPreco WHERE descricao = 'LISTA PADRAO'");
-            SqlCommand exeQueryListaPreco = new SqlCommand(queryListaPreco, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerListaPreco = exeQueryListaPreco.ExecuteReader();
-
-            if (readerListaPreco.Read())
-            {
-                if (readerListaPreco.GetInt32(0) > 0)
-                {
-                    ListaPreco = true;
-                }
-                else
-                {
-                    ListaPreco = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Perfil
-
-            string queryPerfil = ("SELECT COUNT(*) FROM Perfil");
-            SqlCommand exeQueryPerfil = new SqlCommand(queryPerfil, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerPerfil = exeQueryPerfil.ExecuteReader();
-
-            if (readerPerfil.Read())
-            {
-                if (readerPerfil.GetInt32(0) > 0)
-                {
-                    Perfil = true;
-                }
-                else
-                {
-                    Perfil = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Acesso Desenvolvedor
-
-            string queryDesenvolvedor = ("SELECT COUNT(*) FROM Funcionario WHERE codigoFuncionario = '0'");
-            SqlCommand exeQueryDesenvolvedor = new SqlCommand(queryDesenvolvedor, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerDesenvolvedor = exeQueryDesenvolvedor.ExecuteReader();
-
-            if (readerDesenvolvedor.Read())
-            {
-                if (readerDesenvolvedor.GetInt32(0) > 0)
-                {
-                    Desenvolvedor = true;
-                }
-                else
-                {
-                    Desenvolvedor = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Forma de Pagamento
-
-            string queryFormaPagamento = ("SELECT COUNT(*) FROM FormaPagamento");
-            SqlCommand exeQueryFormaPagamento = new SqlCommand(queryFormaPagamento, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerFormaPagamento = exeQueryFormaPagamento.ExecuteReader();
-
-            if (readerFormaPagamento.Read())
-            {
-                if (readerFormaPagamento.GetInt32(0) > 0)
-                {
-                    FormaPagamento = true;
-                }
-                else
-                {
-                    FormaPagamento = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Forma de Pagamento
-
-            string queryTransporte = ("SELECT COUNT(*) FROM Transporte");
-            SqlCommand exeQueryTransporte = new SqlCommand(queryTransporte, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerTransporte = exeQueryTransporte.ExecuteReader();
-
-            if (readerTransporte.Read())
-            {
-                if (readerTransporte.GetInt32(0) > 0)
-                {
-                    Transporte = true;
-                }
-                else
-                {
-                    Transporte = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Contas Bancarias 
-
-            string queryContaBancaria = ("SELECT COUNT(*) FROM ContasBancarias");
-            SqlCommand exeQueryContaBancaria = new SqlCommand(queryContaBancaria, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerContaBancaria = exeQueryContaBancaria.ExecuteReader();
-
-            if (readerContaBancaria.Read())
-            {
-                if (readerContaBancaria.GetInt32(0) > 0)
-                {
-                    ContaBancaria = true;
-                }
-                else
-                {
-                    ContaBancaria = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Categoria Financeiro
-
-            string queryCategoriaFinanceiro = ("SELECT COUNT(*) FROM CategoriaFinanceiro");
-            SqlCommand exeQueryCategoriaFinanceiro = new SqlCommand(queryCategoriaFinanceiro, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerCategoriaFinanceiro = exeQueryCategoriaFinanceiro.ExecuteReader();
-
-            if (readerCategoriaFinanceiro.Read())
-            {
-                if (readerCategoriaFinanceiro.GetInt32(0) > 0)
-                {
-                    CategoriaFinanceiro = true;
-                }
-                else
-                {
-                    CategoriaFinanceiro = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            #region Verificar Centro Custo
-
-            string queryCentroCusto = ("SELECT COUNT(*) FROM CentroCusto");
-            SqlCommand exeQueryCentroCusto = new SqlCommand(queryCentroCusto, banco.connection);
-            banco.conectar();
-
-            SqlDataReader readerCentroCusto = exeQueryCentroCusto.ExecuteReader();
-
-            if (readerCentroCusto.Read())
-            {
-                if (readerCentroCusto.GetInt32(0) > 0)
-                {
-                    CentroCusto = true;
-                }
-                else
-                {
-                    CentroCusto = false;
-                }
-            }
-            banco.desconectar();
-
-            #endregion
-
-            SistemaVerificacao.DefauthConfig(Parametros, ListaPreco, Perfil, Desenvolvedor, FormaPagamento, Transporte, ContaBancaria, CategoriaFinanceiro, CentroCusto);
-        }
-
         private void FormHighGestor_Load(object sender, EventArgs e)
         {
-            if(SistemaVerificacao.verificarDadosEmpresa() == true)
-            {
-                verificarSistema();
-                carregarDadosEmpresa();
+            carregarDadosEmpresa();
+            dataFuncionario();
 
-                dataFuncionario();
-
-                buttonVendas_Click(sender, e);
-            }
-            else
-            {
-                this.Close();
-            }
+            buttonVendas_Click(sender, e);
         }
 
         private void buttonTitlerSair_Click(object sender, EventArgs e)
@@ -647,6 +396,14 @@ namespace High_Gestor
             resposividade();
 
             this.Refresh();
+        }
+
+        private void labelUsuario_TextChanged(object sender, EventArgs e)
+        {
+            if(labelUsuario.Text.Length > 16)
+            {
+
+            }
         }
     }
 }

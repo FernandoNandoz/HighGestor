@@ -77,16 +77,13 @@ namespace High_Gestor.Forms.Compras
 
         private void buttonLancarContas_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
             if (situacaoContas == "NAO LANCADO" || situacaoContas == "ESTOQUE ESTORNADO")
             {
-
+                instancia.queryInsertContasPagar("LANCAR CONTAS");
             }
             else if (situacaoContas == "LANCADO")
             {
-
+                instancia.queryInsertContasPagar("ESTORNAR CONTAS");
             }
 
             instancia.FecharAcoes();
@@ -94,8 +91,6 @@ namespace High_Gestor.Forms.Compras
 
         private void buttonLancarEstoque_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("ESTA FUÇÃO ESTA EM DESENVOLVIMENTO...", "Oppa!!! Ainda não.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             if (situacaoEstoque == "NAO LANCADO" || situacaoEstoque == "ESTOQUE ESTORNADO")
             {
                 instancia.queryInsertEstoque("LANCAR ESTOQUE");

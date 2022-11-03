@@ -25,7 +25,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Parcelas
         private bool _editarParcelas = false;
         private bool _situacaoContas = false;
         private bool _condicaoPagamento = false;
-        private int _idParcelaNota = 0;
+        private int _idContaReceber = 0;
         private int _numeroParcela;
         private DateTime _dataVencimento;
         private decimal _valorParcela;
@@ -62,10 +62,10 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Parcelas
         }
 
         [Category("Custom Props")]
-        public int IdParcelaNota
+        public int IdContaReceber
         {
-            get { return _idParcelaNota; }
-            set { _idParcelaNota = value; }
+            get { return _idContaReceber; }
+            set { _idContaReceber = value; }
         }
 
         [Category("Custom Props")]

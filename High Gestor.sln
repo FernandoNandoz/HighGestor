@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "High Gestor", "High Gestor\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PVD_Vendas", "..\PVD_Vendas\PVD_Vendas\PVD_Vendas.csproj", "{59631C39-13EF-46E5-9450-C6C2A7432A48}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HighGestor Setup", "HighGestor Setup\HighGestor Setup.vdproj", "{45CB15CE-B576-428D-9D67-3D6EEA484DED}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Assistente de instalação High Gestor", "Assistente de instalação High Gestor\Assistente de instalação High Gestor.vdproj", "{EF4D3C97-5121-4435-A94D-03EA9FD950C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +23,8 @@ Global
 		{59631C39-13EF-46E5-9450-C6C2A7432A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59631C39-13EF-46E5-9450-C6C2A7432A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59631C39-13EF-46E5-9450-C6C2A7432A48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45CB15CE-B576-428D-9D67-3D6EEA484DED}.Debug|Any CPU.ActiveCfg = Debug
-		{45CB15CE-B576-428D-9D67-3D6EEA484DED}.Release|Any CPU.ActiveCfg = Release
+		{EF4D3C97-5121-4435-A94D-03EA9FD950C0}.Debug|Any CPU.ActiveCfg = Debug
+		{EF4D3C97-5121-4435-A94D-03EA9FD950C0}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

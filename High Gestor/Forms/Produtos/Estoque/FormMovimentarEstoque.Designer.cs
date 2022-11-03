@@ -54,7 +54,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(16, 54);
+            label4.Location = new System.Drawing.Point(22, 68);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(154, 16);
             label4.TabIndex = 115;
@@ -64,7 +64,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label2.Location = new System.Drawing.Point(17, 119);
+            label2.Location = new System.Drawing.Point(23, 133);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(85, 16);
             label2.TabIndex = 117;
@@ -74,7 +74,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label1.Location = new System.Drawing.Point(353, 54);
+            label1.Location = new System.Drawing.Point(359, 68);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(44, 16);
             label1.TabIndex = 149;
@@ -84,7 +84,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(353, 119);
+            label3.Location = new System.Drawing.Point(359, 133);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(85, 16);
             label3.TabIndex = 151;
@@ -94,7 +94,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(502, 171);
+            label5.Location = new System.Drawing.Point(502, 184);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(184, 16);
             label5.TabIndex = 152;
@@ -104,7 +104,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.Location = new System.Drawing.Point(17, 186);
+            label6.Location = new System.Drawing.Point(23, 200);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(69, 16);
             label6.TabIndex = 154;
@@ -118,7 +118,7 @@
             this.comboBoxTipoMovimentacao.Items.AddRange(new object[] {
             "ENTRADA",
             "SAIDA"});
-            this.comboBoxTipoMovimentacao.Location = new System.Drawing.Point(20, 73);
+            this.comboBoxTipoMovimentacao.Location = new System.Drawing.Point(26, 87);
             this.comboBoxTipoMovimentacao.Name = "comboBoxTipoMovimentacao";
             this.comboBoxTipoMovimentacao.Size = new System.Drawing.Size(330, 28);
             this.comboBoxTipoMovimentacao.TabIndex = 0;
@@ -127,7 +127,7 @@
             // 
             this.textBoxQuantidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxQuantidade.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxQuantidade.Location = new System.Drawing.Point(20, 138);
+            this.textBoxQuantidade.Location = new System.Drawing.Point(26, 152);
             this.textBoxQuantidade.Name = "textBoxQuantidade";
             this.textBoxQuantidade.Size = new System.Drawing.Size(330, 29);
             this.textBoxQuantidade.TabIndex = 2;
@@ -137,7 +137,7 @@
             // 
             this.btnSair.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSair.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSair.Location = new System.Drawing.Point(354, 259);
+            this.btnSair.Location = new System.Drawing.Point(365, 278);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(120, 40);
             this.btnSair.TabIndex = 119;
@@ -149,7 +149,7 @@
             // 
             this.buttonSalvar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.buttonSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSalvar.Location = new System.Drawing.Point(228, 259);
+            this.buttonSalvar.Location = new System.Drawing.Point(239, 278);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(120, 40);
             this.buttonSalvar.TabIndex = 118;
@@ -164,7 +164,7 @@
             this.labelTitulo.AutoSize = true;
             this.labelTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             this.labelTitulo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.labelTitulo.Location = new System.Drawing.Point(12, 11);
+            this.labelTitulo.Location = new System.Drawing.Point(19, 11);
             this.labelTitulo.Name = "labelTitulo";
             this.labelTitulo.Size = new System.Drawing.Size(181, 24);
             this.labelTitulo.TabIndex = 121;
@@ -175,7 +175,7 @@
             // 
             this.dateTimeData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimeData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimeData.Location = new System.Drawing.Point(356, 73);
+            this.dateTimeData.Location = new System.Drawing.Point(362, 87);
             this.dateTimeData.Name = "dateTimeData";
             this.dateTimeData.Size = new System.Drawing.Size(330, 26);
             this.dateTimeData.TabIndex = 1;
@@ -184,7 +184,7 @@
             // 
             this.textBoxValorUnitario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxValorUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxValorUnitario.Location = new System.Drawing.Point(356, 138);
+            this.textBoxValorUnitario.Location = new System.Drawing.Point(362, 152);
             this.textBoxValorUnitario.Name = "textBoxValorUnitario";
             this.textBoxValorUnitario.Size = new System.Drawing.Size(330, 29);
             this.textBoxValorUnitario.TabIndex = 3;
@@ -194,7 +194,7 @@
             // 
             this.textBoxDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxDescricao.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescricao.Location = new System.Drawing.Point(20, 205);
+            this.textBoxDescricao.Location = new System.Drawing.Point(26, 219);
             this.textBoxDescricao.Name = "textBoxDescricao";
             this.textBoxDescricao.Size = new System.Drawing.Size(666, 29);
             this.textBoxDescricao.TabIndex = 4;
@@ -204,7 +204,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(703, 314);
+            this.ClientSize = new System.Drawing.Size(724, 331);
             this.Controls.Add(label6);
             this.Controls.Add(this.textBoxDescricao);
             this.Controls.Add(label5);
@@ -227,6 +227,7 @@
             this.Text = "High Gestor - Movimentar Caixa";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMovimentarCaixa_FormClosing);
             this.Load += new System.EventHandler(this.FormMovimentarCaixa_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormMovimentarEstoque_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
 

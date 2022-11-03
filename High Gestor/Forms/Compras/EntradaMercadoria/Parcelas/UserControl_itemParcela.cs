@@ -123,6 +123,8 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
                 comboBoxFormaPagamento.Items.Add(datareader[3].ToString());
             }
             banco.desconectar();
+
+            comboBoxFormaPagamento.SelectedIndex = 1;
         }
 
         public string EditarDataComboBoxFormaPagamento(int ID)
@@ -180,7 +182,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas
 
             if (EditarParcelas == false)
             {
-                comboBoxFormaPagamento.SelectedIndex = 0;
+                comboBoxFormaPagamento.SelectedIndex = 1;
             }
 
             if(SituacaoContas == true)

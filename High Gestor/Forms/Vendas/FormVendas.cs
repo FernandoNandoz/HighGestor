@@ -53,12 +53,6 @@ namespace High_Gestor.Forms.Vendas
             button.Height, 5, 5));
         }
 
-        private void buttonVoltar_Paint(object sender, PaintEventArgs e)
-        {
-            buttonVoltar.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, buttonVoltar.Width,
-            buttonVoltar.Height, 5, 5));
-        }
-
         #endregion
 
         #region Responsividade
@@ -275,11 +269,6 @@ namespace High_Gestor.Forms.Vendas
             dataContasPagar();
             dataContasReceber();
 
-        }
-
-        private void buttonVoltar_Click(object sender, System.EventArgs e)
-        {
-            this.Close();
         }
 
         private void dataGridViewDemontracaoMes_CellClick(object sender, DataGridViewCellEventArgs e)

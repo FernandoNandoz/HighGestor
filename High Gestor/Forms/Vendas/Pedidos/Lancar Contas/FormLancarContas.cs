@@ -75,10 +75,15 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
         private void inicializarDataTables()
         {
+            PedidoVenda.Columns.Add("IdPedidoVenda", typeof(int));
             PedidoVenda.Columns.Add("NumeroPedido", typeof(string));
+            PedidoVenda.Columns.Add("valorTotalPedido", typeof(decimal));
             PedidoVenda.Columns.Add("IdCliente", typeof(int));
+            PedidoVenda.Columns.Add("IdFuncionario", typeof(int));
+
 
             ParcelasNota.Columns.Add("IdParcelaNota", typeof(int));
+            ParcelasNota.Columns.Add("NumeroNota", typeof(int));
             ParcelasNota.Columns.Add("NumeroParcela", typeof(int));
             ParcelasNota.Columns.Add("DataVencimento", typeof(DateTime));
             ParcelasNota.Columns.Add("ValorTotal", typeof(decimal));
@@ -140,7 +145,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
         private void carregarParcelasNota()
         {
-            string query = ("SELECT ParcelasNota.idParcelaNota, ParcelasNota.numeroParcela, ParcelasNota.dataVencimento, ParcelasNota.valorTotal, ParcelasNota.idFormaPagamentoFK, PedidosVenda.situacao, ParcelasNota.idPedidosVendaFK, ParcelasNota.observacao FROM ParcelasNota INNER JOIN PedidosVenda ON ParcelasNota.idPedidosVendaFK = PedidosVenda.idPedidoVenda WHERE idPedidosVendaFK = @ID");
+            string query = ("SELECT ContasReceber.idContaReceber, ContasReceber.numeroNota, ContasReceber.numeroParcela, ContasReceber.dataVencimento, ContasReceber.valorTotal, ContasReceber.idFormaPagamentoFK, PedidosVenda.situacao, ContasReceber.idPedidosVendaFK, ContasReceber.observacao FROM ContasReceber INNER JOIN PedidosVenda ON ContasReceber.idPedidosVendaFK = PedidosVenda.idPedidoVenda WHERE idPedidosVendaFK = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -152,15 +157,20 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
         
             while (datareader.Read())
             {
+                string numeroNota = datareader[1].ToString();
+
+                string[] numero = numeroNota.Split('-');
+
                 ParcelasNota.Rows.Add(
                     datareader.GetInt32(0),
-                    int.Parse(datareader.GetString(1)),
-                    datareader.GetDateTime(2),
-                    datareader.GetDecimal(3),
-                    datareader.GetInt32(4),
-                    datareader.GetString(5),
-                    datareader.GetInt32(6),
-                    datareader[7].ToString());
+                    int.Parse(numero[0]),
+                    datareader.GetInt32(2),
+                    datareader.GetDateTime(3),
+                    datareader.GetDecimal(4),
+                    datareader.GetInt32(5),
+                    datareader.GetString(6),
+                    datareader.GetInt32(7),
+                    datareader[8].ToString());
             }
 
             banco.desconectar();
@@ -168,7 +178,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
         private void carregarDados()
         {
-            string select = ("SELECT numeroPedido, idClienteFK FROM PedidosVenda WHERE idPedidoVenda = @ID");
+            string select = ("SELECT idPedidoVenda, numeroPedido, valorTotalPedido, idClienteFK, idFuncionarioFK FROM PedidosVenda WHERE idPedidoVenda = @ID");
             SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
             exeSelect.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -178,7 +188,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
 
             if (reader.Read())
             {
-                PedidoVenda.Rows.Add(reader[0].ToString(), reader[1].ToString());
+                PedidoVenda.Rows.Add(reader.GetInt32(0), reader[1].ToString(), reader.GetDecimal(2), reader.GetInt32(3), reader.GetInt32(4));
             }
             banco.desconectar();
 
@@ -190,16 +200,18 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             for (int i = 0; i < ParcelasNota.Rows.Count; i++)
             {
                 item[i] = new ItensConta.UserControl_ItemConta();
-                item[i].NumeroParcela = int.Parse(ParcelasNota.Rows[i][1].ToString());
-                item[i].DataVencimento = DateTime.Parse(ParcelasNota.Rows[i][2].ToString());
-                item[i].ValorParcela = decimal.Parse(ParcelasNota.Rows[i][3].ToString());
-                item[i].IdFormaPagamento = int.Parse(ParcelasNota.Rows[i][4].ToString());
+                item[i].IdContaReceber = int.Parse(ParcelasNota.Rows[i][0].ToString());
+                item[i].NumeroNota = int.Parse(ParcelasNota.Rows[i][1].ToString()); ;
+                item[i].NumeroParcela = int.Parse(ParcelasNota.Rows[i][2].ToString());
+                item[i].DataVencimento = DateTime.Parse(ParcelasNota.Rows[i][3].ToString());
+                item[i].ValorParcela = decimal.Parse(ParcelasNota.Rows[i][4].ToString());
+                item[i].IdFormaPagamento = int.Parse(ParcelasNota.Rows[i][5].ToString());
                 item[i].Situacao = "EM ABERTO";
 
                 flowLayoutPanelContent.Controls.Add(item[i]);
             }
 
-            if(SistemaVerificacao.verificarComissao() == true)
+            if (SistemaVerificacao.verificarComissao() == true)
             {
                 checkBoxLancarComissao.Checked = true;
             }
@@ -207,40 +219,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             {
                 checkBoxLancarComissao.Checked = false;
             }
-        }
-
-        private string numeroPedido(int parcela)
-        {
-            string numeroPedido = string.Empty;
-
-            numeroPedido = PedidoVenda.Rows[0][0].ToString();
-
-            numeroPedido = numeroPedido + "-" + parcela;
-            
-            return numeroPedido;
-        }
-
-        private string gerarTituloConta()
-        {
-            string tituloReceita = "PEDIDO " + PedidoVenda.Rows[0][0].ToString();
-
-            return tituloReceita;
-        }
-
-        private string verificarOcorrencia()
-        {
-            string ocorrencia = string.Empty;
-
-            if(ParcelasNota.Rows.Count > 1)
-            {
-                ocorrencia = "PARCELADA";
-            }
-            else
-            {
-                ocorrencia = "UNICA";
-            }
-
-            return ocorrencia;
         }
 
         private int verificarIdCategoriaFinanceiro(string CategoriaFinanceiro)
@@ -312,27 +290,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             return id;
         }
 
-        private int verificarIdContasReceber()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string query = ("SELECT idContaReceber FROM ContasReceber WHERE idContaReceber=(SELECT MAX(idContaReceber) FROM ContasReceber)");
-            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
         private int verificarIdPagamentos()
         {
             int id = 0;
@@ -354,79 +311,46 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
             return id;
         }
 
-        private void queryInsertContasReceber()
+        private string gerarDescricao(int numeroPedido, int parcela)
         {
-            try
+            string descricao;
+
+            if (item.Length > 1)
             {
-                string query = ("INSERT INTO ContasReceber (numeroNota, tituloConta, situacao, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idContaBancariaFK, idCategoriaFinanceiroFK, idClienteFK, idFormaPagamentoFK, idCentroCustoFK, idPedidosVendaFK, idFuncionarioFK, idLog, createdAt) VALUES (@numeroNota, @tituloConta, @situacao, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idContaBancariaFK, @idCategoriaFinanceiroFK, @idClienteFK, @idFormaPagamentoFK, @idCentroCustoFK, @idPedidosVendaFK, @idFuncionarioFK, @idLog, @createdAt)");
-                SqlCommand exeQuery = new SqlCommand(query, banco.connection);
-
-                for (int i = 0; i < ParcelasNota.Rows.Count; i++)
-                {
-                    exeQuery.Parameters.Clear();
-                    exeQuery.Parameters.AddWithValue("@numeroNota", numeroPedido(int.Parse(ParcelasNota.Rows[i][1].ToString())));
-                    exeQuery.Parameters.AddWithValue("@tituloConta", gerarTituloConta());
-                    exeQuery.Parameters.AddWithValue("@situacao", item[i].Situacao);
-                    exeQuery.Parameters.AddWithValue("@dataEmissao", dateTimeDataEmissao.Value);
-                    exeQuery.Parameters.AddWithValue("@dataVencimento", DateTime.Parse(ParcelasNota.Rows[i][2].ToString()));
-                    exeQuery.Parameters.AddWithValue("@valorTotal", decimal.Parse(ParcelasNota.Rows[i][3].ToString()));
-                    exeQuery.Parameters.AddWithValue("@ocorrencia", verificarOcorrencia());
-                    exeQuery.Parameters.AddWithValue("@observacao", ParcelasNota.Rows[i][7].ToString());
-                    exeQuery.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria(item[i].comboBoxContaBancaria.Text));
-                    exeQuery.Parameters.AddWithValue("@idCategoriaFinanceiroFK", verificarIdCategoriaFinanceiro(textBoxCategoriaFinanceira.Text));
-                    exeQuery.Parameters.AddWithValue("@idClienteFK", PedidoVenda.Rows[0][1].ToString());
-                    exeQuery.Parameters.AddWithValue("@idFormaPagamentoFK", int.Parse(ParcelasNota.Rows[i][4].ToString()));
-                    exeQuery.Parameters.AddWithValue("@idCentroCustoFK", verificarIdCentroCusto(textBoxCentroCusto.Text));
-                    exeQuery.Parameters.AddWithValue("@idPedidosVendaFK", updateData._retornarID());
-                    exeQuery.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
-                    exeQuery.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
-                    exeQuery.Parameters.AddWithValue("@createdAt", DateTime.Now);
-
-                    banco.conectar();
-                    exeQuery.ExecuteNonQuery();
-                    banco.desconectar();
-
-                    queryUpdatePedidosVenda_Contas("LANCADO");
-
-                    if (item[i].Situacao == "LIQUIDADO")
-                    {
-                        insertPagamentoConta(DateTime.Parse(item[i].maskedDataPagamento.Text));
-                        queryUpdateContasReceber();
-                    }
-
-                    MessageBox.Show("Conta(s) lançada(s) com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                descricao = "Pedido " + numeroPedido + "Parc.: " + parcela;
             }
-            catch (Exception erro)
+            else
             {
-                MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema: QueryContasReceber " + "\n" + "\n" + erro.Message, "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                descricao = "Pedido " + numeroPedido;
             }
+
+            return descricao;
         }
 
-        private void queryUpdatePedidosVenda_Contas(string situacao)
+        private void queryUpdateContasReceber()
         {
-            string query = ("UPDATE PedidosVenda SET situacaoContas = @situacao WHERE idPedidoVenda = @ID");
-            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+            string comissao = string.Empty;
 
-            exeQuery.Parameters.AddWithValue("@situacao", situacao);
-            exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
+            if (checkBoxLancarComissao.Checked == true)
+            {
+                comissao = "SIM";
+            }
+            else
+            {
+                comissao = "NAO";
+            }
 
-            banco.conectar();
-            exeQuery.ExecuteNonQuery();
-            banco.desconectar();
-        }
-
-        private void insertPagamentoConta(DateTime DataPagamento)
-        {
             for (int i = 0; i < item.Length; i++)
             {
                 if (item[i].Situacao == "LIQUIDADO")
                 {
+                    /// PAGAMENTOS
+
                     string insert = ("INSERT INTO Pagamentos (numeroNota, situacao, dataPagamento, subTotal, desconto, acrescimo, valorTotal, valorRecebido, troco, observacaoPagamento, idContaBancariaFK, idFormaPagamentoFK, idLog, createdAt) VALUES (@numeroNota, @situacao, @dataPagamento, @subTotal, @desconto, @acrescimo, @valorTotal, @valorRecebido, @troco, @observacaoPagamento, @idContaBancariaFK, @idFormaPagamentoFK, @idLog, @createdAt)");
                     SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
 
                     exeInsert.Parameters.Clear();
-                    exeInsert.Parameters.AddWithValue("@numeroNota", numeroPedido(item[i].NumeroParcela));
+                    exeInsert.Parameters.AddWithValue("@numeroNota", item[i].NumeroNota + "-" + item[i].NumeroParcela);
                     exeInsert.Parameters.AddWithValue("@situacao", "LIQUIDADO");
                     exeInsert.Parameters.AddWithValue("@dataPagamento", DateTime.Parse(item[i].maskedDataPagamento.Text));
                     exeInsert.Parameters.AddWithValue("@subTotal", item[i].ValorParcela);
@@ -444,30 +368,103 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
                     banco.conectar();
                     exeInsert.ExecuteNonQuery();
                     banco.desconectar();
+
+
+                    /// CONTAS RECEBER       
+
+                    string query = ("UPDATE ContasReceber SET situacao = @situacao, situacaoContas = @situacaoContas, idPagamentosFK = @idPagamentosFK, comissao = @comissao, idCategoriaFinanceiroFK = @idCategoriaFinanceiroFK, idCentroCustoFK = @idCentroCustoFK, idContaBancariaFK = @idContaBancariaFK WHERE idContaReceber = @ID");
+                    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                    exeQuery.Parameters.AddWithValue("@situacao", "LIQUIDADO");
+                    exeQuery.Parameters.AddWithValue("@situacaoContas", "LANCADO");
+                    exeQuery.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
+                    exeQuery.Parameters.AddWithValue("@comissao", comissao);
+                    exeQuery.Parameters.AddWithValue("@idCategoriaFinanceiroFK", verificarIdCategoriaFinanceiro(textBoxCategoriaFinanceira.Text));
+                    exeQuery.Parameters.AddWithValue("@idCentroCustoFK", verificarIdCentroCusto(textBoxCentroCusto.Text));
+                    exeQuery.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria(item[i].comboBoxContaBancaria.Text));
+                    exeQuery.Parameters.AddWithValue("@ID", item[i].IdContaReceber);
+
+                    banco.conectar();
+                    exeQuery.ExecuteNonQuery();
+                    banco.desconectar();
+                }
+                else
+                {
+                    string query = ("UPDATE ContasReceber SET situacao = @situacao, situacaoContas = @situacaoContas, idPagamentosFK = @idPagamentosFK, comissao = @comissao, idCategoriaFinanceiroFK = @idCategoriaFinanceiroFK, idCentroCustoFK = @idCentroCustoFK WHERE idContaReceber = @ID");
+                    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                    exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
+                    exeQuery.Parameters.AddWithValue("@situacaoContas", "LANCADO");
+                    exeQuery.Parameters.AddWithValue("@idPagamentosFK", DBNull.Value);
+                    exeQuery.Parameters.AddWithValue("@comissao", comissao);
+                    exeQuery.Parameters.AddWithValue("@idCategoriaFinanceiroFK", verificarIdCategoriaFinanceiro(textBoxCategoriaFinanceira.Text));
+                    exeQuery.Parameters.AddWithValue("@idCentroCustoFK", verificarIdCentroCusto(textBoxCentroCusto.Text));
+                    exeQuery.Parameters.AddWithValue("@ID", item[i].IdContaReceber);
+
+                    banco.conectar();
+                    exeQuery.ExecuteNonQuery();
+                    banco.desconectar();
+                }
+
+                if (checkBoxLancarComissao.Checked == true)
+                {
+                    string situacao = string.Empty;
+                    decimal percentComissao = SistemaVerificacao.verificarPercentComissao();
+                    decimal baseCalculo = item[i].ValorParcela;
+
+                    decimal valorComissao = baseCalculo * (percentComissao / 100);
+
+
+                    if (SistemaVerificacao.verificarComissionamento() == "TOTAL DE RECEITAS")
+                    {
+                        if (item[i].Situacao == "LIQUIDADO")
+                        {
+                            situacao = "LANCADO";
+                        }
+                        else
+                        {
+                            situacao = "NAO LANCADO";
+                        }
+                    }
+                    else if (SistemaVerificacao.verificarComissionamento() == "TOTAL DE VENDAS")
+                    {
+                        situacao = "LANCADO";
+                    }
+
+                    string insertComissao = ("INSERT INTO Comissao (tipoLancamento, situacao, dataLancamento, descricao, baseCalculo, percentComissao, valorComissao, valorCredito, valorDebito, valorPagamento, idClienteFK, idCaixaFK, idFuncionarioFK, idContasReceberFK) VALUES (@tipoLancamento, @situacao, @dataLancamento, @descricao, @baseCalculo, @percentComissao, @valorComissao, @valorCredito, @valorDebito, @valorPagamento, @idClienteFK, @idCaixaFK, @idFuncionarioFK, @idContasReceberFK)");
+                    SqlCommand exeInsertComissao = new SqlCommand(insertComissao, banco.connection);
+
+                    exeInsertComissao.Parameters.AddWithValue("@tipoLancamento", "COMISSAO");
+                    exeInsertComissao.Parameters.AddWithValue("@situacao", situacao);
+                    exeInsertComissao.Parameters.AddWithValue("@dataLancamento", dateTimeDataEmissao.Value);
+                    exeInsertComissao.Parameters.AddWithValue("@descricao", gerarDescricao(int.Parse(PedidoVenda.Rows[0][1].ToString()), item[i].NumeroParcela));
+                    exeInsertComissao.Parameters.AddWithValue("@baseCalculo", baseCalculo);
+                    exeInsertComissao.Parameters.AddWithValue("@percentComissao", percentComissao);
+                    exeInsertComissao.Parameters.AddWithValue("@valorComissao", valorComissao);
+                    exeInsertComissao.Parameters.AddWithValue("@valorCredito", 0);
+                    exeInsertComissao.Parameters.AddWithValue("@valorDebito", 0);
+                    exeInsertComissao.Parameters.AddWithValue("@valorPagamento", 0);
+                    exeInsertComissao.Parameters.AddWithValue("@idClienteFK", int.Parse(PedidoVenda.Rows[0][3].ToString()));
+                    exeInsertComissao.Parameters.AddWithValue("@idCaixaFK", 0);
+                    exeInsertComissao.Parameters.AddWithValue("@idFuncionarioFK", int.Parse(PedidoVenda.Rows[0][4].ToString()));
+                    exeInsertComissao.Parameters.AddWithValue("@idContasReceberFK", item[i].IdContaReceber);
+
+                    banco.conectar();
+                    exeInsertComissao.ExecuteNonQuery();
+                    banco.desconectar();
                 }
             }
-            
+
+            queryUpdatePedidosVenda_Contas("LANCADO");
         }
 
-        private void queryUpdateContasReceber()
+        private void queryUpdatePedidosVenda_Contas(string situacao)
         {
-            string comissao = string.Empty;
-
-            if(checkBoxLancarComissao.Checked == true)
-            {
-                comissao = "SIM";
-            }
-            else
-            {
-                comissao = "NAO";
-            }
-
-            string query = ("UPDATE ContasReceber SET idPagamentosFK = @idPagamentosFK, comissao = @comissao WHERE idContaReceber = @ID");
+            string query = ("UPDATE PedidosVenda SET situacaoContas = @situacao WHERE idPedidoVenda = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-            exeQuery.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
-            exeQuery.Parameters.AddWithValue("@comissao", comissao);
-            exeQuery.Parameters.AddWithValue("@ID", verificarIdContasReceber());
+            exeQuery.Parameters.AddWithValue("@situacao", situacao);
+            exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
 
             banco.conectar();
             exeQuery.ExecuteNonQuery();
@@ -552,7 +549,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas
         {
             if (MessageBox.Show("Tem certeza que deseja lançar às contas?" + "\n" + "\n", "Opaa!!!, Dinheiro chegando, mas antes...!?!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                queryInsertContasReceber();
+                queryUpdateContasReceber();
 
                 this.Close();
             }

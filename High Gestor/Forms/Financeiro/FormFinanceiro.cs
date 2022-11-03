@@ -81,7 +81,6 @@ namespace High_Gestor.Forms.Financeiro
 
         #endregion
 
-
         private void FormFinanceiro_Load(object sender, EventArgs e)
         {
             labelStatusCaixa.Text = "Caixa Fechado";
@@ -107,7 +106,7 @@ namespace High_Gestor.Forms.Financeiro
 
         private void buttonContasReceber_Click(object sender, EventArgs e)
         {
-
+            openChildForm(new ContasReceber.FormContasReceber());
         }
 
         private void buttonFluxoCaixa_Click(object sender, EventArgs e)

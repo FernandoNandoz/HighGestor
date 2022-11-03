@@ -161,12 +161,20 @@ namespace High_Gestor.Forms.Vendas.Pedidos
                     {
                         ContasLancado = Resources.padrao_contaBancaria_NULO_1;
                     }
+                    else if (datareader.GetString(9) == "CONTAS ESTORNADA")
+                    {
+                        ContasLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
 
                     if (datareader.GetString(10) == "LANCADO")
                     {
                         EstoqueLancado = Resources.icon_estoque_3;
                     }
                     else if (datareader.GetString(10) == "NAO LANCADO")
+                    {
+                        EstoqueLancado = Resources.padrao_contaBancaria_NULO_1;
+                    }
+                    else if (datareader.GetString(10) == "ESTOQUE ESTORNADO")
                     {
                         EstoqueLancado = Resources.padrao_contaBancaria_NULO_1;
                     }
@@ -190,6 +198,8 @@ namespace High_Gestor.Forms.Vendas.Pedidos
                 dataGridViewContent.AutoGenerateColumns = false;
 
                 dataGridViewContent.DataSource = Venda;
+
+                verificarQuantidadePedido();
             }
             catch (Exception erro)
             {
@@ -334,7 +344,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         private void FormPedidos_Load(object sender, EventArgs e)
         {
             carregarDados();
-            verificarQuantidadePedido();
         }
 
         private void buttonVoltar_Click(object sender, EventArgs e)
@@ -504,11 +513,22 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
                     if ((yPanelContent - y) > contasLancadas.Height)
                     {
+                        if (panelPesquisaContent.Visible == true)
+                        {
+                            y += panelPesquisaContent.Height;
+                        }
+
                         contasLancadas.Location = new Point(X, y);
                     }
                     else
                     {
-                        y = cellRectangle.Bottom - 180;
+                        y = cellRectangle.Bottom - 110;
+
+                        if (panelPesquisaContent.Visible == true)
+                        {
+                            y += panelPesquisaContent.Height;
+                        }
+
                         contasLancadas.Location = new Point(X, y);
                     }
 
@@ -538,11 +558,22 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
                     if ((yPanelContent - y) > acoes.Height)
                     {
+                        if (panelPesquisaContent.Visible == true)
+                        {
+                            y += panelPesquisaContent.Height;
+                        }
+
                         acoes.Location = new Point(X, y);
                     }
                     else
                     {
                         y = cellRectangle.Bottom - 180;
+
+                        if (panelPesquisaContent.Visible == true)
+                        {
+                            y += panelPesquisaContent.Height;
+                        }
+
                         acoes.Location = new Point(X, y);
                     }
 
@@ -597,8 +628,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
         private void buttonPesquisarAvancada_Click(object sender, EventArgs e)
         {
-            //maskedDataPedido.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
-
             if (maskedDataPedido.Text != "")
             {
                 maskedDataCadastro.Clear();
@@ -614,8 +643,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos
             }
 
             verificarQuantidadePedido();
-
-            //maskedDataPedido.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
         }
 
         private void buttonLimparFiltros_Click(object sender, EventArgs e)
@@ -637,5 +664,6 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
             verificarQuantidadePedido();
         }
+
     }
 }

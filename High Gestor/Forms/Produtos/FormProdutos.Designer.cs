@@ -141,9 +141,9 @@
             label10.ForeColor = System.Drawing.Color.Black;
             label10.Location = new System.Drawing.Point(21, 12);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(91, 26);
+            label10.Size = new System.Drawing.Size(99, 26);
             label10.TabIndex = 226;
-            label10.Text = "Pedidos";
+            label10.Text = "Produtos";
             label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
@@ -748,6 +748,7 @@
             this.buttonRelacaoProduto.Location = new System.Drawing.Point(178, 57);
             this.buttonRelacaoProduto.Margin = new System.Windows.Forms.Padding(5);
             this.buttonRelacaoProduto.Name = "buttonRelacaoProduto";
+            this.buttonRelacaoProduto.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.buttonRelacaoProduto.Size = new System.Drawing.Size(189, 32);
             this.buttonRelacaoProduto.TabIndex = 222;
             this.buttonRelacaoProduto.Text = " Relação de produtos";

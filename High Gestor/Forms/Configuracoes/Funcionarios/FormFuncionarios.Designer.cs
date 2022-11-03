@@ -63,9 +63,9 @@
             label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             label1.Location = new System.Drawing.Point(10, 10);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(115, 24);
+            label1.Size = new System.Drawing.Size(83, 24);
             label1.TabIndex = 228;
-            label1.Text = "Vendedores";
+            label1.Text = "Usuários";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelContent
@@ -151,7 +151,7 @@
             this.buttonExcluirCadastro.BackColor = System.Drawing.Color.White;
             this.buttonExcluirCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExcluirCadastro.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirCadastro.Image")));
-            this.buttonExcluirCadastro.Location = new System.Drawing.Point(400, 60);
+            this.buttonExcluirCadastro.Location = new System.Drawing.Point(372, 60);
             this.buttonExcluirCadastro.Margin = new System.Windows.Forms.Padding(5);
             this.buttonExcluirCadastro.Name = "buttonExcluirCadastro";
             this.buttonExcluirCadastro.Size = new System.Drawing.Size(153, 30);
@@ -170,9 +170,9 @@
             this.buttonRelatorio.Location = new System.Drawing.Point(178, 60);
             this.buttonRelatorio.Margin = new System.Windows.Forms.Padding(5);
             this.buttonRelatorio.Name = "buttonRelatorio";
-            this.buttonRelatorio.Size = new System.Drawing.Size(212, 30);
+            this.buttonRelatorio.Size = new System.Drawing.Size(184, 30);
             this.buttonRelatorio.TabIndex = 230;
-            this.buttonRelatorio.Text = " Relação dos vendedores";
+            this.buttonRelatorio.Text = " Relação de usuários";
             this.buttonRelatorio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonRelatorio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonRelatorio.UseVisualStyleBackColor = false;
@@ -190,7 +190,7 @@
             this.buttonAdicionarNovo.Name = "buttonAdicionarNovo";
             this.buttonAdicionarNovo.Size = new System.Drawing.Size(154, 30);
             this.buttonAdicionarNovo.TabIndex = 229;
-            this.buttonAdicionarNovo.Text = "Novo vendedor";
+            this.buttonAdicionarNovo.Text = "Novo usuário";
             this.buttonAdicionarNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAdicionarNovo.UseVisualStyleBackColor = false;
             this.buttonAdicionarNovo.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
