@@ -255,12 +255,30 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             }
         }
 
-        private void carregarDados()
+        private decimal carregarValorReceber(decimal ValorTotal, decimal ValorRecebido)
         {
+            decimal ValorReceber = 0;
+
+            if (ValorRecebido >= ValorTotal)
+            {
+                ValorReceber = ValorTotal;
+            }
+            else
+            {
+                ValorReceber = ValorTotal - ValorRecebido;
+            }
+
+            return ValorReceber;
+        }
+
+        public void carregarDados()
+        {
+            ContasReceber.Rows.Clear();
+
             Image image = null;
             string lancamento = string.Empty;
 
-            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia FROM ContasReceber ORDER BY idContaReceber DESC");
+            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia, (SELECT SUM(valorTotal) FROM Pagamentos WHERE numeroNota = ContasReceber.numeroNota AND situacao != 'CONTA ESTORNADA') FROM ContasReceber ORDER BY idContaReceber DESC");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             banco.conectar();
@@ -298,7 +316,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                     reader.GetDateTime(3).ToShortDateString(),
                     lancamento,
                     reader.GetString(5),
-                    reader.GetDecimal(6),
+                    carregarValorReceber(reader.GetDecimal(6), reader.IsDBNull(11) ? 0 : reader.GetDecimal(11)),
                     reader.GetString(7),
                     reader.GetString(8),
                     image,
@@ -311,7 +329,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             dataGridViewContent.DataSource = ContasReceber;
         }
 
-        private void carregarResumoGeral()
+        public void carregarResumoGeral()
         {
             int Quantidade = 0;
             decimal atrasados = 0, hoje = 0, futuros = 0, total = 0;
@@ -896,7 +914,9 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
 
             if (e.ColumnIndex == 8)
             {
-                LiquidarConta.FormLiquidarConta windows = new LiquidarConta.FormLiquidarConta();
+                updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+                LiquidarConta.FormLiquidarConta windows = new LiquidarConta.FormLiquidarConta(this);
                 windows.ShowDialog();
                 windows.Dispose();
             }

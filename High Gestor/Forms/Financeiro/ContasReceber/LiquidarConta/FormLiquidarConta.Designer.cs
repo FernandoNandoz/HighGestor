@@ -52,6 +52,9 @@
             this.labelFormaPagamento = new System.Windows.Forms.Label();
             this.labelValueReceita = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.flowLayoutSubMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelResumoPagamento = new System.Windows.Forms.Panel();
+            this.labelResumoPagamento = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
@@ -62,6 +65,8 @@
             this.panelComprovantes.SuspendLayout();
             this.panelBaixarManual.SuspendLayout();
             this.panelHistorico.SuspendLayout();
+            this.flowLayoutSubMenu.SuspendLayout();
+            this.panelResumoPagamento.SuspendLayout();
             this.SuspendLayout();
             // 
             // label28
@@ -91,7 +96,7 @@
             label25.AutoSize = true;
             label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label25.Location = new System.Drawing.Point(43, 113);
+            label25.Location = new System.Drawing.Point(43, 117);
             label25.Name = "label25";
             label25.Size = new System.Drawing.Size(86, 18);
             label25.TabIndex = 274;
@@ -102,7 +107,7 @@
             label24.AutoSize = true;
             label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label24.Location = new System.Drawing.Point(298, 113);
+            label24.Location = new System.Drawing.Point(298, 117);
             label24.Name = "label24";
             label24.Size = new System.Drawing.Size(110, 18);
             label24.TabIndex = 273;
@@ -113,7 +118,7 @@
             label23.AutoSize = true;
             label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label23.Location = new System.Drawing.Point(605, 113);
+            label23.Location = new System.Drawing.Point(605, 117);
             label23.Name = "label23";
             label23.Size = new System.Drawing.Size(113, 18);
             label23.TabIndex = 272;
@@ -147,9 +152,7 @@
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelHeader.Controls.Add(this.panelComprovantes);
-            this.panelHeader.Controls.Add(this.panelBaixarManual);
-            this.panelHeader.Controls.Add(this.panelHistorico);
+            this.panelHeader.Controls.Add(this.flowLayoutSubMenu);
             this.panelHeader.Controls.Add(this.labelValueObservacao);
             this.panelHeader.Controls.Add(this.labelValueValorAberto);
             this.panelHeader.Controls.Add(this.labelValueValorReceita);
@@ -177,7 +180,7 @@
             // 
             this.panelComprovantes.BackColor = System.Drawing.Color.LightGray;
             this.panelComprovantes.Controls.Add(this.labelComprovantes);
-            this.panelComprovantes.Location = new System.Drawing.Point(289, 244);
+            this.panelComprovantes.Location = new System.Drawing.Point(476, 0);
             this.panelComprovantes.Margin = new System.Windows.Forms.Padding(0);
             this.panelComprovantes.Name = "panelComprovantes";
             this.panelComprovantes.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
@@ -205,7 +208,7 @@
             // 
             this.panelBaixarManual.BackColor = System.Drawing.Color.LightGray;
             this.panelBaixarManual.Controls.Add(this.labelBaixarManual);
-            this.panelBaixarManual.Location = new System.Drawing.Point(31, 244);
+            this.panelBaixarManual.Location = new System.Drawing.Point(218, 0);
             this.panelBaixarManual.Margin = new System.Windows.Forms.Padding(0);
             this.panelBaixarManual.Name = "panelBaixarManual";
             this.panelBaixarManual.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
@@ -232,7 +235,7 @@
             // 
             this.panelHistorico.BackColor = System.Drawing.Color.LightGray;
             this.panelHistorico.Controls.Add(this.labelHistorico);
-            this.panelHistorico.Location = new System.Drawing.Point(160, 244);
+            this.panelHistorico.Location = new System.Drawing.Point(347, 0);
             this.panelHistorico.Margin = new System.Windows.Forms.Padding(0);
             this.panelHistorico.Name = "panelHistorico";
             this.panelHistorico.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
@@ -260,7 +263,7 @@
             // 
             this.labelValueObservacao.AutoSize = true;
             this.labelValueObservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValueObservacao.Location = new System.Drawing.Point(43, 195);
+            this.labelValueObservacao.Location = new System.Drawing.Point(43, 199);
             this.labelValueObservacao.Name = "labelValueObservacao";
             this.labelValueObservacao.Size = new System.Drawing.Size(82, 17);
             this.labelValueObservacao.TabIndex = 287;
@@ -270,7 +273,7 @@
             // 
             this.labelValueValorAberto.AutoSize = true;
             this.labelValueValorAberto.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValueValorAberto.Location = new System.Drawing.Point(605, 135);
+            this.labelValueValorAberto.Location = new System.Drawing.Point(605, 139);
             this.labelValueValorAberto.Name = "labelValueValorAberto";
             this.labelValueValorAberto.Size = new System.Drawing.Size(16, 17);
             this.labelValueValorAberto.TabIndex = 284;
@@ -280,7 +283,7 @@
             // 
             this.labelValueValorReceita.AutoSize = true;
             this.labelValueValorReceita.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValueValorReceita.Location = new System.Drawing.Point(298, 135);
+            this.labelValueValorReceita.Location = new System.Drawing.Point(298, 139);
             this.labelValueValorReceita.Name = "labelValueValorReceita";
             this.labelValueValorReceita.Size = new System.Drawing.Size(16, 17);
             this.labelValueValorReceita.TabIndex = 283;
@@ -290,7 +293,7 @@
             // 
             this.labelValueDataVencimento.AutoSize = true;
             this.labelValueDataVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValueDataVencimento.Location = new System.Drawing.Point(43, 135);
+            this.labelValueDataVencimento.Location = new System.Drawing.Point(43, 139);
             this.labelValueDataVencimento.Name = "labelValueDataVencimento";
             this.labelValueDataVencimento.Size = new System.Drawing.Size(80, 17);
             this.labelValueDataVencimento.TabIndex = 282;
@@ -299,12 +302,14 @@
             // labelValueStatus
             // 
             this.labelValueStatus.AutoSize = true;
-            this.labelValueStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValueStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValueStatus.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelValueStatus.Location = new System.Drawing.Point(605, 80);
             this.labelValueStatus.Name = "labelValueStatus";
-            this.labelValueStatus.Size = new System.Drawing.Size(46, 17);
+            this.labelValueStatus.Size = new System.Drawing.Size(52, 17);
             this.labelValueStatus.TabIndex = 281;
             this.labelValueStatus.Text = "status";
+            this.labelValueStatus.TextChanged += new System.EventHandler(this.labelValueStatus_TextChanged);
             // 
             // labelValueCliente
             // 
@@ -321,7 +326,7 @@
             this.labelFormaPagamento.AutoSize = true;
             this.labelFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.labelFormaPagamento.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.labelFormaPagamento.Location = new System.Drawing.Point(43, 173);
+            this.labelFormaPagamento.Location = new System.Drawing.Point(43, 177);
             this.labelFormaPagamento.Name = "labelFormaPagamento";
             this.labelFormaPagamento.Size = new System.Drawing.Size(89, 18);
             this.labelFormaPagamento.TabIndex = 276;
@@ -346,6 +351,49 @@
             this.panelContent.Size = new System.Drawing.Size(844, 335);
             this.panelContent.TabIndex = 184;
             // 
+            // flowLayoutSubMenu
+            // 
+            this.flowLayoutSubMenu.Controls.Add(this.panelResumoPagamento);
+            this.flowLayoutSubMenu.Controls.Add(this.panelBaixarManual);
+            this.flowLayoutSubMenu.Controls.Add(this.panelHistorico);
+            this.flowLayoutSubMenu.Controls.Add(this.panelComprovantes);
+            this.flowLayoutSubMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutSubMenu.Location = new System.Drawing.Point(0, 244);
+            this.flowLayoutSubMenu.Name = "flowLayoutSubMenu";
+            this.flowLayoutSubMenu.Padding = new System.Windows.Forms.Padding(31, 0, 0, 0);
+            this.flowLayoutSubMenu.Size = new System.Drawing.Size(844, 36);
+            this.flowLayoutSubMenu.TabIndex = 294;
+            this.flowLayoutSubMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutSubMenu_Paint);
+            // 
+            // panelResumoPagamento
+            // 
+            this.panelResumoPagamento.BackColor = System.Drawing.Color.LightGray;
+            this.panelResumoPagamento.Controls.Add(this.labelResumoPagamento);
+            this.panelResumoPagamento.Location = new System.Drawing.Point(31, 0);
+            this.panelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
+            this.panelResumoPagamento.Name = "panelResumoPagamento";
+            this.panelResumoPagamento.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.panelResumoPagamento.Size = new System.Drawing.Size(187, 35);
+            this.panelResumoPagamento.TabIndex = 293;
+            this.panelResumoPagamento.Visible = false;
+            // 
+            // labelResumoPagamento
+            // 
+            this.labelResumoPagamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelResumoPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelResumoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelResumoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResumoPagamento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelResumoPagamento.Location = new System.Drawing.Point(1, 1);
+            this.labelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
+            this.labelResumoPagamento.Name = "labelResumoPagamento";
+            this.labelResumoPagamento.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.labelResumoPagamento.Size = new System.Drawing.Size(186, 36);
+            this.labelResumoPagamento.TabIndex = 0;
+            this.labelResumoPagamento.Text = "Resumo de pagamento";
+            this.labelResumoPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelResumoPagamento.Click += new System.EventHandler(this.labelResumoPagamento_Click);
+            // 
             // FormLiquidarConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,12 +409,15 @@
             this.Name = "FormLiquidarConta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "High Gestor - Liquidar Conta";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormLiquidarConta_FormClosed);
             this.Load += new System.EventHandler(this.FormLiquidarConta_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelComprovantes.ResumeLayout(false);
             this.panelBaixarManual.ResumeLayout(false);
             this.panelHistorico.ResumeLayout(false);
+            this.flowLayoutSubMenu.ResumeLayout(false);
+            this.panelResumoPagamento.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -390,5 +441,8 @@
         private System.Windows.Forms.Label labelHistorico;
         private System.Windows.Forms.Panel panelComprovantes;
         private System.Windows.Forms.Label labelComprovantes;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutSubMenu;
+        private System.Windows.Forms.Panel panelResumoPagamento;
+        private System.Windows.Forms.Label labelResumoPagamento;
     }
 }

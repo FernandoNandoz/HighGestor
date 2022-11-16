@@ -161,3 +161,4 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.UserControl_MaisAcoes.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.FormLiquidarConta.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual.UserControl_BaixarManual.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamento.UserControl_ResumoPagamento.resources

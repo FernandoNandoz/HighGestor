@@ -377,7 +377,7 @@ namespace High_Gestor.Forms.Vendas.PDV.LancarContas
                     string query = ("UPDATE ContasReceber SET situacao = @situacao, situacaoContas = @situacaoContas, idPagamentosFK = @idPagamentosFK, comissao = @comissao, idCategoriaFinanceiroFK = @idCategoriaFinanceiroFK, idCentroCustoFK = @idCentroCustoFK, idContaBancariaFK = @idContaBancariaFK WHERE idContaReceber = @ID");
                     SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
-                    exeQuery.Parameters.AddWithValue("@situacao", "ATENDIDO");
+                    exeQuery.Parameters.AddWithValue("@situacao", "LIQUIDADO");
                     exeQuery.Parameters.AddWithValue("@situacaoContas", "LANCADO");
                     exeQuery.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
                     exeQuery.Parameters.AddWithValue("@comissao", comissao);
