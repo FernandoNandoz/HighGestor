@@ -200,6 +200,12 @@
     <Compile Include="Forms\Financeiro\ContasReceber\LiquidarConta\ResumoPagamento\UserControl_ResumoPagamento.Designer.cs">
       <DependentUpon>UserControl_ResumoPagamento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarVariasContas\FormLiquidarVariasContas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\LiquidarVariasContas\FormLiquidarVariasContas.Designer.cs">
+      <DependentUpon>FormLiquidarVariasContas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -769,6 +775,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\ResumoPagamento\UserControl_ResumoPagamento.resx">
       <DependentUpon>UserControl_ResumoPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarVariasContas\FormLiquidarVariasContas.resx">
+      <DependentUpon>FormLiquidarVariasContas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.resx">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>

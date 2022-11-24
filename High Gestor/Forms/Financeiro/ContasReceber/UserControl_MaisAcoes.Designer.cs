@@ -67,6 +67,7 @@
             this.buttonLiquidarContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLiquidarContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLiquidarContas.UseVisualStyleBackColor = true;
+            this.buttonLiquidarContas.Click += new System.EventHandler(this.buttonLiquidarContas_Click);
             // 
             // buttonDesliquidarContas
             // 

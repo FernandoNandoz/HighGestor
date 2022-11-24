@@ -52,5 +52,15 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             flowLayoutPanelContent.Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, flowLayoutPanelContent.Width,
             flowLayoutPanelContent.Height, 7, 7));
         }
+
+        private void buttonLiquidarContas_Click(object sender, EventArgs e)
+        {
+            if (instancia.liquidarContas())
+            {
+                LiquidarVariasContas.FormLiquidarVariasContas windows = new LiquidarVariasContas.FormLiquidarVariasContas(this.instancia);
+                windows.ShowDialog();
+                windows.Dispose();
+            }
+        }
     }
 }

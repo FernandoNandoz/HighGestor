@@ -40,6 +40,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         Banco banco = new Banco();
 
         DataTable ContasReceber = new DataTable();
+        public DataTable ContasSelecionadas = new DataTable();
 
         UserControl_MaisAcoes MaisAcoes;
 
@@ -196,8 +197,19 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             ContasReceber.Columns.Add("Situacao", typeof(string));
             ContasReceber.Columns.Add("SituacaoImage", typeof(Image));
             ContasReceber.Columns.Add("IdClienteFK", typeof(int));
+            ContasReceber.Columns.Add("NumeroNota", typeof(string));
             ContasReceber.Columns.Add("IdContaBancariaFK", typeof(int));
             ContasReceber.Columns.Add("IdFormaPagamentoFK", typeof(int));
+            //ContasReceber.Columns.Add("", typeof());
+
+            ContasSelecionadas.Columns.Add("IdContaReceber", typeof(int));
+            ContasSelecionadas.Columns.Add("NumeroNota", typeof(string));
+            ContasSelecionadas.Columns.Add("DataVencimento", typeof(DateTime));
+            ContasSelecionadas.Columns.Add("ValorTotal", typeof(decimal));
+            ContasSelecionadas.Columns.Add("IdContaBancariaFK", typeof(int));
+            ContasSelecionadas.Columns.Add("IdFormaPagamentoFK", typeof(int));
+            //ContasSelecionadas.Columns.Add("", typeof());
+
         }
 
         CheckBox checkboxHeader = null;
@@ -278,7 +290,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             Image image = null;
             string lancamento = string.Empty;
 
-            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia, (SELECT SUM(valorTotal) FROM Pagamentos WHERE numeroNota = ContasReceber.numeroNota AND situacao != 'CONTA ESTORNADA') FROM ContasReceber ORDER BY idContaReceber DESC");
+            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia, (SELECT SUM(valorTotal) FROM Pagamentos WHERE numeroNota = ContasReceber.numeroNota AND situacao != 'CONTA ESTORNADA'), numeroNota, idContaBancariaFK, idFormaPagamentoFK FROM ContasReceber ORDER BY idContaReceber DESC");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             banco.conectar();
@@ -320,7 +332,10 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                     reader.GetString(7),
                     reader.GetString(8),
                     image,
-                    reader.GetInt32(9));
+                    reader.GetInt32(9),
+                    reader.GetString(12),
+                    reader.IsDBNull(13) ? 0 : reader.GetInt32(13),
+                    reader.IsDBNull(14) ? 0 : reader.GetInt32(14));
             }
             banco.desconectar();
 
@@ -571,14 +586,31 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             return situacao;
         }
 
-        public void liquidarContas()
+        public bool liquidarContas()
         {
             for (int i = 0; i < dataGridViewContent.Rows.Count; i++)
             {
                 if (bool.Parse(dataGridViewContent.Rows[i].Cells[1].EditedFormattedValue.ToString()))
                 {
-                    MessageBox.Show("" + dataGridViewContent.Rows[i].Cells[0].Value.ToString() + " | " + dataGridViewContent.Rows[i].Cells[5].Value.ToString());
+                    int IdContasReceber = int.Parse(dataGridViewContent.Rows[i].Cells[0].Value.ToString());
+                    int IdContaBancariaFK = int.Parse(dataGridViewContent.Rows[i].Cells[12].Value.ToString());
+                    int IdFormaPagamentoFK = int.Parse(dataGridViewContent.Rows[i].Cells[13].Value.ToString());
+
+                    string NumeroNota = dataGridViewContent.Rows[i].Cells[10].Value.ToString();
+                    DateTime Vencimento = DateTime.Parse(dataGridViewContent.Rows[i].Cells[11].Value.ToString());
+                    decimal Total = decimal.Parse(dataGridViewContent.Rows[i].Cells[5].Value.ToString());
+
+                    ContasSelecionadas.Rows.Add(IdContasReceber, NumeroNota, Vencimento, Total, IdContaBancariaFK, IdFormaPagamentoFK);
                 }
+            }
+
+            if (ContasSelecionadas.Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -649,6 +681,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         {
             FecharAcoes(sender, e);
 
+            carregarDados();
             carregarResumoGeral();
         }
 
@@ -681,13 +714,12 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         private void buttonRelacaoContas_Click(object sender, EventArgs e)
         {
             FecharAcoes(sender, e);
-
-            liquidarContas();
-
         }
 
         private void buttonMaisAcoes_Click(object sender, EventArgs e)
         {
+            ContasSelecionadas.Rows.Clear();
+
             if (acoesOpen == false)
             {
                 MaisAcoes = new UserControl_MaisAcoes(this);
@@ -744,8 +776,6 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                 if (panelBorderPesquisaAvancada.Visible == false)
                 {
                     ContasReceber.DefaultView.RowFilter = "Situacao = 'EM ABERTO'";
-
-                    carregarResumoGeral();
                 }
                 else
                 {
@@ -814,6 +844,8 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                         }
                     }
                 }
+
+                carregarResumoGeral();
             }
             else
             {
@@ -906,6 +938,8 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             comboBoxFormaPagamento.SelectedIndex = 0;
 
             ContasReceber.DefaultView.RowFilter = "Situacao = 'EM ABERTO' OR Situacao = 'EM ANDAMENTO'";
+
+            carregarResumoGeral();
         }
 
         private void dataGridViewContent_CellContentClick(object sender, DataGridViewCellEventArgs e)

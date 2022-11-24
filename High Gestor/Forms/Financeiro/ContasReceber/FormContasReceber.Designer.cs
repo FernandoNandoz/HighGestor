@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panelGridContent;
+            System.Windows.Forms.PictureBox pictureBox9;
+            System.Windows.Forms.PictureBox pictureBox4;
+            System.Windows.Forms.PictureBox pictureBox8;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -44,14 +47,12 @@
             System.Windows.Forms.Label label10;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.PictureBox pictureBox9;
-            System.Windows.Forms.PictureBox pictureBox4;
-            System.Windows.Forms.PictureBox pictureBox8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContasReceber));
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
+            this.linkLabelResumo = new System.Windows.Forms.LinkLabel();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelPesquisaContent = new System.Windows.Forms.Panel();
             this.panelPesquisaAvancada = new System.Windows.Forms.Panel();
@@ -64,9 +65,12 @@
             this.comboBoxOrigem = new System.Windows.Forms.ComboBox();
             this.buttonLimparFiltros = new System.Windows.Forms.Button();
             this.panelOpcoes = new System.Windows.Forms.Panel();
+            this.buttonRelacaoContas = new System.Windows.Forms.Button();
             this.buttonMaisAcoes = new System.Windows.Forms.Button();
             this.buttonNovoCadastro = new System.Windows.Forms.Button();
+            this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
             this.buttonPesquisar = new System.Windows.Forms.Button();
+            this.buttonExcluirConta = new System.Windows.Forms.Button();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.panelContentResumo = new System.Windows.Forms.Panel();
             this.groupBoxTotal = new System.Windows.Forms.GroupBox();
@@ -88,7 +92,11 @@
             this.flowLayoutPanelHeaderSaldoCaixa = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDescricaoLabel = new System.Windows.Forms.Panel();
             this.labelDescricaoResumo = new System.Windows.Forms.Label();
+            this.buttonAtualizar = new System.Windows.Forms.Button();
             this.panelTopHeader = new System.Windows.Forms.Panel();
+            this.buttonVoltar = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CheckBoxGrid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,17 +105,16 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.buttonRelacaoContas = new System.Windows.Forms.Button();
-            this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
-            this.buttonExcluirConta = new System.Windows.Forms.Button();
-            this.linkLabelResumo = new System.Windows.Forms.LinkLabel();
-            this.buttonAtualizar = new System.Windows.Forms.Button();
-            this.buttonVoltar = new System.Windows.Forms.Button();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             panelGridContent = new System.Windows.Forms.Panel();
+            pictureBox9 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
             label7 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             panelLabelSaldoCaixa = new System.Windows.Forms.Panel();
@@ -116,10 +123,10 @@
             label4 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
-            pictureBox9 = new System.Windows.Forms.PictureBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            pictureBox8 = new System.Windows.Forms.PictureBox();
             panelGridContent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             panelLabelSaldoCaixa.SuspendLayout();
             this.panelContent.SuspendLayout();
@@ -136,9 +143,6 @@
             this.flowLayoutPanelHeaderSaldoCaixa.SuspendLayout();
             this.panelDescricaoLabel.SuspendLayout();
             this.panelTopHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGridContent
@@ -156,6 +160,39 @@
             panelGridContent.Name = "panelGridContent";
             panelGridContent.Size = new System.Drawing.Size(1208, 348);
             panelGridContent.TabIndex = 244;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
+            pictureBox9.Location = new System.Drawing.Point(882, 328);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(15, 15);
+            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 252;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
+            pictureBox4.Location = new System.Drawing.Point(998, 329);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(15, 15);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 250;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
+            pictureBox8.Location = new System.Drawing.Point(1099, 329);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(15, 15);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 245;
+            pictureBox8.TabStop = false;
             // 
             // label9
             // 
@@ -221,7 +258,11 @@
             this.Forma,
             this.Column3,
             this.Column7,
-            this.Column6});
+            this.Column6,
+            this.Column5,
+            this.Column9,
+            this.Column11,
+            this.Column12});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -287,6 +328,26 @@
             panelLabelSaldoCaixa.Name = "panelLabelSaldoCaixa";
             panelLabelSaldoCaixa.Size = new System.Drawing.Size(85, 25);
             panelLabelSaldoCaixa.TabIndex = 0;
+            // 
+            // linkLabelResumo
+            // 
+            this.linkLabelResumo.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelResumo.AutoSize = true;
+            this.linkLabelResumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelResumo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.linkLabelResumo.Image = global::High_Gestor.Properties.Resources.recolher_blue;
+            this.linkLabelResumo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelResumo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelResumo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.linkLabelResumo.Location = new System.Drawing.Point(4, 2);
+            this.linkLabelResumo.Name = "linkLabelResumo";
+            this.linkLabelResumo.Padding = new System.Windows.Forms.Padding(0, 0, 17, 5);
+            this.linkLabelResumo.Size = new System.Drawing.Size(77, 22);
+            this.linkLabelResumo.TabIndex = 244;
+            this.linkLabelResumo.TabStop = true;
+            this.linkLabelResumo.Text = "Resumo";
+            this.linkLabelResumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelResumo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelResumo_LinkClicked);
             // 
             // label1
             // 
@@ -521,6 +582,24 @@
             this.panelOpcoes.Size = new System.Drawing.Size(1208, 52);
             this.panelOpcoes.TabIndex = 253;
             // 
+            // buttonRelacaoContas
+            // 
+            this.buttonRelacaoContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRelacaoContas.BackColor = System.Drawing.Color.White;
+            this.buttonRelacaoContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRelacaoContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelacaoContas.Image")));
+            this.buttonRelacaoContas.Location = new System.Drawing.Point(370, 14);
+            this.buttonRelacaoContas.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonRelacaoContas.Name = "buttonRelacaoContas";
+            this.buttonRelacaoContas.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.buttonRelacaoContas.Size = new System.Drawing.Size(165, 32);
+            this.buttonRelacaoContas.TabIndex = 249;
+            this.buttonRelacaoContas.Text = " Relação de contas";
+            this.buttonRelacaoContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRelacaoContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonRelacaoContas.UseVisualStyleBackColor = false;
+            this.buttonRelacaoContas.Click += new System.EventHandler(this.buttonRelacaoContas_Click);
+            // 
             // buttonMaisAcoes
             // 
             this.buttonMaisAcoes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -555,6 +634,25 @@
             this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
             this.buttonNovoCadastro.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
+            // linkLabelBuscaAvancada
+            // 
+            this.linkLabelBuscaAvancada.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelBuscaAvancada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelBuscaAvancada.AutoSize = true;
+            this.linkLabelBuscaAvancada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelBuscaAvancada.Image = ((System.Drawing.Image)(resources.GetObject("linkLabelBuscaAvancada.Image")));
+            this.linkLabelBuscaAvancada.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.linkLabelBuscaAvancada.LinkColor = System.Drawing.Color.Gray;
+            this.linkLabelBuscaAvancada.Location = new System.Drawing.Point(704, 25);
+            this.linkLabelBuscaAvancada.Name = "linkLabelBuscaAvancada";
+            this.linkLabelBuscaAvancada.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.linkLabelBuscaAvancada.Size = new System.Drawing.Size(101, 13);
+            this.linkLabelBuscaAvancada.TabIndex = 247;
+            this.linkLabelBuscaAvancada.TabStop = true;
+            this.linkLabelBuscaAvancada.Text = "Busca avançada";
+            this.linkLabelBuscaAvancada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelBuscaAvancada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscaAvancada_LinkClicked);
+            // 
             // buttonPesquisar
             // 
             this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -576,6 +674,23 @@
             this.buttonPesquisar.UseVisualStyleBackColor = false;
             this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             this.buttonPesquisar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // buttonExcluirConta
+            // 
+            this.buttonExcluirConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonExcluirConta.BackColor = System.Drawing.Color.White;
+            this.buttonExcluirConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluirConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirConta.Image")));
+            this.buttonExcluirConta.Location = new System.Drawing.Point(207, 14);
+            this.buttonExcluirConta.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonExcluirConta.Name = "buttonExcluirConta";
+            this.buttonExcluirConta.Size = new System.Drawing.Size(153, 32);
+            this.buttonExcluirConta.TabIndex = 244;
+            this.buttonExcluirConta.Text = " Excluir venda";
+            this.buttonExcluirConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExcluirConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonExcluirConta.UseVisualStyleBackColor = false;
+            this.buttonExcluirConta.Click += new System.EventHandler(this.buttonExcluirConta_Click);
             // 
             // textBoxPesquisar
             // 
@@ -823,6 +938,25 @@
             this.labelDescricaoResumo.Text = "(O resumo corresponde ao total de títulos em aberto e em atraso)";
             this.labelDescricaoResumo.Click += new System.EventHandler(this.labelDescricaoResumo_Click);
             // 
+            // buttonAtualizar
+            // 
+            this.buttonAtualizar.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonAtualizar.FlatAppearance.BorderSize = 0;
+            this.buttonAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonAtualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonAtualizar.Image = global::High_Gestor.Properties.Resources.vire_a_direita;
+            this.buttonAtualizar.Location = new System.Drawing.Point(426, 0);
+            this.buttonAtualizar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.buttonAtualizar.Name = "buttonAtualizar";
+            this.buttonAtualizar.Size = new System.Drawing.Size(30, 25);
+            this.buttonAtualizar.TabIndex = 244;
+            this.buttonAtualizar.TabStop = false;
+            this.buttonAtualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonAtualizar.UseVisualStyleBackColor = false;
+            this.buttonAtualizar.Click += new System.EventHandler(this.buttonAtualizar_Click);
+            // 
             // panelTopHeader
             // 
             this.panelTopHeader.Controls.Add(this.buttonVoltar);
@@ -833,6 +967,45 @@
             this.panelTopHeader.Name = "panelTopHeader";
             this.panelTopHeader.Size = new System.Drawing.Size(1208, 45);
             this.panelTopHeader.TabIndex = 250;
+            // 
+            // buttonVoltar
+            // 
+            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonVoltar.BackColor = System.Drawing.Color.Transparent;
+            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.buttonVoltar.FlatAppearance.BorderSize = 0;
+            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
+            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.buttonVoltar.Location = new System.Drawing.Point(1087, 3);
+            this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonVoltar.Name = "buttonVoltar";
+            this.buttonVoltar.Size = new System.Drawing.Size(99, 30);
+            this.buttonVoltar.TabIndex = 241;
+            this.buttonVoltar.TabStop = false;
+            this.buttonVoltar.Text = " Voltar";
+            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonVoltar.UseVisualStyleBackColor = false;
+            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
+            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "SituacaoImage";
+            this.dataGridViewImageColumn1.HeaderText = "Situação";
+            this.dataGridViewImageColumn1.Image = global::High_Gestor.Properties.Resources.cinza;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 70;
             // 
             // Column8
             // 
@@ -902,55 +1075,6 @@
             this.Column3.Visible = false;
             this.Column3.Width = 80;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "SituacaoImage";
-            this.dataGridViewImageColumn1.HeaderText = "Situação";
-            this.dataGridViewImageColumn1.Image = global::High_Gestor.Properties.Resources.cinza;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 70;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
-            pictureBox9.Location = new System.Drawing.Point(882, 328);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new System.Drawing.Size(15, 15);
-            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 252;
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
-            pictureBox4.Location = new System.Drawing.Point(998, 329);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(15, 15);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 250;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
-            pictureBox8.Location = new System.Drawing.Point(1099, 329);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new System.Drawing.Size(15, 15);
-            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 245;
-            pictureBox8.TabStop = false;
-            // 
             // Column7
             // 
             this.Column7.DataPropertyName = "SituacaoImage";
@@ -967,121 +1091,33 @@
             this.Column6.ReadOnly = true;
             this.Column6.Width = 70;
             // 
-            // buttonRelacaoContas
+            // Column5
             // 
-            this.buttonRelacaoContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRelacaoContas.BackColor = System.Drawing.Color.White;
-            this.buttonRelacaoContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRelacaoContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelacaoContas.Image")));
-            this.buttonRelacaoContas.Location = new System.Drawing.Point(370, 14);
-            this.buttonRelacaoContas.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonRelacaoContas.Name = "buttonRelacaoContas";
-            this.buttonRelacaoContas.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.buttonRelacaoContas.Size = new System.Drawing.Size(165, 32);
-            this.buttonRelacaoContas.TabIndex = 249;
-            this.buttonRelacaoContas.Text = " Relação de contas";
-            this.buttonRelacaoContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRelacaoContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRelacaoContas.UseVisualStyleBackColor = false;
-            this.buttonRelacaoContas.Click += new System.EventHandler(this.buttonRelacaoContas_Click);
+            this.Column5.DataPropertyName = "NumeroNota";
+            this.Column5.HeaderText = "NumeroNota";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
             // 
-            // linkLabelBuscaAvancada
+            // Column9
             // 
-            this.linkLabelBuscaAvancada.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelBuscaAvancada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelBuscaAvancada.AutoSize = true;
-            this.linkLabelBuscaAvancada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelBuscaAvancada.Image = ((System.Drawing.Image)(resources.GetObject("linkLabelBuscaAvancada.Image")));
-            this.linkLabelBuscaAvancada.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.linkLabelBuscaAvancada.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabelBuscaAvancada.Location = new System.Drawing.Point(704, 25);
-            this.linkLabelBuscaAvancada.Name = "linkLabelBuscaAvancada";
-            this.linkLabelBuscaAvancada.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.linkLabelBuscaAvancada.Size = new System.Drawing.Size(101, 13);
-            this.linkLabelBuscaAvancada.TabIndex = 247;
-            this.linkLabelBuscaAvancada.TabStop = true;
-            this.linkLabelBuscaAvancada.Text = "Busca avançada";
-            this.linkLabelBuscaAvancada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelBuscaAvancada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscaAvancada_LinkClicked);
+            this.Column9.DataPropertyName = "DataVencimento";
+            this.Column9.HeaderText = "Vencimento";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
             // 
-            // buttonExcluirConta
+            // Column11
             // 
-            this.buttonExcluirConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExcluirConta.BackColor = System.Drawing.Color.White;
-            this.buttonExcluirConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluirConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirConta.Image")));
-            this.buttonExcluirConta.Location = new System.Drawing.Point(207, 14);
-            this.buttonExcluirConta.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonExcluirConta.Name = "buttonExcluirConta";
-            this.buttonExcluirConta.Size = new System.Drawing.Size(153, 32);
-            this.buttonExcluirConta.TabIndex = 244;
-            this.buttonExcluirConta.Text = " Excluir venda";
-            this.buttonExcluirConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExcluirConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirConta.UseVisualStyleBackColor = false;
-            this.buttonExcluirConta.Click += new System.EventHandler(this.buttonExcluirConta_Click);
+            this.Column11.DataPropertyName = "IdContaBancariaFK";
+            this.Column11.HeaderText = "IdContaBancariaFK";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
             // 
-            // linkLabelResumo
+            // Column12
             // 
-            this.linkLabelResumo.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelResumo.AutoSize = true;
-            this.linkLabelResumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelResumo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.linkLabelResumo.Image = global::High_Gestor.Properties.Resources.recolher_blue;
-            this.linkLabelResumo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelResumo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabelResumo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.linkLabelResumo.Location = new System.Drawing.Point(4, 2);
-            this.linkLabelResumo.Name = "linkLabelResumo";
-            this.linkLabelResumo.Padding = new System.Windows.Forms.Padding(0, 0, 17, 5);
-            this.linkLabelResumo.Size = new System.Drawing.Size(77, 22);
-            this.linkLabelResumo.TabIndex = 244;
-            this.linkLabelResumo.TabStop = true;
-            this.linkLabelResumo.Text = "Resumo";
-            this.linkLabelResumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelResumo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelResumo_LinkClicked);
-            // 
-            // buttonAtualizar
-            // 
-            this.buttonAtualizar.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAtualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonAtualizar.FlatAppearance.BorderSize = 0;
-            this.buttonAtualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAtualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonAtualizar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonAtualizar.Image = global::High_Gestor.Properties.Resources.vire_a_direita;
-            this.buttonAtualizar.Location = new System.Drawing.Point(426, 0);
-            this.buttonAtualizar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.buttonAtualizar.Name = "buttonAtualizar";
-            this.buttonAtualizar.Size = new System.Drawing.Size(30, 25);
-            this.buttonAtualizar.TabIndex = 244;
-            this.buttonAtualizar.TabStop = false;
-            this.buttonAtualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonAtualizar.UseVisualStyleBackColor = false;
-            this.buttonAtualizar.Click += new System.EventHandler(this.buttonAtualizar_Click);
-            // 
-            // buttonVoltar
-            // 
-            this.buttonVoltar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonVoltar.BackColor = System.Drawing.Color.Transparent;
-            this.buttonVoltar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.buttonVoltar.FlatAppearance.BorderSize = 0;
-            this.buttonVoltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVoltar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
-            this.buttonVoltar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonVoltar.Image = ((System.Drawing.Image)(resources.GetObject("buttonVoltar.Image")));
-            this.buttonVoltar.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.buttonVoltar.Location = new System.Drawing.Point(1087, 3);
-            this.buttonVoltar.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonVoltar.Name = "buttonVoltar";
-            this.buttonVoltar.Size = new System.Drawing.Size(99, 30);
-            this.buttonVoltar.TabIndex = 241;
-            this.buttonVoltar.TabStop = false;
-            this.buttonVoltar.Text = " Voltar";
-            this.buttonVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonVoltar.UseVisualStyleBackColor = false;
-            this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
-            this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            this.Column12.DataPropertyName = "IdFormaPagamentoFK";
+            this.Column12.HeaderText = "IdFormaPagamentoFK";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
             // 
             // FormContasReceber
             // 
@@ -1097,6 +1133,9 @@
             this.Load += new System.EventHandler(this.FormContasReceber_Load);
             panelGridContent.ResumeLayout(false);
             panelGridContent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
             panelLabelSaldoCaixa.ResumeLayout(false);
             panelLabelSaldoCaixa.PerformLayout();
@@ -1118,9 +1157,6 @@
             this.panelDescricaoLabel.PerformLayout();
             this.panelTopHeader.ResumeLayout(false);
             this.panelTopHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1186,5 +1222,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewImageColumn Column7;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
     }
 }
