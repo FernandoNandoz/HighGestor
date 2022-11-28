@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Panel panelGridContent;
-            System.Windows.Forms.PictureBox pictureBox9;
-            System.Windows.Forms.PictureBox pictureBox4;
-            System.Windows.Forms.PictureBox pictureBox8;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Panel panelLabelSaldoCaixa;
@@ -45,14 +44,26 @@
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Label label8;
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.PictureBox pictureBox9;
+            System.Windows.Forms.PictureBox pictureBox4;
+            System.Windows.Forms.PictureBox pictureBox8;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContasReceber));
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
-            this.linkLabelResumo = new System.Windows.Forms.LinkLabel();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckBoxGrid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelPesquisaContent = new System.Windows.Forms.Panel();
             this.panelPesquisaAvancada = new System.Windows.Forms.Panel();
@@ -65,12 +76,9 @@
             this.comboBoxOrigem = new System.Windows.Forms.ComboBox();
             this.buttonLimparFiltros = new System.Windows.Forms.Button();
             this.panelOpcoes = new System.Windows.Forms.Panel();
-            this.buttonRelacaoContas = new System.Windows.Forms.Button();
             this.buttonMaisAcoes = new System.Windows.Forms.Button();
             this.buttonNovoCadastro = new System.Windows.Forms.Button();
-            this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
             this.buttonPesquisar = new System.Windows.Forms.Button();
-            this.buttonExcluirConta = new System.Windows.Forms.Button();
             this.textBoxPesquisar = new System.Windows.Forms.TextBox();
             this.panelContentResumo = new System.Windows.Forms.Panel();
             this.groupBoxTotal = new System.Windows.Forms.GroupBox();
@@ -92,29 +100,18 @@
             this.flowLayoutPanelHeaderSaldoCaixa = new System.Windows.Forms.FlowLayoutPanel();
             this.panelDescricaoLabel = new System.Windows.Forms.Panel();
             this.labelDescricaoResumo = new System.Windows.Forms.Label();
-            this.buttonAtualizar = new System.Windows.Forms.Button();
             this.panelTopHeader = new System.Windows.Forms.Panel();
-            this.buttonVoltar = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckBoxGrid = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Forma = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonRelacaoContas = new System.Windows.Forms.Button();
+            this.linkLabelBuscaAvancada = new System.Windows.Forms.LinkLabel();
+            this.buttonExcluirConta = new System.Windows.Forms.Button();
+            this.linkLabelResumo = new System.Windows.Forms.LinkLabel();
+            this.buttonAtualizar = new System.Windows.Forms.Button();
+            this.buttonVoltar = new System.Windows.Forms.Button();
             panelGridContent = new System.Windows.Forms.Panel();
-            pictureBox9 = new System.Windows.Forms.PictureBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            pictureBox8 = new System.Windows.Forms.PictureBox();
             label7 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             panelLabelSaldoCaixa = new System.Windows.Forms.Panel();
@@ -123,10 +120,10 @@
             label4 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
+            pictureBox9 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
             panelGridContent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).BeginInit();
             panelLabelSaldoCaixa.SuspendLayout();
             this.panelContent.SuspendLayout();
@@ -143,6 +140,9 @@
             this.flowLayoutPanelHeaderSaldoCaixa.SuspendLayout();
             this.panelDescricaoLabel.SuspendLayout();
             this.panelTopHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panelGridContent
@@ -160,39 +160,6 @@
             panelGridContent.Name = "panelGridContent";
             panelGridContent.Size = new System.Drawing.Size(1208, 348);
             panelGridContent.TabIndex = 244;
-            // 
-            // pictureBox9
-            // 
-            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
-            pictureBox9.Location = new System.Drawing.Point(882, 328);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new System.Drawing.Size(15, 15);
-            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 252;
-            pictureBox9.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
-            pictureBox4.Location = new System.Drawing.Point(998, 329);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(15, 15);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 250;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
-            pictureBox8.Location = new System.Drawing.Point(1099, 329);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new System.Drawing.Size(15, 15);
-            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 245;
-            pictureBox8.TabStop = false;
             // 
             // label9
             // 
@@ -230,8 +197,8 @@
             this.dataGridViewContent.AllowUserToDeleteRows = false;
             this.dataGridViewContent.AllowUserToResizeColumns = false;
             this.dataGridViewContent.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridViewContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            this.dataGridViewContent.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -239,14 +206,14 @@
             this.dataGridViewContent.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewContent.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridViewContent.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewContent.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewContent.ColumnHeadersHeight = 30;
             this.dataGridViewContent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -263,14 +230,14 @@
             this.Column9,
             this.Column11,
             this.Column12});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewContent.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewContent.EnableHeadersVisualStyles = false;
             this.dataGridViewContent.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(34)))), ((int)(((byte)(38)))));
             this.dataGridViewContent.Location = new System.Drawing.Point(22, 8);
@@ -278,20 +245,20 @@
             this.dataGridViewContent.MultiSelect = false;
             this.dataGridViewContent.Name = "dataGridViewContent";
             this.dataGridViewContent.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewContent.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewContent.RowHeadersVisible = false;
             this.dataGridViewContent.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
-            this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle21.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
+            this.dataGridViewContent.RowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewContent.RowTemplate.DividerHeight = 1;
             this.dataGridViewContent.RowTemplate.Height = 40;
             this.dataGridViewContent.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -299,6 +266,102 @@
             this.dataGridViewContent.Size = new System.Drawing.Size(1161, 317);
             this.dataGridViewContent.TabIndex = 244;
             this.dataGridViewContent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentClick);
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "IdContaReceber";
+            this.Column8.HeaderText = "idContaReceber";
+            this.Column8.Name = "Column8";
+            this.Column8.Visible = false;
+            // 
+            // CheckBoxGrid
+            // 
+            this.CheckBoxGrid.HeaderText = "";
+            this.CheckBoxGrid.Name = "CheckBoxGrid";
+            this.CheckBoxGrid.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "DataEmissao";
+            dataGridViewCellStyle17.Format = "d";
+            dataGridViewCellStyle17.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle17;
+            this.Column2.HeaderText = "Data";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Lancamento";
+            this.Column4.HeaderText = "Lançamento";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 250;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.DataPropertyName = "Cliente";
+            this.Column10.HeaderText = "Cliente";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ValorTotal";
+            dataGridViewCellStyle18.Format = "C2";
+            dataGridViewCellStyle18.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle18;
+            this.Column1.HeaderText = "Valor total";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 140;
+            // 
+            // Forma
+            // 
+            this.Forma.DataPropertyName = "FormaPagamento";
+            this.Forma.HeaderText = "Forma de pag.";
+            this.Forma.Name = "Forma";
+            this.Forma.ReadOnly = true;
+            this.Forma.Width = 170;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Situacao";
+            this.Column3.HeaderText = "Situação";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            this.Column3.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "NumeroNota";
+            this.Column5.HeaderText = "NumeroNota";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DataVencimento";
+            this.Column9.HeaderText = "Vencimento";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "IdContaBancariaFK";
+            this.Column11.HeaderText = "IdContaBancariaFK";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "IdFormaPagamentoFK";
+            this.Column12.HeaderText = "IdFormaPagamentoFK";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
             // 
             // label7
             // 
@@ -329,36 +392,16 @@
             panelLabelSaldoCaixa.Size = new System.Drawing.Size(85, 25);
             panelLabelSaldoCaixa.TabIndex = 0;
             // 
-            // linkLabelResumo
-            // 
-            this.linkLabelResumo.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelResumo.AutoSize = true;
-            this.linkLabelResumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelResumo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.linkLabelResumo.Image = global::High_Gestor.Properties.Resources.recolher_blue;
-            this.linkLabelResumo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelResumo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.linkLabelResumo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            this.linkLabelResumo.Location = new System.Drawing.Point(4, 2);
-            this.linkLabelResumo.Name = "linkLabelResumo";
-            this.linkLabelResumo.Padding = new System.Windows.Forms.Padding(0, 0, 17, 5);
-            this.linkLabelResumo.Size = new System.Drawing.Size(77, 22);
-            this.linkLabelResumo.TabIndex = 244;
-            this.linkLabelResumo.TabStop = true;
-            this.linkLabelResumo.Text = "Resumo";
-            this.linkLabelResumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelResumo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelResumo_LinkClicked);
-            // 
             // label1
             // 
             label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            label1.ForeColor = System.Drawing.Color.Black;
-            label1.Location = new System.Drawing.Point(18, 9);
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
+            label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label1.Location = new System.Drawing.Point(18, 12);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(154, 24);
+            label1.Size = new System.Drawing.Size(170, 24);
             label1.TabIndex = 242;
             label1.Text = "Contas a receber";
             label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -581,24 +624,7 @@
             this.panelOpcoes.Name = "panelOpcoes";
             this.panelOpcoes.Size = new System.Drawing.Size(1208, 52);
             this.panelOpcoes.TabIndex = 253;
-            // 
-            // buttonRelacaoContas
-            // 
-            this.buttonRelacaoContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRelacaoContas.BackColor = System.Drawing.Color.White;
-            this.buttonRelacaoContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRelacaoContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelacaoContas.Image")));
-            this.buttonRelacaoContas.Location = new System.Drawing.Point(370, 14);
-            this.buttonRelacaoContas.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonRelacaoContas.Name = "buttonRelacaoContas";
-            this.buttonRelacaoContas.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
-            this.buttonRelacaoContas.Size = new System.Drawing.Size(165, 32);
-            this.buttonRelacaoContas.TabIndex = 249;
-            this.buttonRelacaoContas.Text = " Relação de contas";
-            this.buttonRelacaoContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRelacaoContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonRelacaoContas.UseVisualStyleBackColor = false;
-            this.buttonRelacaoContas.Click += new System.EventHandler(this.buttonRelacaoContas_Click);
+            this.panelOpcoes.Click += new System.EventHandler(this.FecharAcoes);
             // 
             // buttonMaisAcoes
             // 
@@ -634,25 +660,6 @@
             this.buttonNovoCadastro.Click += new System.EventHandler(this.buttonNovoCadastro_Click);
             this.buttonNovoCadastro.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // linkLabelBuscaAvancada
-            // 
-            this.linkLabelBuscaAvancada.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
-            this.linkLabelBuscaAvancada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabelBuscaAvancada.AutoSize = true;
-            this.linkLabelBuscaAvancada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelBuscaAvancada.Image = ((System.Drawing.Image)(resources.GetObject("linkLabelBuscaAvancada.Image")));
-            this.linkLabelBuscaAvancada.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.linkLabelBuscaAvancada.LinkColor = System.Drawing.Color.Gray;
-            this.linkLabelBuscaAvancada.Location = new System.Drawing.Point(704, 25);
-            this.linkLabelBuscaAvancada.Name = "linkLabelBuscaAvancada";
-            this.linkLabelBuscaAvancada.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.linkLabelBuscaAvancada.Size = new System.Drawing.Size(101, 13);
-            this.linkLabelBuscaAvancada.TabIndex = 247;
-            this.linkLabelBuscaAvancada.TabStop = true;
-            this.linkLabelBuscaAvancada.Text = "Busca avançada";
-            this.linkLabelBuscaAvancada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.linkLabelBuscaAvancada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscaAvancada_LinkClicked);
-            // 
             // buttonPesquisar
             // 
             this.buttonPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -674,23 +681,6 @@
             this.buttonPesquisar.UseVisualStyleBackColor = false;
             this.buttonPesquisar.Click += new System.EventHandler(this.buttonPesquisar_Click);
             this.buttonPesquisar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
-            // 
-            // buttonExcluirConta
-            // 
-            this.buttonExcluirConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonExcluirConta.BackColor = System.Drawing.Color.White;
-            this.buttonExcluirConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcluirConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirConta.Image")));
-            this.buttonExcluirConta.Location = new System.Drawing.Point(207, 14);
-            this.buttonExcluirConta.Margin = new System.Windows.Forms.Padding(5);
-            this.buttonExcluirConta.Name = "buttonExcluirConta";
-            this.buttonExcluirConta.Size = new System.Drawing.Size(153, 32);
-            this.buttonExcluirConta.TabIndex = 244;
-            this.buttonExcluirConta.Text = " Excluir venda";
-            this.buttonExcluirConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExcluirConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExcluirConta.UseVisualStyleBackColor = false;
-            this.buttonExcluirConta.Click += new System.EventHandler(this.buttonExcluirConta_Click);
             // 
             // textBoxPesquisar
             // 
@@ -938,6 +928,156 @@
             this.labelDescricaoResumo.Text = "(O resumo corresponde ao total de títulos em aberto e em atraso)";
             this.labelDescricaoResumo.Click += new System.EventHandler(this.labelDescricaoResumo_Click);
             // 
+            // panelTopHeader
+            // 
+            this.panelTopHeader.Controls.Add(this.buttonVoltar);
+            this.panelTopHeader.Controls.Add(label1);
+            this.panelTopHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTopHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelTopHeader.Margin = new System.Windows.Forms.Padding(0);
+            this.panelTopHeader.Name = "panelTopHeader";
+            this.panelTopHeader.Size = new System.Drawing.Size(1208, 45);
+            this.panelTopHeader.TabIndex = 250;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.DataPropertyName = "SituacaoImage";
+            this.dataGridViewImageColumn1.HeaderText = "Situação";
+            this.dataGridViewImageColumn1.Image = global::High_Gestor.Properties.Resources.cinza;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 70;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox9.Image = global::High_Gestor.Properties.Resources.cinza;
+            pictureBox9.Location = new System.Drawing.Point(882, 328);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(15, 15);
+            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 252;
+            pictureBox9.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
+            pictureBox4.Location = new System.Drawing.Point(998, 329);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(15, 15);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 250;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            pictureBox8.Image = global::High_Gestor.Properties.Resources.vermelho;
+            pictureBox8.Location = new System.Drawing.Point(1099, 329);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(15, 15);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 245;
+            pictureBox8.TabStop = false;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "SituacaoImage";
+            this.Column7.HeaderText = "Situação";
+            this.Column7.Image = global::High_Gestor.Properties.Resources.cinza;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "";
+            this.Column6.Image = ((System.Drawing.Image)(resources.GetObject("Column6.Image")));
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 70;
+            // 
+            // buttonRelacaoContas
+            // 
+            this.buttonRelacaoContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRelacaoContas.BackColor = System.Drawing.Color.White;
+            this.buttonRelacaoContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRelacaoContas.Image = ((System.Drawing.Image)(resources.GetObject("buttonRelacaoContas.Image")));
+            this.buttonRelacaoContas.Location = new System.Drawing.Point(370, 14);
+            this.buttonRelacaoContas.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonRelacaoContas.Name = "buttonRelacaoContas";
+            this.buttonRelacaoContas.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+            this.buttonRelacaoContas.Size = new System.Drawing.Size(165, 32);
+            this.buttonRelacaoContas.TabIndex = 249;
+            this.buttonRelacaoContas.Text = " Relação de contas";
+            this.buttonRelacaoContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRelacaoContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonRelacaoContas.UseVisualStyleBackColor = false;
+            this.buttonRelacaoContas.Click += new System.EventHandler(this.buttonRelacaoContas_Click);
+            // 
+            // linkLabelBuscaAvancada
+            // 
+            this.linkLabelBuscaAvancada.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelBuscaAvancada.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.linkLabelBuscaAvancada.AutoSize = true;
+            this.linkLabelBuscaAvancada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelBuscaAvancada.Image = ((System.Drawing.Image)(resources.GetObject("linkLabelBuscaAvancada.Image")));
+            this.linkLabelBuscaAvancada.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.linkLabelBuscaAvancada.LinkColor = System.Drawing.Color.Gray;
+            this.linkLabelBuscaAvancada.Location = new System.Drawing.Point(704, 25);
+            this.linkLabelBuscaAvancada.Name = "linkLabelBuscaAvancada";
+            this.linkLabelBuscaAvancada.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.linkLabelBuscaAvancada.Size = new System.Drawing.Size(101, 13);
+            this.linkLabelBuscaAvancada.TabIndex = 247;
+            this.linkLabelBuscaAvancada.TabStop = true;
+            this.linkLabelBuscaAvancada.Text = "Busca avançada";
+            this.linkLabelBuscaAvancada.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelBuscaAvancada.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelBuscaAvancada_LinkClicked);
+            // 
+            // buttonExcluirConta
+            // 
+            this.buttonExcluirConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonExcluirConta.BackColor = System.Drawing.Color.White;
+            this.buttonExcluirConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcluirConta.Image = ((System.Drawing.Image)(resources.GetObject("buttonExcluirConta.Image")));
+            this.buttonExcluirConta.Location = new System.Drawing.Point(207, 14);
+            this.buttonExcluirConta.Margin = new System.Windows.Forms.Padding(5);
+            this.buttonExcluirConta.Name = "buttonExcluirConta";
+            this.buttonExcluirConta.Size = new System.Drawing.Size(153, 32);
+            this.buttonExcluirConta.TabIndex = 244;
+            this.buttonExcluirConta.Text = " Excluir venda";
+            this.buttonExcluirConta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonExcluirConta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonExcluirConta.UseVisualStyleBackColor = false;
+            this.buttonExcluirConta.Click += new System.EventHandler(this.buttonExcluirConta_Click);
+            // 
+            // linkLabelResumo
+            // 
+            this.linkLabelResumo.ActiveLinkColor = System.Drawing.Color.RoyalBlue;
+            this.linkLabelResumo.AutoSize = true;
+            this.linkLabelResumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.linkLabelResumo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.linkLabelResumo.Image = global::High_Gestor.Properties.Resources.recolher_blue;
+            this.linkLabelResumo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelResumo.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.linkLabelResumo.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            this.linkLabelResumo.Location = new System.Drawing.Point(4, 2);
+            this.linkLabelResumo.Name = "linkLabelResumo";
+            this.linkLabelResumo.Padding = new System.Windows.Forms.Padding(0, 0, 17, 5);
+            this.linkLabelResumo.Size = new System.Drawing.Size(77, 22);
+            this.linkLabelResumo.TabIndex = 244;
+            this.linkLabelResumo.TabStop = true;
+            this.linkLabelResumo.Text = "Resumo";
+            this.linkLabelResumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.linkLabelResumo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelResumo_LinkClicked);
+            // 
             // buttonAtualizar
             // 
             this.buttonAtualizar.BackColor = System.Drawing.Color.Transparent;
@@ -956,17 +1096,6 @@
             this.buttonAtualizar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonAtualizar.UseVisualStyleBackColor = false;
             this.buttonAtualizar.Click += new System.EventHandler(this.buttonAtualizar_Click);
-            // 
-            // panelTopHeader
-            // 
-            this.panelTopHeader.Controls.Add(this.buttonVoltar);
-            this.panelTopHeader.Controls.Add(label1);
-            this.panelTopHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTopHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelTopHeader.Margin = new System.Windows.Forms.Padding(0);
-            this.panelTopHeader.Name = "panelTopHeader";
-            this.panelTopHeader.Size = new System.Drawing.Size(1208, 45);
-            this.panelTopHeader.TabIndex = 250;
             // 
             // buttonVoltar
             // 
@@ -991,134 +1120,6 @@
             this.buttonVoltar.Click += new System.EventHandler(this.buttonVoltar_Click);
             this.buttonVoltar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.DataPropertyName = "SituacaoImage";
-            this.dataGridViewImageColumn1.HeaderText = "Situação";
-            this.dataGridViewImageColumn1.Image = global::High_Gestor.Properties.Resources.cinza;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 70;
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "IdContaReceber";
-            this.Column8.HeaderText = "idContaReceber";
-            this.Column8.Name = "Column8";
-            this.Column8.Visible = false;
-            // 
-            // CheckBoxGrid
-            // 
-            this.CheckBoxGrid.HeaderText = "";
-            this.CheckBoxGrid.Name = "CheckBoxGrid";
-            this.CheckBoxGrid.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "DataEmissao";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "Data";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Lancamento";
-            this.Column4.HeaderText = "Lançamento";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 250;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column10.DataPropertyName = "Cliente";
-            this.Column10.HeaderText = "Cliente";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ValorTotal";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column1.HeaderText = "Valor total";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 140;
-            // 
-            // Forma
-            // 
-            this.Forma.DataPropertyName = "FormaPagamento";
-            this.Forma.HeaderText = "Forma de pag.";
-            this.Forma.Name = "Forma";
-            this.Forma.ReadOnly = true;
-            this.Forma.Width = 170;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Situacao";
-            this.Column3.HeaderText = "Situação";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            this.Column3.Width = 80;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "SituacaoImage";
-            this.Column7.HeaderText = "Situação";
-            this.Column7.Image = global::High_Gestor.Properties.Resources.cinza;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "";
-            this.Column6.Image = ((System.Drawing.Image)(resources.GetObject("Column6.Image")));
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 70;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "NumeroNota";
-            this.Column5.HeaderText = "NumeroNota";
-            this.Column5.Name = "Column5";
-            this.Column5.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "DataVencimento";
-            this.Column9.HeaderText = "Vencimento";
-            this.Column9.Name = "Column9";
-            this.Column9.Visible = false;
-            // 
-            // Column11
-            // 
-            this.Column11.DataPropertyName = "IdContaBancariaFK";
-            this.Column11.HeaderText = "IdContaBancariaFK";
-            this.Column11.Name = "Column11";
-            this.Column11.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.DataPropertyName = "IdFormaPagamentoFK";
-            this.Column12.HeaderText = "IdFormaPagamentoFK";
-            this.Column12.Name = "Column12";
-            this.Column12.Visible = false;
-            // 
             // FormContasReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1133,9 +1134,6 @@
             this.Load += new System.EventHandler(this.FormContasReceber_Load);
             panelGridContent.ResumeLayout(false);
             panelGridContent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContent)).EndInit();
             panelLabelSaldoCaixa.ResumeLayout(false);
             panelLabelSaldoCaixa.PerformLayout();
@@ -1157,6 +1155,9 @@
             this.panelDescricaoLabel.PerformLayout();
             this.panelTopHeader.ResumeLayout(false);
             this.panelTopHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -39,6 +39,7 @@
             this.comboBoxFormaPagamento = new System.Windows.Forms.ComboBox();
             this.comboBoxContaBancaria = new System.Windows.Forms.ComboBox();
             this.panelContent = new System.Windows.Forms.Panel();
+            this.labelValueQuantidadeContas = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.labelValueValorReceber = new System.Windows.Forms.Label();
             this.buttonNovoCadastro = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.radioButtonDataVencimento = new System.Windows.Forms.RadioButton();
             this.radioButtonDataAtual = new System.Windows.Forms.RadioButton();
             this.labelTitulo = new System.Windows.Forms.Label();
-            this.labelValueQuantidadeContas = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
@@ -124,8 +124,21 @@
             label5.TabIndex = 254;
             label5.Text = resources.GetString("label5.Text");
             // 
+            // label6
+            // 
+            label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
+            label6.Location = new System.Drawing.Point(500, 499);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(148, 17);
+            label6.TabIndex = 305;
+            label6.Text = "Quantidade de contas";
+            // 
             // comboBoxFormaPagamento
             // 
+            this.comboBoxFormaPagamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxFormaPagamento.DropDownWidth = 300;
             this.comboBoxFormaPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxFormaPagamento.FormattingEnabled = true;
@@ -137,6 +150,7 @@
             // 
             // comboBoxContaBancaria
             // 
+            this.comboBoxContaBancaria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxContaBancaria.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxContaBancaria.FormattingEnabled = true;
             this.comboBoxContaBancaria.Location = new System.Drawing.Point(45, 329);
@@ -174,6 +188,17 @@
             this.panelContent.Size = new System.Drawing.Size(844, 570);
             this.panelContent.TabIndex = 292;
             this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
+            // 
+            // labelValueQuantidadeContas
+            // 
+            this.labelValueQuantidadeContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelValueQuantidadeContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValueQuantidadeContas.Location = new System.Drawing.Point(509, 520);
+            this.labelValueQuantidadeContas.Name = "labelValueQuantidadeContas";
+            this.labelValueQuantidadeContas.Size = new System.Drawing.Size(139, 17);
+            this.labelValueQuantidadeContas.TabIndex = 306;
+            this.labelValueQuantidadeContas.Text = "0";
+            this.labelValueQuantidadeContas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
             // 
@@ -304,29 +329,6 @@
             this.labelTitulo.TabIndex = 182;
             this.labelTitulo.Text = "Liquidação - Contas a receber";
             this.labelTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelValueQuantidadeContas
-            // 
-            this.labelValueQuantidadeContas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.labelValueQuantidadeContas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValueQuantidadeContas.Location = new System.Drawing.Point(509, 520);
-            this.labelValueQuantidadeContas.Name = "labelValueQuantidadeContas";
-            this.labelValueQuantidadeContas.Size = new System.Drawing.Size(139, 17);
-            this.labelValueQuantidadeContas.TabIndex = 306;
-            this.labelValueQuantidadeContas.Text = "0";
-            this.labelValueQuantidadeContas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label6
-            // 
-            label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            label6.AutoSize = true;
-            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
-            label6.Location = new System.Drawing.Point(500, 499);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(148, 17);
-            label6.TabIndex = 305;
-            label6.Text = "Quantidade de contas";
             // 
             // FormLiquidarVariasContas
             // 

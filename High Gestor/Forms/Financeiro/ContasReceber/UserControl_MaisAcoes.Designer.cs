@@ -85,6 +85,7 @@
             this.buttonDesliquidarContas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDesliquidarContas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonDesliquidarContas.UseVisualStyleBackColor = true;
+            this.buttonDesliquidarContas.Click += new System.EventHandler(this.buttonDesliquidarContas_Click);
             // 
             // pictureBox1
             // 

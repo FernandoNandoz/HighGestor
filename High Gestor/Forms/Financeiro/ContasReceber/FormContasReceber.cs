@@ -614,6 +614,59 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             }
         }
 
+        public void desliquidarContas()
+        {
+            bool efetuarAcao = false;
+
+            for (int i = 0; i < dataGridViewContent.Rows.Count; i++)
+            {
+                if (bool.Parse(dataGridViewContent.Rows[i].Cells[1].EditedFormattedValue.ToString()))
+                {
+                    string NumeroNota = dataGridViewContent.Rows[i].Cells[10].Value.ToString();
+                    int IdContasReceber = int.Parse(dataGridViewContent.Rows[i].Cells[0].Value.ToString());
+
+                    /// PAGAMENTOS
+                    ///
+
+                    string update = ("UPDATE Pagamentos SET situacao = @situacao, idLog = @idLog, updatedAt = @updatedAt WHERE numeroNota = @NumeroNota");
+                    SqlCommand exeUpdate = new SqlCommand(update, banco.connection);
+
+                    exeUpdate.Parameters.Clear();
+                    exeUpdate.Parameters.AddWithValue("@situacao", "CONTA ESTORNADA");
+                    exeUpdate.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                    exeUpdate.Parameters.AddWithValue("@updatedAt", DateTime.Now);
+                    exeUpdate.Parameters.AddWithValue("@NumeroNota", NumeroNota);
+
+                    banco.conectar();
+                    exeUpdate.ExecuteNonQuery();
+                    banco.desconectar();
+
+
+                    /// CONTAS RECEBER       
+                    /// 
+
+                    string query = ("UPDATE ContasReceber SET situacao = @situacao WHERE idContaReceber = @ID");
+                    SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+                    exeQuery.Parameters.Clear();
+                    exeQuery.Parameters.AddWithValue("@situacao", "EM ABERTO");
+                    exeQuery.Parameters.AddWithValue("@ID", IdContasReceber);
+
+                    banco.conectar();
+                    exeQuery.ExecuteNonQuery();
+                    banco.desconectar();
+
+                    efetuarAcao = true;
+                }
+            }
+
+            if (efetuarAcao == true)
+            {
+                carregarDados();
+                carregarResumoGeral();
+            }
+        }
+
         private void FormContasReceber_Load(object sender, EventArgs e)
         {
             #region Responsividade
@@ -704,6 +757,8 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         private void buttonNovoCadastro_Click(object sender, EventArgs e)
         {
             FecharAcoes(sender, e);
+
+            openChildForm(new NovoRecebimento.FormNovoRecebimento());
         }
 
         private void buttonExcluirConta_Click(object sender, EventArgs e)
@@ -964,8 +1019,6 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
 
             acoesOpen = false;
         }
-
-
 
     }
 }

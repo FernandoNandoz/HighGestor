@@ -55,12 +55,21 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
 
         private void buttonLiquidarContas_Click(object sender, EventArgs e)
         {
+            instancia.FecharAcoes(sender, e);
+
             if (instancia.liquidarContas())
             {
                 LiquidarVariasContas.FormLiquidarVariasContas windows = new LiquidarVariasContas.FormLiquidarVariasContas(this.instancia);
                 windows.ShowDialog();
                 windows.Dispose();
             }
+        }
+
+        private void buttonDesliquidarContas_Click(object sender, EventArgs e)
+        {
+            instancia.FecharAcoes(sender, e);
+
+            instancia.desliquidarContas();
         }
     }
 }
