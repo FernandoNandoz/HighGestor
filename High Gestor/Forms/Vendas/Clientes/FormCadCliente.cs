@@ -8,6 +8,8 @@ namespace High_Gestor.Forms.Vendas.Clientes
     {
         Banco banco = new Banco();
 
+        string TipoCadastro = string.Empty;
+
         public FormCadCliente()
         {
             InitializeComponent();
@@ -15,9 +17,9 @@ namespace High_Gestor.Forms.Vendas.Clientes
 
         private void limparValores()
         {
+            comboBoxTipoCadastro.SelectedIndex = 0;
             comboBoxSituacao.SelectedIndex = 0;
             comboBoxTipoPessoa.SelectedIndex = 0;
-            textBoxCodigoCliente.Clear();
             textBoxNome_Razao.Clear();
             maskedDataNascimento.Clear();
             textBoxNomeFantasia.Clear();
@@ -33,11 +35,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
             //
             verificarTipoPessoa();
 
-            textBoxCodigoCliente.Text = codigoCliente();
             textBoxNome_Razao.Focus();
-            //
-            textBoxCodigoCliente.Enabled = false;
-            checkBoxGerarCodigoAutomaticamente.Checked = true;
             //
             updateData.receberDados(0, false);
         }
@@ -45,7 +43,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
         private void carregarDados()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT idCliente, situacao, tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, dataNascimento, responsavel, CPF_CNPJ, carteiraProdutorRural, telefoneWhatsApp, telefoneContato, email, enderecoCompleto, complemento, observacao FROM Clientes WHERE idCliente = @ID");
+            string query = ("SELECT idClienteFornecedor, tipo, situacao, tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, dataNascimento, responsavel, CPF_CNPJ, carteiraProdutorRural, telefoneWhatsApp, telefoneContato, email, enderecoCompleto, complemento, observacao FROM ClientesFornecedores WHERE idClienteFornecedor = @ID");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -55,21 +53,21 @@ namespace High_Gestor.Forms.Vendas.Clientes
 
             while (datareader.Read())
             {
-                comboBoxSituacao.Text = datareader.GetString(1);
-                comboBoxTipoPessoa.Text = datareader.GetString(2);
-                textBoxCodigoCliente.Text = datareader.GetInt32(0).ToString();
-                textBoxNome_Razao.Text = datareader.GetString(3);
-                textBoxNomeFantasia.Text = datareader.GetString(4);
-                maskedDataNascimento.Text = datareader[5].ToString();
-                textBoxNomeResponsavel.Text = datareader.GetString(6);
-                maskedCPF_CNPJ.Text = datareader.GetString(7);
-                textBoxCarteiraProdutorRural.Text = datareader.GetString(8);
-                maskedWhatsApp.Text = datareader.GetString(9);
-                maskedTelefoneContato.Text = datareader.GetString(10);
-                textBoxEmail.Text = datareader.GetString(11);
-                textBoxEndereco.Text = datareader.GetString(12);
-                textBoxComplemento.Text = datareader.GetString(13);
-                textBoxObservacao.Text = datareader.GetString(14);
+                comboBoxTipoCadastro.Text = datareader.GetString(1);
+                comboBoxSituacao.Text = datareader.GetString(2);
+                comboBoxTipoPessoa.Text = datareader.GetString(3);
+                textBoxNome_Razao.Text = datareader.GetString(4);
+                textBoxNomeFantasia.Text = datareader.GetString(5);
+                maskedDataNascimento.Text = datareader[6].ToString();
+                textBoxNomeResponsavel.Text = datareader.GetString(7);
+                maskedCPF_CNPJ.Text = datareader.GetString(8);
+                textBoxCarteiraProdutorRural.Text = datareader.GetString(9);
+                maskedWhatsApp.Text = datareader.GetString(10);
+                maskedTelefoneContato.Text = datareader.GetString(11);
+                textBoxEmail.Text = datareader.GetString(12);
+                textBoxEndereco.Text = datareader.GetString(13);
+                textBoxComplemento.Text = datareader.GetString(14);
+                textBoxObservacao.Text = datareader.GetString(15);
             }
 
             banco.desconectar();
@@ -98,13 +96,13 @@ namespace High_Gestor.Forms.Vendas.Clientes
             return liberado;
         }
 
-        private bool verificarClienteExistente()
+        private bool verificarClienteFornecedorExistente()
         {
             string message = string.Empty;
             bool existente = false;
 
             //Retorna os dados da tabela Produtos para o DataGridView
-            string query = ("SELECT nomeCompleto_RazaoSocial, nomeFantasia, CPF_CNPJ FROM Clientes WHERE nomeCompleto_RazaoSocial = @nomeCompleto_RazaoSocial OR nomeFantasia = @nomeFantasia OR CPF_CNPJ = @CPF_CNPJ");
+            string query = ("SELECT nomeCompleto_RazaoSocial, nomeFantasia, CPF_CNPJ FROM ClientesFornecedores WHERE nomeCompleto_RazaoSocial = @nomeCompleto_RazaoSocial OR nomeFantasia = @nomeFantasia OR CPF_CNPJ = @CPF_CNPJ");
             SqlCommand verificarCategoria = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -169,36 +167,6 @@ namespace High_Gestor.Forms.Vendas.Clientes
             return existente;
         }
 
-        private int verificarIdCliente()
-        {
-            int id = 0;
-
-            //Pega o ultimo ID resgitrado na tabela log
-            string fornecedorSELECT = ("SELECT idCliente FROM Clientes WHERE idCliente=(SELECT MAX(idCliente) FROM Clientes)");
-            SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
-            banco.conectar();
-
-            SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-            while (datareader.Read())
-            {
-                id = int.Parse(datareader[0].ToString());
-            }
-
-            banco.desconectar();
-
-            return id;
-        }
-
-        private string codigoCliente()
-        {
-            string codigo;
-
-            codigo = (verificarIdCliente() + 1).ToString();
-
-            return codigo;
-        }
-
         private void verificarTipoPessoa()
         {
             if(comboBoxTipoPessoa.Text == "JURIDICA")
@@ -229,9 +197,10 @@ namespace High_Gestor.Forms.Vendas.Clientes
         {
             try
             {
-                string query = ("INSERT INTO Clientes (situacao, tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, dataNascimento, CPF_CNPJ, carteiraProdutorRural, telefoneWhatsApp, telefoneContato, email, enderecoCompleto, complemento, observacao, idLog, createdAt) VALUES (@situacao, @tipoPessoa, @nomeCompleto_RazaoSocial, @nomeFantasia, @responsavel, @dataNascimento, @CPF_CNPJ, @carteiraProdutorRural, @telefoneWhatsApp, @telefoneContato, @email, @enderecoCompleto, @complemento, @observacao, @idLog, @createdAt)");
+                string query = ("INSERT INTO ClientesFornecedores (tipo, situacao, tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, dataNascimento, CPF_CNPJ, carteiraProdutorRural, telefoneWhatsApp, telefoneContato, email, enderecoCompleto, complemento, observacao, idLog, createdAt) VALUES (@tipo, @situacao, @tipoPessoa, @nomeCompleto_RazaoSocial, @nomeFantasia, @responsavel, @dataNascimento, @CPF_CNPJ, @carteiraProdutorRural, @telefoneWhatsApp, @telefoneContato, @email, @enderecoCompleto, @complemento, @observacao, @idLog, @createdAt)");
                 SqlCommand command = new SqlCommand(query, banco.connection);
 
+                command.Parameters.AddWithValue("@tipo", TipoCadastro);
                 command.Parameters.AddWithValue("@situacao", comboBoxSituacao.Text);
                 command.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
                 command.Parameters.AddWithValue("@nomeCompleto_RazaoSocial", textBoxNome_Razao.Text);
@@ -247,11 +216,11 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 //
                 if (maskedDataNascimento.Text == "  /  /")
                 {
-                    command.Parameters.AddWithValue("dataNascimento", DBNull.Value);
+                    command.Parameters.AddWithValue("@dataNascimento", DBNull.Value);
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("dataNascimento", DateTime.Parse(maskedDataNascimento.Text));
+                    command.Parameters.AddWithValue("@dataNascimento", DateTime.Parse(maskedDataNascimento.Text));
                 }
                 //
                 maskedCPF_CNPJ.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
@@ -306,9 +275,10 @@ namespace High_Gestor.Forms.Vendas.Clientes
         {
             try
             {
-                string query = ("UPDATE Clientes SET situacao = @situacao, tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = nomeCompleto_RazaoSocial, nomeFantasia = @nomeFantasia, responsavel = @responsavel, dataNascimento = @dataNascimento, CPF_CNPJ = @CPF_CNPJ, carteiraProdutorRural = @carteiraProdutorRural, telefoneWhatsApp = @telefoneWhatsApp, telefoneContato = @telefoneContato, email = @email, enderecoCompleto = @enderecoCompleto, complemento = @complemento, observacao = @observacao, idLog = @idLog, updatedAt = @updatedAt WHERE idCliente = @ID");
+                string query = ("UPDATE ClientesFornecedores SET tipo = @tipo, situacao = @situacao, tipoPessoa = @tipoPessoa, nomeCompleto_RazaoSocial = nomeCompleto_RazaoSocial, nomeFantasia = @nomeFantasia, responsavel = @responsavel, dataNascimento = @dataNascimento, CPF_CNPJ = @CPF_CNPJ, carteiraProdutorRural = @carteiraProdutorRural, telefoneWhatsApp = @telefoneWhatsApp, telefoneContato = @telefoneContato, email = @email, enderecoCompleto = @enderecoCompleto, complemento = @complemento, observacao = @observacao, idLog = @idLog, updatedAt = @updatedAt WHERE idClienteFornecedor = @ID");
                 SqlCommand command = new SqlCommand(query, banco.connection);
 
+                command.Parameters.AddWithValue("@tipo", comboBoxTipoCadastro.Text);
                 command.Parameters.AddWithValue("@situacao", comboBoxSituacao.Text);
                 command.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
                 command.Parameters.AddWithValue("@nomeCompleto_RazaoSocial", textBoxNome_Razao.Text);
@@ -325,11 +295,11 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 maskedDataNascimento.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 if (maskedDataNascimento.Text == "  /  /")
                 {
-                    command.Parameters.AddWithValue("dataNascimento", DBNull.Value);
+                    command.Parameters.AddWithValue("@dataNascimento", DBNull.Value);
                 }
                 else
                 {
-                    command.Parameters.AddWithValue("dataNascimento", DateTime.Parse(maskedDataNascimento.Text));
+                    command.Parameters.AddWithValue("@dataNascimento", DateTime.Parse(maskedDataNascimento.Text));
                 }
                 maskedDataNascimento.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
                 //
@@ -385,21 +355,14 @@ namespace High_Gestor.Forms.Vendas.Clientes
         {
             if (updateData._retornarValidacao() == true)
             {
-                checkBoxGerarCodigoAutomaticamente.Enabled = false;
-
                 carregarDados();
             }
             else
             {
-                checkBoxGerarCodigoAutomaticamente.Enabled = true;
-
+                comboBoxTipoCadastro.SelectedIndex = 0;
                 comboBoxSituacao.SelectedIndex = 0;
                 comboBoxTipoPessoa.SelectedIndex = 0;
-
-                textBoxCodigoCliente.Text = codigoCliente();
             }
-
-            checkBoxGerarCodigoAutomaticamente.Checked = true;
 
             verificarTipoPessoa();
 
@@ -428,7 +391,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
             {
                 if (verificarCamposPreenchidos() == true)
                 {
-                    if (verificarClienteExistente() == false)
+                    if (verificarClienteFornecedorExistente() == false)
                     {
                         insertQuery();
                         //
@@ -437,7 +400,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 }
                 else
                 {
-                    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "Fornecedor:" + "\n" + "\n" + "Todos os campos estão vazios...", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Não foi possivel concluir a operação..." + "\n" + "\n" + "Erro do Sistema:" + "\n" + "\n" + "Cliente:" + "\n" + "\n" + "Todos os campos estão vazios...", "Oppa!!! Temos problema.", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -450,21 +413,27 @@ namespace High_Gestor.Forms.Vendas.Clientes
             }
         }
 
-        private void checkBoxGerarCodigoAutomaticamente_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxGerarCodigoAutomaticamente.Checked)
-            {
-                textBoxCodigoCliente.Enabled = false;
-            }
-            else
-            {
-                textBoxCodigoCliente.Enabled = true;
-            }
-        }
-
         private void comboBoxTipoPessoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             verificarTipoPessoa();
+        }
+
+        private void comboBoxTipoCadastro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxTipoCadastro.Text == "CLIENTE")
+            {
+                TipoCadastro = "CLIENTE";
+            }
+
+            if (comboBoxTipoCadastro.Text == "FORNRCEDOR")
+            {
+                TipoCadastro = "FORNECEDOR";
+            }
+
+            if (comboBoxTipoCadastro.Text == "AMBOS")
+            {
+                TipoCadastro = "CLIENTE/FORNECEDOR";
+            }
         }
     }
 }

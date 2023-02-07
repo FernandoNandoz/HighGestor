@@ -192,8 +192,8 @@ namespace High_Gestor.Forms.Relatorios.Vendas.Comissao
             exeInsert.Parameters.AddWithValue("@valorCredito", credito);
             exeInsert.Parameters.AddWithValue("@valorDebito", debito);
             exeInsert.Parameters.AddWithValue("@valorPagamento", pagamento);
-            exeInsert.Parameters.AddWithValue("@idClienteFK", 0);
-            exeInsert.Parameters.AddWithValue("@idCaixaFK", 0);
+            exeInsert.Parameters.AddWithValue("@idClienteFK", DBNull.Value);
+            exeInsert.Parameters.AddWithValue("@idCaixaFK", DBNull.Value);
             exeInsert.Parameters.AddWithValue("@idFuncionarioFK", updateData._retornarID());
 
             banco.conectar();
@@ -224,7 +224,7 @@ namespace High_Gestor.Forms.Relatorios.Vendas.Comissao
             exeInsert.Parameters.AddWithValue("@observacao", "Comissao " + textBoxDescricao.Text);
             exeInsert.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria(comboBoxContaBancaria.Text));
             exeInsert.Parameters.AddWithValue("@idCategoriaFinanceiroFK", verificarIdCategoriaFinanceiro(SistemaVerificacao.verificarCategoriaPadraoDespesas()));
-            exeInsert.Parameters.AddWithValue("@idFornecedorFK", 0);
+            exeInsert.Parameters.AddWithValue("@idFornecedorFK", DBNull.Value);
             exeInsert.Parameters.AddWithValue("@idFormaPagamentoFK", verificarIdFormaPagamento("DINHEIRO"));
             exeInsert.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
             exeInsert.Parameters.AddWithValue("@idComissaoFK", updateData._retornarID());

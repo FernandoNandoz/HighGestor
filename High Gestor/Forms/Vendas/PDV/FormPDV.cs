@@ -150,8 +150,10 @@ namespace High_Gestor.Forms.Vendas.PDV
         {
             decimal Saldo = 0;
 
-            string select = ("SELECT SUM(valorEntrada) - SUM(valorSaida) FROM MovimentacaoCaixa WHERE idFormaPagamentoFK = '11'");
+            string select = ("SELECT SUM(valorEntrada) - SUM(valorSaida) FROM MovimentacaoCaixa WHERE idFormaPagamentoFK = '11' AND idCaixaFK = @ID");
             SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            exeSelect.Parameters.AddWithValue("@ID", idCaixa);
 
             banco.conectar();
             SqlDataReader reader = exeSelect.ExecuteReader();
@@ -206,7 +208,7 @@ namespace High_Gestor.Forms.Vendas.PDV
 
             try
             {
-                string select = ("SELECT VendasPDV.IdVendaPDV, VendasPDV.numeroVenda, VendasPDV.dataVenda, Funcionario.usuario, Clientes.nomeCompleto_RazaoSocial, VendasPDV.valorTotalVenda, VendasPDV.situacao, VendasPDV.idClienteFK, VendasPDV.idFuncionarioFK, VendasPDV.situacaoContas, VendasPDV.situacaoEstoque FROM VendasPDV INNER JOIN Funcionario ON VendasPDV.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN Clientes ON VendasPDV.idClienteFK = Clientes.idCliente ORDER BY VendasPDV.numeroVenda DESC");
+                string select = ("SELECT VendasPDV.IdVendaPDV, VendasPDV.numeroVenda, VendasPDV.dataVenda, Funcionario.usuario, ClientesFornecedores.nomeCompleto_RazaoSocial, VendasPDV.valorTotalVenda, VendasPDV.situacao, VendasPDV.idClienteFK, VendasPDV.idFuncionarioFK, VendasPDV.situacaoContas, VendasPDV.situacaoEstoque FROM VendasPDV INNER JOIN Funcionario ON VendasPDV.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN ClientesFornecedores ON VendasPDV.idClienteFK = ClientesFornecedores.idClienteFornecedor ORDER BY VendasPDV.numeroVenda DESC");
                 SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
                 VendaPDV.Rows.Clear();

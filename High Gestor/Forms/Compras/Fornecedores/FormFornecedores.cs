@@ -85,7 +85,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
 
             int contagem = 0;
 
-            string Fornecedor = ("SELECT COUNT(*) FROM Fornecedor");
+            string Fornecedor = ("SELECT COUNT(*) FROM ClientesFornecedores");
             SqlCommand exeVerificacao = new SqlCommand(Fornecedor, banco.connection);
             banco.conectar();
 
@@ -104,7 +104,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
         private void dataFornecedor()
         {
             //Retorna os dados da tabela Produtos para o DataGridView
-            string Produtos = ("SELECT idFornecedor, codigoFornecedor, nomeFantasia, representante FROM Fornecedor ORDER BY nomeFantasia");
+            string Produtos = ("SELECT idClienteFornecedor, tipoPessoa, nomeFantasia, responsavel, telefoneWhatsApp FROM ClientesFornecedores ORDER BY nomeFantasia");
             SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
             banco.conectar();
 
@@ -116,7 +116,8 @@ namespace High_Gestor.Forms.Compras.Fornecedores
                 dataGridViewContent.Rows.Add(datareader[0],
                                             datareader[1],
                                             datareader[2],
-                                            datareader[3]);
+                                            datareader[3],
+                                            datareader[4]);
             }
 
             banco.desconectar();
@@ -156,59 +157,28 @@ namespace High_Gestor.Forms.Compras.Fornecedores
         {
             if (textBoxPesquisarNome.Text != string.Empty)
             {
-                string dado = string.Empty;
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string Fornecedor = ("SELECT idClienteFornecedor, tipoPessoa, nomeFantasia, representante, telefoneWhatsApp FROM ClientesFornecedores WHERE nomeFantasia LIKE (@nomeFantasia + '%') ORDER BY nomeFantasia");
+                SqlCommand exeVerificacao = new SqlCommand(Fornecedor, banco.connection);
+                banco.conectar();
 
-                dado = textBoxPesquisarNome.Text;
+                exeVerificacao.Parameters.AddWithValue("@nomeFantasia", textBoxPesquisarNome.Text);
 
-                if (dado.All(Char.IsNumber))
+                SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+                dataGridViewContent.Rows.Clear();
+                while (datareader.Read())
                 {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Fornecedor = ("SELECT idFornecedor, codigoFornecedor, nomeFantasia, representante FROM Fornecedor WHERE codigoFornecedor LIKE (@codigo + '%') ORDER BY nomeFantasia");
-                    SqlCommand exeVerificacao = new SqlCommand(Fornecedor, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@codigo", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2],
-                                                    datareader[3]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
+                    dataGridViewContent.Rows.Add(datareader[0],
+                                           datareader[1],
+                                           datareader[2],
+                                           datareader[3],
+                                           datareader[4]);
                 }
 
-                if (dado.All(Char.IsLetter))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Fornecedor = ("SELECT idFornecedor, codigoFornecedor, nomeFantasia, representante FROM Fornecedor WHERE nomeFantasia LIKE (@nomeFantasia + '%') ORDER BY nomeFantasia");
-                    SqlCommand exeVerificacao = new SqlCommand(Fornecedor, banco.connection);
-                    banco.conectar();
+                banco.desconectar();
 
-                    exeVerificacao.Parameters.AddWithValue("@nomeFantasia", textBoxPesquisarNome.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
-                    {
-                        dataGridViewContent.Rows.Add(datareader[0],
-                                                    datareader[1],
-                                                    datareader[2],
-                                                    datareader[3]);
-                    }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
+                dataGridViewContent.Refresh();
             }
             else
             {
@@ -220,7 +190,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
         {
             updateData.receberDados(0, false);
 
-            openChildForm(new Fornecedores.FormCadFornecedores());
+            openChildForm(new Vendas.Clientes.FormCadCliente());
         }
 
         private void buttonRelatorio_Click(object sender, EventArgs e)
@@ -235,7 +205,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 
-                openChildForm(new Fornecedores.FormCadFornecedores());
+                openChildForm(new Vendas.Clientes.FormCadCliente());
             }
         }
 
@@ -248,7 +218,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
                 {
                     try
                     {
-                        string Fornecedor = ("DELETE FROM Fornecedor WHERE idFornecedor = @ID");
+                        string Fornecedor = ("DELETE FROM ClientesFornecedores WHERE idClienteFornecedor = @ID");
                         SqlCommand command = new SqlCommand(Fornecedor, banco.connection);
 
                         command.Parameters.AddWithValue("@ID", dataGridViewContent.CurrentRow.Cells[0].Value);
@@ -281,7 +251,7 @@ namespace High_Gestor.Forms.Compras.Fornecedores
             {
                 updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
 
-                openChildForm(new Fornecedores.FormCadFornecedores());
+                openChildForm(new Vendas.Clientes.FormCadCliente());
             }
         }
     }

@@ -94,6 +94,7 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
             ContaReceber.Columns.Add("situacao", typeof(string));
             ContaReceber.Columns.Add("IdContaBancariaFK", typeof(int));
             ContaReceber.Columns.Add("obsevacao", typeof(string));
+            ContaReceber.Columns.Add("IdClienteFK", typeof(int));
         }
 
         private void verificarVenda()
@@ -123,7 +124,7 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
 
         private void carregarContaReceber()
         {
-            string query = ("SELECT idContaReceber, numeroNota, numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, situacao, idContaBancariaFK, observacao FROM ContasReceber WHERE idVendasPDV_FK = @ID");
+            string query = ("SELECT idContaReceber, numeroNota, numeroParcela, dataVencimento, valorTotal, idFormaPagamentoFK, situacao, idContaBancariaFK, observacao, idClienteFK FROM ContasReceber WHERE idVendasPDV_FK = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -148,7 +149,8 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
                     datareader.GetInt32(5),
                     datareader.GetString(6),
                     datareader.GetInt32(7),
-                    datareader[8].ToString());
+                    datareader[8].ToString(),
+                    datareader.GetInt32(9));
             }
 
             banco.desconectar();
@@ -314,11 +316,58 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
             return id;
         }
 
+        private int verificarIdPagamentos()
+        {
+            int id = 0;
+
+            //Pega o ultimo ID resgitrado na tabela log
+            string query = ("SELECT idPagamentos FROM Pagamentos WHERE idPagamentos=(SELECT MAX(idPagamentos) FROM Pagamentos)");
+            SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
+            banco.conectar();
+
+            SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                id = int.Parse(datareader[0].ToString());
+            }
+
+            banco.desconectar();
+
+            return id;
+        }
+
         private void insertQueryMovimentacaoPDV()
         {
-            string insert = ("INSERT INTO MovimentacaoCaixa (dataLancamento, lancamento, categoria, valorEntrada, valorSaida, observacao, idFormaPagamentoFK, idCategoriaFinanceiroFK, idFuncionarioFK, idCaixaFK, idContaBancariaFK, idPagamentosFK, idVendaPDV_FK, idLog, createdAt) VALUES (@dataLancamento, @lancamento, @categoria, @valorEntrada, @valorSaida, @observacao, @idFormaPagamentoFK, @idCategoriaFinanceiroFK, @idFuncionarioFK, @idCaixaFK, @idContaBancariaFK, @idPagamentosFK, @idVendaPDV_FK, @idLog, @createdAt)");
+            string insertPagamento = ("INSERT INTO Pagamentos (numeroNota, situacao, dataPagamento, subTotal, desconto, acrescimo, valorTotal, valorRecebido, troco, observacaoPagamento, idContaBancariaFK, idFormaPagamentoFK, idLog, createdAt) VALUES (@numeroNota, @situacao, @dataPagamento, @subTotal, @desconto, @acrescimo, @valorTotal, @valorRecebido, @troco, @observacaoPagamento, @idContaBancariaFK, @idFormaPagamentoFK, @idLog, @createdAt)");
+            SqlCommand exeInsertPagamento = new SqlCommand(insertPagamento, banco.connection);
+
+            exeInsertPagamento.Parameters.AddWithValue("@numeroNota", numeroVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@situacao", "LIQUIDADO");
+            exeInsertPagamento.Parameters.AddWithValue("@dataPagamento", DateTime.Now);
+            exeInsertPagamento.Parameters.AddWithValue("@subTotal", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@valorTotal", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@desconto", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@acrescimo", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@valorRecebido", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@troco", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@observacaoPagamento", "ESTORNO-PDV");
+            exeInsertPagamento.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria("CONTA PADRAO (CAIXINHA)"));
+            exeInsertPagamento.Parameters.AddWithValue("@idFormaPagamentoFK", 11);
+            exeInsertPagamento.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            exeInsertPagamento.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            exeInsertPagamento.ExecuteNonQuery();
+            banco.desconectar();
+
+            ///////////////////////
+            ///
+            string insert = ("INSERT INTO MovimentacaoCaixa (situacaoCaixa, comissao, dataLancamento, lancamento, categoria, valorEntrada, valorSaida, observacao, idFormaPagamentoFK, idCategoriaFinanceiroFK, idFuncionarioFK, idCaixaFK, idContaBancariaFK, idPagamentosFK, idVendaPDV_FK, idLog, createdAt) VALUES (@situacaoCaixa, @comissao, @dataLancamento, @lancamento, @categoria, @valorEntrada, @valorSaida, @observacao, @idFormaPagamentoFK, @idCategoriaFinanceiroFK, @idFuncionarioFK, @idCaixaFK, @idContaBancariaFK, @idPagamentosFK, @idVendaPDV_FK, @idLog, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
 
+            exeInsert.Parameters.AddWithValue("@situacaoCaixa", "LANCADO");
+            exeInsert.Parameters.AddWithValue("@comissao", "NAO");
             exeInsert.Parameters.AddWithValue("@dataLancamento", DateTime.Now);
             exeInsert.Parameters.AddWithValue("@lancamento", "Estorno Venda " + numeroVenda);
             exeInsert.Parameters.AddWithValue("@categoria", "SANGRIA");
@@ -329,8 +378,8 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
             exeInsert.Parameters.AddWithValue("@idCategoriaFinanceiroFK", SistemaVerificacao.verificarCategoriaPadraoSangria());
             exeInsert.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
             exeInsert.Parameters.AddWithValue("@idCaixaFK", verificarIdCaixa(estornoCaixa.comboBoxCaixa.Text));
-            exeInsert.Parameters.AddWithValue("@idContaBancariaFK", 0);
-            exeInsert.Parameters.AddWithValue("@idPagamentosFK", 0);
+            exeInsert.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria("CONTA PADRAO (CAIXINHA)"));
+            exeInsert.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
             exeInsert.Parameters.AddWithValue("@idVendaPDV_FK", updateData._retornarID());
             exeInsert.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
             exeInsert.Parameters.AddWithValue("@createdAt", DateTime.Now);
@@ -342,9 +391,34 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
 
         private void insertQueryContasPagar()
         {
-            string insert = ("INSERT INTO ContasPagar (tituloConta, situacao, situacaoConta, numeroParcela, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idContaBancariaFK, idCategoriaFinanceiroFK, idFornecedorFK, idFormaPagamentoFK, idFuncionarioFK, idVendasPDV_FK, idLog, createdAt) VALUES (@tituloConta, @situacao, @situacaoConta, @numeroParcela, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idContaBancariaFK, @idCategoriaFinanceiroFK, @idFornecedorFK, @idFormaPagamentoFK, @idFuncionarioFK, @idVendasPDV_FK, @idLog, @createdAt)");
+            string insertPagamento = ("INSERT INTO Pagamentos (numeroNota, situacao, dataPagamento, subTotal, desconto, acrescimo, valorTotal, valorRecebido, troco, observacaoPagamento, idContaBancariaFK, idFormaPagamentoFK, idLog, createdAt) VALUES (@numeroNota, @situacao, @dataPagamento, @subTotal, @desconto, @acrescimo, @valorTotal, @valorRecebido, @troco, @observacaoPagamento, @idContaBancariaFK, @idFormaPagamentoFK, @idLog, @createdAt)");
+            SqlCommand exeInsertPagamento = new SqlCommand(insertPagamento, banco.connection);
+
+            exeInsertPagamento.Parameters.AddWithValue("@numeroNota", numeroVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@situacao", "LIQUIDADO");
+            exeInsertPagamento.Parameters.AddWithValue("@dataPagamento", DateTime.Now);
+            exeInsertPagamento.Parameters.AddWithValue("@subTotal", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@valorTotal", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@desconto", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@acrescimo", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@valorRecebido", valorTotalVenda);
+            exeInsertPagamento.Parameters.AddWithValue("@troco", 0);
+            exeInsertPagamento.Parameters.AddWithValue("@observacaoPagamento", "ESTORNO-PDV");
+            exeInsertPagamento.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria(estornoConta.comboBoxContaBancaria.Text));
+            exeInsertPagamento.Parameters.AddWithValue("@idFormaPagamentoFK", verificarIdFormaPagamento(estornoConta.comboBoxFormaPagamento.Text));
+            exeInsertPagamento.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            exeInsertPagamento.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            exeInsertPagamento.ExecuteNonQuery();
+            banco.desconectar();
+
+            ///////////////////////
+            ///
+            string insert = ("INSERT INTO ContasPagar (tipoDespesa, tituloConta, situacao, situacaoConta, numeroParcela, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idContaBancariaFK, idCategoriaFinanceiroFK, idFornecedorFK, idPagamentosFK, idFormaPagamentoFK, idFuncionarioFK, idVendasPDV_FK, idLog, createdAt) VALUES (@tipoDespesa, @tituloConta, @situacao, @situacaoConta, @numeroParcela, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idContaBancariaFK, @idCategoriaFinanceiroFK, @idFornecedorFK, @idPagamentosFK, @idFormaPagamentoFK, @idFuncionarioFK, @idVendasPDV_FK, @idLog, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
 
+            exeInsert.Parameters.AddWithValue("@tipoDespesa", "VENDA-PDV");
             exeInsert.Parameters.AddWithValue("@tituloConta", "Estorno Venda " + numeroVenda);
             exeInsert.Parameters.AddWithValue("@situacao", "EM ABERTO");
             exeInsert.Parameters.AddWithValue("@situacaoConta", "LANCADO");
@@ -356,7 +430,8 @@ namespace High_Gestor.Forms.Vendas.PDV.CancelarVenda
             exeInsert.Parameters.AddWithValue("@observacao", "Estorno Venda " + numeroVenda);
             exeInsert.Parameters.AddWithValue("@idContaBancariaFK", verificarIdContaBancaria(estornoConta.comboBoxContaBancaria.Text));
             exeInsert.Parameters.AddWithValue("@idCategoriaFinanceiroFK", SistemaVerificacao.verificarCategoriaPadraoSangria());
-            exeInsert.Parameters.AddWithValue("@idFornecedorFK", 0);
+            exeInsert.Parameters.AddWithValue("@idFornecedorFK", idCliente);
+            exeInsert.Parameters.AddWithValue("@idPagamentosFK", verificarIdPagamentos());
             exeInsert.Parameters.AddWithValue("@idFormaPagamentoFK", verificarIdFormaPagamento(estornoConta.comboBoxFormaPagamento.Text));
             exeInsert.Parameters.AddWithValue("@idFuncionarioFK", Autenticacao._idUsuario());
             exeInsert.Parameters.AddWithValue("@idVendasPDV_FK", updateData._retornarID());

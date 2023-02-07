@@ -299,6 +299,7 @@ namespace High_Gestor
         static DataTable MedotodosPagamento = new DataTable();
         static DataTable CategoriaFinanceiro = new DataTable();
         static DataTable CentroCusto = new DataTable();
+        static DataTable Clientes = new DataTable();
 
         public static bool verificarDadosEmpresa()
         {
@@ -344,7 +345,7 @@ namespace High_Gestor
             return encontrado;
         }
 
-        public static void DefauthConfig(bool Parametros, bool ParametrosPDV, bool CaixaPDV, bool ListaPreco, bool Perfil, bool Desenvolvedor, bool FormaPagamento, bool Transporte, bool ContaBancaria, bool CategoriaFinanceira, bool CentroCusto)
+        public static void DefauthConfig(bool Parametros, bool ParametrosPDV, bool CaixaPDV, bool ListaPreco, bool Perfil, bool Desenvolvedor, bool FormaPagamento, bool Transporte, bool ContaBancaria, bool CategoriaFinanceira, bool CentroCusto, bool ClientesFornecedores, bool CondicaoPagamento)
         {
             if (Parametros == false)
             {
@@ -376,17 +377,17 @@ namespace High_Gestor
                 insertDesenvolvedor();
             }
 
-            if(FormaPagamento == false)
+            if (FormaPagamento == false)
             {
                 insertFormaPagamento();
             }
 
-            if(Transporte == false)
+            if (Transporte == false)
             {
                 insertTransporte();
             }
 
-            if(ContaBancaria == false)
+            if (ContaBancaria == false)
             {
                 insertContaBancaria();
             }
@@ -396,27 +397,70 @@ namespace High_Gestor
                 insertCategoriaFinanceiro();
             }
 
-            if(CentroCusto == false)
+            if (CentroCusto == false)
             {
                 insertCentroCusto();
+            }
+
+            if (ClientesFornecedores == false)
+            {
+                insertClienteFornecedores();
+            }
+
+            if (CondicaoPagamento == false)
+            {
+                insertCondicaoPagamento();
             }
         }
 
         private static void ResetarID(string tabela)
         {
-            string query = ("DBCC CHECKIDENT(@tabela, RESEED, 0)");
+            //
+            //string query = ("DBCC CHECKIDENT(@tabela, RESEED, 0)");
+            string query = ("TRUNCATE TABLE " + tabela);
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
-
-            exeQuery.Parameters.AddWithValue("@tabela", tabela);
 
             banco.conectar();
             exeQuery.ExecuteNonQuery();
             banco.desconectar();
         }
 
+        private static bool VerificarID(string tabela)
+        {
+            bool Resetar = false;
+
+            string query = ("SELECT IDENT_CURRENT('ClientesFornecedores') + 1 as value");
+            SqlCommand exeQuery = new SqlCommand(query, banco.connection);
+
+            exeQuery.Parameters.AddWithValue("@tabela", tabela);
+
+            banco.conectar();
+            SqlDataReader reader = exeQuery.ExecuteReader();
+
+            if (reader.Read())
+            {
+                decimal resultado = decimal.Parse(reader[0].ToString());
+
+                if (resultado > 1)
+                {
+                    Resetar = true;
+                }
+                else
+                {
+                    Resetar = false;
+                }
+            }
+            banco.desconectar();
+
+            return Resetar;
+        }
+
         private static void insertParametrosPadrao()
         {
-            ResetarID("ParametrosSistema");
+            if (VerificarID("ParametrosSistema") == true)
+            {
+                ResetarID("ParametrosSistema");
+            }
 
             string query = ("INSERT INTO ParametrosSistema (comissao, comissionamento, categoriaPadraoReceitas, categoriaPadraoDespesas, categoriaPadraoVendas, categoriaPadraoCompras, custoPadraoReceitas, custoPadraoDespesas, bloquearVendaEstoque, atualizarCustoProduto, ListaPreco, idLog, createdAt) VALUES (@comissao, @comissionamento, @categoriaPadraoReceitas, @categoriaPadraoDespesas, @categoriaPadraoVendas, @categoriaPadraoCompras, @custoPadraoReceitas, @custoPadraoDespesas, @bloquearVendaEstoque, @atualizarCustoProduto, @ListaPreco, @idLog, @createdAt)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
@@ -443,7 +487,10 @@ namespace High_Gestor
 
         private static void insertListaPreco()
         {
-            ResetarID("ListaPreco");
+            if (VerificarID("ListaPreco") == true)
+            {
+                ResetarID("ListaPreco");
+            } 
 
             string query = ("INSERT INTO ListaPreco (situacao, descricao, modalidadeAjuste, tipoAjuste, baseCalculoValorProduto, baseCalculoValorLista, idLog, createdAt) VALUES (@situacao, @descricao, @modalidadeAjuste, @tipoAjuste, @baseCalculoValorProduto, @baseCalculoValorLista, @idLog, @createdAt)");
             SqlCommand command = new SqlCommand(query, banco.connection);
@@ -464,7 +511,10 @@ namespace High_Gestor
 
         private static void insertPerfil()
         {
-            ResetarID("Perfil");
+            if (VerificarID("Perfil") == true)
+            {
+                ResetarID("Perfil");
+            }      
 
             string perfil = ("INSERT INTO Perfil (codigoPerfil, perfil, createdAt) VALUES (@codigoPerfil, @perfil, @createdAt)");
             SqlCommand exePerfil = new SqlCommand(perfil, banco.connection);
@@ -501,7 +551,10 @@ namespace High_Gestor
 
         private static void insertDesenvolvedor()
         {
-            ResetarID("Funcionario");
+            if (VerificarID("Funcionario") == true)
+            {
+                ResetarID("Funcionario");
+            }
 
             string query = ("INSERT INTO Funcionario (idLog, idPerfilFK, situacao, codigoFuncionario, usuario, senha, nomeCompleto, comissaoPercent, CPF, endereco, whatsApp, telefoneContato, createdAt) VALUES (@idLog, @idPerfilFK, @situacao, @codigoFuncionario, @usuario, @senha, @nomeCompleto, @comissaoPercent, @CPF, @endereco, @whatsApp, @telefoneContato, @createdAt)");
             SqlCommand command = new SqlCommand(query, banco.connection);
@@ -529,9 +582,12 @@ namespace High_Gestor
         //PDV
         private static void insertParametrosPDV()
         {
-            ResetarID("ParametrosPDV");
+            if (VerificarID("ParametrosPDV") == true)
+            {
+                ResetarID("ParametrosPDV");
+            }
 
-            string insert = ("INSERT INTO ParametrosPDV (aberturaFechamentoCaixa, idCategoriaPadraoReforco, idCategoriaPadraoSangria, lancarEstoque, lancarContasReceber, lancarComissao, tipoDesconto, descontoMaximo, tipoAcrescimo, acrescimoMaximo, qntDiaFaturarCredito, qntDiaFaturarDebito, somenteDiasUteis, valeBrinde, alterarPrecoVenda, alterarOperador, idListaPrecoFK, idLog, createdAt) VALUES (@aberturaFechamentoCaixa, @idCategoriaPadraoReforco, @idCategoriaPadraoSangria, @lancarEstoque, @lancarContasReceber, @lancarComissao, @tipoDesconto, @descontoMaximo, @tipoAcrescimo, @acrescimoMaximo, @qntDiaFaturarCredito, @qntDiaFaturarDebito, @somenteDiasUteis, @valeBrinde, @alterarPrecoVenda, @alterarOperador, @idListaPrecoFK, @idLog, @createdAt)");
+            string insert = ("INSERT INTO ParametrosPDV (aberturaFechamentoCaixa, idCategoriaPadraoReforco, idCategoriaPadraoSangria, lancarEstoque, lancarContasReceber, lancarComissao, tipoDesconto, descontoMaximo, tipoAcrescimo, acrescimoMaximo, qntDiaFaturarCredito, qntDiaFaturarDebito, somenteDiasUteis, valeBrinde, consultarClientes, alterarPrecoVenda, alterarOperador, idListaPrecoFK, idLog, createdAt) VALUES (@aberturaFechamentoCaixa, @idCategoriaPadraoReforco, @idCategoriaPadraoSangria, @lancarEstoque, @lancarContasReceber, @lancarComissao, @tipoDesconto, @descontoMaximo, @tipoAcrescimo, @acrescimoMaximo, @qntDiaFaturarCredito, @qntDiaFaturarDebito, @somenteDiasUteis, @valeBrinde, @consultarClientes, @alterarPrecoVenda, @alterarOperador, @idListaPrecoFK, @idLog, @createdAt)");
             SqlCommand exeinsert = new SqlCommand(insert, banco.connection);
 
             exeinsert.Parameters.AddWithValue("@aberturaFechamentoCaixa", "NAO");
@@ -548,6 +604,7 @@ namespace High_Gestor
             exeinsert.Parameters.AddWithValue("@qntDiaFaturarDebito", 1);
             exeinsert.Parameters.AddWithValue("@somenteDiasUteis", "NAO");
             exeinsert.Parameters.AddWithValue("@valeBrinde", 0);
+            exeinsert.Parameters.AddWithValue("@consultarClientes", "NAO");
             exeinsert.Parameters.AddWithValue("@alterarPrecoVenda", "NAO");
             exeinsert.Parameters.AddWithValue("@alterarOperador", "NAO");
             exeinsert.Parameters.AddWithValue("@idListaPrecoFK", 1);
@@ -561,7 +618,10 @@ namespace High_Gestor
 
         private static void insertCaixa()
         {
-            ResetarID("Caixa");
+            if (VerificarID("Caixa") == true)
+            {
+                ResetarID("Caixa");
+            }
 
             string insert = ("INSERT INTO Caixa (situacao, nomeCaixa, valorMinimo, valorMaximo, permitirAbaixoMinimo, permitirAcimaMaximo, idLog, createdAt) VALUES (@situacao, @nomeCaixa, @valorMinimo, @valorMaximo, @permitirAbaixoMinimo, @permitirAcimaMaximo, @idLog, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
@@ -584,7 +644,10 @@ namespace High_Gestor
 
         private static void insertPermissaoCaixa()
         {
-            ResetarID("PermissaoCaixa");
+            if (VerificarID("PermissaoCaixa") == true)
+            {
+                ResetarID("PermissaoCaixa");
+            }
 
             string insert = ("INSERT INTO PermissaoCaixa (abrirCaixa, sangriaCaixa, reforcoCaixa, trocarMercadoria, fecharCaixa, adicionarAcrescimo, adicionarDesconto, idFuncionarioFK, idCaixaFK, idLog, createdAt) VALUES (@abrirCaixa, @sangriaCaixa, @reforcoCaixa, @trocarMercadoria, @fecharCaixa, @adicionarAcrescimo, @adicionarDesconto, @idFuncionarioFK, @idCaixaFK, @idLog, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
@@ -607,7 +670,6 @@ namespace High_Gestor
             banco.desconectar();
         }
 
-
         // Forma Pagamento
         private static void carregarMetodosPagamento()
         {
@@ -618,18 +680,17 @@ namespace High_Gestor
             MedotodosPagamento.Rows.Add("BOLETO", "SIM");
             MedotodosPagamento.Rows.Add("CARTAO DE CREDITO", "SIM");
             MedotodosPagamento.Rows.Add("CARTAO DE DEBITO", "SIM");
-            MedotodosPagamento.Rows.Add("CARTEIRA DIGITAL", "SIM");
             MedotodosPagamento.Rows.Add("CHEQUE", "SIM");
-            MedotodosPagamento.Rows.Add("CREDITO DE TROCA", "SIM");
             MedotodosPagamento.Rows.Add("CREDITO LOJA", "SIM");
+            MedotodosPagamento.Rows.Add("OUTROS", "SIM");
             MedotodosPagamento.Rows.Add("DEPOSITO BANCARIO");
             MedotodosPagamento.Rows.Add("DEPOSITO EM C/C");
+            MedotodosPagamento.Rows.Add("PIX", "SIM");
             MedotodosPagamento.Rows.Add("DINHEIRO", "SIM");
             MedotodosPagamento.Rows.Add("DOC", "NAO");
-            MedotodosPagamento.Rows.Add("OUTROS", "SIM");
             MedotodosPagamento.Rows.Add("PAGAMENTOS ONLINE");
             MedotodosPagamento.Rows.Add("PERMUTA", "NAO");
-            MedotodosPagamento.Rows.Add("PIX", "SIM");
+            MedotodosPagamento.Rows.Add("CREDITO DE TROCA", "NAO");
             MedotodosPagamento.Rows.Add("TED", "NAO");
             MedotodosPagamento.Rows.Add("TRANSFERENCIA", "NAO");
             MedotodosPagamento.Rows.Add("TRANSFERENCIA BANCARIA", "NAO");
@@ -644,7 +705,10 @@ namespace High_Gestor
         {
             carregarMetodosPagamento();
 
-            ResetarID("FormaPagamento");
+            if (VerificarID("FormaPagamento") == true)
+            {
+                ResetarID("FormaPagamento");
+            }
 
             string FormaPagamento = ("INSERT INTO FormaPagamento (codigoFormaPagamento, descricao, situacao, PDV, createdAt) VALUES (@codigoFormaPagamento, @descricao, @situacao, @PDV, @createdAt)");
             SqlCommand exeFormaPagamento = new SqlCommand(FormaPagamento, banco.connection);
@@ -688,7 +752,10 @@ namespace High_Gestor
 
             #endregion
 
-            ResetarID("Transporte");
+            if (VerificarID("Transporte") == true)
+            {
+                ResetarID("Transporte");
+            }
 
             string FormaPagamento = ("INSERT INTO Transporte (situacao, descricao, enderecoEntrega, observacao, createdAt) VALUES (@situacao, @descricao, @enderecoEntrega, @observacao, @createdAt)");
             SqlCommand exeFormaPagamento = new SqlCommand(FormaPagamento, banco.connection);
@@ -707,7 +774,10 @@ namespace High_Gestor
 
         private static void insertContaBancaria()
         {
-            ResetarID("ContasBancarias");
+            if (VerificarID("ContasBancarias") == true)
+            {
+                ResetarID("ContasBancarias");
+            }
 
             string query = ("INSERT INTO ContasBancarias (situacao, nomeBanco, nomeConta, saldoInicial, dataInicial, padraoReceitas, padraoDespesas) VALUES (@situacao, @nomeBanco, @nomeConta, @saldoInicial, @dataInicial, @padraoReceitas, @padraoDespesas)");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
@@ -820,7 +890,10 @@ namespace High_Gestor
         {
             carregarCategoriaFinanceiro();
 
-            ResetarID("CategoriaFinanceiro");
+            if (VerificarID("CategoriaFinanceiro") == true)
+            {
+                ResetarID("CategoriaFinanceiro");
+            }
 
             string Categoria = ("INSERT INTO CategoriaFinanceiro (situacao, descricao, tipoCategoria, grupoFinanceiro, idLog, createdAt) VALUES (@situacao, @descricao, @tipoCategoria, @grupoFinanceiro, @idLog, @createdAt)");
             SqlCommand command = new SqlCommand(Categoria, banco.connection);
@@ -858,7 +931,10 @@ namespace High_Gestor
         {
             carregarCentroCusto();
 
-            ResetarID("CentroCusto");
+            if (VerificarID("CentroCusto") == true)
+            {
+                ResetarID("CentroCusto");
+            }
 
             string Categoria = ("INSERT INTO CentroCusto (idLog, codigoCusto, descricao, status, createdAt) VALUES (@idLog, @codigoCusto, @descricao, @status, @createdAt)");
             SqlCommand command = new SqlCommand(Categoria, banco.connection);
@@ -878,7 +954,81 @@ namespace High_Gestor
             }
         }
 
+        //
+        private static void carregarClientesFornecedor()
+        {
+            Clientes.Columns.Add("tipo", typeof(string));
+            Clientes.Columns.Add("nomeCompletoRazao", typeof(string));
+            Clientes.Columns.Add("responsavel", typeof(string));
 
+            Clientes.Rows.Add("CLIENTE", "CONSUMIDOR FINAL", "CLIENTE FINAL");
+            Clientes.Rows.Add("CLIENTE/FORNECEDOR", "OPERACAO DE CAIXA", "SISTEMA");
+        }
+
+        private static void insertClienteFornecedores()
+        {
+            if (VerificarID("ClientesFornecedores") == true)
+            {
+                ResetarID("ClientesFornecedores");
+            }
+
+            carregarClientesFornecedor();
+
+            string query = ("INSERT INTO ClientesFornecedores (tipo, situacao, tipoPessoa, nomeCompleto_RazaoSocial, nomeFantasia, responsavel, dataNascimento, CPF_CNPJ, carteiraProdutorRural, telefoneWhatsApp, telefoneContato, email, enderecoCompleto, complemento, observacao, idLog, createdAt) VALUES (@tipo, @situacao, @tipoPessoa, @nomeCompleto_RazaoSocial, @nomeFantasia, @responsavel, @dataNascimento, @CPF_CNPJ, @carteiraProdutorRural, @telefoneWhatsApp, @telefoneContato, @email, @enderecoCompleto, @complemento, @observacao, @idLog, @createdAt)");
+            SqlCommand command = new SqlCommand(query, banco.connection);
+
+            for (int i = 0; i < Clientes.Rows.Count; i++)
+            {
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@tipo", Clientes.Rows[i][0].ToString());
+                command.Parameters.AddWithValue("@situacao", "ATIVO");
+                command.Parameters.AddWithValue("@tipoPessoa", "FISICA");
+                command.Parameters.AddWithValue("@nomeCompleto_RazaoSocial", Clientes.Rows[i][1].ToString());
+                command.Parameters.AddWithValue("@nomeFantasia", Clientes.Rows[i][1].ToString());
+                command.Parameters.AddWithValue("@responsavel", Clientes.Rows[i][2].ToString());
+                command.Parameters.AddWithValue("@dataNascimento", DBNull.Value);
+                command.Parameters.AddWithValue("@CPF_CNPJ", "00000000000");
+                command.Parameters.AddWithValue("@carteiraProdutorRural", "000000000");
+                command.Parameters.AddWithValue("@telefoneWhatsApp", "00000000000");
+                command.Parameters.AddWithValue("@telefoneContato", "00000000000");
+                command.Parameters.AddWithValue("@email", "");
+                command.Parameters.AddWithValue("@enderecoCompleto", "");
+                command.Parameters.AddWithValue("@complemento", "");
+                command.Parameters.AddWithValue("@observacao", "");
+                command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+                command.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+                banco.conectar();
+                command.ExecuteNonQuery();
+                banco.desconectar();
+            }  
+        }
+
+        //
+        private static void insertCondicaoPagamento()
+        {
+            if (VerificarID("CondicaoPagamento") == true)
+            {
+                ResetarID("CondicaoPagamento");
+            }
+
+            string query = ("INSERT INTO CondicaoPagamento (situacao, descricao, intervaloParcela, primeiraParcela, quantidadeParcela, idFormaPagamentoFK, idLog, createdAt) VALUES (@situacao, @descricao, @intervaloParcela, @primeiraParcela, @quantidadeParcela, @idFormaPagamentoFK, @idLog, @createdAt)");
+            SqlCommand command = new SqlCommand(query, banco.connection);
+
+            command.Parameters.AddWithValue("@situacao", "ATIVO");
+            command.Parameters.AddWithValue("@descricao", "A VISTA");
+            command.Parameters.AddWithValue("@intervaloParcela", 0);
+            command.Parameters.AddWithValue("@primeiraParcela", 0);
+            command.Parameters.AddWithValue("@quantidadeParcela", 1);
+            command.Parameters.AddWithValue("@idFormaPagamentoFK", 11);
+            
+            command.Parameters.AddWithValue("@idLog", LogSystem.gerarLog(0, "0", "0", "0", "0"));
+            command.Parameters.AddWithValue("@createdAt", DateTime.Now);
+
+            banco.conectar();
+            command.ExecuteNonQuery();
+            banco.desconectar();
+        }
 
 
         //Verificações - Consultas
@@ -922,7 +1072,6 @@ namespace High_Gestor
                 if(reader.GetString(0) != "DESATIVADO")
                 {
                     comissao = true;
-
                 }
                 else
                 {
@@ -996,6 +1145,25 @@ namespace High_Gestor
             banco.desconectar();
 
             return ListaPrecoPadrao;
+        }
+
+        public static string verificarCategoriaPadraoReceitas()
+        {
+            string result = string.Empty;
+
+            string select = ("SELECT categoriaPadraoReceitas FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            banco.desconectar();
+
+            return result;
         }
 
         public static string verificarCategoriaPadraoVendas()
@@ -1113,5 +1281,7 @@ namespace High_Gestor
 
             return result;
         }
+
+
     }
 }

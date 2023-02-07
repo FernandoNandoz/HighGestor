@@ -56,7 +56,6 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamen
 
         #endregion
 
-        
         private void carregarDados()
         {
             dataGridViewContent.Rows.Clear();
@@ -169,6 +168,5 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamen
                 instancia.contaEstornada = true;
             }
         }
-
     }
 }

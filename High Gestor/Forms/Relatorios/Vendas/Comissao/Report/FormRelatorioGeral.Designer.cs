@@ -69,7 +69,6 @@
             this.tableAdapterManager.CategoriaFinanceiroTableAdapter = null;
             this.tableAdapterManager.CategoriaTableAdapter = null;
             this.tableAdapterManager.CentroCustoTableAdapter = null;
-            this.tableAdapterManager.ClientesTableAdapter = null;
             this.tableAdapterManager.ComissaoTableAdapter = null;
             this.tableAdapterManager.CondicaoPagamentoTableAdapter = null;
             this.tableAdapterManager.Connection = null;
@@ -79,7 +78,6 @@
             this.tableAdapterManager.DadosEmpresaTableAdapter = null;
             this.tableAdapterManager.EstoqueTableAdapter = null;
             this.tableAdapterManager.FormaPagamentoTableAdapter = null;
-            this.tableAdapterManager.FornecedorTableAdapter = null;
             this.tableAdapterManager.FuncionarioTableAdapter = null;
             this.tableAdapterManager.ItensPedidoCompraTableAdapter = null;
             this.tableAdapterManager.ItensPedidoVendaTableAdapter = null;

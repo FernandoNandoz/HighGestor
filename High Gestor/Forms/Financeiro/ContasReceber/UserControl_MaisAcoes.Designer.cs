@@ -32,6 +32,7 @@
             this.flowLayoutPanelContent = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonLiquidarContas = new System.Windows.Forms.Button();
             this.buttonDesliquidarContas = new System.Windows.Forms.Button();
+            this.buttonReceitaRecorrente = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -42,12 +43,13 @@
             this.flowLayoutPanelContent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(87)))), ((int)(((byte)(154)))));
             this.flowLayoutPanelContent.Controls.Add(this.buttonLiquidarContas);
             this.flowLayoutPanelContent.Controls.Add(this.buttonDesliquidarContas);
+            this.flowLayoutPanelContent.Controls.Add(this.buttonReceitaRecorrente);
             this.flowLayoutPanelContent.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanelContent.Location = new System.Drawing.Point(0, 8);
             this.flowLayoutPanelContent.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanelContent.Name = "flowLayoutPanelContent";
             this.flowLayoutPanelContent.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.flowLayoutPanelContent.Size = new System.Drawing.Size(212, 83);
+            this.flowLayoutPanelContent.Size = new System.Drawing.Size(212, 114);
             this.flowLayoutPanelContent.TabIndex = 110;
             this.flowLayoutPanelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelContent_Paint);
             // 
@@ -87,6 +89,24 @@
             this.buttonDesliquidarContas.UseVisualStyleBackColor = true;
             this.buttonDesliquidarContas.Click += new System.EventHandler(this.buttonDesliquidarContas_Click);
             // 
+            // buttonReceitaRecorrente
+            // 
+            this.buttonReceitaRecorrente.FlatAppearance.BorderSize = 0;
+            this.buttonReceitaRecorrente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonReceitaRecorrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReceitaRecorrente.ForeColor = System.Drawing.Color.White;
+            this.buttonReceitaRecorrente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReceitaRecorrente.Location = new System.Drawing.Point(3, 78);
+            this.buttonReceitaRecorrente.Name = "buttonReceitaRecorrente";
+            this.buttonReceitaRecorrente.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonReceitaRecorrente.Size = new System.Drawing.Size(206, 30);
+            this.buttonReceitaRecorrente.TabIndex = 107;
+            this.buttonReceitaRecorrente.Text = "Receitas recorrêntes";
+            this.buttonReceitaRecorrente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonReceitaRecorrente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonReceitaRecorrente.UseVisualStyleBackColor = true;
+            this.buttonReceitaRecorrente.Click += new System.EventHandler(this.buttonReceitaRecorrente_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -102,11 +122,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(249)))));
             this.Controls.Add(this.flowLayoutPanelContent);
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControl_MaisAcoes";
-            this.Size = new System.Drawing.Size(212, 91);
+            this.Size = new System.Drawing.Size(212, 122);
             this.Load += new System.EventHandler(this.UserControl_MaisAcoes_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserControl_MaisAcoes_Paint);
             this.flowLayoutPanelContent.ResumeLayout(false);
@@ -121,5 +142,6 @@
         private System.Windows.Forms.Button buttonLiquidarContas;
         private System.Windows.Forms.Button buttonDesliquidarContas;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button buttonReceitaRecorrente;
     }
 }

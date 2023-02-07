@@ -147,7 +147,7 @@ namespace High_Gestor.Forms.Produtos
 
         private void dataComboBoxFornecedor()
         {
-            string Membros = ("SELECT * FROM Fornecedor ORDER BY nomeFantasia ASC");
+            string Membros = ("SELECT nomeFantasia FROM ClientesFornecedores ORDER BY nomeFantasia ASC");
             SqlCommand exeVerificacao = new SqlCommand(Membros, banco.connection);
 
             banco.conectar();
@@ -159,7 +159,7 @@ namespace High_Gestor.Forms.Produtos
 
             while (datareader.Read())
             {
-                comboBoxFornecedor.Items.Add(datareader[2].ToString() + " - " + datareader[4].ToString());
+                comboBoxFornecedor.Items.Add(datareader[0].ToString());
             }
             banco.desconectar();
         }
@@ -276,7 +276,7 @@ namespace High_Gestor.Forms.Produtos
             try
             {
                 //Retorna os dados da tabela Produtos para o DataGridView
-                string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Produtos.marca, Fornecedor.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN Fornecedor ON Produtos.idFornecedorFK = Fornecedor.idFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
+                string Produtos = ("SELECT Produtos.idProduto, Produtos.nomeProduto, Produtos.codigoProduto, Produtos.estoqueAtual, Produtos.valorVenda, Categoria.categoria, Produtos.marca, ClientesFornecedores.nomeFantasia, Produtos.estoqueMinimo, Produtos.status, Produtos.situacaoEstoque, Produtos.dataValidade FROM Produtos INNER JOIN Categoria ON Produtos.idCategoriaFK = Categoria.idCategoria INNER JOIN ClientesFornecedores ON Produtos.idFornecedorFK = ClientesFornecedores.idClienteFornecedor WHERE Produtos.status = 'ATIVO' ORDER BY nomeProduto");
                 SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
                 banco.conectar();
 
@@ -435,11 +435,7 @@ namespace High_Gestor.Forms.Produtos
             }
             else
             {
-                string nomeFantasia = comboBoxFornecedor.Text;
-
-                string[] result = nomeFantasia.Split('-');
-
-                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Fornecedor", result[1].TrimStart());
+                produtos.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", "Fornecedor", comboBoxFornecedor.Text);
             }
 
             dataGridViewContent.AutoGenerateColumns = false;

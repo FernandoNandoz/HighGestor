@@ -74,7 +74,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         #region Metodo resposavel por chamar os formularios 
 
         private Form activeForm = null;
-        private void openChildForm(Form childForm)
+        public void openChildForm(Form childForm)
         {
             if (activeForm != null)
             {
@@ -246,7 +246,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK) FROM ContasReceber", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT (SELECT nomeCompleto_RazaoSocial FROM ClientesFornecedores WHERE idClienteFornecedor = idClienteFK) FROM ContasReceber", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -290,7 +290,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
             Image image = null;
             string lancamento = string.Empty;
 
-            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia, (SELECT SUM(valorTotal) FROM Pagamentos WHERE numeroNota = ContasReceber.numeroNota AND situacao != 'CONTA ESTORNADA'), numeroNota, idContaBancariaFK, idFormaPagamentoFK FROM ContasReceber ORDER BY idContaReceber DESC");
+            string query = ("SELECT idContaReceber, numeroParcela, dataEmissao, dataVencimento, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM ClientesFornecedores WHERE idClienteFornecedor = idClienteFK), valorTotal, (SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = idFormaPagamentoFK), situacao, idClienteFK, ocorrencia, (SELECT SUM(valorTotal) FROM Pagamentos WHERE numeroNota = ContasReceber.numeroNota AND situacao != 'CONTA ESTORNADA'), numeroNota, idContaBancariaFK, idFormaPagamentoFK FROM ContasReceber WHERE situacaoContas = 'LANCADO' ORDER BY idContaReceber DESC");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             banco.conectar();
@@ -312,7 +312,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                     image = Resources.vermelho;
                 }
 
-                if (reader.GetString(10) == "PARCELADA")
+                if (reader.GetString(10) == "PARCELADO")
                 {
                     lancamento = reader.GetString(4) + " - " + reader[1].ToString();
                 }
@@ -498,7 +498,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
         {
             int id = 0;
 
-            string select = ("SELECT idCliente FROM Clientes WHERE nomeCompleto_RazaoSocial = @descricao");
+            string select = ("SELECT idClienteFornecedor FROM ClientesFornecedores WHERE nomeCompleto_RazaoSocial = @descricao");
             SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
             string descricao = textBoxPesquisar.Text;
@@ -818,7 +818,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
 
         private void textBoxPesquisar_KeyUp(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 buttonPesquisar_Click(sender, e);
             }
@@ -1009,7 +1009,29 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber
                 windows.ShowDialog();
                 windows.Dispose();
             }
-        }   
+        }
+
+        private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FecharAcoes(sender, e);
+
+            updateData.receberDados(int.Parse(dataGridViewContent.CurrentRow.Cells[0].Value.ToString()), true);
+
+            openChildForm(new NovoRecebimento.FormNovoRecebimento());
+        }
+
+        private void panelContent_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            carregarDados();
+            carregarResumoGeral();
+            pesquisaAutoCompleteCliente();
+            DataFormaPagamentos();
+            DataContasBancaria();
+
+            buttonLimparFiltros_Click(sender, e);
+
+            AddChkBoxHeader_DataGridView();
+        }
 
         public void FecharAcoes(object sender, EventArgs e)
         {

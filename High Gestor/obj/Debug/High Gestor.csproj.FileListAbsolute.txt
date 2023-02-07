@@ -74,7 +74,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High Gestor.csproj
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarEstoque.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormCompras.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.FormEntradaMercadoria.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormCadFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormFornecedores.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormRelatorio.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas.UserControl_itemParcela.resources
@@ -164,3 +163,354 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamento.UserControl_ResumoPagamento.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarVariasContas.FormLiquidarVariasContas.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.FormNovoRecebimento.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.Parcelado.UserControl_ItemParcela.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.Historico.UserControl_Historico.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.FormCadReceitaRecorrente.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.FormReceitasRecorrentes.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.PreviaLancamento.UserContro_ItemPrevia.resources
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.DetalhesLancamento.FormDetalhesLancamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\High Gestor.exe.config
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\High Gestor.exe
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\High Gestor.pdb
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\EnvDTE.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\stdole.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.AssemblyReference.cache
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.SuggestedBindingRedirects.cache
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Compras.UserControl_Compras.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.DadosEmpresa.FormApresentacao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.DadosEmpresa.FormDadosEmpresa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Estoque.UserControl_Estoque.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Financeiro.UserControl_Financeiro.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.FormParametrosSistemas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Gerais.UserControl_Gerais.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Vendas.UserControl_Vendas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Transporte.FormCadTransporte.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Transporte.FormTransporte.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.FormContasReceber.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual.UserControl_BaixarManual.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.FormLiquidarConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.Historico.UserControl_Historico.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamento.UserControl_ResumoPagamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarVariasContas.FormLiquidarVariasContas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.FormNovoRecebimento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.Parcelado.UserControl_ItemParcela.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.DetalhesLancamento.FormDetalhesLancamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.FormCadReceitaRecorrente.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.PreviaLancamento.UserContro_ItemPrevia.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.FormReceitasRecorrentes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.UserControl_MaisAcoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CategoriaContas.FormCadCategoriaContas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CategoriaContas.FormCategoriaContas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento.FormCadCondicaoPagamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento.FormCondicoesPagamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormCadContasBancarias.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormContaPossuiLancamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormContasBancarias.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.FormParametros.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.FormLogin.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.AtualizarPrecos.ItemLista.UserControl_ItemPreco.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormCadListaPreco.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormListaParametros.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormListaPreco.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.AtualizarPrecos.UserControl_AtualizarPrecos.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.UserControl_MaisAcoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormDetalhamentoComissao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormIncluirLancamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormRelatorioComissao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.RelatorioDetalhamento.FormRelatorioDetalhamento.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.Report.FormRelatorioGeral.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Item_menu.UserControl_ItemMenu.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.UserControl_MenuRelatorio.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.FormCadCliente.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.FormClientes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.UserControl_Acoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.FormEntradaMercadoria.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto.UserControl_ItemProduto.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas.UserControl_itemParcela.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormAlterarSituacao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormCompras.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormRelatorio.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.UserControl_Acoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.Categorias.FormCadCategorias.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.Categorias.FormCategorias.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Backup.FormBackup.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.FormConfiguracoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormCadFornecedores.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormFornecedores.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormCadFuncionarios.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormFuncionarios.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormFinanceiro.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CentroCustos.FormCadCustos.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CentroCustos.FormCentroCustos.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.FormHighGestor.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormCadProduto.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEstoque.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarEstoque.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.EditarMassa.FormEditarMassa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormProdutos.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.FormRelatorios.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.FormVendas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.Item_EstornarCaixa.UserControl_EstornarCaixa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.Item_EstornarConta.UserControl_EstornarConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.FormAlterarSituacao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.FormCancelarVenda.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.DadosVenda.FormDadosVenda.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.FormPDV.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ItemSaldoCaixa.UserControl_ItemSaldoCaixa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.LancarContas.FormLancarContas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.LancarContas.ItensConta.UserControl_ItemConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.ItemUsuariosPermitidos.UserControl_ItemUsuarioPermitido.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.UserControl_CadastrarCaixa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.UserControl_NovoCaixa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.FormParametrosPDV.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.Gerais.UserControl_Gerais.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom.UserControl_LayoutCupom.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.Observacoes.UserControl_Observacoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.PermissaoCaixa.UserControl_EditarPermissoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.PermissaoCaixa.UserControl_PermissaoCaixa.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.UserControl_Acoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.UserControl_MaisAcoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormAlterarSituacao.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormCadPedido.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormPedidos.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ItensProduto.UserControl_ItemProduto.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.FormLancarContas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.ItensConta.UserControl_ItemConta.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Parcelas.UserControl_ItemParcela.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.UserControl_Acoes.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High_Gestor.Properties.Resources.resources
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.GenerateResource.cache
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CoreCompileInputs.cache
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CopyComplete
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.exe
+C:\Users\Drogaria Parana\Desktop\High Gestor\High Gestor\obj\Debug\High Gestor.pdb
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\High Gestor.exe.config
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\High Gestor.exe
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\High Gestor.pdb
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.Design.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\EnvDTE.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\stdole.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.AssemblyReference.cache
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.SuggestedBindingRedirects.cache
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Compras.UserControl_Compras.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.DadosEmpresa.FormApresentacao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.DadosEmpresa.FormDadosEmpresa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Estoque.UserControl_Estoque.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Financeiro.UserControl_Financeiro.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.FormParametrosSistemas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Gerais.UserControl_Gerais.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.Vendas.UserControl_Vendas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Transporte.FormCadTransporte.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Transporte.FormTransporte.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.FormContasReceber.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual.UserControl_BaixarManual.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.FormLiquidarConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.Historico.UserControl_Historico.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.ResumoPagamento.UserControl_ResumoPagamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.LiquidarVariasContas.FormLiquidarVariasContas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.FormNovoRecebimento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.NovoRecebimento.Parcelado.UserControl_ItemParcela.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.DetalhesLancamento.FormDetalhesLancamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.FormCadReceitaRecorrente.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.AdicionarReceitaRecorrente.PreviaLancamento.UserContro_ItemPrevia.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.ReceitasRecorrentes.FormReceitasRecorrentes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.UserControl_MaisAcoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CategoriaContas.FormCadCategoriaContas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CategoriaContas.FormCategoriaContas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento.FormCadCondicaoPagamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CondicoesPagamento.FormCondicoesPagamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormCadContasBancarias.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormContaPossuiLancamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.ContasBancarias.FormContasBancarias.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.FormParametros.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.FormLogin.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.AtualizarPrecos.ItemLista.UserControl_ItemPreco.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormCadListaPreco.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormListaParametros.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.ListaPreco.FormListaPreco.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.AtualizarPrecos.UserControl_AtualizarPrecos.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.UserControl_MaisAcoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormDetalhamentoComissao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormIncluirLancamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormRelatorioComissao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.RelatorioDetalhamento.FormRelatorioDetalhamento.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.Report.FormRelatorioGeral.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Item_menu.UserControl_ItemMenu.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.UserControl_MenuRelatorio.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.FormCadCliente.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.FormClientes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Clientes.UserControl_Acoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.FormEntradaMercadoria.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.ItensProduto.UserControl_ItemProduto.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.EntradaMercadoria.Parcelas.UserControl_itemParcela.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormAlterarSituacao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormCompras.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.FormRelatorio.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.UserControl_Acoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.Categorias.FormCadCategorias.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.Categorias.FormCategorias.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Backup.FormBackup.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.FormConfiguracoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormCadFornecedores.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.Fornecedores.FormFornecedores.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormCadFuncionarios.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.Funcionarios.FormFuncionarios.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.FormFinanceiro.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CentroCustos.FormCadCustos.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.Parametros.CentroCustos.FormCentroCustos.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.FormHighGestor.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormCadProduto.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormEstoque.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormMovimentarEstoque.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.EditarMassa.FormEditarMassa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Produtos.FormProdutos.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.FormRelatorios.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.FormVendas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.Item_EstornarCaixa.UserControl_EstornarCaixa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.Item_EstornarConta.UserControl_EstornarConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.FormAlterarSituacao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.CancelarVenda.FormCancelarVenda.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.DadosVenda.FormDadosVenda.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.FormPDV.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ItemSaldoCaixa.UserControl_ItemSaldoCaixa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.LancarContas.FormLancarContas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.LancarContas.ItensConta.UserControl_ItemConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.ItemUsuariosPermitidos.UserControl_ItemUsuarioPermitido.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.UserControl_CadastrarCaixa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.CadastrarCaixa.UserControl_NovoCaixa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.FormParametrosPDV.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.Gerais.UserControl_Gerais.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom.UserControl_LayoutCupom.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.Observacoes.UserControl_Observacoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.PermissaoCaixa.UserControl_EditarPermissoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.ParametrosPDV.PermissaoCaixa.UserControl_PermissaoCaixa.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.UserControl_Acoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.PDV.UserControl_MaisAcoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormAlterarSituacao.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormCadPedido.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.FormPedidos.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ItensProduto.UserControl_ItemProduto.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.FormLancarContas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Lancar_Contas.ItensConta.UserControl_ItemConta.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.Parcelas.UserControl_ItemParcela.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.UserControl_Acoes.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Vendas.Pedidos.ContasLancadas.UserControl_ContasLancadas.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High_Gestor.Properties.Resources.resources
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.GenerateResource.cache
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CoreCompileInputs.cache
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.csproj.CopyComplete
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.exe
+C:\Users\nando\OneDrive\Área de Trabalho\High Gestor\High Gestor\obj\Debug\High Gestor.pdb
+C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Configuracoes.ParametrosSistema.SenhaAcessoSistema.UserControl_SenhaAcessoSistema.resources

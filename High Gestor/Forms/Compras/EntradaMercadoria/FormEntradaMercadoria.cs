@@ -79,6 +79,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 textBoxFornecedor.Focus();
                 NovoItemProduto();
 
+                textBoxValorTotalEntrada.Text = "0,00";
                 textBoxQuantidadeParcela.Text = "1";
                 gerarParcelas();
             }
@@ -165,7 +166,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM Fornecedor", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM ClientesFornecedores", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -174,7 +175,10 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
 
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0));
+                    if (dr.GetString(0) != "OPERACAO DE CAIXA")
+                    {
+                        lista.Add(dr.GetString(0));
+                    }
                 }
                 banco.desconectar();
 
@@ -191,7 +195,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string FornecedorSELECT = ("SELECT idFornecedor, nomeFantasia FROM Fornecedor WHERE nomeFantasia = @nome");
+            string FornecedorSELECT = ("SELECT idClienteFornecedor, nomeFantasia FROM ClientesFornecedores WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(FornecedorSELECT, banco.connection);
             banco.conectar();
 
@@ -216,7 +220,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
         private void pesquisarNomeFornecedor()
         {
             //Pega o ultimo ID resgitrado na tabela log
-            string fornecedorSELECT = ("SELECT nomeFantasia FROM Fornecedor WHERE nomeFantasia = @nome");
+            string fornecedorSELECT = ("SELECT nomeFantasia FROM ClientesFornecedores WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
 
 
@@ -564,7 +568,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
 
             textBoxValorTotalProdutos.Text = TotalProdutos.ToString("N2");
-            textBoxValorTotalEntrada.Text = TotalEntrada.ToString("C2");
+            textBoxValorTotalEntrada.Text = TotalEntrada.ToString("N2");
 
             if (flowLayoutPanel_ItemParcela.Controls.Count > 0)
             {
@@ -581,14 +585,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             int quantidadeParcela = 0;
             decimal valorTotalEntrada = 0, valorParcela = 0;
 
-            #region Pega o valor Total da Nota
-
-            //string subTotal_Label = labelValueTotalEntrada.Text;
-            //string[] subTotal_Value = subTotal_Label.Split(' ');
-            //valorTotalEntrada = decimal.Parse(subTotal_Value[1]);
-
-            #endregion
-
+            valorTotalEntrada = decimal.Parse(textBoxValorTotalEntrada.Text);
 
             if (textBoxQuantidadeParcela.Text != "" && textBoxQuantidadeParcela.Text != string.Empty)
             {
@@ -719,10 +716,8 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             }
             //
             if (textBoxValorTotalEntrada.Text != string.Empty)
-            {
-                string subTotal_Label = textBoxValorTotalEntrada.Text;
-                string[] subTotal_Value = subTotal_Label.Split(' ');
-                valorTotalPedido = decimal.Parse(subTotal_Value[1]);
+            {       
+                valorTotalPedido = decimal.Parse(textBoxValorTotalEntrada.Text);
             }
 
             //
@@ -755,7 +750,7 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
             string stringSituacaoEstoque = string.Empty;
             decimal valorTotalEntrada = 0, valorTotalProdutos = 0, valorFrete = 0, valorDesconto = 0;
 
-            string query = ("SELECT Fornecedor.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalProdutos, PedidosCompra.valorFrete, PedidosCompra.valorDesconto, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
+            string query = ("SELECT ClientesFornecedores.nomeFantasia, PedidosCompra.vendedor, PedidosCompra.numeroNota, PedidosCompra.valorTotalProdutos, PedidosCompra.valorFrete, PedidosCompra.valorDesconto, PedidosCompra.valorTotalEntrada, PedidosCompra.quantidadeParcela, PedidosCompra.dataEntrada, PedidosCompra.aplicacaoProdutos, CentroCusto.descricao, PedidosCompra.observacao, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN ClientesFornecedores ON PedidosCompra.idFornecedorFK = ClientesFornecedores.idClienteFornecedor INNER JOIN CentroCusto ON PedidosCompra.idCentroCustosFK = CentroCusto.idCentroCusto WHERE idPedidosCompra = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -1622,10 +1617,6 @@ namespace High_Gestor.Forms.Compras.EntradaMercadoria
                 }
             }
         }
-
-
-
-
 
         private void FormEntradaMercadoria_Load(object sender, EventArgs e)
         {

@@ -48,6 +48,8 @@ namespace High_Gestor.Forms
         bool ContaBancaria = false;
         bool CategoriaFinanceiro = false;
         bool CentroCusto = false;
+        bool Clientes = false;
+        bool CondicaoPagamento = false;
 
         public FormLogin()
         {
@@ -349,7 +351,49 @@ namespace High_Gestor.Forms
 
             #endregion
 
-            SistemaVerificacao.DefauthConfig(Parametros, ParametrosPDV, CaixaPDV, ListaPreco, Perfil, Desenvolvedor, FormaPagamento, Transporte, ContaBancaria, CategoriaFinanceiro, CentroCusto);
+            #region Verificar Cliente
+            string queryClientes = ("SELECT COUNT(*) FROM ClientesFornecedores");
+            SqlCommand exeQueryClientes = new SqlCommand(queryClientes, banco.connection);
+            banco.conectar();
+
+            SqlDataReader readerClientes = exeQueryClientes.ExecuteReader();
+
+            if (readerClientes.Read())
+            {
+                if (readerClientes.GetInt32(0) > 0)
+                {
+                    Clientes = true;
+                }
+                else
+                {
+                    Clientes = false;
+                }
+            }
+            banco.desconectar();
+            #endregion
+
+            #region Verificar Condicao Pagamento
+            string queryCondicaoPagamento = ("SELECT COUNT(*) FROM CondicaoPagamento");
+            SqlCommand exeQueryCondicaoPagamento = new SqlCommand(queryCondicaoPagamento, banco.connection);
+            banco.conectar();
+
+            SqlDataReader readerCondicaoPagamento = exeQueryCondicaoPagamento.ExecuteReader();
+
+            if (readerCondicaoPagamento.Read())
+            {
+                if (readerCondicaoPagamento.GetInt32(0) > 0)
+                {
+                    CondicaoPagamento = true;
+                }
+                else
+                {
+                    CondicaoPagamento = false;
+                }
+            }
+            banco.desconectar();
+            #endregion
+
+            SistemaVerificacao.DefauthConfig(Parametros, ParametrosPDV, CaixaPDV, ListaPreco, Perfil, Desenvolvedor, FormaPagamento, Transporte, ContaBancaria, CategoriaFinanceiro, CentroCusto, Clientes, CondicaoPagamento);
         }
 
         private void FormLogin_Load(object sender, EventArgs e)

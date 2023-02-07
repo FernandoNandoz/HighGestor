@@ -26,7 +26,6 @@ namespace High_Gestor.Forms.Vendas.PDV.ContasLancadas
             inicializarDataTable();
         }
 
-
         private void inicializarDataTable()
         {
             ContasReceber.Columns.Add("DataVencimento", typeof(DateTime));

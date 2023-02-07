@@ -37,12 +37,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLiquidarConta));
             this.labelTitulo = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.panelComprovantes = new System.Windows.Forms.Panel();
-            this.labelComprovantes = new System.Windows.Forms.Label();
+            this.flowLayoutSubMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelResumoPagamento = new System.Windows.Forms.Panel();
+            this.labelResumoPagamento = new System.Windows.Forms.Label();
             this.panelBaixarManual = new System.Windows.Forms.Panel();
             this.labelBaixarManual = new System.Windows.Forms.Label();
             this.panelHistorico = new System.Windows.Forms.Panel();
             this.labelHistorico = new System.Windows.Forms.Label();
+            this.panelComprovantes = new System.Windows.Forms.Panel();
+            this.labelComprovantes = new System.Windows.Forms.Label();
             this.labelValueObservacao = new System.Windows.Forms.Label();
             this.labelValueValorAberto = new System.Windows.Forms.Label();
             this.labelValueValorReceita = new System.Windows.Forms.Label();
@@ -52,9 +55,6 @@
             this.labelFormaPagamento = new System.Windows.Forms.Label();
             this.labelValueReceita = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
-            this.flowLayoutSubMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelResumoPagamento = new System.Windows.Forms.Panel();
-            this.labelResumoPagamento = new System.Windows.Forms.Label();
             label28 = new System.Windows.Forms.Label();
             label26 = new System.Windows.Forms.Label();
             label25 = new System.Windows.Forms.Label();
@@ -62,11 +62,11 @@
             label23 = new System.Windows.Forms.Label();
             label22 = new System.Windows.Forms.Label();
             this.panelHeader.SuspendLayout();
-            this.panelComprovantes.SuspendLayout();
-            this.panelBaixarManual.SuspendLayout();
-            this.panelHistorico.SuspendLayout();
             this.flowLayoutSubMenu.SuspendLayout();
             this.panelResumoPagamento.SuspendLayout();
+            this.panelBaixarManual.SuspendLayout();
+            this.panelHistorico.SuspendLayout();
+            this.panelComprovantes.SuspendLayout();
             this.SuspendLayout();
             // 
             // label28
@@ -176,33 +176,48 @@
             this.panelHeader.TabIndex = 183;
             this.panelHeader.Paint += new System.Windows.Forms.PaintEventHandler(this.panelHeader_Paint);
             // 
-            // panelComprovantes
+            // flowLayoutSubMenu
             // 
-            this.panelComprovantes.BackColor = System.Drawing.Color.LightGray;
-            this.panelComprovantes.Controls.Add(this.labelComprovantes);
-            this.panelComprovantes.Location = new System.Drawing.Point(476, 0);
-            this.panelComprovantes.Margin = new System.Windows.Forms.Padding(0);
-            this.panelComprovantes.Name = "panelComprovantes";
-            this.panelComprovantes.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
-            this.panelComprovantes.Size = new System.Drawing.Size(129, 35);
-            this.panelComprovantes.TabIndex = 293;
+            this.flowLayoutSubMenu.Controls.Add(this.panelResumoPagamento);
+            this.flowLayoutSubMenu.Controls.Add(this.panelBaixarManual);
+            this.flowLayoutSubMenu.Controls.Add(this.panelHistorico);
+            this.flowLayoutSubMenu.Controls.Add(this.panelComprovantes);
+            this.flowLayoutSubMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutSubMenu.Location = new System.Drawing.Point(0, 244);
+            this.flowLayoutSubMenu.Name = "flowLayoutSubMenu";
+            this.flowLayoutSubMenu.Padding = new System.Windows.Forms.Padding(31, 0, 0, 0);
+            this.flowLayoutSubMenu.Size = new System.Drawing.Size(844, 36);
+            this.flowLayoutSubMenu.TabIndex = 294;
+            this.flowLayoutSubMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutSubMenu_Paint);
             // 
-            // labelComprovantes
+            // panelResumoPagamento
             // 
-            this.labelComprovantes.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelComprovantes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelComprovantes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelComprovantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelComprovantes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelComprovantes.Location = new System.Drawing.Point(1, 1);
-            this.labelComprovantes.Margin = new System.Windows.Forms.Padding(0);
-            this.labelComprovantes.Name = "labelComprovantes";
-            this.labelComprovantes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.labelComprovantes.Size = new System.Drawing.Size(127, 36);
-            this.labelComprovantes.TabIndex = 0;
-            this.labelComprovantes.Text = "Comprovantes";
-            this.labelComprovantes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelComprovantes.Click += new System.EventHandler(this.labelComprovantes_Click);
+            this.panelResumoPagamento.BackColor = System.Drawing.Color.LightGray;
+            this.panelResumoPagamento.Controls.Add(this.labelResumoPagamento);
+            this.panelResumoPagamento.Location = new System.Drawing.Point(31, 0);
+            this.panelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
+            this.panelResumoPagamento.Name = "panelResumoPagamento";
+            this.panelResumoPagamento.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.panelResumoPagamento.Size = new System.Drawing.Size(187, 35);
+            this.panelResumoPagamento.TabIndex = 293;
+            this.panelResumoPagamento.Visible = false;
+            // 
+            // labelResumoPagamento
+            // 
+            this.labelResumoPagamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelResumoPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelResumoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelResumoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelResumoPagamento.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelResumoPagamento.Location = new System.Drawing.Point(1, 1);
+            this.labelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
+            this.labelResumoPagamento.Name = "labelResumoPagamento";
+            this.labelResumoPagamento.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.labelResumoPagamento.Size = new System.Drawing.Size(186, 36);
+            this.labelResumoPagamento.TabIndex = 0;
+            this.labelResumoPagamento.Text = "Resumo de pagamento";
+            this.labelResumoPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelResumoPagamento.Click += new System.EventHandler(this.labelResumoPagamento_Click);
             // 
             // panelBaixarManual
             // 
@@ -259,6 +274,34 @@
             this.labelHistorico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.labelHistorico.Click += new System.EventHandler(this.labelHistorico_Click);
             // 
+            // panelComprovantes
+            // 
+            this.panelComprovantes.BackColor = System.Drawing.Color.LightGray;
+            this.panelComprovantes.Controls.Add(this.labelComprovantes);
+            this.panelComprovantes.Location = new System.Drawing.Point(476, 0);
+            this.panelComprovantes.Margin = new System.Windows.Forms.Padding(0);
+            this.panelComprovantes.Name = "panelComprovantes";
+            this.panelComprovantes.Padding = new System.Windows.Forms.Padding(1, 1, 1, 0);
+            this.panelComprovantes.Size = new System.Drawing.Size(129, 35);
+            this.panelComprovantes.TabIndex = 293;
+            // 
+            // labelComprovantes
+            // 
+            this.labelComprovantes.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelComprovantes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.labelComprovantes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.labelComprovantes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelComprovantes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelComprovantes.Location = new System.Drawing.Point(1, 1);
+            this.labelComprovantes.Margin = new System.Windows.Forms.Padding(0);
+            this.labelComprovantes.Name = "labelComprovantes";
+            this.labelComprovantes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.labelComprovantes.Size = new System.Drawing.Size(127, 36);
+            this.labelComprovantes.TabIndex = 0;
+            this.labelComprovantes.Text = "Comprovantes";
+            this.labelComprovantes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelComprovantes.Click += new System.EventHandler(this.labelComprovantes_Click);
+            // 
             // labelValueObservacao
             // 
             this.labelValueObservacao.AutoSize = true;
@@ -301,23 +344,21 @@
             // 
             // labelValueStatus
             // 
-            this.labelValueStatus.AutoSize = true;
             this.labelValueStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValueStatus.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelValueStatus.Location = new System.Drawing.Point(605, 80);
             this.labelValueStatus.Name = "labelValueStatus";
-            this.labelValueStatus.Size = new System.Drawing.Size(52, 17);
+            this.labelValueStatus.Size = new System.Drawing.Size(227, 37);
             this.labelValueStatus.TabIndex = 281;
             this.labelValueStatus.Text = "status";
             this.labelValueStatus.TextChanged += new System.EventHandler(this.labelValueStatus_TextChanged);
             // 
             // labelValueCliente
             // 
-            this.labelValueCliente.AutoSize = true;
             this.labelValueCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValueCliente.Location = new System.Drawing.Point(298, 80);
             this.labelValueCliente.Name = "labelValueCliente";
-            this.labelValueCliente.Size = new System.Drawing.Size(49, 17);
+            this.labelValueCliente.Size = new System.Drawing.Size(301, 37);
             this.labelValueCliente.TabIndex = 280;
             this.labelValueCliente.Text = "cliente";
             // 
@@ -334,11 +375,10 @@
             // 
             // labelValueReceita
             // 
-            this.labelValueReceita.AutoSize = true;
             this.labelValueReceita.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValueReceita.Location = new System.Drawing.Point(43, 80);
             this.labelValueReceita.Name = "labelValueReceita";
-            this.labelValueReceita.Size = new System.Drawing.Size(51, 17);
+            this.labelValueReceita.Size = new System.Drawing.Size(249, 37);
             this.labelValueReceita.TabIndex = 279;
             this.labelValueReceita.Text = "receita";
             // 
@@ -350,49 +390,6 @@
             this.panelContent.Name = "panelContent";
             this.panelContent.Size = new System.Drawing.Size(844, 335);
             this.panelContent.TabIndex = 184;
-            // 
-            // flowLayoutSubMenu
-            // 
-            this.flowLayoutSubMenu.Controls.Add(this.panelResumoPagamento);
-            this.flowLayoutSubMenu.Controls.Add(this.panelBaixarManual);
-            this.flowLayoutSubMenu.Controls.Add(this.panelHistorico);
-            this.flowLayoutSubMenu.Controls.Add(this.panelComprovantes);
-            this.flowLayoutSubMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutSubMenu.Location = new System.Drawing.Point(0, 244);
-            this.flowLayoutSubMenu.Name = "flowLayoutSubMenu";
-            this.flowLayoutSubMenu.Padding = new System.Windows.Forms.Padding(31, 0, 0, 0);
-            this.flowLayoutSubMenu.Size = new System.Drawing.Size(844, 36);
-            this.flowLayoutSubMenu.TabIndex = 294;
-            this.flowLayoutSubMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutSubMenu_Paint);
-            // 
-            // panelResumoPagamento
-            // 
-            this.panelResumoPagamento.BackColor = System.Drawing.Color.LightGray;
-            this.panelResumoPagamento.Controls.Add(this.labelResumoPagamento);
-            this.panelResumoPagamento.Location = new System.Drawing.Point(31, 0);
-            this.panelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
-            this.panelResumoPagamento.Name = "panelResumoPagamento";
-            this.panelResumoPagamento.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
-            this.panelResumoPagamento.Size = new System.Drawing.Size(187, 35);
-            this.panelResumoPagamento.TabIndex = 293;
-            this.panelResumoPagamento.Visible = false;
-            // 
-            // labelResumoPagamento
-            // 
-            this.labelResumoPagamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.labelResumoPagamento.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.labelResumoPagamento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelResumoPagamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelResumoPagamento.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelResumoPagamento.Location = new System.Drawing.Point(1, 1);
-            this.labelResumoPagamento.Margin = new System.Windows.Forms.Padding(0);
-            this.labelResumoPagamento.Name = "labelResumoPagamento";
-            this.labelResumoPagamento.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.labelResumoPagamento.Size = new System.Drawing.Size(186, 36);
-            this.labelResumoPagamento.TabIndex = 0;
-            this.labelResumoPagamento.Text = "Resumo de pagamento";
-            this.labelResumoPagamento.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelResumoPagamento.Click += new System.EventHandler(this.labelResumoPagamento_Click);
             // 
             // FormLiquidarConta
             // 
@@ -413,11 +410,11 @@
             this.Load += new System.EventHandler(this.FormLiquidarConta_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            this.panelComprovantes.ResumeLayout(false);
-            this.panelBaixarManual.ResumeLayout(false);
-            this.panelHistorico.ResumeLayout(false);
             this.flowLayoutSubMenu.ResumeLayout(false);
             this.panelResumoPagamento.ResumeLayout(false);
+            this.panelBaixarManual.ResumeLayout(false);
+            this.panelHistorico.ResumeLayout(false);
+            this.panelComprovantes.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

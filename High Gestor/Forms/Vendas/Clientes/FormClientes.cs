@@ -100,7 +100,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
 
             int contagem = 0;
 
-            string Fornecedor = ("SELECT COUNT(*) FROM Clientes");
+            string Fornecedor = ("SELECT COUNT(*) FROM ClientesFornecedores WHERE tipo = 'CLIENTE' OR tipo = 'CLIENTE/FORNECEDOR'");
             SqlCommand exeVerificacao = new SqlCommand(Fornecedor, banco.connection);
             banco.conectar();
 
@@ -136,7 +136,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
             string CPF_CNPJ = string.Empty;
 
             //Retorna os dados da tabela Produtos para o DataGridView
-            string Produtos = ("SELECT idCliente, nomeCompleto_RazaoSocial, CPF_CNPJ, carteiraProdutorRural, situacao, tipoPessoa FROM Clientes ORDER BY idCliente");
+            string Produtos = ("SELECT idClienteFornecedor, nomeCompleto_RazaoSocial, CPF_CNPJ, carteiraProdutorRural, situacao, tipoPessoa FROM ClientesFornecedores ORDER BY idClienteFornecedor");
             SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
             banco.conectar();
 
@@ -154,12 +154,15 @@ namespace High_Gestor.Forms.Vendas.Clientes
                     CPF_CNPJ = FormatCPF(datareader.GetString(2));
                 }
 
-                dataGridViewContent.Rows.Add(datareader.GetInt32(0),
-                                        datareader.GetString(1),
-                                        CPF_CNPJ,
-                                        datareader.GetString(3),
-                                        datareader.GetString(4),
-                                        datareader.GetString(5));
+                if (datareader.GetString(1) != "OPERACAO DE CAIXA")
+                {
+                    dataGridViewContent.Rows.Add(datareader.GetInt32(0),
+                                            datareader.GetString(1),
+                                            CPF_CNPJ,
+                                            datareader.GetString(3),
+                                            datareader.GetString(4),
+                                            datareader.GetString(5));
+                }
             }
 
             banco.desconectar();
@@ -224,7 +227,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
                 {
                     try
                     {
-                        string Fornecedor = ("DELETE FROM Clientes WHERE idCliente = @ID");
+                        string Fornecedor = ("DELETE FROM ClientesFornecedores WHERE idClienteFornecedor = @ID");
                         SqlCommand command = new SqlCommand(Fornecedor, banco.connection);
 
                         command.Parameters.AddWithValue("@ID", dataGridViewContent.CurrentRow.Cells[0].Value);
@@ -233,7 +236,7 @@ namespace High_Gestor.Forms.Vendas.Clientes
                         command.ExecuteNonQuery();
                         banco.desconectar();
 
-                        MessageBox.Show("Fornecedor apagado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cliente apagado com Sucesso!", "Parabens! Operação bem sucedida!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         dataCliente();
                         dataGridViewContent.Refresh();
@@ -274,82 +277,42 @@ namespace High_Gestor.Forms.Vendas.Clientes
 
             if (textBoxPesquisar.Text != string.Empty)
             {
-                string dado = string.Empty;
+                //Retorna os dados da tabela Produtos para o DataGridView
+                string Produtos = ("SELECT idClienteFornecedor, nomeCompleto_RazaoSocial, CPF_CNPJ, carteiraProdutorRural, situacao, tipoPessoa FROM ClientesFornecedores WHERE nomeCompleto_RazaoSocial LIKE (@nome_razao + '%') OR nomeFantasia LIKE (@nomeFantasia + '%') ORDER BY idClienteFornecedor");
+                SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
+                banco.conectar();
 
-                dado = textBoxPesquisar.Text;
+                exeVerificacao.Parameters.AddWithValue("@nome_razao", textBoxPesquisar.Text);
+                exeVerificacao.Parameters.AddWithValue("@nomeFantasia", textBoxPesquisar.Text);
 
-                if (dado.All(Char.IsNumber))
+                SqlDataReader datareader = exeVerificacao.ExecuteReader();
+
+                dataGridViewContent.Rows.Clear();
+                while (datareader.Read())
                 {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Produtos = ("SELECT idCliente, nomeCompleto_RazaoSocial, CPF_CNPJ, carteiraProdutorRural, situacao, tipoPessoa FROM Clientes WHERE idCliente LIKE (@ID + '%') ORDER BY idCliente");
-                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@ID", textBoxPesquisar.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
+                    if (datareader.GetString(5) == "JURIDICA")
                     {
-                        if (datareader.GetString(5) == "JURIDICA")
-                        {
-                            CPF_CNPJ = FormatCNPJ(datareader.GetString(2));
-                        }
-                        else if (datareader.GetString(5) == "FISICA")
-                        {
-                            CPF_CNPJ = FormatCPF(datareader.GetString(2));
-                        }
-
-                        dataGridViewContent.Rows.Add(datareader.GetInt32(0),
-                                                    datareader.GetString(1),
-                                                    CPF_CNPJ,
-                                                    datareader.GetString(3),
-                                                    datareader.GetString(4),
-                                                    datareader.GetString(5));
+                        CPF_CNPJ = FormatCNPJ(datareader.GetString(2));
+                    }
+                    else if (datareader.GetString(5) == "FISICA")
+                    {
+                        CPF_CNPJ = FormatCPF(datareader.GetString(2));
                     }
 
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
-                }
-
-                if (dado.All(Char.IsLetter))
-                {
-                    //Retorna os dados da tabela Produtos para o DataGridView
-                    string Produtos = ("SELECT idCliente, nomeCompleto_RazaoSocial, CPF_CNPJ, carteiraProdutorRural, situacao, tipoPessoa FROM Clientes WHERE nomeCompleto_RazaoSocial LIKE (@nome_razao + '%') OR nomeFantasia LIKE (@nomeFantasia + '%') ORDER BY idCliente");
-                    SqlCommand exeVerificacao = new SqlCommand(Produtos, banco.connection);
-                    banco.conectar();
-
-                    exeVerificacao.Parameters.AddWithValue("@nome_razao", textBoxPesquisar.Text);
-                    exeVerificacao.Parameters.AddWithValue("@nomeFantasia", textBoxPesquisar.Text);
-
-                    SqlDataReader datareader = exeVerificacao.ExecuteReader();
-
-                    dataGridViewContent.Rows.Clear();
-                    while (datareader.Read())
+                    if (datareader.GetString(1) != "OPERACAO DE CAIXA")
                     {
-                        if (datareader.GetString(5) == "JURIDICA")
-                        {
-                            CPF_CNPJ = FormatCNPJ(datareader.GetString(2));
-                        }
-                        else if (datareader.GetString(5) == "FISICA")
-                        {
-                            CPF_CNPJ = FormatCPF(datareader.GetString(2));
-                        }
-
                         dataGridViewContent.Rows.Add(datareader.GetInt32(0),
-                                                    datareader.GetString(1),
-                                                    CPF_CNPJ,
-                                                    datareader.GetString(3),
-                                                    datareader.GetString(4),
-                                                    datareader.GetString(5));
+                                                datareader.GetString(1),
+                                                CPF_CNPJ,
+                                                datareader.GetString(3),
+                                                datareader.GetString(4),
+                                                datareader.GetString(5));
                     }
-
-                    banco.desconectar();
-
-                    dataGridViewContent.Refresh();
                 }
+
+                banco.desconectar();
+
+                dataGridViewContent.Refresh();
             }
             else
             {

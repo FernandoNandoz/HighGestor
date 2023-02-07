@@ -16,5 +16,10 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.Historico
         {
             InitializeComponent();
         }
+
+        private void panelDetalhesPago_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

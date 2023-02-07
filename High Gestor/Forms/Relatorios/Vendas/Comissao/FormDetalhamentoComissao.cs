@@ -272,7 +272,7 @@ namespace High_Gestor.Forms.Relatorios.Vendas.Comissao
             labelTituloComissao.Text = "(+) Comissão entre  " + dateTimePeriodoIncial.Value.ToShortDateString() + " e " + dateTimePeriodoFinal.Value.ToShortDateString();
 
             //
-            string select = ("SELECT idComissao, dataLancamento, descricao, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), (SELECT nomeCaixa FROM Caixa WHERE idCaixa = idCaixaFK), baseCalculo, valorComissao, situacao, (SELECT SUM(valorComissao) as ComissaoPaga FROM Comissao WHERE idFuncionarioFK = @ID AND tipoLancamento = 'COMISSAO' AND situacao = 'LANCADO' AND CAST(dataLancamento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Comissao WHERE idFuncionarioFK = @ID AND tipoLancamento = 'COMISSAO' AND CAST(dataLancamento AS DATE) BETWEEN @dataInicio AND @dataFim");
+            string select = ("SELECT idComissao, dataLancamento, descricao, (SELECT nomeCompleto_RazaoSocial FROM ClientesFornecedores WHERE idClienteFornecedor = idClienteFK), (SELECT nomeCaixa FROM Caixa WHERE idCaixa = idCaixaFK), baseCalculo, valorComissao, situacao, (SELECT SUM(valorComissao) as ComissaoPaga FROM Comissao WHERE idFuncionarioFK = @ID AND tipoLancamento = 'COMISSAO' AND situacao = 'LANCADO' AND CAST(dataLancamento AS DATE) BETWEEN @dataInicio AND @dataFim) FROM Comissao WHERE idFuncionarioFK = @ID AND tipoLancamento = 'COMISSAO' AND CAST(dataLancamento AS DATE) BETWEEN @dataInicio AND @dataFim");
             SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
             exeSelect.Parameters.AddWithValue("@dataInicio", dateTimePeriodoIncial.Value);

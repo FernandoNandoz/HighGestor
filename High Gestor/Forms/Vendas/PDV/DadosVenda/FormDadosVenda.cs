@@ -123,7 +123,7 @@ namespace High_Gestor.Forms.Vendas.PDV.DadosVenda
         {
             try
             {
-                string select = ("SELECT VendasPDV.numeroVenda, VendasPDV.valorTotalProduto, VendasPDV.valorTotalVenda, VendasPDV.situacao, VendasPDV.situacaoContas, Funcionario.usuario, VendasPDV.dataVenda, Clientes.nomeCompleto_RazaoSocial FROM VendasPDV INNER JOIN Funcionario ON VendasPDV.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN Clientes ON VendasPDV.idClienteFK = Clientes.idCliente WHERE idVendaPDV = @ID");
+                string select = ("SELECT VendasPDV.numeroVenda, VendasPDV.valorTotalProduto, VendasPDV.valorTotalVenda, VendasPDV.situacao, VendasPDV.situacaoContas, Funcionario.usuario, VendasPDV.dataVenda, ClientesFornecedores.nomeCompleto_RazaoSocial FROM VendasPDV INNER JOIN Funcionario ON VendasPDV.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN ClientesFornecedores ON VendasPDV.idClienteFK = ClientesFornecedores.idClienteFornecedor WHERE idVendaPDV = @ID");
                 SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
                 exeSelect.Parameters.AddWithValue("@ID", updateData._retornarID());

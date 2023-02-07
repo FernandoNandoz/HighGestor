@@ -150,7 +150,7 @@ namespace High_Gestor.Forms.Compras
             try
             {
                 //Retorna os dados da tabela Produtos para o DataGridView
-                string query = ("SELECT PedidosCompra.idPedidosCompra, PedidosCompra.dataEntrada, Fornecedor.nomeFantasia, PedidosCompra.valorTotalEntrada, PedidosCompra.situacao, PedidosCompra.idFornecedorFK, PedidosCompra.numeroPedido, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN Fornecedor ON PedidosCompra.idFornecedorFK = Fornecedor.idFornecedor WHERE situacao != 'CANCELADO' ORDER BY dataEntrada DESC");
+                string query = ("SELECT PedidosCompra.idPedidosCompra, PedidosCompra.dataEntrada, ClientesFornecedores.nomeFantasia, PedidosCompra.valorTotalEntrada, PedidosCompra.situacao, PedidosCompra.idFornecedorFK, PedidosCompra.numeroPedido, PedidosCompra.situacaoContas, PedidosCompra.situacaoEstoque FROM PedidosCompra INNER JOIN ClientesFornecedores ON PedidosCompra.idFornecedorFK = ClientesFornecedores.idClienteFornecedor WHERE situacao != 'CANCELADO' ORDER BY dataEntrada DESC");
                 SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
                 banco.conectar();
 

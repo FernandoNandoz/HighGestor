@@ -213,7 +213,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM Clientes", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM ClientesFornecedores", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -222,7 +222,10 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0));
+                    if (dr.GetString(0) != "OPERACAO DE CAIXA")
+                    {
+                        lista.Add(dr.GetString(0));
+                    }
                 }
                 banco.desconectar();
 
@@ -264,7 +267,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string ClienteSELECT = ("SELECT idCliente, nomeFantasia FROM Clientes WHERE nomeFantasia = @nome");
+            string ClienteSELECT = ("SELECT idClienteFornecedor, nomeFantasia FROM ClientesFornecedores WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(ClienteSELECT, banco.connection);
             banco.conectar();
 
@@ -289,7 +292,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         private void pesquisarNomeCliente()
         {
             //Pega o ultimo ID resgitrado na tabela log
-            string ClienteSELECT = ("SELECT nomeFantasia FROM Clientes WHERE nomeFantasia = @nome");
+            string ClienteSELECT = ("SELECT nomeFantasia FROM ClientesFornecedores WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(ClienteSELECT, banco.connection);
 
             banco.conectar();
@@ -1101,7 +1104,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
             string stringSituacaoEstoque = string.Empty;
             decimal ValorFrete = 0, ValorDesconto = 0;
 
-            string query = ("SELECT Clientes.nomeFantasia, Funcionario.usuario, PedidosVenda.numeroPedido, PedidosVenda.quantidadeParcela, PedidosVenda.dataPedido, Transporte.descricao, PedidosVenda.observacao, PedidosVenda.situacaoContas, PedidosVenda.situacaoEstoque, PedidosVenda.ValorFrete, PedidosVenda.valorDesconto, PedidosVenda.idCondicaoPagamentoFK, PedidosVenda.idTransporteFK, PedidosVenda.idListaPrecoFK FROM PedidosVenda INNER JOIN Clientes ON PedidosVenda.idClienteFK = Clientes.idCliente INNER JOIN Funcionario ON PedidosVenda.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN Transporte ON PedidosVenda.idTransporteFK = Transporte.idTransporte WHERE idPedidoVenda = @ID");
+            string query = ("SELECT ClientesFornecedores.nomeFantasia, Funcionario.usuario, PedidosVenda.numeroPedido, PedidosVenda.quantidadeParcela, PedidosVenda.dataPedido, Transporte.descricao, PedidosVenda.observacao, PedidosVenda.situacaoContas, PedidosVenda.situacaoEstoque, PedidosVenda.ValorFrete, PedidosVenda.valorDesconto, PedidosVenda.idCondicaoPagamentoFK, PedidosVenda.idTransporteFK, PedidosVenda.idListaPrecoFK FROM PedidosVenda INNER JOIN ClientesFornecedores ON PedidosVenda.idClienteFK = ClientesFornecedores.idClienteFornecedor INNER JOIN Funcionario ON PedidosVenda.idFuncionarioFK = Funcionario.idFuncionario INNER JOIN Transporte ON PedidosVenda.idTransporteFK = Transporte.idTransporte WHERE idPedidoVenda = @ID");
             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
             exeQuery.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -1383,12 +1386,13 @@ namespace High_Gestor.Forms.Vendas.Pedidos
         {
             try
             {
-                string query = ("INSERT INTO ContasReceber (numeroNota, numeroParcela, tituloConta, situacao, situacaoContas, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idClienteFK, idFormaPagamentoFK, idPedidosVendaFK, idFuncionarioFK, idLog, createdAt) VALUES (@numeroNota, @numeroParcela, @tituloConta, @situacao, @situacaoContas, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idClienteFK, @idFormaPagamentoFK, @idPedidosVendaFK, @idFuncionarioFK, @idLog, @createdAt)");
+                string query = ("INSERT INTO ContasReceber (tipoReceita, numeroNota, numeroParcela, tituloConta, situacao, situacaoContas, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idClienteFK, idFormaPagamentoFK, idPedidosVendaFK, idFuncionarioFK, idLog, createdAt) VALUES (@tipoReceita, @numeroNota, @numeroParcela, @tituloConta, @situacao, @situacaoContas, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idClienteFK, @idFormaPagamentoFK, @idPedidosVendaFK, @idFuncionarioFK, @idLog, @createdAt)");
                 SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                 for (int i = 1; i <= indexItemParcela; i++)
                 {
                     exeQuery.Parameters.Clear();
+                    exeQuery.Parameters.AddWithValue("@tipoReceita", "VENDA-PEDIDOS");
                     exeQuery.Parameters.AddWithValue("@numeroNota", numeroNotaContas(i));
                     exeQuery.Parameters.AddWithValue("@numeroParcela", i);
                     exeQuery.Parameters.AddWithValue("@tituloConta", gerarTituloConta());
@@ -2000,10 +2004,11 @@ namespace High_Gestor.Forms.Vendas.Pedidos
 
                         if (!datareader.Read())
                         {
-                            string query = ("INSERT INTO ContasReceber (numeroNota, numeroParcela, tituloConta, situacao, situacaoContas, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idClienteFK, idFormaPagamentoFK, idPedidosVendaFK, idFuncionarioFK, idLog, createdAt) VALUES (@numeroNota, @numeroParcela, @tituloConta, @situacao, @situacaoContas, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idClienteFK, @idFormaPagamentoFK, @idPedidosVendaFK, @idFuncionarioFK, @idLog, @createdAt)");
+                            string query = ("INSERT INTO ContasReceber (tipoReceita, numeroNota, numeroParcela, tituloConta, situacao, situacaoContas, dataEmissao, dataVencimento, valorTotal, ocorrencia, observacao, idClienteFK, idFormaPagamentoFK, idPedidosVendaFK, idFuncionarioFK, idLog, createdAt) VALUES (@tipoReceita, @numeroNota, @numeroParcela, @tituloConta, @situacao, @situacaoContas, @dataEmissao, @dataVencimento, @valorTotal, @ocorrencia, @observacao, @idClienteFK, @idFormaPagamentoFK, @idPedidosVendaFK, @idFuncionarioFK, @idLog, @createdAt)");
                             SqlCommand exeQuery = new SqlCommand(query, banco.connection);
 
                             exeQuery.Parameters.Clear();
+                            exeQuery.Parameters.AddWithValue("@tipoReceita", "VENDA-PEDIDOS");
                             exeQuery.Parameters.AddWithValue("@numeroNota", textBoxNumeroPedido.Text + "-" + ItensParcelaAlterado.Rows[i][1].ToString());
                             exeQuery.Parameters.AddWithValue("@numeroParcela", ItensParcelaAlterado.Rows[i][1].ToString());
                             exeQuery.Parameters.AddWithValue("@tituloConta", "PEDIDO " + textBoxNumeroPedido.Text);

@@ -35,6 +35,7 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         Compras.UserControl_Compras Compras;
         Estoque.UserControl_Estoque Estoque;
         Financeiro.UserControl_Financeiro Financeiro;
+        SenhaAcessoSistema.UserControl_SenhaAcessoSistema SenhaAcesso;
 
         public FormParametrosSistemas()
         {
@@ -110,9 +111,9 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         {
             buttonEstoque.ForeColor = Color.Black;
             buttonFinanceiro.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.FromArgb(43, 87, 154);
 
             Gerais = new Gerais.UserControl_Gerais();
@@ -129,9 +130,9 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         {
             buttonEstoque.ForeColor = Color.Black;
             buttonFinanceiro.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.FromArgb(43, 87, 154);
 
             Vendas = new Vendas.UserControl_Vendas();
@@ -149,9 +150,9 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         {
             buttonEstoque.ForeColor = Color.Black;
             buttonFinanceiro.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.FromArgb(43, 87, 154);
 
             Compras = new Compras.UserControl_Compras();
@@ -167,10 +168,10 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         private void buttonEstoque_Click(object sender, EventArgs e)
         {
             buttonFinanceiro.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.Black;
             buttonEstoque.ForeColor = Color.FromArgb(43, 87, 154);
 
             Estoque = new Estoque.UserControl_Estoque();
@@ -186,17 +187,15 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
         private void buttonFinanceiro_Click(object sender, EventArgs e)
         {
             buttonEstoque.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.Black;
             buttonFinanceiro.ForeColor = Color.FromArgb(43, 87, 154);
 
             Financeiro = new Financeiro.UserControl_Financeiro();
 
             panelContent.Controls.Clear();
-
-            
 
             if(Financeiro.Height < panelContent.Height)
             {
@@ -211,15 +210,24 @@ namespace High_Gestor.Forms.Configuracoes.ParametrosSistema
             panelContent.Controls.Add(Financeiro);
         }
 
-        private void buttonDadosEmpresa_Click(object sender, EventArgs e)
+        private void buttonSenhaMestre_Click(object sender, EventArgs e)
         {
             buttonEstoque.ForeColor = Color.Black;
             buttonFinanceiro.ForeColor = Color.Black;
             buttonGerais.ForeColor = Color.Black;
             buttonVendas.ForeColor = Color.Black;
             buttonCompras.ForeColor = Color.Black;
-            buttonDadosEmpresa.ForeColor = Color.FromArgb(43, 87, 154);
+            buttonSenhaMestre.ForeColor = Color.Black;
+            buttonSenhaMestre.ForeColor = Color.FromArgb(43, 87, 154);
 
+            SenhaAcesso = new SenhaAcessoSistema.UserControl_SenhaAcessoSistema();
+
+            panelContent.Controls.Clear();
+
+            SenhaAcesso.Width = panelContent.Width;
+            SenhaAcesso.Height = panelContent.Height;
+
+            panelContent.Controls.Add(SenhaAcesso);
         }
 
         private void FormParametrosSistemas_FormClosing(object sender, FormClosingEventArgs e)

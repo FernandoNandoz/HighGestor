@@ -34,9 +34,9 @@
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Panel panelSubMenuBorder;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormParametrosSistemas));
+            this.buttonSenhaMestre = new System.Windows.Forms.Button();
             this.buttonCompras = new System.Windows.Forms.Button();
             this.buttonVendas = new System.Windows.Forms.Button();
-            this.buttonDadosEmpresa = new System.Windows.Forms.Button();
             this.buttonGerais = new System.Windows.Forms.Button();
             this.buttonFinanceiro = new System.Windows.Forms.Button();
             this.buttonEstoque = new System.Windows.Forms.Button();
@@ -71,9 +71,9 @@
             // 
             // panelSubMenu
             // 
+            panelSubMenu.Controls.Add(this.buttonSenhaMestre);
             panelSubMenu.Controls.Add(this.buttonCompras);
             panelSubMenu.Controls.Add(this.buttonVendas);
-            panelSubMenu.Controls.Add(this.buttonDadosEmpresa);
             panelSubMenu.Controls.Add(this.buttonGerais);
             panelSubMenu.Controls.Add(this.buttonFinanceiro);
             panelSubMenu.Controls.Add(this.buttonEstoque);
@@ -82,6 +82,23 @@
             panelSubMenu.Name = "panelSubMenu";
             panelSubMenu.Size = new System.Drawing.Size(200, 425);
             panelSubMenu.TabIndex = 0;
+            // 
+            // buttonSenhaMestre
+            // 
+            this.buttonSenhaMestre.FlatAppearance.BorderSize = 0;
+            this.buttonSenhaMestre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSenhaMestre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonSenhaMestre.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSenhaMestre.Location = new System.Drawing.Point(2, 275);
+            this.buttonSenhaMestre.Name = "buttonSenhaMestre";
+            this.buttonSenhaMestre.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonSenhaMestre.Size = new System.Drawing.Size(195, 55);
+            this.buttonSenhaMestre.TabIndex = 102;
+            this.buttonSenhaMestre.Text = "Senha de liberação mestre (Acesso especial)";
+            this.buttonSenhaMestre.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSenhaMestre.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonSenhaMestre.UseVisualStyleBackColor = true;
+            this.buttonSenhaMestre.Click += new System.EventHandler(this.buttonSenhaMestre_Click);
             // 
             // buttonCompras
             // 
@@ -116,24 +133,6 @@
             this.buttonVendas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonVendas.UseVisualStyleBackColor = true;
             this.buttonVendas.Click += new System.EventHandler(this.buttonVendas_Click);
-            // 
-            // buttonDadosEmpresa
-            // 
-            this.buttonDadosEmpresa.FlatAppearance.BorderSize = 0;
-            this.buttonDadosEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDadosEmpresa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonDadosEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDadosEmpresa.Location = new System.Drawing.Point(2, 275);
-            this.buttonDadosEmpresa.Name = "buttonDadosEmpresa";
-            this.buttonDadosEmpresa.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonDadosEmpresa.Size = new System.Drawing.Size(195, 40);
-            this.buttonDadosEmpresa.TabIndex = 99;
-            this.buttonDadosEmpresa.Text = "Dados da empresa";
-            this.buttonDadosEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDadosEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonDadosEmpresa.UseVisualStyleBackColor = true;
-            this.buttonDadosEmpresa.Visible = false;
-            this.buttonDadosEmpresa.Click += new System.EventHandler(this.buttonDadosEmpresa_Click);
             // 
             // buttonGerais
             // 
@@ -305,9 +304,9 @@
         private System.Windows.Forms.Button buttonFinanceiro;
         private System.Windows.Forms.Button buttonEstoque;
         private System.Windows.Forms.Button buttonGerais;
-        private System.Windows.Forms.Button buttonDadosEmpresa;
         private System.Windows.Forms.Button buttonCompras;
         private System.Windows.Forms.Button buttonVendas;
         private System.Windows.Forms.Panel panelContent;
+        private System.Windows.Forms.Button buttonSenhaMestre;
     }
 }

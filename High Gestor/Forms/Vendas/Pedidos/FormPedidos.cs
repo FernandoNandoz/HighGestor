@@ -126,7 +126,7 @@ namespace High_Gestor.Forms.Vendas.Pedidos
             try
             {
                 //Retorna os dados da tabela Produtos para o DataGridView
-                string query = ("SELECT PedidosVenda.idPedidoVenda, PedidosVenda.numeroPedido, PedidosVenda.dataPedido, Clientes.nomeCompleto_RazaoSocial, PedidosVenda.valorTotalPedido, PedidosVenda.situacao, PedidosVenda.idClienteFK, Funcionario.usuario, PedidosVenda.createdAt, PedidosVenda.situacaoContas, PedidosVenda.situacaoEstoque FROM PedidosVenda INNER JOIN Clientes ON PedidosVenda.idClienteFK = Clientes.idCliente INNER JOIN Funcionario ON PedidosVenda.idFuncionarioFK = Funcionario.idFuncionario WHERE PedidosVenda.situacao != 'CANCELADO' ORDER BY dataPedido DESC");
+                string query = ("SELECT PedidosVenda.idPedidoVenda, PedidosVenda.numeroPedido, PedidosVenda.dataPedido, ClientesFornecedores.nomeCompleto_RazaoSocial, PedidosVenda.valorTotalPedido, PedidosVenda.situacao, PedidosVenda.idClienteFK, Funcionario.usuario, PedidosVenda.createdAt, PedidosVenda.situacaoContas, PedidosVenda.situacaoEstoque FROM PedidosVenda INNER JOIN ClientesFornecedores ON PedidosVenda.idClienteFK = ClientesFornecedores.idClienteFornecedor INNER JOIN Funcionario ON PedidosVenda.idFuncionarioFK = Funcionario.idFuncionario WHERE PedidosVenda.situacao != 'CANCELADO' ORDER BY dataPedido DESC");
                 SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
                 banco.conectar();
 

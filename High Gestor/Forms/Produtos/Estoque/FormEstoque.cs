@@ -139,7 +139,7 @@ namespace High_Gestor.Forms.Produtos
         {
             string result = string.Empty;
 
-            string query = ("SELECT * FROM Fornecedor WHERE idFornecedor = @ID");
+            string query = ("SELECT * FROM ClientesFornecedores WHERE idClienteFornecedor = @ID");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 

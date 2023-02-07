@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -53,6 +54,7 @@ namespace High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom
         {
             string tipoImpressao = string.Empty;
             string modoImpressao = string.Empty;
+            string impressoraPadraoSistema = string.Empty;
             string NomeFantasia = string.Empty;
             string Nome_razao = string.Empty;
             string CPF_CNPJ = string.Empty;
@@ -61,7 +63,7 @@ namespace High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom
             string cidade_estado_cep_fone = string.Empty;
             string mensagemCliente = string.Empty;
 
-            string select = ("SELECT tipoImpressao, modoImpressao, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape FROM ParametrosImpressao");
+            string select = ("SELECT tipoImpressao, modoImpressao, impressoraPadraoSistema, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape FROM ParametrosImpressao");
             SqlCommand exeSelect = new SqlCommand(select, banco.connection);
 
             banco.conectar();
@@ -71,18 +73,25 @@ namespace High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom
             {
                 tipoImpressao = reader[0].ToString();
                 modoImpressao = reader[1].ToString();
-                NomeFantasia = reader[2].ToString();
-                Nome_razao = reader[3].ToString();
-                CPF_CNPJ = reader[4].ToString();
-                INSC_EST = reader[5].ToString();
-                endereco_numero_bairro = reader[6].ToString();
-                cidade_estado_cep_fone = reader[7].ToString();
-                mensagemCliente = reader[8].ToString();
+                impressoraPadraoSistema = reader[2].ToString();
+                NomeFantasia = reader[3].ToString();
+                Nome_razao = reader[4].ToString();
+                CPF_CNPJ = reader[5].ToString();
+                INSC_EST = reader[6].ToString();
+                endereco_numero_bairro = reader[7].ToString();
+                cidade_estado_cep_fone = reader[8].ToString();
+                mensagemCliente = reader[9].ToString();
             }
             banco.desconectar();
 
+            foreach (string impressora in PrinterSettings.InstalledPrinters)
+            {
+                comboBoxImpressora.Items.Add(impressora);
+            }
+
             comboBoxTipoImpressao.Text = tipoImpressao;
             comboBoxModoImpressao.Text = modoImpressao;
+            comboBoxImpressora.Text = impressoraPadraoSistema;
             textBoxCabecalhoNomeFantasia.Text = NomeFantasia;
             textBoxCabecalhoNome_Razao.Text = Nome_razao;
             textBoxCabecalhoCPF_CNPJ.Text = CPF_CNPJ;
@@ -94,11 +103,12 @@ namespace High_Gestor.Forms.Vendas.PDV.ParametrosPDV.LayoutCupom
 
         private void queryUpdate()
         {
-            string update = ("UPDATE ParametrosImpressao SET tipoImpressao = @tipoImpressao, modoImpressao = @modoImpressao, nomeFantasia = @nomeFantasia, nomeEmpresa = @nomeEmpresa, CPF_CNPJ = @CPF_CNPJ, INSC_ESTADUAL = @INSC_ESTADUAL, endereco_numero_bairro = @endereco_numero_bairro, cidade_cep_fone = @cidade_cep_fone, mensagemRodape = @mensagemRodape, updatedAt = @updatedAt");
+            string update = ("UPDATE ParametrosImpressao SET tipoImpressao = @tipoImpressao, impressoraPadraoSistema = @impressoraPadraoSistema, modoImpressao = @modoImpressao, nomeFantasia = @nomeFantasia, nomeEmpresa = @nomeEmpresa, CPF_CNPJ = @CPF_CNPJ, INSC_ESTADUAL = @INSC_ESTADUAL, endereco_numero_bairro = @endereco_numero_bairro, cidade_cep_fone = @cidade_cep_fone, mensagemRodape = @mensagemRodape, updatedAt = @updatedAt");
             SqlCommand exeupdate = new SqlCommand(update, banco.connection);
 
             exeupdate.Parameters.AddWithValue("@tipoImpressao", comboBoxTipoImpressao.Text);
             exeupdate.Parameters.AddWithValue("@modoImpressao", comboBoxModoImpressao.Text);
+            exeupdate.Parameters.AddWithValue("@impressoraPadraoSistema", comboBoxImpressora.Text);
             exeupdate.Parameters.AddWithValue("@nomeFantasia", textBoxCabecalhoNomeFantasia.Text);
             exeupdate.Parameters.AddWithValue("@nomeEmpresa", textBoxCabecalhoNome_Razao.Text);
             exeupdate.Parameters.AddWithValue("@CPF_CNPJ", textBoxCabecalhoCPF_CNPJ.Text);

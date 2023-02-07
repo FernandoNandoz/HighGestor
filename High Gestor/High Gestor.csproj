@@ -146,6 +146,12 @@
     <Compile Include="Forms\Configuracoes\ParametrosSistema\Gerais\UserControl_Gerais.Designer.cs">
       <DependentUpon>UserControl_Gerais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\SenhaAcessoSistema\UserControl_SenhaAcessoSistema.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Configuracoes\ParametrosSistema\SenhaAcessoSistema\UserControl_SenhaAcessoSistema.Designer.cs">
+      <DependentUpon>UserControl_SenhaAcessoSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Configuracoes\ParametrosSistema\Vendas\UserControl_Vendas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -211,6 +217,36 @@
     </Compile>
     <Compile Include="Forms\Financeiro\ContasReceber\NovoRecebimento\FormNovoRecebimento.Designer.cs">
       <DependentUpon>FormNovoRecebimento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\NovoRecebimento\Parcelado\UserControl_ItemParcela.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\NovoRecebimento\Parcelado\UserControl_ItemParcela.Designer.cs">
+      <DependentUpon>UserControl_ItemParcela.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\DetalhesLancamento\FormDetalhesLancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\DetalhesLancamento\FormDetalhesLancamento.Designer.cs">
+      <DependentUpon>FormDetalhesLancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\FormCadReceitaRecorrente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\FormCadReceitaRecorrente.Designer.cs">
+      <DependentUpon>FormCadReceitaRecorrente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\PreviaLancamento\UserContro_ItemPrevia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\PreviaLancamento\UserContro_ItemPrevia.Designer.cs">
+      <DependentUpon>UserContro_ItemPrevia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\FormReceitasRecorrentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\FormReceitasRecorrentes.Designer.cs">
+      <DependentUpon>FormReceitasRecorrentes.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.cs">
       <SubType>UserControl</SubType>
@@ -441,12 +477,6 @@
     </Compile>
     <Compile Include="Forms\Configuracoes\FormConfiguracoes.Designer.cs">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Compras\Fornecedores\FormCadFornecedores.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Compras\Fornecedores\FormCadFornecedores.Designer.cs">
-      <DependentUpon>FormCadFornecedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Compras\Fornecedores\FormFornecedores.cs">
       <SubType>Form</SubType>
@@ -761,6 +791,9 @@
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Gerais\UserControl_Gerais.resx">
       <DependentUpon>UserControl_Gerais.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\SenhaAcessoSistema\UserControl_SenhaAcessoSistema.resx">
+      <DependentUpon>UserControl_SenhaAcessoSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\ParametrosSistema\Vendas\UserControl_Vendas.resx">
       <DependentUpon>UserControl_Vendas.cs</DependentUpon>
     </EmbeddedResource>
@@ -779,6 +812,9 @@
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\FormLiquidarConta.resx">
       <DependentUpon>FormLiquidarConta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\Historico\UserControl_Historico.resx">
+      <DependentUpon>UserControl_Historico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\LiquidarConta\ResumoPagamento\UserControl_ResumoPagamento.resx">
       <DependentUpon>UserControl_ResumoPagamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -787,6 +823,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\NovoRecebimento\FormNovoRecebimento.resx">
       <DependentUpon>FormNovoRecebimento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\NovoRecebimento\Parcelado\UserControl_ItemParcela.resx">
+      <DependentUpon>UserControl_ItemParcela.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\DetalhesLancamento\FormDetalhesLancamento.resx">
+      <DependentUpon>FormDetalhesLancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\FormCadReceitaRecorrente.resx">
+      <DependentUpon>FormCadReceitaRecorrente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\AdicionarReceitaRecorrente\PreviaLancamento\UserContro_ItemPrevia.resx">
+      <DependentUpon>UserContro_ItemPrevia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financeiro\ContasReceber\ReceitasRecorrentes\FormReceitasRecorrentes.resx">
+      <DependentUpon>FormReceitasRecorrentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financeiro\ContasReceber\UserControl_MaisAcoes.resx">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
@@ -904,9 +955,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Configuracoes\FormConfiguracoes.resx">
       <DependentUpon>FormConfiguracoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Compras\Fornecedores\FormCadFornecedores.resx">
-      <DependentUpon>FormCadFornecedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Compras\Fornecedores\FormFornecedores.resx">
       <DependentUpon>FormFornecedores.cs</DependentUpon>

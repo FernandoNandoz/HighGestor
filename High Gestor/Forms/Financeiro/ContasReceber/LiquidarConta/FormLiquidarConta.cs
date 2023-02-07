@@ -107,6 +107,8 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta
             Conta.Columns.Add("IdClienteFK", typeof(int));
             Conta.Columns.Add("NumeroNota", typeof(string));
             Conta.Columns.Add("IdPagamentosFK", typeof(int));
+            Conta.Columns.Add("IdFormaPagamentoFK", typeof(int));
+            Conta.Columns.Add("IdContaBancariaFK", typeof(int));
             //Conta.Columns.Add("", typeof());
 
             Pagamentos.Columns.Add("IdPagamentos", typeof(int));
@@ -129,7 +131,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta
         {
             Conta.Rows.Clear();
 
-            string ContasReceber = ("SELECT idContaReceber, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM Clientes WHERE idCliente = idClienteFK), situacao, dataVencimento, valorTotal, observacao, idClienteFK, numeroNota, idPagamentosFK FROM ContasReceber WHERE idContaReceber = @ID");
+            string ContasReceber = ("SELECT idContaReceber, tituloConta, (SELECT nomeCompleto_RazaoSocial FROM ClientesFornecedores WHERE idClienteFornecedor = idClienteFK), situacao, dataVencimento, valorTotal, observacao, idClienteFK, numeroNota, idPagamentosFK, idFormaPagamentoFK, idContaBancariaFK FROM ContasReceber WHERE idContaReceber = @ID");
             SqlCommand exeContasReceber = new SqlCommand(ContasReceber, banco.connection);
 
             exeContasReceber.Parameters.AddWithValue("@ID", updateData._retornarID());
@@ -161,7 +163,9 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta
                     reader.GetString(6),
                     reader.GetInt32(7),
                     reader[8].ToString(),
-                    reader.IsDBNull(9) ? 0 : reader.GetInt32(9));
+                    reader.IsDBNull(9) ? 0 : reader.GetInt32(9),
+                    reader.IsDBNull(10) ? 0 : reader.GetInt32(10),
+                    reader.IsDBNull(11) ? 0 : reader.GetInt32(11));
             }
 
             banco.desconectar();  

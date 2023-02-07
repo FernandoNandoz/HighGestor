@@ -38,7 +38,7 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
         {
             InitializeComponent(); 
 
-            if(PrimeiroAcesso._retornarDados() == true)
+            if (PrimeiroAcesso._retornarDados() == true)
             {
                 FormBorderStyle = FormBorderStyle.FixedSingle;
             }
@@ -223,11 +223,13 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
             ResetarID("ParametrosImpressao");
 
-            string insert = ("INSERT INTO ParametrosImpressao (tipoImpressao, modoImpressao, tipoPessoa, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape, createdAt) VALUES (@tipoImpressao, @modoImpressao, @tipoPessoa, @nomeFantasia, @nomeEmpresa, @CPF_CNPJ, @INSC_ESTADUAL, @endereco_numero_bairro, @cidade_cep_fone, @mensagemRodape, @createdAt)");
+            string insert = ("INSERT INTO ParametrosImpressao (tipoImpressao, modoImpressao, impressoraPadraoPDV, impressoraPadraoSistema, tipoPessoa, nomeFantasia, nomeEmpresa, CPF_CNPJ, INSC_ESTADUAL, endereco_numero_bairro, cidade_cep_fone, mensagemRodape, createdAt) VALUES (@tipoImpressao, @modoImpressao, @impressoraPadraoPDV, @impressoraPadraoSistema, @tipoPessoa, @nomeFantasia, @nomeEmpresa, @CPF_CNPJ, @INSC_ESTADUAL, @endereco_numero_bairro, @cidade_cep_fone, @mensagemRodape, @createdAt)");
             SqlCommand exeInsert = new SqlCommand(insert, banco.connection);
 
             exeInsert.Parameters.AddWithValue("@tipoImpressao", "DIRETA");
-            exeInsert.Parameters.AddWithValue("@modoImpressao", "COMUM (A4)");
+            exeInsert.Parameters.AddWithValue("@modoImpressao", "COMUM (A4)"); //
+            exeInsert.Parameters.AddWithValue("@impressoraPadraoPDV", "Microsoft Print to PDF");
+            exeInsert.Parameters.AddWithValue("@impressoraPadraoSistema", "Microsoft Print to PDF");
             exeInsert.Parameters.AddWithValue("@tipoPessoa", comboBoxTipoPessoa.Text);
             exeInsert.Parameters.AddWithValue("@nomeFantasia", textBoxNomeFantasia.Text);
             exeInsert.Parameters.AddWithValue("@nomeEmpresa", textBoxNome_Razao.Text);
@@ -256,7 +258,7 @@ namespace High_Gestor.Forms.Configuracoes.DadosEmpresa
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
-            if(PrimeiraVez == false)
+            if (PrimeiraVez == false)
             {
                 queryUpdate();
             }

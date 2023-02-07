@@ -38,33 +38,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPDV));
             System.Windows.Forms.Label label7;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label4;
             System.Windows.Forms.Panel panelLabelSaldoCaixa;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPDV));
             this.label9 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.labelContagem = new System.Windows.Forms.Label();
             this.dataGridViewContent = new System.Windows.Forms.DataGridView();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Ocorrencias = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Acao = new System.Windows.Forms.DataGridViewImageColumn();
             this.linkLabelSaldoCaixa = new System.Windows.Forms.LinkLabel();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelPesquisaContent = new System.Windows.Forms.Panel();
@@ -96,6 +84,18 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn4 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Ocorrencias = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Acao = new System.Windows.Forms.DataGridViewImageColumn();
             label1 = new System.Windows.Forms.Label();
             panelGridContent1 = new System.Windows.Forms.Panel();
             pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -303,118 +303,6 @@
             this.dataGridViewContent.TabIndex = 244;
             this.dataGridViewContent.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellContentClick);
             this.dataGridViewContent.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewContent_CellDoubleClick);
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "IdVendaPDV";
-            this.Column8.HeaderText = "idVendaPDV";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "NumeroVenda";
-            this.Column5.HeaderText = "Nº";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "DataVenda";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column2.HeaderText = "Data";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 120;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "Operador";
-            this.Column4.HeaderText = "Operador";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // cliente
-            // 
-            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cliente.DataPropertyName = "Cliente";
-            this.cliente.HeaderText = "Cliente";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "ValorTotal";
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column1.HeaderText = "Valor total";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 120;
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "SituacaoLancado";
-            this.Column9.HeaderText = "SituacaoConta";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Situacao";
-            this.Column3.HeaderText = "Situação";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "SituacaoImage";
-            this.Column7.HeaderText = "Situação";
-            this.Column7.Image = global::High_Gestor.Properties.Resources.cinza;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 150;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "SituacaoContas";
-            this.Column6.HeaderText = "";
-            this.Column6.Image = global::High_Gestor.Properties.Resources.padrao_contaBancaria_NULO_1;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 30;
-            // 
-            // Ocorrencias
-            // 
-            this.Ocorrencias.DataPropertyName = "SituacaoEstoque";
-            this.Ocorrencias.Description = "Ocorrencia";
-            this.Ocorrencias.HeaderText = "";
-            this.Ocorrencias.Image = global::High_Gestor.Properties.Resources.padrao_contaBancaria_NULO_1;
-            this.Ocorrencias.Name = "Ocorrencias";
-            this.Ocorrencias.ReadOnly = true;
-            this.Ocorrencias.ToolTipText = "Ocorrencia";
-            this.Ocorrencias.Width = 30;
-            // 
-            // Acao
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.NullValue = null;
-            this.Acao.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Acao.Description = "Acões";
-            this.Acao.HeaderText = "";
-            this.Acao.Image = ((System.Drawing.Image)(resources.GetObject("Acao.Image")));
-            this.Acao.Name = "Acao";
-            this.Acao.ReadOnly = true;
-            this.Acao.ToolTipText = "Acões";
-            this.Acao.Width = 60;
             // 
             // label7
             // 
@@ -906,6 +794,118 @@
             this.dataGridViewImageColumn4.ToolTipText = "Acões";
             this.dataGridViewImageColumn4.Width = 60;
             // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "IdVendaPDV";
+            this.Column8.HeaderText = "idVendaPDV";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "NumeroVenda";
+            this.Column5.HeaderText = "Nº";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "DataVenda";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column2.HeaderText = "Data";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Operador";
+            this.Column4.HeaderText = "Operador";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // cliente
+            // 
+            this.cliente.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cliente.DataPropertyName = "Cliente";
+            this.cliente.HeaderText = "Cliente";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "ValorTotal";
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column1.HeaderText = "Valor total";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 120;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "SituacaoLancado";
+            this.Column9.HeaderText = "SituacaoConta";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Situacao";
+            this.Column3.HeaderText = "Situação";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "SituacaoImage";
+            this.Column7.HeaderText = "Situação";
+            this.Column7.Image = global::High_Gestor.Properties.Resources.cinza;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 150;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "SituacaoContas";
+            this.Column6.HeaderText = "";
+            this.Column6.Image = global::High_Gestor.Properties.Resources.padrao_contaBancaria_NULO_1;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 30;
+            // 
+            // Ocorrencias
+            // 
+            this.Ocorrencias.DataPropertyName = "SituacaoEstoque";
+            this.Ocorrencias.Description = "Ocorrencia";
+            this.Ocorrencias.HeaderText = "";
+            this.Ocorrencias.Image = global::High_Gestor.Properties.Resources.padrao_contaBancaria_NULO_1;
+            this.Ocorrencias.Name = "Ocorrencias";
+            this.Ocorrencias.ReadOnly = true;
+            this.Ocorrencias.ToolTipText = "Ocorrencia";
+            this.Ocorrencias.Width = 30;
+            // 
+            // Acao
+            // 
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.NullValue = null;
+            this.Acao.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Acao.Description = "Acões";
+            this.Acao.HeaderText = "";
+            this.Acao.Image = ((System.Drawing.Image)(resources.GetObject("Acao.Image")));
+            this.Acao.Name = "Acao";
+            this.Acao.ReadOnly = true;
+            this.Acao.ToolTipText = "Acões";
+            this.Acao.Width = 60;
+            // 
             // FormPDV
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -980,6 +980,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -992,6 +993,5 @@
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Ocorrencias;
         private System.Windows.Forms.DataGridViewImageColumn Acao;
-        private System.Windows.Forms.DateTimePicker dateTimePedido;
     }
 }

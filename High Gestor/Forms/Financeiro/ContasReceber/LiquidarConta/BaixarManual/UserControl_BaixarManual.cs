@@ -37,7 +37,7 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual
 
         string NumeroNota, Situacao;
 
-        int IdContaReceber = 0;
+        int IdContaReceber = 0, IdFormaPagamentoFK = 0, IdContaBancariaFK = 0;
 
         decimal SubTotal = 0, ValorReceber = 0, valorRecebido = 0;
 
@@ -50,6 +50,8 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual
             Situacao = instancia.Conta.Rows[0][3].ToString();
 
             IdContaReceber = int.Parse(instancia.Conta.Rows[0][0].ToString());
+            IdFormaPagamentoFK = int.Parse(instancia.Conta.Rows[0][10].ToString());
+            IdContaBancariaFK = int.Parse(instancia.Conta.Rows[0][11].ToString());
 
             SubTotal = instancia.valorTotalReceita;
             ValorReceber = instancia.valorReceber;
@@ -92,7 +94,14 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual
             }
             banco.desconectar();
 
-            comboBoxFormaPagamento.SelectedIndex = 10;
+            if (verificarFormaPagamento(IdFormaPagamentoFK) != string.Empty)
+            {
+                comboBoxFormaPagamento.Text = verificarFormaPagamento(IdFormaPagamentoFK);
+            }
+            else
+            {
+                comboBoxFormaPagamento.SelectedIndex = 10;
+            }
         }
 
         private void carregarDataContasBancaria()
@@ -119,7 +128,68 @@ namespace High_Gestor.Forms.Financeiro.ContasReceber.LiquidarConta.BaixarManual
             }
             banco.desconectar();
 
-            comboBoxContaBancaria.SelectedIndex = 0;
+            if (verificarContaBancaria(IdContaBancariaFK) != string.Empty)
+            {
+                comboBoxContaBancaria.Text = verificarContaBancaria(IdContaBancariaFK);
+            }
+            else
+            {
+                comboBoxContaBancaria.SelectedIndex = 0;
+            }
+        }
+
+        public string verificarFormaPagamento(int ID)
+        {
+            string FormaPagamento = string.Empty;
+
+            string select = ("SELECT descricao FROM FormaPagamento WHERE idFormaPagamento = @ID");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            exeSelect.Parameters.AddWithValue("@ID", ID);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                FormaPagamento = reader.GetString(0);
+            }
+            banco.desconectar();
+
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
+
+            FormaPagamento = FormaPagamento.ToLower();
+
+            FormaPagamento = myTI.ToTitleCase(FormaPagamento);
+
+            return FormaPagamento;
+        }
+
+        public string verificarContaBancaria(int ID)
+        {
+            string ContaBancaria = string.Empty;
+
+            string select = ("SELECT nomeConta FROM ContasBancarias WHERE idContaBancaria = @ID");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            exeSelect.Parameters.AddWithValue("@ID", ID);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                ContaBancaria = reader.GetString(0);
+            }
+            banco.desconectar();
+
+            TextInfo myTI = CultureInfo.CurrentCulture.TextInfo;
+
+            ContaBancaria = ContaBancaria.ToLower();
+
+            ContaBancaria = myTI.ToTitleCase(ContaBancaria);
+
+            return ContaBancaria;
         }
 
         public int verificarIdFormaPagamento(string descricao)
