@@ -263,9 +263,7 @@ namespace High_Gestor.Forms.Relatorios.Vendas.Comissao
 
         private void buttonImprimir_Click(object sender, EventArgs e)
         {
-            Report.FormRelatorioGeral window = new Report.FormRelatorioGeral(this);
-            window.ShowDialog();
-            window.Dispose();
+            
         }
     }
 }

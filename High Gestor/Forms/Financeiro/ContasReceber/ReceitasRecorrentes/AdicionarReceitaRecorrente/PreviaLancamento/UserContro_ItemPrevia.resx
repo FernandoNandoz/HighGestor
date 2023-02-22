@@ -117,10 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="pictureBox4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonSalvar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAASJJREFUOE+t0z1OwzAYxvEyIxXoUnEFoIip4ihND9CZnQ9VAq7QATFxBCKEikQn
+        CgfgAIwwwQZCRXL/D7KtNLjUSTr8JPt13id25NSMMUsVLFbhB5tpco93fEV4QRPq8/KB31DgMMIV6lDf
+        uq3184E/SOHfGEFhYxgc5gMnuEW+aZ4GnqCwc9WqBK7hET5MQoE6sh6+Q4JsiJM95qmt/QoFXmMDH1BD
+        B74BWnNhZ7a2i1WNQ4HuyNt4gxq7tqawmW+GLTs/0Py/QGnhFWroYWTH/pth39ZONF8UKDtwoeKO6bSh
+        +pHmMYGinT4juzOnVKCsBGqyMPBGCwXsYW6g/uUH6IixdFcVeIw/gZ92sYzgDnWXLnBZ0AC6t7OByxIs
+        lmdqU1EIJFhtzZZeAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="buttonCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
+        IgAALiIBquLdkgAAAZBJREFUOE+t1D8oxGEcx/Hzb3Epi4wmSXeEIpGUkTJgpCxKKUZllCiDpLCQTRmM
+        BqPIZsB2knSL4ci/LuL8vD/X79Hj8dxd6YbX1T3P9/u55/c8z+8iQRAUVfYjGY/7VKIf89jGBqbRjD/1
+        hQJHcYnA4wO7qMdPT67Acmg1pvkCK5jBLPbwAs09YAB5A7dgisdQCnteanEA1b2jG97AEZiwtnDMJ4Yb
+        ZKD6K0TdwCro8VQwDjfEaME9HtGLY6hnwg0cDCcSKIMbJCbsCe3h2BDUd+QGLoYTm7BDjFaYlZkwqUEa
+        KTdwBwqcgyk2TJi9MqMCSWTcQF1aBS7AbrAfsyMcs0WRQtoNnIICD2GKfXvmaoL6Em5gA56he1WHRhQK
+        k1UocN0NlLVw8hS3UGC+sE684RMxX6BOTBusUOmDHWDrwR1Ut6QxX6Bo47XJKjzHJPQnUA39YBd0tb6g
+        Gr3b2XubK1D0ap3ArFR0/16t79pr3Yifdz1foJRgGPu4hg5MKz/DMnRov3p+BRaTd/D/gsg3fNceWTct
+        K0IAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="buttonLancarConta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
@@ -194,28 +215,7 @@
         p/YMw+XYVwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="buttonSalvar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IgAALiIBquLdkgAAASJJREFUOE+t0z1OwzAYxvEyIxXoUnEFoIip4ihND9CZnQ9VAq7QATFxBCKEikQn
-        CgfgAIwwwQZCRXL/D7KtNLjUSTr8JPt13id25NSMMUsVLFbhB5tpco93fEV4QRPq8/KB31DgMMIV6lDf
-        uq3184E/SOHfGEFhYxgc5gMnuEW+aZ4GnqCwc9WqBK7hET5MQoE6sh6+Q4JsiJM95qmt/QoFXmMDH1BD
-        B74BWnNhZ7a2i1WNQ4HuyNt4gxq7tqawmW+GLTs/0Py/QGnhFWroYWTH/pth39ZONF8UKDtwoeKO6bSh
-        +pHmMYGinT4juzOnVKCsBGqyMPBGCwXsYW6g/uUH6IixdFcVeIw/gZ92sYzgDnWXLnBZ0AC6t7OByxIs
-        lmdqU1EIJFhtzZZeAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="buttonCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAu
-        IgAALiIBquLdkgAAAZBJREFUOE+t1D8oxGEcx/Hzb3Epi4wmSXeEIpGUkTJgpCxKKUZllCiDpLCQTRmM
-        BqPIZsB2knSL4ci/LuL8vD/X79Hj8dxd6YbX1T3P9/u55/c8z+8iQRAUVfYjGY/7VKIf89jGBqbRjD/1
-        hQJHcYnA4wO7qMdPT67Acmg1pvkCK5jBLPbwAs09YAB5A7dgisdQCnteanEA1b2jG97AEZiwtnDMJ4Yb
-        ZKD6K0TdwCro8VQwDjfEaME9HtGLY6hnwg0cDCcSKIMbJCbsCe3h2BDUd+QGLoYTm7BDjFaYlZkwqUEa
-        KTdwBwqcgyk2TJi9MqMCSWTcQF1aBS7AbrAfsyMcs0WRQtoNnIICD2GKfXvmaoL6Em5gA56he1WHRhQK
-        k1UocN0NlLVw8hS3UGC+sE684RMxX6BOTBusUOmDHWDrwR1Ut6QxX6Bo47XJKjzHJPQnUA39YBd0tb6g
-        Gr3b2XubK1D0ap3ArFR0/16t79pr3Yifdz1foJRgGPu4hg5MKz/DMnRov3p+BRaTd/D/gsg3fNceWTct
-        K0IAAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="pictureBox4.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
 </root>

@@ -151,9 +151,6 @@ C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormRelatorioComissao.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormDetalhamentoComissao.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.FormIncluirLancamento.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.RelatorioDetalhamento.FormRelatorioDetalhamento.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque.resources
-C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Relatorios.Vendas.Comissao.Report.FormRelatorioGeral.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.ItemContaLancada.UserControl_ItemConta.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Compras.ContasLancadas.UserControl_ContasLancadas.resources
 C:\Users\nando\source\repos\High Gestor\High Gestor\obj\Debug\High_Gestor.Forms.Financeiro.ContasReceber.FormContasReceber.resources

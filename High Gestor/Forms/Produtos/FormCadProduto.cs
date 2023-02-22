@@ -143,7 +143,7 @@ namespace High_Gestor.Forms.Produtos
         {
             string result = string.Empty;
 
-            string query = ("SELECT nomeFantasia, codigoFornecedor FROM Fornecedor WHERE idFornecedor = @ID");
+            string query = ("SELECT nomeFantasia FROM ClientesFornecedores WHERE idClienteFornecedor = @ID");
             SqlCommand exeVerificacao = new SqlCommand(query, banco.connection);
             banco.conectar();
 
@@ -153,7 +153,7 @@ namespace High_Gestor.Forms.Produtos
 
             while (datareader.Read())
             {
-                result = (datareader.GetString(0) + "  -  " + datareader.GetString(1));
+                result = datareader.GetString(0);
             }
             banco.desconectar();
 
@@ -202,7 +202,7 @@ namespace High_Gestor.Forms.Produtos
         {
             try
             {
-                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia, codigoFornecedor FROM Fornecedor", banco.connection);
+                SqlCommand exePesquisa = new SqlCommand("SELECT nomeFantasia FROM ClientesFornecedores", banco.connection);
 
                 banco.conectar();
                 SqlDataReader dr = exePesquisa.ExecuteReader();
@@ -211,7 +211,7 @@ namespace High_Gestor.Forms.Produtos
 
                 while (dr.Read())
                 {
-                    lista.Add(dr.GetString(0) + "  -  " + dr.GetString(1));
+                    lista.Add(dr.GetString(0));
                 }
                 banco.desconectar();
 
@@ -228,13 +228,11 @@ namespace High_Gestor.Forms.Produtos
             int id = 0;
 
             //Pega o ultimo ID resgitrado na tabela log
-            string FornecedorSELECT = ("SELECT idFornecedor FROM Fornecedor WHERE codigoFornecedor = @codigo");
+            string FornecedorSELECT = ("SELECT idClienteFornecedor FROM ClientesFornecedores WHERE nomeFantasia = @nome");
             SqlCommand exeVerificacao = new SqlCommand(FornecedorSELECT, banco.connection);
             banco.conectar();
 
-            string[] result = Fornecedor.Split('-');
-
-            exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
+            exeVerificacao.Parameters.AddWithValue("@nome", Fornecedor);
 
             SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
@@ -614,24 +612,22 @@ namespace High_Gestor.Forms.Produtos
             if (e.KeyCode == Keys.Enter)
             {
                 //Pega o ultimo ID resgitrado na tabela log
-                string fornecedorSELECT = ("SELECT codigoFornecedor, nomeFantasia FROM Fornecedor WHERE codigoFornecedor = @codigo");
+                string fornecedorSELECT = ("SELECT nomeFantasia FROM ClientesFornecedores WHERE nomeFantasia = @nome");
                 SqlCommand exeVerificacao = new SqlCommand(fornecedorSELECT, banco.connection);
 
                 string fornecedor = textBoxFornecedor.Text;
 
-                if (fornecedor.Contains("-"))
+                if (fornecedor != string.Empty)
                 {
                     banco.conectar();
 
-                    string[] result = fornecedor.Split('-');
-
-                    exeVerificacao.Parameters.AddWithValue("@codigo", result[1].TrimStart());
+                    exeVerificacao.Parameters.AddWithValue("@nome", fornecedor);
 
                     SqlDataReader datareader = exeVerificacao.ExecuteReader();
 
                     if (datareader.Read())
                     {
-                        labelStatusTextFornecedor.Text = datareader[0].ToString() + " - " + datareader[1].ToString();
+                        labelStatusTextFornecedor.Text = datareader[0].ToString();
                         labelStatusTextFornecedor.ForeColor = Color.Green;
 
                         textBoxMarca.Focus();

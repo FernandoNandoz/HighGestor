@@ -521,9 +521,7 @@ namespace High_Gestor.Forms.Produtos
         {
             FecharAcoes(sender, e);
 
-            Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque window = new Relatorios.Estoque.SaldoEstoque.FormRelatorioSaldoEstoque();
-            window.ShowDialog();
-            window.Dispose();
+            
         }
 
         private void dataGridViewContent_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

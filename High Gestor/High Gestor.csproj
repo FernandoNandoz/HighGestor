@@ -84,9 +84,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConfigGlobal.cs" />
-    <Compile Include="DataSource\DatabaseHighDataDataSet.cs">
-      <DependentUpon>DatabaseHighDataDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="DataSource\DatabaseHighDataDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -344,12 +341,6 @@
     <Compile Include="Forms\Produtos\UserControl_MaisAcoes.Designer.cs">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.Designer.cs">
-      <DependentUpon>FormRelatorioSaldoEstoque.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Relatorios\Vendas\Comissao\FormDetalhamentoComissao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,18 +358,6 @@
     </Compile>
     <Compile Include="Forms\Relatorios\Vendas\Comissao\FormRelatorioComissao.Designer.cs">
       <DependentUpon>FormRelatorioComissao.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.Designer.cs">
-      <DependentUpon>FormRelatorioDetalhamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.Designer.cs">
-      <DependentUpon>FormRelatorioGeral.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Relatorios\Vendas\Item_menu\UserControl_ItemMenu.cs">
       <SubType>UserControl</SubType>
@@ -887,9 +866,6 @@
     <EmbeddedResource Include="Forms\Produtos\UserControl_MaisAcoes.resx">
       <DependentUpon>UserControl_MaisAcoes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Relatorios\Estoque\SaldoEstoque\FormRelatorioSaldoEstoque.resx">
-      <DependentUpon>FormRelatorioSaldoEstoque.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\Estoque\SaldoEstoque\Reports\ReportSaldoEstoque.rdlc" />
     <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\FormDetalhamentoComissao.resx">
       <DependentUpon>FormDetalhamentoComissao.cs</DependentUpon>
@@ -900,13 +876,7 @@
     <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\FormRelatorioComissao.resx">
       <DependentUpon>FormRelatorioComissao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\FormRelatorioDetalhamento.resx">
-      <DependentUpon>FormRelatorioDetalhamento.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\RelatorioDetalhamento\Report\RelatorioComissao.rdlc" />
-    <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\Report\FormRelatorioGeral.resx">
-      <DependentUpon>FormRelatorioGeral.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Relatorios\Vendas\Comissao\Report\ReportRelatorioGeral.rdlc" />
     <EmbeddedResource Include="Forms\Relatorios\Vendas\Item_menu\UserControl_ItemMenu.resx">
       <DependentUpon>UserControl_ItemMenu.cs</DependentUpon>
@@ -1104,7 +1074,6 @@
     </None>
     <None Include="DataSource\DatabaseHighDataDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DatabaseHighDataDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="DataSource\DatabaseHighDataDataSet.xss">

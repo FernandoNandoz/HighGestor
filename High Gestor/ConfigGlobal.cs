@@ -1243,6 +1243,26 @@ namespace High_Gestor
             return result;
         }
 
+        public static string verificarCustoPadraoDespesas()
+        {
+            string result = string.Empty;
+
+            string select = ("SELECT custoPadraoDespesas FROM ParametrosSistema");
+            SqlCommand exeSelect = new SqlCommand(select, banco.connection);
+
+            banco.conectar();
+            SqlDataReader reader = exeSelect.ExecuteReader();
+
+            if (reader.Read())
+            {
+                result = reader[0].ToString();
+            }
+            banco.desconectar();
+
+            return result;
+        }
+
+
         public static string verificarCategoriaPadraoDespesas()
         {
             string result = string.Empty;

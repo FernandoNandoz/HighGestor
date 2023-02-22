@@ -28,10 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.PictureBox pictureBox4;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserContro_ItemPrevia));
+            System.Windows.Forms.PictureBox pictureBox4;
             this.textBoxValor = new System.Windows.Forms.TextBox();
             this.dateTimeVencimento = new System.Windows.Forms.DateTimePicker();
+            this.panelDadosPrevia = new System.Windows.Forms.Panel();
+            this.labelVencimento = new System.Windows.Forms.Label();
+            this.labelValor = new System.Windows.Forms.Label();
+            this.buttonSalvar = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSituacao = new System.Windows.Forms.Button();
             this.buttonLancarConta = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
@@ -39,25 +44,10 @@
             this.buttonContaLancada = new System.Windows.Forms.Button();
             this.buttonEstornarConta = new System.Windows.Forms.Button();
             this.buttonDetalhes = new System.Windows.Forms.Button();
-            this.panelDadosPrevia = new System.Windows.Forms.Panel();
-            this.buttonSalvar = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
-            this.labelVencimento = new System.Windows.Forms.Label();
-            this.labelValor = new System.Windows.Forms.Label();
             pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
             this.panelDadosPrevia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
-            pictureBox4.Location = new System.Drawing.Point(62, 7);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(20, 20);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 258;
-            pictureBox4.TabStop = false;
             // 
             // textBoxValor
             // 
@@ -80,12 +70,74 @@
             this.dateTimeVencimento.Size = new System.Drawing.Size(139, 23);
             this.dateTimeVencimento.TabIndex = 18;
             // 
+            // panelDadosPrevia
+            // 
+            this.panelDadosPrevia.Controls.Add(this.buttonSalvar);
+            this.panelDadosPrevia.Controls.Add(this.buttonCancelar);
+            this.panelDadosPrevia.Controls.Add(this.dateTimeVencimento);
+            this.panelDadosPrevia.Controls.Add(this.textBoxValor);
+            this.panelDadosPrevia.Location = new System.Drawing.Point(177, 0);
+            this.panelDadosPrevia.Margin = new System.Windows.Forms.Padding(0);
+            this.panelDadosPrevia.Name = "panelDadosPrevia";
+            this.panelDadosPrevia.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
+            this.panelDadosPrevia.Size = new System.Drawing.Size(640, 35);
+            this.panelDadosPrevia.TabIndex = 284;
+            this.panelDadosPrevia.Visible = false;
+            // 
+            // labelVencimento
+            // 
+            this.labelVencimento.AutoSize = true;
+            this.labelVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVencimento.Location = new System.Drawing.Point(184, 9);
+            this.labelVencimento.Name = "labelVencimento";
+            this.labelVencimento.Size = new System.Drawing.Size(80, 17);
+            this.labelVencimento.TabIndex = 285;
+            this.labelVencimento.Text = "00/00/0000";
+            // 
+            // labelValor
+            // 
+            this.labelValor.AutoSize = true;
+            this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValor.Location = new System.Drawing.Point(366, 9);
+            this.labelValor.Name = "labelValor";
+            this.labelValor.Size = new System.Drawing.Size(58, 17);
+            this.labelValor.TabIndex = 286;
+            this.labelValor.Text = "R$ 0,00";
+            // 
+            // buttonSalvar
+            // 
+            this.buttonSalvar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonSalvar.FlatAppearance.BorderSize = 0;
+            this.buttonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSalvar.Image = ((System.Drawing.Image)(resources.GetObject("buttonSalvar.Image")));
+            this.buttonSalvar.Location = new System.Drawing.Point(484, 0);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(28, 35);
+            this.buttonSalvar.TabIndex = 283;
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
+            this.buttonSalvar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonCancelar.FlatAppearance.BorderSize = 0;
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancelar.Image")));
+            this.buttonCancelar.Location = new System.Drawing.Point(512, 0);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(28, 35);
+            this.buttonCancelar.TabIndex = 282;
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.buttonCancelar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
+            // 
             // buttonSituacao
             // 
             this.buttonSituacao.FlatAppearance.BorderSize = 0;
             this.buttonSituacao.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSituacao.Image = global::High_Gestor.Properties.Resources.cinza;
-            this.buttonSituacao.Location = new System.Drawing.Point(56, 5);
+            this.buttonSituacao.Location = new System.Drawing.Point(59, 5);
             this.buttonSituacao.Name = "buttonSituacao";
             this.buttonSituacao.Size = new System.Drawing.Size(30, 25);
             this.buttonSituacao.TabIndex = 283;
@@ -177,67 +229,15 @@
             this.buttonDetalhes.Click += new System.EventHandler(this.buttonDetalhes_Click);
             this.buttonDetalhes.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
             // 
-            // panelDadosPrevia
+            // pictureBox4
             // 
-            this.panelDadosPrevia.Controls.Add(this.buttonSalvar);
-            this.panelDadosPrevia.Controls.Add(this.buttonCancelar);
-            this.panelDadosPrevia.Controls.Add(this.dateTimeVencimento);
-            this.panelDadosPrevia.Controls.Add(this.textBoxValor);
-            this.panelDadosPrevia.Location = new System.Drawing.Point(174, 0);
-            this.panelDadosPrevia.Margin = new System.Windows.Forms.Padding(0);
-            this.panelDadosPrevia.Name = "panelDadosPrevia";
-            this.panelDadosPrevia.Padding = new System.Windows.Forms.Padding(0, 0, 100, 0);
-            this.panelDadosPrevia.Size = new System.Drawing.Size(640, 35);
-            this.panelDadosPrevia.TabIndex = 284;
-            this.panelDadosPrevia.Visible = false;
-            // 
-            // buttonSalvar
-            // 
-            this.buttonSalvar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonSalvar.FlatAppearance.BorderSize = 0;
-            this.buttonSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSalvar.Image = ((System.Drawing.Image)(resources.GetObject("buttonSalvar.Image")));
-            this.buttonSalvar.Location = new System.Drawing.Point(484, 0);
-            this.buttonSalvar.Name = "buttonSalvar";
-            this.buttonSalvar.Size = new System.Drawing.Size(28, 35);
-            this.buttonSalvar.TabIndex = 283;
-            this.buttonSalvar.UseVisualStyleBackColor = true;
-            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
-            this.buttonSalvar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
-            // 
-            // buttonCancelar
-            // 
-            this.buttonCancelar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonCancelar.FlatAppearance.BorderSize = 0;
-            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("buttonCancelar.Image")));
-            this.buttonCancelar.Location = new System.Drawing.Point(512, 0);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(28, 35);
-            this.buttonCancelar.TabIndex = 282;
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
-            this.buttonCancelar.Paint += new System.Windows.Forms.PaintEventHandler(this.button_Paint);
-            // 
-            // labelVencimento
-            // 
-            this.labelVencimento.AutoSize = true;
-            this.labelVencimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVencimento.Location = new System.Drawing.Point(181, 9);
-            this.labelVencimento.Name = "labelVencimento";
-            this.labelVencimento.Size = new System.Drawing.Size(80, 17);
-            this.labelVencimento.TabIndex = 285;
-            this.labelVencimento.Text = "00/00/0000";
-            // 
-            // labelValor
-            // 
-            this.labelValor.AutoSize = true;
-            this.labelValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValor.Location = new System.Drawing.Point(363, 9);
-            this.labelValor.Name = "labelValor";
-            this.labelValor.Size = new System.Drawing.Size(58, 17);
-            this.labelValor.TabIndex = 286;
-            this.labelValor.Text = "R$ 0,00";
+            pictureBox4.Image = global::High_Gestor.Properties.Resources.verde;
+            pictureBox4.Location = new System.Drawing.Point(65, 7);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(20, 20);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 258;
+            pictureBox4.TabStop = false;
             // 
             // UserContro_ItemPrevia
             // 
@@ -261,9 +261,9 @@
             this.Size = new System.Drawing.Size(898, 35);
             this.Load += new System.EventHandler(this.UserContro_ItemPrevia_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.UserContro_ItemPrevia_Paint);
-            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
             this.panelDadosPrevia.ResumeLayout(false);
             this.panelDadosPrevia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

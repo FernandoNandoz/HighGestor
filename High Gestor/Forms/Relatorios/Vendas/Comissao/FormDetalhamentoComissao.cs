@@ -558,9 +558,7 @@ namespace High_Gestor.Forms.Relatorios.Vendas.Comissao
 
         private void buttonImprimir_Click(object sender, EventArgs e)
         {
-            RelatorioDetalhamento.FormRelatorioDetalhamento window = new RelatorioDetalhamento.FormRelatorioDetalhamento(this);
-            window.ShowDialog();
-            window.Dispose();
+            
         }
 
     }
